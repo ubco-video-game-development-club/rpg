@@ -1,5 +1,5 @@
 # RPG
-An rpg lol
+Explore a divided world and develop your hidden powers as you hunt for the ultimate reward in this beautiful RPG traumedy.
 
 ## FAQ (Updated Oct 12th 2020)
 
@@ -21,4 +21,4 @@ RPGs are one of the most design-heavy genres out there. If you're interested in 
  - Character progression systems
  - Many many more
 
-We have project-specific meetings for this project on Wednesdays at 4:30pm Pacific time. These are free-flowing meetings that also serve as a designated work time for the project. Please message #club-wide-rpg in Discord if you're interested in contributing or have any questions or comments!
+We have project-specific meetings for this project on Wednesdays at 4:30pm Pacific time in Discord. These are free-flowing meetings that also serve as a designated work time for the project. Please message #club-wide-rpg in Discord if you're interested in contributing or have any questions or comments!
