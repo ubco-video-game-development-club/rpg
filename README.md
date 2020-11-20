@@ -3,7 +3,7 @@ Explore a divided world and develop your hidden powers as you hunt for the ultim
 
 ## FAQ (Updated Oct 12th 2020)
 
-**What is #club-wide-rpg?**  
+**What is club-wide-rpg?**  
 The RPG is a VGDC club project that is currently in early development. The premise is a duck-themed top-down roleplaying game which includes story-focused gameplay with a detailed character progression system. Check out the [Wiki tab](https://github.com/ubco-video-game-development-club/rpg/wiki) of the GitHub repository for more documentation, as well as the #rpg-faq channel in our [Discord server](https://discord.gg/ydXaAjQ).
 
 **Who runs this project?**  
