@@ -10,15 +10,9 @@ The RPG is a VGDC club project that is currently in early development. The premi
 This project is run by several of the club executives: [Jaden Balogh](https://github.com/JadenBalogh), [Adam Collins](https://github.com/wubbadukky), [Megan Nguyen](https://github.com/lilmergo), and [Logan Parker](https://github.com/LoganParker). The repository, meetings, tasks and final decisions are all organized by this team. However, any club member is welcome to contribute (see below)!
 
 **What parts of the game are currently being worked on?**  
-The game is still in early design phases. This means answering questions like "what combat system will we use?" and "what are the art style guidelines?" in broad terms, then writing documentation for these decisions. We are also writing out story and lore concepts to better flesh out the world we are creating.
+The game is still in early implementation phases. This means programming core systems and tools to allow us to play and add content to the game. We are using the Unity game engine to accomplish these tasks. Alongside this, our designers and artists will be developing the early concept art and story work for the game.
 
 **How can I contribute?**  
-RPGs are one of the most design-heavy genres out there. If you're interested in high-level discussions, planning and documentation of features like the following, then we'd love to hear your input:
- - Combat and movement systems
- - Art and graphics specifications
- - World and map creation
- - Story and quest structure
- - Character progression systems
- - Many many more
+RPGs are one of the most design-heavy genres out there. If you're interested in the low-level implementation of core gameplay systems and tools, and you have some experience with Unity or are interested in working alongside an experienced member, please feel free to join our development team! If you're interested in fleshing out concept art and/or story development, we'd love to have your input also!
 
 We have project-specific meetings for this project on Wednesdays at 4:30pm Pacific time in Discord. These are free-flowing meetings that also serve as a designated work time for the project. Please message #rpg-discussion in Discord if you're interested in contributing or have any questions or comments!
