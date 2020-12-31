@@ -13,7 +13,9 @@ To set up the required programs to contribute code to the game, follow these ins
 7. In GitHub Desktop, go to File > Clone repository > URL and enter `https://github.com/ubco-video-game-development-club/rpg`
 
 ### Git Standards
-Our team uses Feature Branches for our git flow. This means that each feature (typically described by a single Issue) should have its own branch that may be worked on by multiple collaborators. All code will be merged into the `dev` branch using Pull Requests, and each PR must be reviewed by at least 1 individual before it can be merged.
+Our team uses Feature Branches for our git flow. This means that each feature (typically described by a single Issue) should have its own branch that may be worked on by multiple collaborators. All features will be merged into the `dev` branch using Pull Requests, and each PR must be reviewed by at least 1 individual before it can be merged.
+
+Naming conventions should follow Git standards: branches should be written in `kebab-case` and commit messages should be written in imperative form (i.e. "Update item assets" not "Updated item assets" or otherwise).
 
 Our repository uses a `master` branch and a `dev` branch. The `master` branch should always contain stable code that represents a complete set of features. The `dev` branch contains stable code that may contain parts of in-progress features, and is used for testing different features together before they are merged to `master`.
 
