@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     {
         float inputH = Input.GetAxisRaw("Horizontal");
         float inputV = Input.GetAxisRaw("Vertical");
-        Vector3 inputDir = new Vector3(inputH, inputV).normalized;
+        Vector2 inputDir = new Vector2(inputH, inputV).normalized;
 
         UpdateMoveAnimations(inputH, inputV);
 
