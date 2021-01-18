@@ -8,5 +8,15 @@ namespace Architect.Dialogue
 	public class DialogueGraph : ScriptableObject
 	{
 		public List<DialogueGraphNode> nodes;
+
+		public void Draw(Vector2 offset)
+		{
+			
+		}
+
+		public void ProcessEvents(Event e)
+		{
+
+		}
 	}
 }
