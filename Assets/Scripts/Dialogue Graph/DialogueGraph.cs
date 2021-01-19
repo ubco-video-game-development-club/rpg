@@ -97,7 +97,16 @@ namespace Architect.Dialogue
 			foreach(DialogueGraphTransition transition in transitions)
 			{
 				Vector2 from = nodes[transition.from].position + offset;
-				Vector2 to = nodes[transition.to].position + offset;
+
+				Vector2 to;
+				if(transition.to < 0)
+				{
+					to = exitNode.position + offset;
+				} else 
+				{
+					to = nodes[transition.to].position + offset;
+				}
+
 				Handles.DrawBezier(from, to, from, to, lineColour, null, LINE_WIDTH);
 			}
 		}
