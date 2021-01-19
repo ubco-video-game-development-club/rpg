@@ -7,9 +7,9 @@ namespace Architect.Dialogue
 	[System.Serializable]
 	public class DialogueGraphTransition
 	{
-		public readonly string name;
-		public readonly DialogueGraphNode from;
-		public readonly DialogueGraphNode to;
+		public string name;
+		public DialogueGraphNode from;
+		public DialogueGraphNode to;
 
 		public DialogueGraphTransition(string name, DialogueGraphNode from, DialogueGraphNode to)
 		{

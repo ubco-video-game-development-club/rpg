@@ -9,6 +9,8 @@ namespace Architect.Dialogue
 	{
 		public Vector2 CentreOfWindow { get { return this.position.size / 2.0f; } }
 		private DialogueGraph selectedGraph = null;
+		private bool isCreatingTransition = false;
+		private DialogueGraphNode transitionFrom = null;
 
 		void OnEnable()
 		{
@@ -23,11 +25,22 @@ namespace Architect.Dialogue
 				return;
 			}
 
+			Event currentEvent = Event.current;
+			ProcessEvents(currentEvent);
+
+			if(isCreatingTransition)
+			{
+				Vector2 from = transitionFrom.position + CentreOfWindow;
+				Vector2 to = currentEvent.mousePosition;
+				Handles.DrawBezier(from, to, from, to, DialogueGraph.lineColour, null, DialogueGraph.LINE_WIDTH);
+				GUI.changed = true;
+			} else 
+			{
+				selectedGraph.ProcessEvents(currentEvent);
+			}
+
 			Vector2 offset = CentreOfWindow;
 			selectedGraph.Draw(offset);
-
-			ProcessEvents(Event.current);
-			selectedGraph.ProcessEvents(Event.current);
 
 			if(GUI.changed)
 			{
@@ -44,7 +57,14 @@ namespace Architect.Dialogue
 		{
 			if(e.type == EventType.MouseDown)
 			{
-				if(e.button == 1)
+				if(isCreatingTransition)
+				{
+					DialogueGraphNode hoverNode = selectedGraph.GetNodeAt(e.mousePosition);
+					if(e.button == 0 && hoverNode != null)
+					{
+						EndTransition(hoverNode);
+					}
+				} else if(e.button == 1)
 				{
 					CreateContextMenu(e.mousePosition);
 					e.Use();
@@ -62,16 +82,41 @@ namespace Architect.Dialogue
 			);
 
 			DialogueGraphNode hoveredNode = selectedGraph.GetNodeAt(position);
-			if(hoveredNode != null && selectedGraph.nodes.Count > 1)
+			if(hoveredNode != null)
 			{
+				if(selectedGraph.nodes.Count > 1)
+				{
+					menu.AddItem(
+						new GUIContent("Delete node"),
+						false,
+						() => selectedGraph.RemoveNode(hoveredNode)
+					);
+				}
+
 				menu.AddItem(
-					new GUIContent("Delete node"),
+					new GUIContent("Create transition"),
 					false,
-					() => selectedGraph.RemoveNode(hoveredNode)
+					() => BeginTransition(hoveredNode)
 				);
 			}
 
 			menu.ShowAsContext();
+		}
+
+		private void BeginTransition(DialogueGraphNode from)
+		{
+			isCreatingTransition = true;
+			transitionFrom = from;
+		}
+
+		private void EndTransition(DialogueGraphNode to)
+		{
+			isCreatingTransition = false;
+			
+			if(transitionFrom == to) return;
+
+			DialogueGraphTransition transition = new DialogueGraphTransition("Transition", transitionFrom, to);
+			selectedGraph.transitions.Add(transition);
 		}
 
 		private void UpdateSelectedGraph()
