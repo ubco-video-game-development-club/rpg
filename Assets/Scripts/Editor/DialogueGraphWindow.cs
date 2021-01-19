@@ -25,6 +25,8 @@ namespace Architect.Dialogue
 
 			Vector2 offset = CentreOfWindow;
 			selectedGraph.Draw(offset);
+
+			ProcessEvents(Event.current);
 			selectedGraph.ProcessEvents(Event.current);
 
 			if(GUI.changed)
@@ -36,6 +38,40 @@ namespace Architect.Dialogue
 		void OnSelectionChange()
 		{
 			UpdateSelectedGraph();
+		}
+
+		private void ProcessEvents(Event e)
+		{
+			if(e.type == EventType.MouseDown)
+			{
+				if(e.button == 1)
+				{
+					CreateContextMenu(e.mousePosition);
+					e.Use();
+				}
+			}
+		}
+
+		private void CreateContextMenu(Vector2 position)
+		{
+			GenericMenu menu = new GenericMenu();
+			menu.AddItem(
+				new GUIContent("Create node"),
+				false,
+				() => selectedGraph.CreateNode("New node", position - CentreOfWindow)
+			);
+
+			DialogueGraphNode hoveredNode = selectedGraph.GetNodeAt(position);
+			if(hoveredNode != null && selectedGraph.nodes.Count > 1)
+			{
+				menu.AddItem(
+					new GUIContent("Delete node"),
+					false,
+					() => selectedGraph.RemoveNode(hoveredNode)
+				);
+			}
+
+			menu.ShowAsContext();
 		}
 
 		private void UpdateSelectedGraph()

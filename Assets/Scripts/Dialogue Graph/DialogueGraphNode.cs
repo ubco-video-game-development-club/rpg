@@ -58,5 +58,7 @@ namespace Architect.Dialogue
 					break;
 			}
 		}
+
+		public bool Contains(Vector2 position) => displayRect.Contains(position);
 	}
 }

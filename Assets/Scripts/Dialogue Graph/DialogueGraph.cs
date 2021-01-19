@@ -41,5 +41,30 @@ namespace Architect.Dialogue
 
 			exitNode.ProcessEvents(e);
 		}
+
+		public void CreateNode(string name, Vector2 position)
+		{
+			nodes.Add(new DialogueGraphNode(name, position));
+			GUI.changed = true;
+		}
+
+		public DialogueGraphNode GetNodeAt(Vector2 position)
+		{
+			foreach(DialogueGraphNode node in nodes)
+			{
+				if(node.Contains(position))
+				{
+					return node;
+				}
+			}
+
+			return null;
+		}
+
+		public void RemoveNode(DialogueGraphNode node)
+		{
+			nodes.Remove(node);
+			GUI.changed = true;
+		}
 	}
 }
