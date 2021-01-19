@@ -26,6 +26,11 @@ namespace Architect.Dialogue
 			Vector2 offset = CentreOfWindow;
 			selectedGraph.Draw(offset);
 			selectedGraph.ProcessEvents(Event.current);
+
+			if(GUI.changed)
+			{
+				Repaint();
+			}
 		}
 
 		void OnSelectionChange()
@@ -38,10 +43,13 @@ namespace Architect.Dialogue
 			if(Selection.activeObject is DialogueGraph)
 			{
 				selectedGraph = Selection.activeObject as DialogueGraph;
+				if(selectedGraph.nodes.Count <= 0) selectedGraph.nodes.Add(new DialogueGraphNode("Entry", new Vector2(-200, 0)));
 			} else 
 			{
 				selectedGraph = null;
 			}
+
+			Repaint();
 		}
 
 		private void ShowMessage(string message)

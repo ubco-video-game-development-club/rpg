@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ac0479ced6a50409cc854a5b89a582, type: 3}
   m_Name: Test Graph
   m_EditorClassIdentifier: 
-  nodes: []
+  nodes:
+  - name: Entry
+    position: {x: 0, y: 0}
+    transitions: []
