@@ -11,6 +11,7 @@ namespace Architect.Dialogue
 		private DialogueGraph selectedGraph = null;
 		private bool isCreatingTransition = false;
 		private DialogueGraphNode transitionFrom = null;
+        private Vector2 panOffset = new Vector2(0, 0);
 
 		void OnEnable()
 		{
@@ -39,7 +40,7 @@ namespace Architect.Dialogue
 				selectedGraph.ProcessEvents(currentEvent);
 			}
 
-			Vector2 offset = CentreOfWindow;
+			Vector2 offset = CentreOfWindow + panOffset;
 			selectedGraph.Draw(offset);
 
 			if(GUI.changed)
@@ -69,7 +70,11 @@ namespace Architect.Dialogue
 					CreateContextMenu(e.mousePosition);
 					e.Use();
 				}
-			}
+			} else if(e.type == EventType.MouseDrag && e.button == 2)
+            {
+                panOffset += e.delta;
+                e.Use();
+            }
 		}
 
 		private void CreateContextMenu(Vector2 position)
@@ -132,6 +137,7 @@ namespace Architect.Dialogue
 			{
 				selectedGraph = Selection.activeObject as DialogueGraph;
 				if(selectedGraph.nodes.Count <= 0) selectedGraph.nodes.Add(new DialogueGraphNode("Entry", new Vector2(-200, 0)));
+                panOffset = new Vector2(0, 0);
 			} else 
 			{
 				selectedGraph = null;
