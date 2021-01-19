@@ -13,6 +13,7 @@ namespace Architect.Dialogue
 
 		private static readonly Color entryColour = new Color(192.0f / 255.0f, 216.0f / 255.0f, 227.0f / 255.0f);
 		private static readonly Color exitColour = new Color(225.0f / 255.0f, 138.0f / 255.0f, 122.0f / 255.0f);
+        private static readonly Color selectedColour = new Color(238.0f / 255.0f, 185.0f / 255.0f, 162.0f / 255.0f);
 
 		public List<DialogueGraphNode> nodes;
 		public List<DialogueGraphTransition> transitions;
@@ -87,13 +88,18 @@ namespace Architect.Dialogue
 			//Draw other nodes
 			for(int i = 1; i < nodes.Count; i++)
 			{
+                if(i == selectedNode) continue;
 				nodes[i].Draw(offset);
 			}
 
 			//Draw exit node
 			GUI.color = exitColour;
 			exitNode.Draw(offset);
-			GUI.color = Color.white;
+
+            //Draw selected node
+            GUI.color = selectedColour;
+            nodes[selectedNode].Draw(offset);
+            GUI.color = Color.white;
 		}
 
 		private void DrawTransitions(Vector2 offset)
