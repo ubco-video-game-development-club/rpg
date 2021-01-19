@@ -11,7 +11,6 @@ namespace Architect.Dialogue
 
 		public string name;
 		public Vector2 position;
-		public List<DialogueGraphTransition> transitions;
 		private Rect displayRect;
 		private bool isSelected = false;
 
@@ -19,7 +18,6 @@ namespace Architect.Dialogue
 		{
 			this.name = name;
 			this.position = position;
-			transitions = new List<DialogueGraphTransition>();
 		}
 
 		public void Draw(Vector2 offset)
