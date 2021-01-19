@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Architect.Dialogue
+namespace Dialogue
 {
 	[System.Serializable]
 	public class DialogueGraphTransition

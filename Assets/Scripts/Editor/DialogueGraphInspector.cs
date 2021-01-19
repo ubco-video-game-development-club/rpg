@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace Architect.Dialogue
+namespace Dialogue
 {
 	[CustomEditor(typeof(DialogueGraph))]
 	public class DialogueGraphInspector : Editor

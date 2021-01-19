@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace Architect.Dialogue
+namespace Dialogue
 {
 	[CreateAssetMenu(fileName = "Dialogue Graph", menuName = "Dialogue Graph", order = 1)]
 	public class DialogueGraph : ScriptableObject
