@@ -16,7 +16,7 @@ namespace Architect.Dialogue
 
 		public List<DialogueGraphNode> nodes;
 		public List<DialogueGraphTransition> transitions;
-		[System.NonSerialized] private DialogueGraphNode exitNode = new DialogueGraphNode("Exit", new Vector2(200, 0));
+		[System.NonSerialized] public readonly DialogueGraphNode exitNode = new DialogueGraphNode("Exit", new Vector2(200, 0));
 		[System.NonSerialized] public int selectedNode;
 
 		public void Draw(Vector2 offset)
