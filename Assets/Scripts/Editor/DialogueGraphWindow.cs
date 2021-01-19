@@ -115,7 +115,9 @@ namespace Architect.Dialogue
 			
 			if(transitionFrom == to) return;
 
-			DialogueGraphTransition transition = new DialogueGraphTransition("Transition", transitionFrom, to);
+			int fromIndex = selectedGraph.nodes.IndexOf(transitionFrom);
+			int toIndex = selectedGraph.nodes.IndexOf(to);
+			DialogueGraphTransition transition = new DialogueGraphTransition("Transition", fromIndex, toIndex);
 			selectedGraph.transitions.Add(transition);
 		}
 

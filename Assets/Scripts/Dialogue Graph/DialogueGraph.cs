@@ -57,12 +57,13 @@ namespace Architect.Dialogue
 
 		public void RemoveNode(DialogueGraphNode node)
 		{
+			int index = nodes.IndexOf(node);
 			nodes.Remove(node);
 
 			for(int i = 0; i < transitions.Count; i++)
 			{
 				DialogueGraphTransition transition = transitions[i];
-				if(transition.from == node || transition.to == node)
+				if(transition.from == index || transition.to == index)
 				{
 					transitions.Remove(transition);
 					i--;
@@ -95,8 +96,8 @@ namespace Architect.Dialogue
 		{
 			foreach(DialogueGraphTransition transition in transitions)
 			{
-				Vector2 from = transition.from.position + offset;
-				Vector2 to = transition.to.position + offset;
+				Vector2 from = nodes[transition.from].position + offset;
+				Vector2 to = nodes[transition.to].position + offset;
 				Handles.DrawBezier(from, to, from, to, lineColour, null, LINE_WIDTH);
 			}
 		}
