@@ -8,10 +8,10 @@ namespace Architect.Dialogue
 	public class DialogueGraphTransition
 	{
 		public string name;
-		public DialogueGraphNode from;
-		public DialogueGraphNode to;
+		public int from;
+		public int to;
 
-		public DialogueGraphTransition(string name, DialogueGraphNode from, DialogueGraphNode to)
+		public DialogueGraphTransition(string name, int from, int to)
 		{
 			this.name = name;
 			this.from = from;

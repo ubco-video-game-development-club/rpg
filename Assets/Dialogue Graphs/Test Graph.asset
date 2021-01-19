@@ -14,5 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Entry
-    position: {x: 0, y: 0}
-    transitions: []
+    position: {x: -372, y: -25}
+  - name: New node
+    position: {x: -23.5, y: -164}
+  - name: New node
+    position: {x: -25.5, y: 77}
+  transitions:
+  - name: Transition
+    from: 0
+    to: 1
+  - name: Transition
+    from: 1
+    to: 2
