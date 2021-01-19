@@ -75,15 +75,16 @@ namespace Architect.Dialogue
 		private void CreateContextMenu(Vector2 position)
 		{
 			GenericMenu menu = new GenericMenu();
-			menu.AddItem(
-				new GUIContent("Create node"),
-				false,
-				() => selectedGraph.CreateNode("New node", position - CentreOfWindow)
-			);
 
 			DialogueGraphNode hoveredNode = selectedGraph.GetNodeAt(position);
 			if(hoveredNode != null)
 			{
+                menu.AddItem(
+					new GUIContent("Create transition"),
+					false,
+					() => BeginTransition(hoveredNode)
+				);
+
 				if(selectedGraph.nodes.Count > 1)
 				{
 					menu.AddItem(
@@ -92,13 +93,14 @@ namespace Architect.Dialogue
 						() => selectedGraph.RemoveNode(hoveredNode)
 					);
 				}
-
-				menu.AddItem(
-					new GUIContent("Create transition"),
-					false,
-					() => BeginTransition(hoveredNode)
-				);
-			}
+			} else 
+            {
+                menu.AddItem(
+                    new GUIContent("Create node"),
+                    false,
+                    () => selectedGraph.CreateNode("New node", position - CentreOfWindow)
+                );
+            }
 
 			menu.ShowAsContext();
 		}
