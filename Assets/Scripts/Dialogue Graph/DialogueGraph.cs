@@ -17,6 +17,7 @@ namespace Architect.Dialogue
 		public List<DialogueGraphNode> nodes;
 		public List<DialogueGraphTransition> transitions;
 		[System.NonSerialized] private DialogueGraphNode exitNode = new DialogueGraphNode("Exit", new Vector2(200, 0));
+		[System.NonSerialized] public int selectedNode;
 
 		public void Draw(Vector2 offset)
 		{
@@ -28,7 +29,10 @@ namespace Architect.Dialogue
 		{
 			for(int i = 0; i < nodes.Count; i++)
 			{
-				nodes[i].ProcessEvents(e);
+				if(nodes[i].ProcessEvents(e))
+				{
+					selectedNode = i;
+				}
 			}
 
 			exitNode.ProcessEvents(e);

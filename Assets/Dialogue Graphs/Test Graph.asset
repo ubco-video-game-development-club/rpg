@@ -14,15 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Entry
-    position: {x: -372, y: -25}
-  - name: New node
-    position: {x: -23.5, y: -164}
-  - name: New node
-    position: {x: -25.5, y: 77}
+    body: Lorem Ipsum
+    position: {x: -538, y: 64}
+  - name: Thissa node
+    body: 
+    position: {x: -182.5, y: -141}
   transitions:
+  - name: Transition
+    from: 0
+    to: -1
   - name: Transition
     from: 0
     to: 1
   - name: Transition
     from: 1
-    to: 2
+    to: -1

@@ -10,6 +10,7 @@ namespace Architect.Dialogue
 		private static readonly Vector2 nodeSize = new Vector2(200, 50);
 
 		public string name;
+		public string body;
 		public Vector2 position;
 		private Rect displayRect;
 		private bool isSelected = false;
@@ -27,7 +28,7 @@ namespace Architect.Dialogue
 			GUI.Box(displayRect, name, GUI.skin.button);
 		}
 
-		public void ProcessEvents(Event e)
+		public bool ProcessEvents(Event e)
 		{
 			switch(e.type)
 			{
@@ -55,6 +56,8 @@ namespace Architect.Dialogue
 				default:
 					break;
 			}
+
+			return isSelected;
 		}
 
 		public bool Contains(Vector2 position) => displayRect.Contains(position);
