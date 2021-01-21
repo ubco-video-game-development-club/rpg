@@ -7,9 +7,11 @@ public class Player : MonoBehaviour
 {
     private const float ANIM_LOCK_DURATION = 0.05f;
 
-    [System.Serializable] public class PositionChangedEvent : UnityEvent<Vector2> {}
+    [System.Serializable] public class PositionChangedEvent : UnityEvent<Vector2> { }
 
     [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private Attack primaryAttack;
+    [SerializeField] private Attack secondaryAttack;
 
     private bool isAnimLocked;
     private Vector3 prevFramePosition;
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        // Handle movement inputs
         float inputH = Input.GetAxisRaw("Horizontal");
         float inputV = Input.GetAxisRaw("Vertical");
         Vector2 inputDir = new Vector2(inputH, inputV).normalized;
@@ -42,6 +45,25 @@ public class Player : MonoBehaviour
 
         prevFramePosition = transform.position;
         rigidbody2D.velocity = inputDir * moveSpeed;
+
+        // Handle attack inputs
+        if (primaryAttack.Enabled && Input.GetButton("Primary"))
+        {
+            StartCoroutine(AttackCooldown(primaryAttack));
+            primaryAttack.Invoke();
+        }
+        if (secondaryAttack.Enabled && Input.GetButton("Secondary"))
+        {
+            StartCoroutine(AttackCooldown(secondaryAttack));
+            secondaryAttack.Invoke();
+        }
+    }
+
+    private IEnumerator AttackCooldown(Attack attack)
+    {
+        attack.Enabled = false;
+        yield return new WaitForSeconds(attack.Cooldown);
+        attack.Enabled = true;
     }
 
     private void UpdateMoveAnimations(float inputH, float inputV)
