@@ -58,14 +58,17 @@ namespace Dialogue
 		{
 			if(e.type == EventType.MouseDown)
 			{
-				if(isCreatingTransition)
-				{
-					DialogueGraphNode hoverNode = selectedGraph.GetNodeAt(e.mousePosition);
-					if(e.button == 0 && hoverNode != null)
+                if(e.button == 0)
+                {
+                    DialogueGraphNode hoverNode = selectedGraph.GetNodeAt(e.mousePosition);
+					if(isCreatingTransition && hoverNode != null)
 					{
 						EndTransition(hoverNode);
-					}
-				} else if(e.button == 1)
+					} else if(hoverNode == null)
+                    {
+                        selectedGraph.selectedNode = -1;
+                    }
+                } else if(e.button == 1)
 				{
 					CreateContextMenu(e.mousePosition);
 					e.Use();

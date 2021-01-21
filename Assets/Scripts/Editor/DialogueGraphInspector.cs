@@ -24,7 +24,7 @@ namespace Dialogue
 			int selectedNodeIndex = graph.selectedNode;
 			serializedObject.Update();
 			
-			if(selectedNodeIndex < nodes.arraySize)
+			if(selectedNodeIndex >= 0 && selectedNodeIndex < nodes.arraySize)
 			{
 				SerializedProperty selectedNode = nodes.GetArrayElementAtIndex(selectedNodeIndex);
 				DrawNode(selectedNode);

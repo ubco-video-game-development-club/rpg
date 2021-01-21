@@ -97,9 +97,12 @@ namespace Dialogue
 			exitNode.Draw(offset);
 
             //Draw selected node
-            GUI.color = selectedColour;
-            nodes[selectedNode].Draw(offset);
-            GUI.color = Color.white;
+            if(selectedNode >= 0 && selectedNode < nodes.Count)
+            {
+                GUI.color = selectedColour;
+                nodes[selectedNode].Draw(offset);
+                GUI.color = Color.white;
+            }
 		}
 
 		private void DrawTransitions(Vector2 offset)

@@ -15,5 +15,23 @@ MonoBehaviour:
   nodes:
   - name: Entry
     body: 
-    position: {x: -200, y: 0}
-  transitions: []
+    position: {x: -520.5, y: -53}
+  - name: Thing 1
+    body: 
+    position: {x: -22.5, y: -269}
+  - name: Thing 2
+    body: 
+    position: {x: 180.5, y: -62}
+  transitions:
+  - name: Transition
+    from: 0
+    to: -1
+  - name: Transition
+    from: 0
+    to: 1
+  - name: Transition
+    from: 1
+    to: 2
+  - name: Transition
+    from: 2
+    to: 0
