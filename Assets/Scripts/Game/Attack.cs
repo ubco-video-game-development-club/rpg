@@ -8,6 +8,9 @@ public class Attack : ScriptableObject
     [SerializeField] private float cooldown = 1f;
     public float Cooldown { get { return cooldown; } }
 
+    [SerializeField] private int damage = 1;
+    public int Damage { get { return damage; } }
+
     private bool enabled = true;
     public bool Enabled
     {
