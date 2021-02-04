@@ -5,84 +5,84 @@ using UnityEditor;
 
 namespace Dialogue
 {
-	[CustomEditor(typeof(DialogueGraph))]
-	public class DialogueGraphInspector : Editor
-	{
-		private DialogueGraph graph;
-		private SerializedProperty nodes;
-		private SerializedProperty transitions;
+    [CustomEditor(typeof(DialogueGraph))]
+    public class DialogueGraphInspector : Editor
+    {
+        private DialogueGraph graph;
+        private SerializedProperty nodes;
+        private SerializedProperty transitions;
 
-		void OnEnable()
-		{
-			graph = serializedObject.targetObject as DialogueGraph;
-			nodes = serializedObject.FindProperty("nodes");
-			transitions = serializedObject.FindProperty("transitions");
-		}
+        void OnEnable()
+        {
+            graph = serializedObject.targetObject as DialogueGraph;
+            nodes = serializedObject.FindProperty("nodes");
+            transitions = serializedObject.FindProperty("transitions");
+        }
 
-		public override void OnInspectorGUI()
-		{
-			int selectedNodeIndex = graph.selectedNode;
-			serializedObject.Update();
-			
-			if(selectedNodeIndex >= 0 && selectedNodeIndex < nodes.arraySize)
-			{
-				SerializedProperty selectedNode = nodes.GetArrayElementAtIndex(selectedNodeIndex);
-				DrawNode(selectedNode);
-				GUILayout.Space(25);
-				DrawTransitions();
-				serializedObject.ApplyModifiedProperties();
-			}
+        public override void OnInspectorGUI()
+        {
+            int selectedNodeIndex = graph.selectedNode;
+            serializedObject.Update();
 
-			Repaint();
-		}
+            if (selectedNodeIndex >= 0 && selectedNodeIndex < nodes.arraySize)
+            {
+                SerializedProperty selectedNode = nodes.GetArrayElementAtIndex(selectedNodeIndex);
+                DrawNode(selectedNode);
+                GUILayout.Space(25);
+                DrawTransitions();
+                serializedObject.ApplyModifiedProperties();
+            }
 
-		private void DrawTransitions()
-		{
-			GUILayout.Label("Transitions");
-			for(int i = 0; i < graph.transitions.Count; i++)
-			{
-				DialogueGraphTransition t = graph.transitions[i];
-				if(t.from == graph.selectedNode || t.to == graph.selectedNode)
-				{
-					DrawTransition(t);
-					GUILayout.Space(5);
-				}
-			}
-		}
+            Repaint();
+        }
 
-		private void DrawTransition(DialogueGraphTransition transition)
-		{
+        private void DrawTransitions()
+        {
+            GUILayout.Label("Transitions");
+            for (int i = 0; i < graph.transitions.Count; i++)
+            {
+                DialogueGraphTransition t = graph.transitions[i];
+                if (t.from == graph.selectedNode || t.to == graph.selectedNode)
+                {
+                    DrawTransition(t);
+                    GUILayout.Space(5);
+                }
+            }
+        }
 
-			string from = graph.nodes[transition.from].name;
-			string to = "Exit";
-			if(transition.to >= 0)
-			{
-				to = graph.nodes[transition.to].name;
-			}
+        private void DrawTransition(DialogueGraphTransition transition)
+        {
 
-			Rect rect = EditorGUILayout.BeginHorizontal();
-			GUI.Box(rect, GUIContent.none);
-			GUILayout.Label($"{from} -> {to}");
+            string from = graph.nodes[transition.from].name;
+            string to = "Exit";
+            if (transition.to >= 0)
+            {
+                to = graph.nodes[transition.to].name;
+            }
 
-			if(GUILayout.Button("Remove"))
-			{
-				graph.transitions.Remove(transition);
-			}
+            Rect rect = EditorGUILayout.BeginHorizontal();
+            GUI.Box(rect, GUIContent.none);
+            GUILayout.Label($"{from} -> {to}");
 
-			EditorGUILayout.EndHorizontal();
-		}
+            if (GUILayout.Button("Remove"))
+            {
+                graph.transitions.Remove(transition);
+            }
 
-		private void DrawNode(SerializedProperty node)
-		{
-			SerializedProperty name = node.FindPropertyRelative("name");
-			EditorGUILayout.PropertyField(name);
+            EditorGUILayout.EndHorizontal();
+        }
 
-			GUILayout.Space(10);
+        private void DrawNode(SerializedProperty node)
+        {
+            SerializedProperty name = node.FindPropertyRelative("name");
+            EditorGUILayout.PropertyField(name);
 
-			SerializedProperty body = node.FindPropertyRelative("body");
-			GUILayout.Label("Body");
-			body.stringValue = GUILayout.TextArea(body.stringValue, GUILayout.Height(100));
+            GUILayout.Space(10);
 
-		}
-	}
+            SerializedProperty body = node.FindPropertyRelative("body");
+            GUILayout.Label("Body");
+            body.stringValue = GUILayout.TextArea(body.stringValue, GUILayout.Height(100));
+
+        }
+    }
 }
