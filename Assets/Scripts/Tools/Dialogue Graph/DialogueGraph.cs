@@ -5,7 +5,7 @@ using UnityEditor;
 
 namespace Dialogue
 {
-    [CreateAssetMenu(fileName = "Dialogue Graph", menuName = "Dialogue Graph", order = 51)]
+    [CreateAssetMenu(fileName = "Dialogue Graph", menuName = "Dialogue Graph", order = 70)]
     public class DialogueGraph : ScriptableObject
     {
         public const float LINE_WIDTH = 5.0f;
