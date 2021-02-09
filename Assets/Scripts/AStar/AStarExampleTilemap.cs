@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 
 public class AStarExampleTilemap : MonoBehaviour
 {
-    NodeMap nodeMap = new NodeMap(0.5f, 0.5f, 0, 50, 50, 0.2f); 
+    public NodeMap nodeMap = new NodeMap(0.5f, 0.5f, 0, 50, 50, 0.2f); 
     /*
      * For Astar to work there needs to be a map for it to traverse
      * 
@@ -36,7 +36,10 @@ public class AStarExampleTilemap : MonoBehaviour
     private void Start()
     {
         // To "Bake" the node map to capture untraversable areas. Whill scan the each node on wallTileMap for untraversable tiles on nodeMap
-        nodeMap.BakeMap(wallTileMap);
+        nodeMap.BakeBlockedMap(wallTileMap);
+
+        // Baking traversable but not desirable areas with 1.5 cost
+        nodeMap.BakeCostMap(LayerMask.GetMask("Water"), 1.5f);
 
         /* 
          * For 3D map baking
@@ -46,7 +49,7 @@ public class AStarExampleTilemap : MonoBehaviour
          * Scans each node with Physics.CheckSphere() for colliders around node, any collider detected not in above mentioned LayerMask will be consider an obstacle.
          * Therefore, marking that node as untraversable.
          */
-        //nodeMap.BakeMap(3);
+        //nodeMap.BakeBlockedMap(LayerMask.GetMask("Ignore Raycast"));
     }
 
     private void Update()
@@ -82,7 +85,7 @@ public class AStarExampleTilemap : MonoBehaviour
             }
             else
             {
-                Gizmos.color = new Color(1, 1, 1, 1f);
+                Gizmos.color = new Color(1, 1, 1-n.cost, 1f);
             }
             Gizmos.DrawCube(n.position, new Vector3(0.2f, 0.2f, 0.2f));
         }

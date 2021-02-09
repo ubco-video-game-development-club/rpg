@@ -68,7 +68,7 @@ namespace AStar
         }
 
 
-        public void BakeMap(LayerMask walkableMask, float scanRadius)
+        public void BakeBlockedMap(LayerMask walkableMask, float scanRadius)
         {
             for (int y = 0; y < nodes.GetLength(0); y++)
             {
@@ -79,18 +79,47 @@ namespace AStar
             }
         }
 
-        public void BakeMap(LayerMask walkableMask)
+        public void BakeBlockedMap(LayerMask walkableMask)
+        {
+            BakeBlockedMap(walkableMask, this.radius);
+        }
+
+        public void BakeCostMap(LayerMask costLayer, float cost)
+        {
+            BakeCostMap(costLayer, this.radius, cost);
+        }
+
+        public void BakeCostMap(LayerMask costLayer, float scanRadius, float cost)
         {
             for (int y = 0; y < nodes.GetLength(0); y++)
             {
                 for (int x = 0; x < nodes.GetLength(1); x++)
                 {
-                    this.nodes[y, x].blocked = Physics.CheckSphere(new Vector3(this.nodes[y, x].position.x, this.nodes[y, x].position.y, this.zOrigin), this.radius, walkableMask);
+                    foreach (Collider obj in Physics.OverlapSphere(new Vector3(this.nodes[y, x].position.x, this.nodes[y, x].position.y, this.zOrigin), this.radius))
+                    {
+                        if ((costLayer.value & 1 << obj.gameObject.layer) != 0)
+                        {
+                            this.nodes[y, x].cost = cost;
+                            break;
+                        }
+                    }
                 }
             }
         }
 
-        public void BakeMap(Tilemap unwalkableMap)
+        public void BakeCostMap(Tilemap costTilemap, float cost)
+        {
+            for (int y = 0; y < nodes.GetLength(0); y++)
+            {
+                for (int x = 0; x < nodes.GetLength(1); x++)
+                {
+                    if (costTilemap.GetTile(new Vector3Int((int)this.nodes[y, x].position.x, (int)this.nodes[y, x].position.y, (int)this.zOrigin)))
+                        this.nodes[y, x].cost = cost;
+                }
+            }
+        }
+
+        public void BakeBlockedMap(Tilemap unwalkableMap)
         {
             for (int y = 0; y < this.yNodeCount; y++)
             {
@@ -106,6 +135,8 @@ namespace AStar
                 }
             }
         }
+
+
 
         public bool InMapPosition(float x, float y)
         {
