@@ -1,4 +1,4 @@
-# Jonathan's A* (AStar) Path finder API for Unity
+# A* (AStar) Path finder
 
 ## About
 
@@ -67,6 +67,29 @@ void Update()
 {
     Path pathToEnd = nodeMap.FindPath(new Vector2(2, 2), endPosition.position, searchCycles, true);
 }
+```
+
+### Bonus Step: Save / Load Premade Map
+
+Most of the time it is a waste of resources to rebake the entire map, especially when the map is large. Therefore, it could be wise to save the map and load the already baked map for a certain terrain. Simply follow these examples to achieve map loading/saving in binary format.
+
+**Note: SHOULD ONLY BE USED FOR TESTING. 
+Because the Save() and Load() path points to Unity's project file which will not exist in exported game!**
+
+Example Code:
+
+```C#
+// Create map
+NodeMap nodeMap = new NodeMap(0.5f, 0.5f, 0, 50, 50, 0.2f);
+
+// Bake map
+nodeMap.BakeCostMap(waterTileMap, 1.5f);
+
+// Save baked map as "MyNodeMap.bin" at ../UnityProjectFile/Assets/MyNodeMap.bin
+nodeMap.Save("MyNodeMap");
+
+// Load baked map from ../UnityProjectFile/Assets/MyNodeMap.bin
+nodeMap = NodeMap.Load("MyNodeMap");
 ```
 
 

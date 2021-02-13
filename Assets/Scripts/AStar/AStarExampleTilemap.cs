@@ -49,7 +49,15 @@ public class AStarExampleTilemap : MonoBehaviour
          * Scans each node with Physics.CheckSphere() for colliders around node, any collider detected not in above mentioned LayerMask will be consider an obstacle.
          * Therefore, marking that node as untraversable.
          */
-        //nodeMap.BakeBlockedMap(LayerMask.GetMask("Ignore Raycast"));
+
+        // nodeMap.BakeBlockedMap(LayerMask.GetMask("Ignore Raycast"));
+
+
+        // Save baked map as "MyNodeMap.bin" at ../UnityProjectFile/Assets/MyNodeMap.bin
+        nodeMap.Save("MyNodeMap");
+
+        // Load baked map from ../UnityProjectFile/Assets/MyNodeMap.bin
+        nodeMap = NodeMap.Load("MyNodeMap");
     }
 
     private void Update()
@@ -87,13 +95,13 @@ public class AStarExampleTilemap : MonoBehaviour
             {
                 Gizmos.color = new Color(1, 1, 1-n.cost, 1f);
             }
-            Gizmos.DrawCube(n.position, new Vector3(0.2f, 0.2f, 0.2f));
+            Gizmos.DrawCube(new Vector2(n.x, n.y), new Vector3(0.2f, 0.2f, 0.2f));
         }
 
         for (int n = 0; n < pathToEnd.waypoints.Length; n++)
         {
             Gizmos.color = new Color(0, (1f / pathToEnd.waypoints.Length) * n, 0, 1f);
-            Gizmos.DrawCube(pathToEnd.waypoints[n].position, new Vector3(0.2f, 0.2f, 0.2f));
+            Gizmos.DrawCube(new Vector2(pathToEnd.waypoints[n].x, pathToEnd.waypoints[n].y), new Vector3(0.2f, 0.2f, 0.2f));
         }
 
     }

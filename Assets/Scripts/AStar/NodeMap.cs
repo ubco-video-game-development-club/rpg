@@ -1,12 +1,15 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 
 namespace AStar
 {
+    [Serializable]
     public class NodeMap
     {
         public Node[,] nodes;
@@ -55,6 +58,11 @@ namespace AStar
 
         }
 
+        private NodeMap() //For XML
+        {
+
+        }
+
         private void MapNodeToWorld()
         {
             this.nodes = new Node[this.yNodeCount, this.xNodeCount];
@@ -62,7 +70,7 @@ namespace AStar
             {
                 for (int x = 0; x < nodes.GetLength(1); x++)
                 {
-                    this.nodes[y, x] = new Node(new Vector2(this.xOrigin + this.radius * x * 2, this.yOrigin + this.radius * y * 2), x, y);
+                    this.nodes[y, x] = new Node(this.xOrigin + this.radius * x * 2, this.yOrigin + this.radius * y * 2, x, y);
                 }
             }
         }
@@ -74,7 +82,7 @@ namespace AStar
             {
                 for (int x = 0; x < nodes.GetLength(1); x++)
                 {
-                    this.nodes[y, x].blocked = Physics.CheckSphere(new Vector3(this.nodes[y, x].position.x, this.nodes[y, x].position.y, this.zOrigin), scanRadius, walkableMask);
+                    this.nodes[y, x].blocked = Physics.CheckSphere(new Vector3(this.nodes[y, x].x, this.nodes[y, x].y, this.zOrigin), scanRadius, walkableMask);
                 }
             }
         }
@@ -95,7 +103,7 @@ namespace AStar
             {
                 for (int x = 0; x < nodes.GetLength(1); x++)
                 {
-                    foreach (Collider obj in Physics.OverlapSphere(new Vector3(this.nodes[y, x].position.x, this.nodes[y, x].position.y, this.zOrigin), this.radius))
+                    foreach (Collider obj in Physics.OverlapSphere(new Vector3(this.nodes[y, x].x, this.nodes[y, x].y, this.zOrigin), this.radius))
                     {
                         if ((costLayer.value & 1 << obj.gameObject.layer) != 0)
                         {
@@ -113,7 +121,7 @@ namespace AStar
             {
                 for (int x = 0; x < nodes.GetLength(1); x++)
                 {
-                    if (costTilemap.GetTile(new Vector3Int((int)this.nodes[y, x].position.x, (int)this.nodes[y, x].position.y, (int)this.zOrigin)))
+                    if (costTilemap.GetTile(new Vector3Int((int)this.nodes[y, x].x, (int)this.nodes[y, x].y, (int)this.zOrigin)))
                         this.nodes[y, x].cost = cost;
                 }
             }
@@ -128,8 +136,8 @@ namespace AStar
                     this.nodes[y, x].blocked = 
                         unwalkableMap.GetTile(
                             new Vector3Int(
-                                (int)this.nodes[y, x].position.x, 
-                                (int)this.nodes[y, x].position.y, 
+                                (int)this.nodes[y, x].x, 
+                                (int)this.nodes[y, x].y, 
                                 (int)this.zOrigin
                                 ));
                 }
@@ -165,7 +173,7 @@ namespace AStar
             Node[,] lastNodeMap = new Node[this.yNodeCount, this.xNodeCount];
             List<Node> waypoints = new List<Node>();
             Node currentNode = this.nodes[startY, startX];
-            currentNode.sum = StartNodeValue(currentNode, this.nodes[endY, endX].position);
+            currentNode.sum = NodeValue(currentNode, currentNode, this.nodes[endY, endX]);
             List<Node> closedNodes = new List<Node>();
             List<Node> optionNodes = new List<Node>(); 
             closedNodes.Add(currentNode);
@@ -186,7 +194,7 @@ namespace AStar
                         Node checkingNode = this.nodes[yCheckIndex, xCheckIndex];
                         if (!checkingNode.blocked && !closedNodes.Contains(checkingNode))
                         {
-                            float newValue = NodeValue(checkingNode, currentNode, this.nodes[endY, endX].position);
+                            float newValue = NodeValue(checkingNode, currentNode, this.nodes[endY, endX]);
 
                             if (lastNodeMap[checkingNode.yIndex, checkingNode.xIndex] != null)
                             {
@@ -225,16 +233,15 @@ namespace AStar
             return new Path(this, waypoints.ToArray());
         }
 
-        private float StartNodeValue(Node node, Vector2 end)
+        private float NodeValue(Node node, Node lastNode, Node end)
         {
-            node.distanceToEnd = Vector2.Distance(node.position, end);
-            return node.distanceToEnd + node.cost;
+            node.distanceToEnd = Distance(node.x, node.y, end.x, end.y);
+            return node.distanceToEnd + node.cost + Distance(node.x, node.y, lastNode.x, lastNode.y) + lastNode.distanceToStart;
         }
 
-        private float NodeValue(Node node, Node lastNode, Vector2 end)
+        float Distance(float x, float y, float x2, float y2)
         {
-            node.distanceToEnd = Vector2.Distance(node.position, end);
-            return node.distanceToEnd + node.cost + Vector2.Distance(node.position, lastNode.position) + lastNode.distanceToStart;
+            return Mathf.Sqrt(Mathf.Pow(x - x2, 2) + Mathf.Pow(y - y2, 2));
         }
 
         private static Node PickeNode(IList<Node> nodes)
@@ -277,7 +284,7 @@ namespace AStar
             List<Node> waypoints = new List<Node>();
             Node currentNode = this.nodes[startY, startX];
             List<Node> exploredNode = new List<Node>();
-            currentNode.sum = NodeValueLite(currentNode, currentNode.position, this.nodes[endY, endX].position);
+            currentNode.sum = NodeValueLite(currentNode, currentNode, this.nodes[endY, endX]);
             List<Node> closedNodes = new List<Node>();
             closedNodes.Add(currentNode);
             for (int i = 0; i < searchCycles; i++)
@@ -296,7 +303,7 @@ namespace AStar
                         Node checkingNode = this.nodes[yCheckIndex, xCheckIndex];
                         if (!checkingNode.blocked && !closedNodes.Contains(checkingNode))
                         {
-                            float newValue = NodeValueLite(checkingNode, currentNode.position, this.nodes[endY, endX].position);
+                            float newValue = NodeValueLite(checkingNode, currentNode, this.nodes[endY, endX]);
 
                             if (lastNodeMap[checkingNode.yIndex, checkingNode.xIndex] != null)
                             {
@@ -334,11 +341,10 @@ namespace AStar
             return new Path(this, waypoints.ToArray());
         }
 
-        private float NodeValueLite(Node node, Vector2 start, Vector2 end)
+        private float NodeValueLite(Node node, Node start, Node end)
         {
-            float distanceToEnd = Vector2.Distance(node.position, end);
-            node.distanceToEnd = distanceToEnd;
-            return distanceToEnd + Vector2.Distance(node.position, start)
+            node.distanceToEnd = Distance(node.x, node.y, end.x, end.y);
+            return node.distanceToEnd + Distance(node.x, node.y, start.x, start.y)
                 + node.cost;
         }
 
@@ -357,6 +363,48 @@ namespace AStar
             }
             return pickedNode;
         }
+
+
+
+
+
+        /*
+         * Loaders and Savers adapted from https://forum.unity.com/threads/simple-local-data-storage.468936/ part 3
+         * 
+         * SHOULD ONLY BE USED FOR TESTING. 
+         * Because the Save() and Load() path points to Unity's project file which will not exist in exported game!
+         * 
+         * Ideally these methods should be more general as they can be, and in their own section for organization.
+         */
+
+        public void Save(string fileName)
+        {
+            string FullFilePath = Application.dataPath + "/" + fileName + ".bin";
+            Debug.Log("Saving NodeMap to "+FullFilePath);
+            BinaryFormatter Formatter = new BinaryFormatter();
+            FileStream fileStream = new FileStream(FullFilePath, FileMode.Create);
+            Formatter.Serialize(fileStream, this);
+            fileStream.Close();
+            Debug.Log("Save success");
+        }
+
+        public static NodeMap Load(string fileName)
+        {
+            string FullFilePath = Application.dataPath + "/" + fileName + ".bin";
+            Debug.Log("Loading NodeMap from " + FullFilePath);
+            if (File.Exists(FullFilePath))
+            {
+                BinaryFormatter Formatter = new BinaryFormatter();
+                FileStream fileStream = new FileStream(FullFilePath, FileMode.Open);
+                NodeMap map = (NodeMap)Formatter.Deserialize(fileStream);
+                fileStream.Close();
+                Debug.Log("Load success");
+                return map;
+            }
+            Debug.LogWarning("Load failed at "+FullFilePath);
+            return null;
+        }
+
     }
 }
 
