@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 
 public class AStarExampleTilemap : MonoBehaviour
 {
-    public NodeMap nodeMap = new NodeMap(0.5f, 0.5f, 0, 50, 50, 0.2f); 
+    private NodeMap nodeMap = new NodeMap(0.5f, 0.5f, 0, 50, 50, 0.2f); 
     /*
      * For Astar to work there needs to be a map for it to traverse
      * 
