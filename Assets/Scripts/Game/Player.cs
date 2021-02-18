@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Player : MonoBehaviour
+public class Player : Entity
 {
     private const float ANIM_LOCK_DURATION = 0.05f;
 
