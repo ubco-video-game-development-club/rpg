@@ -27,6 +27,9 @@ public class Player : MonoBehaviour
         animLockInstruction = new WaitForSeconds(ANIM_LOCK_DURATION);
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+
+        primaryAttack.Enabled = true;
+        secondaryAttack.Enabled = true;
     }
 
     void Update()

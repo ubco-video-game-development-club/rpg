@@ -13,7 +13,7 @@ public class PositionalAOE : Action
     public override void Invoke()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // Instantiate(effectPrefab, mousePos, Quaternion.identity);
+        Instantiate(effectPrefab, mousePos, Quaternion.identity);
         Collider2D[] hits = Physics2D.OverlapCircleAll(mousePos, radius);
         foreach (Collider2D hit in hits)
         {
