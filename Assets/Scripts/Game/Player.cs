@@ -39,27 +39,38 @@ public class Player : Entity
         float inputV = Input.GetAxisRaw("Vertical");
         Vector2 inputDir = new Vector2(inputH, inputV).normalized;
 
-        UpdateMoveAnimations(inputH, inputV);
+        if (inputH != 0 || inputV != 0) UpdateMoveAnimations(inputH, inputV);
 
-        if (transform.position != prevFramePosition)
-        {
-            onPositionChanged.Invoke(transform.position);
-        }
+        if (transform.position != prevFramePosition) onPositionChanged.Invoke(transform.position);
 
         prevFramePosition = transform.position;
         rigidbody2D.velocity = inputDir * moveSpeed;
 
         // Handle attack inputs
-        if (primaryAttack.Enabled && Input.GetButton("Primary"))
+        HandleAttackInput("Primary", primaryAttack);
+        HandleAttackInput("Secondary", secondaryAttack);
+    }
+
+    private void HandleAttackInput(string button, Attack attack)
+    {
+        if (attack.Enabled && Input.GetButton(button))
         {
-            StartCoroutine(AttackCooldown(primaryAttack));
-            primaryAttack.Invoke();
+            StartCoroutine(AttackCooldown(attack));
+            UpdateAttackAnimations();
+            attack.Invoke();
         }
-        if (secondaryAttack.Enabled && Input.GetButton("Secondary"))
-        {
-            StartCoroutine(AttackCooldown(secondaryAttack));
-            secondaryAttack.Invoke();
-        }
+    }
+
+    private void UpdateAttackAnimations()
+    {
+        Vector2 mouseDir = GetMouseDirection();
+        float xWeight = Mathf.Round(mouseDir.x);
+        float yWeight = Mathf.Round(mouseDir.y);
+        animator.SetFloat("hSpeed", xWeight);
+        animator.SetFloat("vSpeed", yWeight);
+        animator.SetFloat("hDirection", xWeight);
+        animator.SetFloat("vDirection", yWeight);
+        animator.SetTrigger("attack");
     }
 
     private IEnumerator AttackCooldown(Attack attack)
@@ -74,8 +85,8 @@ public class Player : Entity
         if (!isAnimLocked)
         {
             StartCoroutine(AnimationLock());
-            animator.SetFloat("horizontal", inputH);
-            animator.SetFloat("vertical", inputV);
+            animator.SetFloat("hSpeed", inputH);
+            animator.SetFloat("vSpeed", inputV);
         }
     }
 
@@ -84,5 +95,11 @@ public class Player : Entity
         isAnimLocked = true;
         yield return animLockInstruction;
         isAnimLocked = false;
+    }
+
+    private Vector2 GetMouseDirection()
+    {
+        Vector2 mouseVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        return mouseVector.normalized;
     }
 }

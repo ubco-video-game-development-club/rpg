@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b4788869bbddbe4bac7d66e465d4ed6, type: 3}
-  m_Name: TestAOE
+  m_Name: TestFireballAction
   m_EditorClassIdentifier: 
+  onHitActions: []
   effectPrefab: {fileID: 7099387373307941033, guid: c0dd4c221daa62c4989c57b83c738b41,
     type: 3}
   damage: 4
