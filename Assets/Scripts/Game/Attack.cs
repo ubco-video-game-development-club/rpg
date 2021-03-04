@@ -7,6 +7,9 @@ public class Attack : ScriptableObject
 {
     [SerializeField] private Action[] actions;
 
+    [SerializeField] private RuntimeAnimatorController animationController;
+    public RuntimeAnimatorController AnimationController { get { return animationController; } }
+
     [SerializeField] private float cooldown = 1f;
     public float Cooldown { get { return cooldown; } }
 
