@@ -11,8 +11,8 @@ public class Player : Entity
     [System.Serializable] public class PositionChangedEvent : UnityEvent<Vector2> { }
 
     [SerializeField] private float moveSpeed = 1f;
-    [SerializeField] private Attack primaryAttack;
-    [SerializeField] private Attack secondaryAttack;
+    [SerializeField] private Action primaryAttack;
+    [SerializeField] private Action secondaryAttack;
 
     private bool isGCDActive;
     private bool isAnimLocked;
@@ -67,11 +67,13 @@ public class Player : Entity
         yield return globalCooldownInstruction;
         isGCDActive = false;
 
+        // TODO: Carry animation parameters through controller updates
+
         // Clear any animator overrides caused by the current action
         animator.runtimeAnimatorController = baseAnimationController;
     }
 
-    private void HandleAttackInput(string button, Attack attack)
+    private void HandleAttackInput(string button, Action attack)
     {
         if (!isGCDActive && attack.Enabled && Input.GetButton(button))
         {
@@ -82,7 +84,7 @@ public class Player : Entity
         }
     }
 
-    private void UpdateAttackAnimations(Attack attack)
+    private void UpdateAttackAnimations(Action attack)
     {
         // Temporarily override the player's animation controller with this attack's controller
         animator.runtimeAnimatorController = attack.AnimationController;
@@ -98,7 +100,7 @@ public class Player : Entity
         animator.SetTrigger("attack");
     }
 
-    private IEnumerator AttackCooldown(Attack attack)
+    private IEnumerator AttackCooldown(Action attack)
     {
         attack.Enabled = false;
         yield return new WaitForSeconds(attack.Cooldown);

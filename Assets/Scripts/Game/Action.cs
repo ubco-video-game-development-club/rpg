@@ -2,9 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Action : ScriptableObject
+[CreateAssetMenu(fileName = "New Action", menuName = "Action", order = 60)]
+public class Action : ScriptableObject
 {
-    [SerializeField] protected Action[] onHitActions;
+    [SerializeField] private Effect[] effects;
 
-    public abstract void Invoke();
+    [SerializeField] private RuntimeAnimatorController animationController;
+    public RuntimeAnimatorController AnimationController { get { return animationController; } }
+
+    [SerializeField] private float cooldown = 1f;
+    public float Cooldown { get { return cooldown; } }
+
+    private bool enabled = true;
+    public bool Enabled
+    {
+        get { return enabled; }
+        set { enabled = value; }
+    }
+
+    public void Invoke()
+    {
+        Debug.Log("Action invoked");
+        foreach (Effect effect in effects)
+        {
+            effect.Invoke();
+        }
+    }
 }

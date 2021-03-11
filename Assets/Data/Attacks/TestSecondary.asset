@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3012e45bb62dbea4dabab12a43cb29c7, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ad955b4b8e17f40ac9aebba29058f6, type: 3}
   m_Name: TestSecondary
   m_EditorClassIdentifier: 
-  actions: []
+  effects: []
   animationController: {fileID: 9100000, guid: 27483261c7cd7a5449e287c1662a91be, type: 2}
   cooldown: 1

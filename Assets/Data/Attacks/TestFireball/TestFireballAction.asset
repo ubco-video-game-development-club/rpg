@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestFireballAction
   m_EditorClassIdentifier: 
   onHitActions: []
-  effectPrefab: {fileID: 7099387373307941033, guid: c0dd4c221daa62c4989c57b83c738b41,
+  visualPrefab: {fileID: 7099387373307941033, guid: c0dd4c221daa62c4989c57b83c738b41,
     type: 3}
   damage: 4
   range: 3
