@@ -1,4 +1,4 @@
 ﻿public enum Attribute
 {
-    DAMAGE, QUACKER,FLAPPER,TAPPER
+    DAMAGE, QUACKER, FLAPPER, TAPPER
 }

@@ -6,9 +6,9 @@ using System;
 public class XPManager
 {
     //as xpMultiplier goes up, the amount of experience required to levelup will go up
-    [SerializeField]private const double XP_TO_LEVEL_FACTOR = 10;
+    [SerializeField] private const double XP_TO_LEVEL_FACTOR = 10;
     [SerializeField] private int levelupBase = 75;
-    
+
     private int experience;
     private int currentLevel;
 
