@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(AnimatorCache))]
 public class Player : Entity
 {
-    public const float GLOBAL_COOLDOWN = 0.5f;
+    public const float GLOBAL_COOLDOWN = 0.05f;
     private const float ANIM_LOCK_DURATION = 0.05f;
 
     [System.Serializable] public class PositionChangedEvent : UnityEvent<Vector2> { }
@@ -18,10 +19,14 @@ public class Player : Entity
     private bool isAnimLocked;
     private Vector3 prevFramePosition;
 
+    private RuntimeAnimatorController baseAnimationController;
+    public RuntimeAnimatorController BaseAnimationController { get { return baseAnimationController; } }
+
     private YieldInstruction animLockInstruction;
     private YieldInstruction globalCooldownInstruction;
-    private RuntimeAnimatorController baseAnimationController;
+
     private Animator animator;
+    private AnimatorCache animatorCache;
     private new Rigidbody2D rigidbody2D;
 
     private PositionChangedEvent onPositionChanged = new PositionChangedEvent();
@@ -29,6 +34,7 @@ public class Player : Entity
     void Awake()
     {
         animator = GetComponent<Animator>();
+        animatorCache = GetComponent<AnimatorCache>();
         rigidbody2D = GetComponent<Rigidbody2D>();
 
         animLockInstruction = new WaitForSeconds(ANIM_LOCK_DURATION);
@@ -61,16 +67,19 @@ public class Player : Entity
         HandleAttackInput("Secondary", secondaryAttack);
     }
 
+    public void ClearAnimationOverrides()
+    {
+        // Clear any animator overrides caused by the current action
+        animatorCache.CacheParameters();
+        animator.runtimeAnimatorController = baseAnimationController;
+        animatorCache.RestoreParameters();
+    }
+
     private IEnumerator GlobalCooldown()
     {
         isGCDActive = true;
         yield return globalCooldownInstruction;
         isGCDActive = false;
-
-        // TODO: Carry animation parameters through controller updates
-
-        // Clear any animator overrides caused by the current action
-        animator.runtimeAnimatorController = baseAnimationController;
     }
 
     private void HandleAttackInput(string button, Action attack)
