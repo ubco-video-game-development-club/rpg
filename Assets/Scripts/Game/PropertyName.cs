@@ -1,4 +1,8 @@
 public enum PropertyName
 {
-    HEALTH
+    HEALTH,
+    DAMAGE,
+    QUACKER,
+    FLAPPER,
+    TAPPER
 }

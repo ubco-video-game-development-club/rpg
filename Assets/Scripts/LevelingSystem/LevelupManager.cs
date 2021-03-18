@@ -5,14 +5,15 @@ using System;
 public class LevelupManager : MonoBehaviour
 {
     [System.Serializable]
-    public struct Levelup
+    public struct LevelupAttribute
     {
-        public Attribute attribute;
-        public float amount;
+        public PropertyName propertyName;
+        public float value;
     }
-    public Levelup[] quackersAttributes;
-    public Levelup[] flappersAttributes;
-    public Levelup[] tappersAttributes;
+
+    private LevelupAttribute[] quackersAttributes;
+    public LevelupAttribute[] flappersAttributes;
+    public LevelupAttribute[] tappersAttributes;
 
     private Player player;
 
@@ -44,13 +45,12 @@ public class LevelupManager : MonoBehaviour
         ApplyLevelups(tappersAttributes);
     }
 
-    private void ApplyLevelups(Levelup[] levelups)
+    private void ApplyLevelups(LevelupAttribute[] levelupAttributes)
     {
-        foreach (Levelup levelup in levelups)
+        foreach (LevelupAttribute attr in levelupAttributes)
         {
-            int attributeLevel = player.GetAttribute(levelup.attribute);
-
-            player.SetAttribute(levelup.attribute, attributeLevel + levelup.amount);
+            float currentValue = player.GetProperty<float>(attr.propertyName);
+            player.SetProperty<float>(attr.propertyName, currentValue + attr.value);
         }
     }
 }
