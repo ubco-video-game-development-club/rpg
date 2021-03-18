@@ -4,21 +4,21 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
-    private Dictionary<PropertyName, Object> properties;
+    private Dictionary<PropertyName, dynamic> properties;
 
-    public T GetProperty<T>(PropertyName name) where T : Object
+    public T GetProperty<T>(PropertyName name)
     {
-        return properties[name] as T;
+        return properties[name];
     }
 
-    public bool TryGetProperty<T>(PropertyName name, out T property) where T : Object
+    public bool TryGetProperty<T>(PropertyName name, out T property)
     {
         bool exists = properties.ContainsKey(name);
-        property = exists ? GetProperty<T>(name) : null;
+        property = exists ? GetProperty<T>(name) : default(T);
         return exists;
     }
 
-    public void SetProperty<T>(PropertyName name, T value) where T : Object
+    public void SetProperty<T>(PropertyName name, T value)
     {
         properties[name] = value;
     }
