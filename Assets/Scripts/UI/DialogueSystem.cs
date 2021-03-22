@@ -12,6 +12,9 @@ namespace Dialogue
         [SerializeField] private TMPro.TextMeshProUGUI dialogueName;
         [SerializeField] private TMPro.TextMeshProUGUI dialogueText;
         [SerializeField] private Transform dialogueButtons;
+        [SerializeField] private GameObject buttonPrefab;
+        private List<GameObject> buttonPool = new List<GameObject>();
+        private int buttonPoolIndex = 0;
         private YieldInstruction letterCooldown = new WaitForSeconds(0.05f);
         private DialogueGraph currentGraph;
 
@@ -61,12 +64,23 @@ namespace Dialogue
             foreach(DialogueGraphNode t in transitions)
             {
                 CreateButton(t.name);
+                yield return letterCooldown;
             }
         }
 
         private void CreateButton(string name)
         {
-            Debug.Log($"Create button with name {name}");
+            if(buttonPoolIndex >= buttonPool.Count)
+            {
+                RectTransform button = Instantiate(buttonPrefab, Vector2.zero, Quaternion.identity, dialogueButtons).GetComponent<RectTransform>();
+                button.anchoredPosition = Vector2.down * buttonPool.Count * 30;
+                buttonPool.Add(button.gameObject);
+                buttonPoolIndex++;
+            } else 
+            {
+                GameObject button = buttonPool[buttonPoolIndex++];
+                button.SetActive(true);
+            }
         }
     }
 }
