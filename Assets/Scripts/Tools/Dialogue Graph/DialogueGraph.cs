@@ -73,6 +73,9 @@ namespace Dialogue
                     transitions.Remove(transition);
                     i--;
                 }
+
+                if(transition.from > index) transition.from--;
+                else if(transition.to > index) transition.to--;
             }
 
             GUI.changed = true;
@@ -109,6 +112,7 @@ namespace Dialogue
         {
             foreach (DialogueGraphTransition transition in transitions)
             {
+                if(transition.from < 0 || transition.from >= nodes.Count) continue;
                 Vector2 from = nodes[transition.from].position + offset;
 
                 Vector2 to;
@@ -116,10 +120,10 @@ namespace Dialogue
                 {
                     to = exitNode.position + offset;
                 }
-                else
+                else if(transition.to < nodes.Count)
                 {
                     to = nodes[transition.to].position + offset;
-                }
+                } else continue;
 
                 Handles.DrawBezier(from, to, from, to, lineColour, null, LINE_WIDTH);
             }
