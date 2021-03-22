@@ -133,6 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 511373793}
   - component: {fileID: 511373792}
+  - component: {fileID: 511373794}
+  - component: {fileID: 511373795}
   m_Layer: 0
   m_Name: TestNPC
   m_TagString: Untagged
@@ -205,6 +207,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &511373794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511373791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fba3685198575341bfedcdddb0b58fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Goof
+  portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
+  dialogue: {fileID: 11400000, guid: 0c1c5a768969a034cb53f9294ce75608, type: 2}
+--- !u!58 &511373795
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511373791}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.32188842
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &930314893
 RectTransform:
   m_ObjectHideFlags: 0
@@ -320,6 +353,7 @@ RectTransform:
   - {fileID: 1774711814}
   - {fileID: 1085417768}
   - {fileID: 1056019371}
+  - {fileID: 1157983263}
   m_Father: {fileID: 971557428}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -498,11 +532,11 @@ RectTransform:
   m_Father: {fileID: 930314893}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -30, y: -30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -15}
+  m_SizeDelta: {x: -30, y: 135}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1056019372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,6 +812,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1157983262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1157983263}
+  m_Layer: 5
+  m_Name: Buttons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1157983263
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157983262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 930314893}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 15}
+  m_SizeDelta: {x: -30, y: 135}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!850595691 &1162268869
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -849,6 +918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1226771121}
   - component: {fileID: 1226771122}
+  - component: {fileID: 1226771123}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -882,6 +952,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e51869d38044a140a1cadee1606d98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueSystem: {fileID: 1226771123}
+--- !u!114 &1226771123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226771120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 150a9ee84d3cf9c40a5a8c518e96974a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueUI: {fileID: 930314892}
+  dialoguePortrait: {fileID: 1774711815}
+  dialogueName: {fileID: 1085417769}
+  dialogueText: {fileID: 1056019372}
 --- !u!1 &1774711813
 GameObject:
   m_ObjectHideFlags: 0

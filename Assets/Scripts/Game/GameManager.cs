@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Dialogue;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     public static GameManager Instance { get { return instance; } }
+
+    public DialogueSystem DialogueSystem { get { return dialogueSystem; } }
+    [SerializeField] private DialogueSystem dialogueSystem;
 
     private Player player;
 
