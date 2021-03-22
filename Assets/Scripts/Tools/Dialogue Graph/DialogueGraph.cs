@@ -15,8 +15,8 @@ namespace Dialogue
         private static readonly Color exitColour = new Color(225.0f / 255.0f, 138.0f / 255.0f, 122.0f / 255.0f);
         private static readonly Color selectedColour = new Color(238.0f / 255.0f, 185.0f / 255.0f, 162.0f / 255.0f);
 
-        public List<DialogueGraphNode> nodes;
-        public List<DialogueGraphTransition> transitions;
+        public List<DialogueGraphNode> nodes = new List<DialogueGraphNode>();
+        public List<DialogueGraphTransition> transitions = new List<DialogueGraphTransition>();
         [System.NonSerialized] public readonly DialogueGraphNode exitNode = new DialogueGraphNode("Exit", new Vector2(200, 0));
         [System.NonSerialized] public int selectedNode;
 
