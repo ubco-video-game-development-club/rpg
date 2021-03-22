@@ -60,7 +60,7 @@ namespace Dialogue
             buttonPoolIndex = 0;
 
             int index = 0;
-            while(index < dialogue.Length)
+            while(index <= dialogue.Length)
             {
                 dialogueText.text = dialogue.Substring(0, index++);
                 yield return letterCooldown;
