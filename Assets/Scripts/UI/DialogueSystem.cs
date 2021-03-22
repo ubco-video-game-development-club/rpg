@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace Dialogue
 {
@@ -68,19 +69,39 @@ namespace Dialogue
             }
         }
 
+        private void OnDialogueOptionClicked(int index)
+        {
+            Debug.Log($"Option {index} clicked.");
+        }
+
         private void CreateButton(string name)
         {
+            TMPro.TextMeshProUGUI buttonText;
+            UnityEvent onButtonClicked;
+
+            int buttonIndex = buttonPoolIndex;
             if(buttonPoolIndex >= buttonPool.Count)
             {
                 RectTransform button = Instantiate(buttonPrefab, Vector2.zero, Quaternion.identity, dialogueButtons).GetComponent<RectTransform>();
                 button.anchoredPosition = Vector2.down * buttonPool.Count * 30;
+                onButtonClicked = button.GetComponent<Button>().onClick;
+                buttonText = button.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
+
                 buttonPool.Add(button.gameObject);
                 buttonPoolIndex++;
             } else 
             {
                 GameObject button = buttonPool[buttonPoolIndex++];
                 button.SetActive(true);
+                onButtonClicked = button.GetComponent<Button>().onClick;
+                buttonText = button.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
             }
+
+            buttonText.SetText(name);
+            onButtonClicked.AddListener(delegate 
+            {
+                OnDialogueOptionClicked(buttonIndex);
+            });
         }
     }
 }
