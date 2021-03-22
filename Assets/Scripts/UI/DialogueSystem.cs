@@ -79,10 +79,8 @@ namespace Dialogue
         {
             DialogueGraphTransition[] transitions = GetTransitionsFor(currentGraph, currentNode);
             DialogueGraphTransition transition = transitions[index];
-            if(transition.to < 0)
-            {
-                Debug.Log("Exit!");
-            } else StartCoroutine(ShowDialogue(transition.to));
+            if(transition.to < 0) dialogueUI.SetActive(false);
+            else StartCoroutine(ShowDialogue(transition.to));
         }
 
         private void CreateButton(string name)
@@ -109,6 +107,7 @@ namespace Dialogue
             }
 
             buttonText.SetText(name);
+            onButtonClicked.RemoveAllListeners();
             onButtonClicked.AddListener(delegate 
             {
                 OnDialogueOptionClicked(buttonIndex);
