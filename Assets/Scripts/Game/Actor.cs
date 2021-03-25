@@ -5,13 +5,23 @@ using UnityEngine.Events;
 
 public class Actor : Entity
 {
-    private UnityEvent<int> onHealthChanged = new UnityEvent<int>();
-    private UnityEvent onDeath = new UnityEvent();
+    [SerializeField] private int maxHealth;
 
     public int Health
     {
         get { return GetProperty<int>(PropertyName.HEALTH); }
         private set { SetProperty<int>(PropertyName.HEALTH, value); }
+    }
+
+    private UnityEvent<int> onHealthChanged = new UnityEvent<int>();
+    public UnityEvent<int> OnHealthChanged { get { return onHealthChanged; } }
+
+    private UnityEvent onDeath = new UnityEvent();
+    public UnityEvent OnDeath { get { return onDeath; } }
+
+    void Awake()
+    {
+        Health = maxHealth;
     }
 
     public void TakeDamage(int damage)

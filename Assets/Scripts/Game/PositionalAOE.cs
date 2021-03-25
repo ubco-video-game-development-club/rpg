@@ -18,6 +18,10 @@ public class PositionalAOE : Effect
         foreach (Collider2D hit in hits)
         {
             Debug.Log(hit.name);
+            if (hit.TryGetComponent<Actor>(out Actor target))
+            {
+                target.TakeDamage(damage);
+            }
         }
     }
 }
