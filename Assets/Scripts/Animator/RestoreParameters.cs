@@ -6,7 +6,7 @@ using UnityEngine;
 */
 public class RestoreParameters : StateMachineBehaviour
 {
-    override public void OnStateMachineExit(Animator animator, int stateMachinePathHash)
+    public override void OnStateMachineExit(Animator animator, int stateMachinePathHash)
     {
         animator.GetComponent<Player>().ClearAnimationOverrides();
     }
