@@ -61,8 +61,8 @@ namespace Dialogue
 
             float width = Screen.width * 0.3f; //75% of available width is for text; ~40% of that space is for each word. Thus, 30% is for each word.
             GUIStyle style = GUI.skin.label;
-            from = TrimToFit(from, width, style);
-            to = TrimToFit(to, width, style);
+            from = EditorUtils.TrimStringToFit(from, width, style);
+            to = EditorUtils.TrimStringToFit(to, width, style);
 
             Rect rect = EditorGUILayout.BeginHorizontal();
             GUI.Box(rect, GUIContent.none);
@@ -88,20 +88,6 @@ namespace Dialogue
             GUILayout.Label("Body");
             body.stringValue = GUILayout.TextArea(body.stringValue, GUILayout.Height(100));
 
-        }
-
-        private string TrimToFit(string text, float width, GUIStyle style) 
-        {
-            string s = text;
-            Vector2 size = style.CalcSize(new GUIContent(s));
-            int count = 0;
-            while(size.x > width)
-            {
-                s = $"{text.Substring(0, text.Length - ++count).Trim()}...";
-                size = style.CalcSize(new GUIContent(s));
-            }
-
-            return s;
         }
     }
 }
