@@ -8,8 +8,7 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     public static GameManager Instance { get { return instance; } }
 
-    public DialogueSystem DialogueSystem { get { return dialogueSystem; } }
-    [SerializeField] private DialogueSystem dialogueSystem;
+    public static DialogueSystem DialogueSystem { get; private set; }
 
     private Player player;
 
@@ -21,6 +20,8 @@ public class GameManager : MonoBehaviour
             return;
         }
         instance = this;
+
+        DialogueSystem = GetComponent<DialogueSystem>();
     }
 
     void Start()

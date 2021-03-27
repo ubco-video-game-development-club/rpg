@@ -17,7 +17,6 @@ public class QuestGiver : MonoBehaviour
 
     public void Interact()
     {
-        DialogueSystem dialogueSystem = GameManager.Instance.DialogueSystem;
-        dialogueSystem.BeginDialogue(portrait, name, dialogue);
+        GameManager.DialogueSystem.BeginDialogue(portrait, name, dialogue);
     }
 }
