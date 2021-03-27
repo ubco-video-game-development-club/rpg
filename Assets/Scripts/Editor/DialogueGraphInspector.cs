@@ -80,12 +80,13 @@ namespace Dialogue
         private void DrawNode(SerializedProperty node)
         {
             SerializedProperty name = node.FindPropertyRelative("name");
-            EditorGUILayout.PropertyField(name);
+            GUILayout.Label("Option");
+            name.stringValue = GUILayout.TextArea(name.stringValue, GUILayout.Height(100));
 
             GUILayout.Space(10);
 
             SerializedProperty body = node.FindPropertyRelative("body");
-            GUILayout.Label("Body");
+            GUILayout.Label("Response");
             body.stringValue = GUILayout.TextArea(body.stringValue, GUILayout.Height(100));
 
         }
