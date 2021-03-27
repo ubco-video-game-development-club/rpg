@@ -52,7 +52,6 @@ namespace Dialogue
 
         private void DrawTransition(DialogueGraphTransition transition)
         {
-
             string from = graph.nodes[transition.from].name;
             string to = "Exit";
             if (transition.to >= 0)
@@ -60,8 +59,14 @@ namespace Dialogue
                 to = graph.nodes[transition.to].name;
             }
 
+            float width = Screen.width * 0.3f; //75% of available width is for text; ~40% of that space is for each word. Thus, 30% is for each word.
+            GUIStyle style = GUI.skin.label;
+            from = TrimToFit(from, width, style);
+            to = TrimToFit(to, width, style);
+
             Rect rect = EditorGUILayout.BeginHorizontal();
             GUI.Box(rect, GUIContent.none);
+
             GUILayout.Label($"{from} -> {to}");
 
             if (GUILayout.Button("Remove"))
@@ -83,6 +88,20 @@ namespace Dialogue
             GUILayout.Label("Body");
             body.stringValue = GUILayout.TextArea(body.stringValue, GUILayout.Height(100));
 
+        }
+
+        private string TrimToFit(string text, float width, GUIStyle style) 
+        {
+            string s = text;
+            Vector2 size = style.CalcSize(new GUIContent(s));
+            int count = 0;
+            while(size.x > width)
+            {
+                s = $"{text.Substring(0, text.Length - ++count).Trim()}...";
+                size = style.CalcSize(new GUIContent(s));
+            }
+
+            return s;
         }
     }
 }
