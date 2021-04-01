@@ -20,12 +20,12 @@ public class Action : ScriptableObject
         set { enabled = value; }
     }
 
-    public void Invoke()
+    public void Invoke(ActionData data)
     {
         Debug.Log("Action invoked");
         foreach (Effect effect in effects)
         {
-            effect.Invoke();
+            effect.Invoke(data);
         }
     }
 }

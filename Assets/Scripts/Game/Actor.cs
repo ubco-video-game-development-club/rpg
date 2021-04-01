@@ -34,5 +34,6 @@ public class Actor : Entity
     private void Die()
     {
         onDeath.Invoke();
+        Destroy(gameObject);
     }
 }

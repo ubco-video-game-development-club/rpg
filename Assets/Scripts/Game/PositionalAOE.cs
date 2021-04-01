@@ -10,11 +10,11 @@ public class PositionalAOE : Effect
     [SerializeField] private float range = 1;
     [SerializeField] private float radius = 1;
 
-    public override void Invoke()
+    public override void Invoke(ActionData data)
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Instantiate(visualPrefab, mousePos, Quaternion.identity);
-        Collider2D[] hits = Physics2D.OverlapCircleAll(mousePos, radius);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(mousePos, radius, data.targetMask);
         foreach (Collider2D hit in hits)
         {
             Debug.Log(hit.name);

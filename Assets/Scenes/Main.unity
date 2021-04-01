@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 1166346081}
   - component: {fileID: 1166346080}
   - component: {fileID: 1166346082}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,12 +457,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  onHealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1226771120
 GameObject:
   m_ObjectHideFlags: 0
@@ -2227,7 +2221,7 @@ GameObject:
   - component: {fileID: 2098406990}
   - component: {fileID: 2098406991}
   - component: {fileID: 2098406989}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2358,6 +2352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c468a67ddf1c947ba69dbf238f4734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 50
   moveSpeed: 3
   primaryAttack: {fileID: 11400000, guid: eaa6856a482658241a2e5267f2b20a7c, type: 2}
   secondaryAttack: {fileID: 11400000, guid: cb6d74392ec61a147b549286e0221774, type: 2}
