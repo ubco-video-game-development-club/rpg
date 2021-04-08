@@ -391,7 +391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166346077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: -0.3125, z: 0}
+  m_LocalPosition: {x: -2.94, y: -0.05, z: 0}
   m_LocalScale: {x: 1, y: 0.625, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2354,7 +2354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   moveSpeed: 3
-  primaryAttack: {fileID: 11400000, guid: eaa6856a482658241a2e5267f2b20a7c, type: 2}
+  primaryAttack: {fileID: 11400000, guid: 4fb995a92a5d18a4ea756f8e66162494, type: 2}
   secondaryAttack: {fileID: 11400000, guid: cb6d74392ec61a147b549286e0221774, type: 2}
 --- !u!95 &2098406990
 Animator:

@@ -7,7 +7,6 @@ public class PositionalAOE : Effect
 {
     [SerializeField] private GameObject visualPrefab;
     [SerializeField] private int damage = 1;
-    [SerializeField] private float range = 1;
     [SerializeField] private float radius = 1;
 
     public override void Invoke(ActionData data)

@@ -91,7 +91,9 @@ public class Player : Actor
         {
             StartCoroutine(GlobalCooldown());
             StartCoroutine(AttackCooldown(attack));
+
             UpdateAttackAnimations(attack);
+            attackData.origin = transform.position;
             attack.Invoke(attackData);
         }
     }
