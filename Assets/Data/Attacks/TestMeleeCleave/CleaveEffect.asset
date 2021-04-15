@@ -15,4 +15,4 @@ MonoBehaviour:
   onHitActions: []
   damage: 1
   reach: 1.5
-  arcAngle: 120
+  arcAngle: 180

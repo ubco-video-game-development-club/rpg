@@ -19,7 +19,7 @@ public class Actor : Entity
     private UnityEvent onDeath = new UnityEvent();
     public UnityEvent OnDeath { get { return onDeath; } }
 
-    void Awake()
+    protected virtual void Awake()
     {
         Health = maxHealth;
     }

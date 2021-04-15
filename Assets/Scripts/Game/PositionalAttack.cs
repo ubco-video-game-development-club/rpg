@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New PositionalAOE", menuName = "Effects/PositionalAOE", order = 50)]
-public class PositionalAOE : Effect
+[CreateAssetMenu(fileName = "New PositionalAttack", menuName = "Effects/PositionalAttack", order = 50)]
+public class PositionalAttack : Effect
 {
     [SerializeField] private GameObject visualPrefab;
     [SerializeField] private int damage = 1;

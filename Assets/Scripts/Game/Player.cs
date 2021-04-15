@@ -32,7 +32,7 @@ public class Player : Actor
 
     private PositionChangedEvent onPositionChanged = new PositionChangedEvent();
 
-    void Awake()
+    protected override void Awake()
     {
         animator = GetComponent<Animator>();
         animatorCache = GetComponent<AnimatorCache>();

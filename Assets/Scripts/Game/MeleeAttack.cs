@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New MeleeDetect", menuName = "Effects/MeleeDetect", order = 51)]
-public class MeleeDetect : Effect
+[CreateAssetMenu(fileName = "New MeleeAttack", menuName = "Effects/MeleeAttack", order = 51)]
+public class MeleeAttack : Effect
 {
     public int damage;
     public float reach;
@@ -25,7 +25,7 @@ public class MeleeDetect : Effect
         foreach (Collider2D hit in hits)
         {
             // Calculate direction to the target
-            Vector2 targetPos = hit.transform.position;
+            Vector2 targetPos = hit.ClosestPoint(data.origin);
             Vector2 targetDir = (targetPos - data.origin).normalized;
 
             Debug.Log("Target Dir: " + targetDir);
@@ -33,7 +33,7 @@ public class MeleeDetect : Effect
             Debug.Log("Angle: " + Vector2.SignedAngle(attackDir, targetDir));
 
             // Determine whether the target is within the arcAngle
-            if (Vector2.SignedAngle(attackDir, targetDir) < arcAngle / 2)
+            if (Vector2.Angle(attackDir, targetDir) < arcAngle / 2)
             {
                 Debug.Log("Hit!");
                 Debug.Log(hit.name);
