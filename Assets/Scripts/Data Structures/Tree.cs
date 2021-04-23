@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Tree<T>
 {
     public Node Root { get; }
@@ -11,6 +12,7 @@ public class Tree<T>
         Root = new Node(root);
     }
 
+    [System.Serializable]
     public struct Node
     {
         public int ChildCount { get => children.Count; }
