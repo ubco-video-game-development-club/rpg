@@ -16,7 +16,6 @@ public class PositionalAttack : Effect
         Collider2D[] hits = Physics2D.OverlapCircleAll(mousePos, radius, data.targetMask);
         foreach (Collider2D hit in hits)
         {
-            Debug.Log(hit.name);
             if (hit.TryGetComponent<Actor>(out Actor target))
             {
                 target.TakeDamage(damage);

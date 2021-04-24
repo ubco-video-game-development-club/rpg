@@ -2650,7 +2650,7 @@ MonoBehaviour:
   maxHealth: 50
   moveSpeed: 3
   primaryAttack: {fileID: 11400000, guid: 4fb995a92a5d18a4ea756f8e66162494, type: 2}
-  secondaryAttack: {fileID: 11400000, guid: cb6d74392ec61a147b549286e0221774, type: 2}
+  secondaryAttack: {fileID: 11400000, guid: eaa6856a482658241a2e5267f2b20a7c, type: 2}
 --- !u!95 &2098406990
 Animator:
   serializedVersion: 3
