@@ -20,9 +20,7 @@ public class Enemy : Actor
 
     void Start()
     {
-        OnHealthChanged.AddListener(PrintHealth);
         OnHealthChanged.AddListener(FlashRed);
-        OnDeath.AddListener(PrintDeath);
     }
 
     private void FlashRed(int health)
@@ -35,15 +33,5 @@ public class Enemy : Actor
         spriteRenderer.color = Color.red;
         yield return flashDurationInstruction;
         spriteRenderer.color = Color.white;
-    }
-
-    private void PrintHealth(int health)
-    {
-        Debug.Log(health);
-    }
-
-    private void PrintDeath()
-    {
-        Debug.Log("Died");
     }
 }

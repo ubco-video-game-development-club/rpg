@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65fe40d9c1506a14b9dbc1fb3d47d7ee, type: 3}
-  m_Name: CleaveEffect
+  m_Name: CleaveAttack
   m_EditorClassIdentifier: 
   onHitActions: []
   damage: 1
