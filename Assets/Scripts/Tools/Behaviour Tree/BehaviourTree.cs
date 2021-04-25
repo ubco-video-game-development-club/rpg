@@ -22,7 +22,7 @@ namespace BehaviourTree
     public abstract class BehaviourTreeNode
     {
         public int PropertyCount { get => properties.Count; }
-        private Dictionary<string, VariableProperty> properties;
+        private Dictionary<string, VariableProperty> properties = new Dictionary<string, VariableProperty>();
 
         public void AddProperty(VariableProperty property)
         {

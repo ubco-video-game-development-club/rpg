@@ -43,6 +43,7 @@ namespace BehaviourTree
         {
             string name = node.Element.GetType().Name;
             Rect layout = EditorGUILayout.BeginHorizontal();
+            layout.width -= 55;
 
             if (GUI.Button(layout, GUIContent.none, GUI.skin.box)) selectedTree.selectedNode = node.Element;
 

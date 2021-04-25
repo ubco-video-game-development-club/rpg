@@ -10,17 +10,24 @@ namespace BehaviourTree
     {
         private BehaviourTree behaviourTree;
         private VariableProperty[] propertyBuffer;
+        private BehaviourTreeNode lastSelected = null;
 
         void OnEnable()
         {
             behaviourTree = serializedObject.targetObject as BehaviourTree;
-            propertyBuffer = behaviourTree.selectedNode?.GetProperties();
         }
 
         public override void OnInspectorGUI()
         {
             BehaviourTreeNode node = behaviourTree.selectedNode;
             if(node == null) return;
+            if(propertyBuffer == null) propertyBuffer = behaviourTree.selectedNode.GetProperties();
+
+            if(lastSelected != node)
+            {
+                propertyBuffer = behaviourTree.selectedNode.GetProperties();
+                lastSelected = node;
+            }
 
             string name = node.GetType().Name;
             GUILayout.Label(name);
