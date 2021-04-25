@@ -8,6 +8,7 @@ namespace BehaviourTree
     public class BehaviourTree : ScriptableObject
     {
         public Tree<BehaviourTreeNode> tree;
+        [System.NonSerialized] public BehaviourTreeNode selectedNode;
     }
 
     public enum NodeStatus
@@ -20,6 +21,7 @@ namespace BehaviourTree
     [System.Serializable]
     public abstract class BehaviourTreeNode
     {
+        public int PropertyCount { get => properties.Count; }
         private Dictionary<string, VariableProperty> properties;
 
         public void AddProperty(VariableProperty property)
@@ -35,8 +37,15 @@ namespace BehaviourTree
             return properties[name];
         }
 
-        public bool RemoveProperty(string name) => properties.Remove(name);
+        public VariableProperty[] GetProperties()
+        {
+            VariableProperty[] buffer = new VariableProperty[PropertyCount];
+            GetProperties(buffer, 0);
+            return buffer;
+        }
 
+        public void GetProperties(VariableProperty[] buffer, int index) => properties.Values.CopyTo(buffer, index);
+        public bool RemoveProperty(string name) => properties.Remove(name);
         public abstract NodeStatus Tick(Tree<BehaviourTreeNode>.Node self);
     }
 }
