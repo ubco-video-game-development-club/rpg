@@ -1,8 +1,11 @@
 public enum PropertyName
 {
-    HEALTH,
-    DAMAGE,
-    QUACKER,
-    FLAPPER,
-    TAPPER
+    Health,
+    Damage,
+    XP,
+    Level,
+    LevelUps,
+    Quackers,
+    Flappers,
+    Tappers
 }

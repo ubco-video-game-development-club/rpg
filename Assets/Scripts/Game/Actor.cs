@@ -9,8 +9,8 @@ public class Actor : Entity
 
     public int Health
     {
-        get { return GetProperty<int>(PropertyName.HEALTH); }
-        private set { SetProperty<int>(PropertyName.HEALTH, value); }
+        get { return GetProperty<int>(PropertyName.Health); }
+        private set { SetProperty<int>(PropertyName.Health, value); }
     }
 
     private UnityEvent<int> onHealthChanged = new UnityEvent<int>();
