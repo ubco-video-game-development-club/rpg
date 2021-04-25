@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-public struct VariableProperty
+public class VariableProperty
 {
     public string Name { get; }
     public Type PropertyType { get; }
