@@ -5,9 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    public static GameManager Instance { get { return instance; } }
 
-    private Player player;
+    private static LevelingSystem levelingSystem;
+    public static LevelingSystem LevelingSystem { get { return levelingSystem; } }
+
+    private static Player player;
+    public static Player Player { get { return player; } }
 
     void Awake()
     {
@@ -17,15 +20,8 @@ public class GameManager : MonoBehaviour
             return;
         }
         instance = this;
-    }
 
-    void Start()
-    {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-    }
-
-    public Player GetPlayer()
-    {
-        return player;
+        levelingSystem = GetComponent<LevelingSystem>();
     }
 }
