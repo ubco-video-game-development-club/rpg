@@ -38,33 +38,33 @@ public class LevelingSystem : MonoBehaviour
     {
         xp = 0;
         level = ToLevel(xp);
-
-        Debug.Log(ToXP(1));
-        Debug.Log(ToXP(2));
-        Debug.Log(ToXP(3));
     }
 
     void OnGUI()
     {
-        GUI.Label(new Rect(10, 10, 150, 20), $"XP: {xp}");
-        GUI.Label(new Rect(10, 30, 150, 20), $"Level: {level}");
-        GUI.Label(new Rect(10, 50, 150, 20), $"Available Level Ups: {levelUps}");
+        GUILayout.BeginArea(new Rect(10, 10, 150, Screen.height / 2 - 15));
+
+        GUILayout.Label($"XP: {xp}");
+        GUILayout.Label($"Level: {level}");
+        GUILayout.Label($"Available Level Ups: {levelUps}");
 
         if (levelUps > 0)
         {
-            if (GUI.Button(new Rect(10, 70, 150, 20), "Level Up Quackers!"))
+            if (GUILayout.Button("Level Up Quackers!"))
             {
                 LevelUpQuackers();
             }
-            if (GUI.Button(new Rect(10, 90, 150, 20), "Level Up Flappers!"))
+            if (GUILayout.Button("Level Up Flappers!"))
             {
                 LevelUpFlappers();
             }
-            if (GUI.Button(new Rect(10, 110, 150, 20), "Level Up Tappers!"))
+            if (GUILayout.Button("Level Up Tappers!"))
             {
                 LevelUpTappers();
             }
         }
+
+        GUILayout.EndArea();
     }
 
     public void AddXP(int amount)
