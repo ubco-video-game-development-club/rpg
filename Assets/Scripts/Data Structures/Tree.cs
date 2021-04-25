@@ -16,6 +16,7 @@ public class Tree<T>
     public struct Node
     {
         public int ChildCount { get => children.Count; }
+        public T Element { get => element; }
 
         private T element;
         private List<Node> children;
