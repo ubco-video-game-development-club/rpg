@@ -9,7 +9,7 @@ public class LevelingSystem : MonoBehaviour
     public struct LevelUpProperty
     {
         public PropertyName name;
-        public float value;
+        public float bonus;
     }
 
     [Header("Experience")]
@@ -17,9 +17,50 @@ public class LevelingSystem : MonoBehaviour
     [SerializeField] private int xpPerLevelGrowth = 30;
 
     [Header("Leveling")]
-    [SerializeField] private LevelUpProperty[] quackersProperties;
-    [SerializeField] private LevelUpProperty[] flappersProperties;
-    [SerializeField] private LevelUpProperty[] tappersProperties;
+    [Tooltip("Set which properties should increase when the player levels up and by how much.")]
+    [SerializeField] private LevelUpProperty[] baseLevelUpBonuses;
+    [Tooltip("Set which properties should increase when the player picks Quackers and by how much.")]
+    [SerializeField] private LevelUpProperty[] quackersLevelUpBonuses;
+    [Tooltip("Set which properties should increase when the player picks Flappers and by how much.")]
+    [SerializeField] private LevelUpProperty[] flappersLevelUpBonuses;
+    [Tooltip("Set which properties should increase when the player picks Tappers and by how much.")]
+    [SerializeField] private LevelUpProperty[] tappersLevelUpBonuses;
+
+    public int XP
+    {
+        get { return GameManager.Player.GetProperty<int>(PropertyName.XP); }
+        set { GameManager.Player.SetProperty<int>(PropertyName.XP, value); }
+    }
+
+    public int Level
+    {
+        get { return GameManager.Player.GetProperty<int>(PropertyName.Level); }
+        set { GameManager.Player.SetProperty<int>(PropertyName.Level, value); }
+    }
+
+    public int LevelUps
+    {
+        get { return GameManager.Player.GetProperty<int>(PropertyName.LevelUps); }
+        set { GameManager.Player.SetProperty<int>(PropertyName.LevelUps, value); }
+    }
+
+    public int Quackers
+    {
+        get { return GameManager.Player.GetProperty<int>(PropertyName.Quackers); }
+        set { GameManager.Player.SetProperty<int>(PropertyName.Quackers, value); }
+    }
+
+    public int Flappers
+    {
+        get { return GameManager.Player.GetProperty<int>(PropertyName.Flappers); }
+        set { GameManager.Player.SetProperty<int>(PropertyName.Flappers, value); }
+    }
+
+    public int Tappers
+    {
+        get { return GameManager.Player.GetProperty<int>(PropertyName.Tappers); }
+        set { GameManager.Player.SetProperty<int>(PropertyName.Tappers, value); }
+    }
 
     private UnityEvent<int> onXPChanged = new UnityEvent<int>();
     public UnityEvent<int> OnXPChanged { get { return onXPChanged; } }
@@ -30,25 +71,25 @@ public class LevelingSystem : MonoBehaviour
     private UnityEvent<int> onLevelUpsChanged = new UnityEvent<int>();
     public UnityEvent<int> OnLevelUpsChanged { get { return onLevelUpsChanged; } }
 
-    private int xp;
-    private int level;
-    private int levelUps;
-
     void Awake()
     {
-        xp = 0;
-        level = ToLevel(xp);
+        XP = 0;
+        Level = ToLevel(XP);
+        LevelUps = 0;
+        Quackers = 0;
+        Flappers = 0;
+        Tappers = 0;
     }
 
     void OnGUI()
     {
         GUILayout.BeginArea(new Rect(10, 10, 150, Screen.height / 2 - 15));
 
-        GUILayout.Label($"XP: {xp}");
-        GUILayout.Label($"Level: {level}");
-        GUILayout.Label($"Available Level Ups: {levelUps}");
+        GUILayout.Label($"XP: {XP}");
+        GUILayout.Label($"Level: {Level}");
+        GUILayout.Label($"Available Level Ups: {LevelUps}");
 
-        if (levelUps > 0)
+        if (LevelUps > 0)
         {
             if (GUILayout.Button("Level Up Quackers!"))
             {
@@ -69,42 +110,54 @@ public class LevelingSystem : MonoBehaviour
 
     public void AddXP(int amount)
     {
-        xp += amount;
-        onXPChanged.Invoke(xp);
+        XP += amount;
+        onXPChanged.Invoke(XP);
 
-        int newLevelUps = ToLevel(this.xp) - level;
-        if (newLevelUps > levelUps) onLevelUpsChanged.Invoke(newLevelUps);
-        levelUps = newLevelUps;
+        int newLevelUps = ToLevel(XP) - Level;
+        if (newLevelUps > LevelUps) onLevelUpsChanged.Invoke(newLevelUps);
+        LevelUps = newLevelUps;
     }
 
     public void LevelUpQuackers()
     {
-        ApplyLevelUp(quackersProperties);
+        ApplyLevelUp(quackersLevelUpBonuses);
+        Quackers++;
     }
 
     public void LevelUpFlappers()
     {
-        ApplyLevelUp(flappersProperties);
+        ApplyLevelUp(flappersLevelUpBonuses);
+        Flappers++;
     }
 
     public void LevelUpTappers()
     {
-        ApplyLevelUp(tappersProperties);
+        ApplyLevelUp(tappersLevelUpBonuses);
+        Tappers++;
     }
 
-    private void ApplyLevelUp(LevelUpProperty[] levelUpProperties)
+    private void ApplyLevelUp(LevelUpProperty[] pickedLevelUpProperties)
     {
-        levelUps--;
-        onLevelUpsChanged.Invoke(levelUps);
+        LevelUps--;
+        onLevelUpsChanged.Invoke(LevelUps);
 
-        level++;
-        onLevelChanged.Invoke(level);
+        Level++;
+        onLevelChanged.Invoke(Level);
 
         Player player = GameManager.Player;
-        foreach (LevelUpProperty prop in levelUpProperties)
+
+        // Apply the base level up bonuses
+        foreach (LevelUpProperty prop in baseLevelUpBonuses)
         {
             float currentValue = player.GetProperty<float>(prop.name);
-            player.SetProperty<float>(prop.name, currentValue + prop.value);
+            player.SetProperty<float>(prop.name, currentValue + prop.bonus);
+        }
+
+        // Apply the level up bonuses for the picked type
+        foreach (LevelUpProperty prop in pickedLevelUpProperties)
+        {
+            float currentValue = player.GetProperty<float>(prop.name);
+            player.SetProperty<float>(prop.name, currentValue + prop.bonus);
         }
     }
 

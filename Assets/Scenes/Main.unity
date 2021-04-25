@@ -1420,9 +1420,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xpPerLevelBase: 80
   xpPerLevelGrowth: 30
-  quackersProperties: []
-  flappersProperties: []
-  tappersProperties: []
+  baseLevelUpBonuses:
+  - name: 0
+    bonus: 20
+  quackersLevelUpBonuses: []
+  flappersLevelUpBonuses: []
+  tappersLevelUpBonuses: []
 --- !u!1 &1228657968
 GameObject:
   m_ObjectHideFlags: 0
