@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(AnimatorCache))]
-public class Player : Entity
+public class Player : Actor
 {
-    public const float GLOBAL_COOLDOWN = 0.05f;
+    public const float GLOBAL_COOLDOWN = 0.25f;
     private const float ANIM_LOCK_DURATION = 0.05f;
 
     [System.Serializable] public class PositionChangedEvent : UnityEvent<Vector2> { }
@@ -18,6 +18,7 @@ public class Player : Entity
     private bool isGCDActive;
     private bool isAnimLocked;
     private Vector3 prevFramePosition;
+    private ActionData attackData;
 
     private RuntimeAnimatorController baseAnimationController;
     public RuntimeAnimatorController BaseAnimationController { get { return baseAnimationController; } }
@@ -31,8 +32,10 @@ public class Player : Entity
 
     private PositionChangedEvent onPositionChanged = new PositionChangedEvent();
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         animator = GetComponent<Animator>();
         animatorCache = GetComponent<AnimatorCache>();
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -43,6 +46,8 @@ public class Player : Entity
 
         primaryAttack.Enabled = true;
         secondaryAttack.Enabled = true;
+
+        attackData = new ActionData(LayerMask.GetMask("Enemy"));
     }
 
     void Update()
@@ -88,8 +93,10 @@ public class Player : Entity
         {
             StartCoroutine(GlobalCooldown());
             StartCoroutine(AttackCooldown(attack));
+
             UpdateAttackAnimations(attack);
-            attack.Invoke();
+            attackData.origin = transform.position;
+            attack.Invoke(attackData);
         }
     }
 
