@@ -7,7 +7,7 @@ using UnityEditor;
 
 public class BehaviourTreeWindow : EditorWindow
 {
-    private const float INDENT_MULTIPLIER = 5.0f;
+    private const float INDENT_MULTIPLIER = 10.0f;
     private Vector2 CentreOfWindow { get { return this.position.size / 2.0f; } }
     private BehaviourTree.BehaviourTree selectedTree = null;
     private Vector2 scrollPos = Vector2.zero;
@@ -29,7 +29,7 @@ public class BehaviourTreeWindow : EditorWindow
         scrollPos = GUILayout.BeginScrollView(scrollPos);
         Tree<BehaviourTreeNode> tree = selectedTree.tree;
         Tree<BehaviourTreeNode>.Node root = tree.Root ?? default(Tree<BehaviourTreeNode>.Node); //The default case should never happen
-        ShowNode(root);
+        ShowNode(null, root);
         GUILayout.EndScrollView();
     }
 
@@ -38,30 +38,44 @@ public class BehaviourTreeWindow : EditorWindow
         UpdateSelectedTree();
     }
 
-    private void ShowNode(Tree<BehaviourTreeNode>.Node node, int indent = 0)
+    private void ShowNode(Tree<BehaviourTreeNode>.Node? parent, Tree<BehaviourTreeNode>.Node node, int indent = 0)
     {
         string name = node.Element.GetType().Name;
         GUILayout.BeginHorizontal(GUI.skin.box);
         GUILayout.Space(indent * INDENT_MULTIPLIER);
         GUILayout.Label(name);
        
-        if(GUILayout.Button("+", GUILayout.Width(25)))
-        {
-            //TODO: Add child node
-        }
+        if(GUILayout.Button("+", GUILayout.Width(25))) AddChild(node);
 
-        if(GUILayout.Button("-", GUILayout.Width(25)))
-        {
-            //TODO: Remove this node
-        }
+        if(parent != null && GUILayout.Button("-", GUILayout.Width(25))) parent?.RemoveChild(node);
         
         GUILayout.EndHorizontal();
 
         for(int i = 0; i < node.ChildCount; i++)
         {
             var child = node.GetChild(i);
-            ShowNode(child, indent + 1);
+            ShowNode(node, child, indent + 1);
         }
+    }
+
+    private void AddChild(Tree<BehaviourTreeNode>.Node parent)
+    {
+        GenericMenu menu = new GenericMenu();
+        BehaviourTreeNodeType[] nodeTypes = (BehaviourTreeNodeType[])System.Enum.GetValues(typeof(BehaviourTreeNodeType));
+        foreach(BehaviourTreeNodeType type in nodeTypes)
+        {
+            menu.AddItem(
+                new GUIContent(type.ToString()),
+                false,
+                () => 
+                { 
+                    parent.AddChild(new Tree<BehaviourTreeNode>.Node(BehaviourTreeNodeCreator.Create(type)));
+                    EditorUtility.SetDirty(selectedTree); //TODO: The asset won't save. How fix?
+                }
+            );
+        }
+
+        menu.ShowAsContext();
     }
 
     private void UpdateSelectedTree()

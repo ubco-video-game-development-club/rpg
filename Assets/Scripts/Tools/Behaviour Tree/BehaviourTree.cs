@@ -17,6 +17,7 @@ namespace BehaviourTree
         Failure
     }
 
+    [System.Serializable]
     public abstract class BehaviourTreeNode
     {
         private Dictionary<string, VariableProperty> properties;
