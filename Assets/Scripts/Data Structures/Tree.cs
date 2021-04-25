@@ -5,11 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class Tree<T>
 {
-    public Node? Root { get; }
+    public Node? Root { get => root; }
+    private Node? root;
 
     public Tree(T root)
     {
-        Root = new Node(root);
+        this.root = new Node(root);
     }
 
     [System.Serializable]
