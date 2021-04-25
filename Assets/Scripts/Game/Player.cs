@@ -34,6 +34,8 @@ public class Player : Actor
 
     protected override void Awake()
     {
+        base.Awake();
+
         animator = GetComponent<Animator>();
         animatorCache = GetComponent<AnimatorCache>();
         rigidbody2D = GetComponent<Rigidbody2D>();
