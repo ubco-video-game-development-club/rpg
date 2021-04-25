@@ -1406,6 +1406,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e51869d38044a140a1cadee1606d98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1226771123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226771120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff90a5844019a943b67e7cf0996fc01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpPerLevelBase: 80
+  xpPerLevelGrowth: 30
+  quackersProperties: []
+  flappersProperties: []
+  tappersProperties: []
 --- !u!1 &1228657968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,20 +1523,6 @@ Canvas:
   m_SortingLayerID: -1945464275
   m_SortingOrder: 1
   m_TargetDisplay: 0
---- !u!114 &1226771123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226771120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ff90a5844019a943b67e7cf0996fc01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xpPerLevelBase: 80
-  xpPerLevelGrowth: 30
 --- !u!1 &1847275834
 GameObject:
   m_ObjectHideFlags: 0

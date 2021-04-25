@@ -24,19 +24,57 @@ public class LevelingSystem : MonoBehaviour
     private UnityEvent<int> onXPChanged = new UnityEvent<int>();
     public UnityEvent<int> OnXPChanged { get { return onXPChanged; } }
 
+    private UnityEvent<int> onLevelChanged = new UnityEvent<int>();
+    public UnityEvent<int> OnLevelChanged { get { return onLevelChanged; } }
+
     private UnityEvent<int> onLevelUpsChanged = new UnityEvent<int>();
     public UnityEvent<int> OnLevelUpsChanged { get { return onLevelUpsChanged; } }
 
     private int xp;
     private int level;
+    private int levelUps;
+
+    void Awake()
+    {
+        xp = 0;
+        level = ToLevel(xp);
+
+        Debug.Log(ToXP(1));
+        Debug.Log(ToXP(2));
+        Debug.Log(ToXP(3));
+    }
+
+    void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 150, 20), $"XP: {xp}");
+        GUI.Label(new Rect(10, 30, 150, 20), $"Level: {level}");
+        GUI.Label(new Rect(10, 50, 150, 20), $"Available Level Ups: {levelUps}");
+
+        if (levelUps > 0)
+        {
+            if (GUI.Button(new Rect(10, 70, 150, 20), "Level Up Quackers!"))
+            {
+                LevelUpQuackers();
+            }
+            if (GUI.Button(new Rect(10, 90, 150, 20), "Level Up Flappers!"))
+            {
+                LevelUpFlappers();
+            }
+            if (GUI.Button(new Rect(10, 110, 150, 20), "Level Up Tappers!"))
+            {
+                LevelUpTappers();
+            }
+        }
+    }
 
     public void AddXP(int amount)
     {
         xp += amount;
         onXPChanged.Invoke(xp);
 
-        int levelups = ToLevel(this.xp) - level;
-        if (levelups > 0) onLevelUpsChanged.Invoke(levelups);
+        int newLevelUps = ToLevel(this.xp) - level;
+        if (newLevelUps > levelUps) onLevelUpsChanged.Invoke(newLevelUps);
+        levelUps = newLevelUps;
     }
 
     public void LevelUpQuackers()
@@ -56,6 +94,12 @@ public class LevelingSystem : MonoBehaviour
 
     private void ApplyLevelUp(LevelUpProperty[] levelUpProperties)
     {
+        levelUps--;
+        onLevelUpsChanged.Invoke(levelUps);
+
+        level++;
+        onLevelChanged.Invoke(level);
+
         Player player = GameManager.Player;
         foreach (LevelUpProperty prop in levelUpProperties)
         {
@@ -69,7 +113,7 @@ public class LevelingSystem : MonoBehaviour
     {
         int a = xpPerLevelBase;
         int b = xpPerLevelGrowth;
-        return Mathf.FloorToInt((-a + 0.5f * b + Mathf.Sqrt(a * a - a * b + 0.25f * b * b + 2f * b * xp)) / b);
+        return Mathf.FloorToInt(((-a + 0.5f * b + Mathf.Sqrt(a * a - a * b + 0.25f * b * b + 2f * b * xp)) / b) + 1);
     }
 
     ///<summary>Convert a level to the amount of total XP it represents.</summary>
@@ -77,6 +121,7 @@ public class LevelingSystem : MonoBehaviour
     {
         int a = xpPerLevelBase;
         int b = xpPerLevelGrowth;
-        return Mathf.FloorToInt(0.5f * b * level * level + (a - 0.5f * b) * level);
+        int c = level - 1;
+        return Mathf.FloorToInt(0.5f * b * c * c + (a - 0.5f * b) * c);
     }
 }
