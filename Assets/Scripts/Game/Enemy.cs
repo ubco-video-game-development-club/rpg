@@ -20,8 +20,8 @@ public class Enemy : Actor
 
     void Start()
     {
-        OnHealthChanged.AddListener(FlashRed);
-        OnHealthChanged.AddListener((health) => GameManager.LevelingSystem.AddXP(20));
+        OnDamageTaken.AddListener(FlashRed);
+        OnDamageTaken.AddListener((health) => GameManager.LevelingSystem.AddXP(20));
         OnDeath.AddListener(() => GameManager.LevelingSystem.AddXP(100));
     }
 

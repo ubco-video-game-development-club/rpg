@@ -29,37 +29,37 @@ public class LevelingSystem : MonoBehaviour
     public int XP
     {
         get { return GameManager.Player.GetProperty<int>(PropertyName.XP); }
-        set { GameManager.Player.SetProperty<int>(PropertyName.XP, value); }
+        private set { GameManager.Player.SetProperty<int>(PropertyName.XP, value); }
     }
 
     public int Level
     {
         get { return GameManager.Player.GetProperty<int>(PropertyName.Level); }
-        set { GameManager.Player.SetProperty<int>(PropertyName.Level, value); }
+        private set { GameManager.Player.SetProperty<int>(PropertyName.Level, value); }
     }
 
     public int LevelUps
     {
         get { return GameManager.Player.GetProperty<int>(PropertyName.LevelUps); }
-        set { GameManager.Player.SetProperty<int>(PropertyName.LevelUps, value); }
+        private set { GameManager.Player.SetProperty<int>(PropertyName.LevelUps, value); }
     }
 
     public int Quackers
     {
         get { return GameManager.Player.GetProperty<int>(PropertyName.Quackers); }
-        set { GameManager.Player.SetProperty<int>(PropertyName.Quackers, value); }
+        private set { GameManager.Player.SetProperty<int>(PropertyName.Quackers, value); }
     }
 
     public int Flappers
     {
         get { return GameManager.Player.GetProperty<int>(PropertyName.Flappers); }
-        set { GameManager.Player.SetProperty<int>(PropertyName.Flappers, value); }
+        private set { GameManager.Player.SetProperty<int>(PropertyName.Flappers, value); }
     }
 
     public int Tappers
     {
         get { return GameManager.Player.GetProperty<int>(PropertyName.Tappers); }
-        set { GameManager.Player.SetProperty<int>(PropertyName.Tappers, value); }
+        private set { GameManager.Player.SetProperty<int>(PropertyName.Tappers, value); }
     }
 
     private UnityEvent<int> onXPChanged = new UnityEvent<int>();

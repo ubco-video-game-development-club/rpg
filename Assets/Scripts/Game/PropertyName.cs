@@ -1,5 +1,6 @@
 public enum PropertyName
 {
+    MaxHealth,
     Health,
     Damage,
     XP,
