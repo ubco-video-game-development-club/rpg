@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Tree<T>
 {
-    public Node Root { get; }
+    public Node? Root { get; }
 
     public Tree(T root)
     {
