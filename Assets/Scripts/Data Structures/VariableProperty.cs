@@ -6,13 +6,11 @@ using UnityEngine;
 
 public class VariableProperty
 {
-    public string Name { get; }
     public Type PropertyType { get; }
     private Value value;
 
-    public VariableProperty(string name, Type type)
+    public VariableProperty(Type type)
     {
-        Name = name;
         PropertyType = type;
         value = new Value();
     }

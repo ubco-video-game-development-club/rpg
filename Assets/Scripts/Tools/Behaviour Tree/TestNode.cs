@@ -8,7 +8,7 @@ namespace BehaviourTree
     {
         public TestNode()
         {
-            AddProperty(new VariableProperty("Foo", VariableProperty.Type.Boolean));
+            AddProperty("Foo", new VariableProperty(VariableProperty.Type.Boolean));
         }
 
         public override NodeStatus Tick(Tree<BehaviourTreeNode>.Node self)

@@ -9,8 +9,6 @@ namespace BehaviourTree
     public class BehaviourTreeInspector : Editor
     {
         private BehaviourTree behaviourTree;
-        private VariableProperty[] propertyBuffer;
-        private BehaviourTreeNode lastSelected = null;
 
         void OnEnable()
         {
@@ -21,28 +19,21 @@ namespace BehaviourTree
         {
             BehaviourTreeNode node = behaviourTree.selectedNode;
             if(node == null) return;
-            if(propertyBuffer == null) propertyBuffer = behaviourTree.selectedNode.GetProperties();
-
-            if(lastSelected != node)
-            {
-                propertyBuffer = behaviourTree.selectedNode.GetProperties();
-                lastSelected = node;
-            }
 
             string name = node.GetType().Name;
             GUILayout.Label(name);
-            foreach(VariableProperty property in propertyBuffer)
+            foreach(string propertyName in node.Properties.Keys)
             {
-                DisplayProperty(property);
+                DisplayProperty(propertyName, node.Properties[propertyName]);
             }
 
             Repaint();
         }
 
-        private void DisplayProperty(VariableProperty property)
+        private void DisplayProperty(string name, VariableProperty property)
         {
             GUILayout.BeginHorizontal();
-            GUILayout.Label(property.Name);
+            GUILayout.Label(name);
 
             switch (property.PropertyType)
             {

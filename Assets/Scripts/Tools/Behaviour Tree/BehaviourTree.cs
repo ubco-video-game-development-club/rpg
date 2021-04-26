@@ -21,14 +21,13 @@ namespace BehaviourTree
     [System.Serializable]
     public abstract class BehaviourTreeNode
     {
-        public int PropertyCount { get => properties.Count; }
+        public Dictionary<string, VariableProperty> Properties { get => properties; }
         private Dictionary<string, VariableProperty> properties = new Dictionary<string, VariableProperty>();
 
-        public void AddProperty(VariableProperty property)
+        public void AddProperty(string name, VariableProperty property)
         {
-            if(properties.ContainsKey(property.Name)) return;
-
-            properties.Add(property.Name, property);
+            if(properties.ContainsKey(name)) return;
+            properties.Add(name, property);
         }
 
         public VariableProperty GetProperty(string name)
@@ -37,14 +36,6 @@ namespace BehaviourTree
             return properties[name];
         }
 
-        public VariableProperty[] GetProperties()
-        {
-            VariableProperty[] buffer = new VariableProperty[PropertyCount];
-            GetProperties(buffer, 0);
-            return buffer;
-        }
-
-        public void GetProperties(VariableProperty[] buffer, int index) => properties.Values.CopyTo(buffer, index);
         public bool RemoveProperty(string name) => properties.Remove(name);
         public abstract NodeStatus Tick(Tree<BehaviourTreeNode>.Node self);
     }
