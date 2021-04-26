@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fb5e73c80040247a00b01917c6e426, type: 3}
   m_Name: Test Tree
   m_EditorClassIdentifier: 
+  tree:
+    root:
+      children:
+      - children:
+        - children: []
+      - children: []

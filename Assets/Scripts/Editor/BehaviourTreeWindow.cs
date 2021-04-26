@@ -29,7 +29,7 @@ namespace BehaviourTree
             GUILayout.Space(5);
             scrollPos = GUILayout.BeginScrollView(scrollPos);
             Tree<BehaviourTreeNode> tree = selectedTree.tree;
-            Tree<BehaviourTreeNode>.Node root = tree.Root ?? default(Tree<BehaviourTreeNode>.Node); //The default case should never happen
+            Tree<BehaviourTreeNode>.Node root = tree.Root;
             ShowNode(null, root);
             GUILayout.EndScrollView();
         }
@@ -88,7 +88,7 @@ namespace BehaviourTree
             if (Selection.activeObject is BehaviourTree)
             {
                 selectedTree = Selection.activeObject as BehaviourTree;
-                if (selectedTree.tree == null || selectedTree.tree.Root == null) selectedTree.tree = new Tree<BehaviourTreeNode>(new SequenceNode());
+                if (selectedTree.tree == null || selectedTree.tree.Root.Element == null) selectedTree.tree = new Tree<BehaviourTreeNode>(new SequenceNode());
             }
             else selectedTree = null;
 
