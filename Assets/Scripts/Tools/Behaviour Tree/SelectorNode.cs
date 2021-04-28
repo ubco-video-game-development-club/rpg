@@ -4,9 +4,11 @@ using UnityEngine;
 
 namespace BehaviourTree
 {
-    public class SelectorNode : BehaviourTreeNode
+    public class SelectorNode : IBehaviourTreeNode
     {
-        public override NodeStatus Tick(Tree<BehaviourTreeNode>.Node self)
+        public void Init(BehaviourTreeNode self) { }
+
+        public NodeStatus Tick(Tree<BehaviourTreeNode>.Node self)
         {
             for(int i = 0; i < self.ChildCount; i++)
             {

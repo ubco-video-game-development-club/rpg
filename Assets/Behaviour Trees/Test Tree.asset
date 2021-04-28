@@ -13,6 +13,21 @@ MonoBehaviour:
   m_Name: Test Tree
   m_EditorClassIdentifier: 
   tree:
-    root:
-      children:
-      - children: []
+    serializedNodes:
+    - childCount: 1
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 1
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: Foo
+          property:
+            propertyType: 0
+            value:
+              b: 1
+              n: 0
+              s: 
+        nodeTypeName: BehaviourTree.TestNode
+      firstChildIndex: 2

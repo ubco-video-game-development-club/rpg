@@ -11,7 +11,7 @@ namespace BehaviourTree
 
     public static class BehaviourTreeNodeCreator
     {
-        public static BehaviourTreeNode Create(BehaviourTreeNodeType type)
+        public static IBehaviourTreeNode Create(BehaviourTreeNodeType type)
         {
             switch(type)
             {

@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace BehaviourTree
 {
-    public class TestNode : BehaviourTreeNode
+    public class TestNode : IBehaviourTreeNode
     {
-        public TestNode()
+        public void Init(BehaviourTreeNode self)
         {
-            AddProperty("Foo", new VariableProperty(VariableProperty.Type.Boolean));
+            self.AddProperty("Foo", new VariableProperty(VariableProperty.Type.Boolean));
         }
 
-        public override NodeStatus Tick(Tree<BehaviourTreeNode>.Node self)
+        public NodeStatus Tick(Tree<BehaviourTreeNode>.Node self)
         {
             return NodeStatus.Success;
         }

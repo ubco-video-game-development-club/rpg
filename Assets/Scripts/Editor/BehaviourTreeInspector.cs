@@ -20,7 +20,7 @@ namespace BehaviourTree
             BehaviourTreeNode node = behaviourTree.selectedNode;
             if(node == null) return;
 
-            string name = node.GetType().Name;
+            string name = node.Node.GetType().Name;
             GUILayout.Label(name);
             foreach(string propertyName in node.Properties.Keys)
             {
@@ -43,9 +43,9 @@ namespace BehaviourTree
                 case VariableProperty.Type.Number:
                     property.Set(EditorGUILayout.DoubleField(property.GetNumber()));
                     break;
-                case VariableProperty.Type.Array:
+                /*case VariableProperty.Type.Array:
                     Debug.Log("Not implemented!");
-                    break;
+                    break;*/
                 case VariableProperty.Type.String:
                     property.Set(GUILayout.TextField(property.GetString()));
                     break;

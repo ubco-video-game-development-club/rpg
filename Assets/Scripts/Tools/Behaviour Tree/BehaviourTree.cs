@@ -19,10 +19,19 @@ namespace BehaviourTree
     }
 
     [System.Serializable]
-    public abstract class BehaviourTreeNode
+    public class BehaviourTreeNode : ISerializationCallbackReceiver
     {
         public Dictionary<string, VariableProperty> Properties { get => properties; }
+        public IBehaviourTreeNode Node { get => node; }
         private Dictionary<string, VariableProperty> properties = new Dictionary<string, VariableProperty>();
+        private IBehaviourTreeNode node;
+        [SerializeField] private PropertyInfo[] propertyInfo;
+        [SerializeField] private string nodeTypeName;
+
+        public BehaviourTreeNode(IBehaviourTreeNode node)
+        {
+            this.node = node;
+        }
 
         public void AddProperty(string name, VariableProperty property)
         {
@@ -37,6 +46,41 @@ namespace BehaviourTree
         }
 
         public bool RemoveProperty(string name) => properties.Remove(name);
-        public abstract NodeStatus Tick(Tree<BehaviourTreeNode>.Node self);
+        public NodeStatus Tick(Tree<BehaviourTreeNode>.Node self) => node.Tick(self);
+
+        public void OnBeforeSerialize()
+        {
+            if(properties == null) properties = new Dictionary<string, VariableProperty>();
+            propertyInfo = new PropertyInfo[properties.Count];
+            int i = 0;
+            foreach(string name in properties.Keys)
+            {
+                propertyInfo[i].name = name;
+                propertyInfo[i].property = properties[name];
+                i++;
+            }
+
+            if(node == null) nodeTypeName = "";
+            else nodeTypeName = node.GetType().FullName;
+        }
+
+        public void OnAfterDeserialize()
+        {
+            if(properties == null) properties = new Dictionary<string, VariableProperty>();
+            foreach(PropertyInfo info in propertyInfo)
+            {
+                properties.Add(info.name, info.property);
+            }
+
+            System.Type type = System.Type.GetType(nodeTypeName);
+            node = (IBehaviourTreeNode)System.Activator.CreateInstance(type);
+        }
+
+        [System.Serializable]
+        private struct PropertyInfo
+        {
+            public string name;
+            public VariableProperty property;
+        }
     }
 }

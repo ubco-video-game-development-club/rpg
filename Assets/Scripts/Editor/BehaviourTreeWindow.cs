@@ -41,7 +41,7 @@ namespace BehaviourTree
 
         private void ShowNode(Tree<BehaviourTreeNode>.Node? parent, Tree<BehaviourTreeNode>.Node node, int indent = 0)
         {
-            string name = node.Element.GetType().Name;
+            string name = node.Element.Node.GetType().Name;
             Rect layout = EditorGUILayout.BeginHorizontal();
             layout.width -= 55;
 
@@ -74,9 +74,12 @@ namespace BehaviourTree
                     false,
                     () =>
                     {
-                        parent.AddChild(new Tree<BehaviourTreeNode>.Node(BehaviourTreeNodeCreator.Create(type)));
-                        EditorUtility.SetDirty(selectedTree); //TODO: The asset won't save. How fix?
-                }
+                        IBehaviourTreeNode node = BehaviourTreeNodeCreator.Create(type);
+                        BehaviourTreeNode bNode = new BehaviourTreeNode(node);
+                        node.Init(bNode);
+                        parent.AddChild(new Tree<BehaviourTreeNode>.Node(bNode));
+                        EditorUtility.SetDirty(selectedTree);
+                    }
                 );
             }
 
@@ -88,7 +91,10 @@ namespace BehaviourTree
             if (Selection.activeObject is BehaviourTree)
             {
                 selectedTree = Selection.activeObject as BehaviourTree;
-                if (selectedTree.tree == null || selectedTree.tree.Root.Element == null) selectedTree.tree = new Tree<BehaviourTreeNode>(new SequenceNode());
+                if (selectedTree.tree == null || selectedTree.tree.Root.Element == null) 
+                {
+                    selectedTree.tree = new Tree<BehaviourTreeNode>(new BehaviourTreeNode(new SequenceNode()));
+                }
             }
             else selectedTree = null;
 
