@@ -15,7 +15,7 @@ public class TestMoverNode : IBehaviourTreeNode
     {
         Vector2 worldPos = agent.transform.position;
         float noiseSmoothing = (float)self.Element.GetProperty("noise-smoothing").GetNumber();
-        float rotation = Mathf.PerlinNoise(worldPos.x / noiseSmoothing, worldPos.y / noiseSmoothing);
+        float rotation = Mathf.PerlinNoise(worldPos.x / noiseSmoothing, worldPos.y / noiseSmoothing) * 360.0f;
 
         Vector2 direction = Quaternion.Euler(0, 0, rotation) * Vector2.up;
 
