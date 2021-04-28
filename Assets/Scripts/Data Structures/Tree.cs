@@ -6,7 +6,7 @@ using UnityEngine;
 public class Tree<T>
 {
     public Node Root { get => root; }
-    [SerializeField] private Node root;
+    private Node root;
 
     public Tree(T root)
     {
@@ -19,8 +19,8 @@ public class Tree<T>
         public int ChildCount { get => children.Count; }
         public T Element { get => element; }
 
-        [SerializeField] private T element;
-        [SerializeField] private List<Node> children;
+        private T element;
+        private List<Node> children;
 
         public Node(T element)
         {

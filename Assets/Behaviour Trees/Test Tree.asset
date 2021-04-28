@@ -15,6 +15,4 @@ MonoBehaviour:
   tree:
     root:
       children:
-      - children:
-        - children: []
       - children: []
