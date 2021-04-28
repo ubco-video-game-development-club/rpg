@@ -6,7 +6,6 @@ namespace BehaviourTree
     {
         SelectorNode,
         SequenceNode,
-        TestNode,
     }
 
     public static class BehaviourTreeNodeCreator
@@ -19,8 +18,6 @@ namespace BehaviourTree
                     return new SelectorNode();
                 case BehaviourTreeNodeType.SequenceNode:
                     return new SequenceNode();
-                case BehaviourTreeNodeType.TestNode:
-                    return new TestNode();
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return null;
