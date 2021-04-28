@@ -46,7 +46,7 @@ namespace BehaviourTree
         }
 
         public bool RemoveProperty(string name) => properties.Remove(name);
-        public NodeStatus Tick(Tree<BehaviourTreeNode>.Node self) => node.Tick(self);
+        public NodeStatus Tick(Tree<BehaviourTreeNode>.Node self, Agent agent) => node.Tick(self, agent);
 
         public void OnBeforeSerialize()
         {
