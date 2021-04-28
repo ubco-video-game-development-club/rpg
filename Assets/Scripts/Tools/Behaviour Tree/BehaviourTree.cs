@@ -73,7 +73,8 @@ namespace BehaviourTree
             }
 
             System.Type type = System.Type.GetType(nodeTypeName);
-            node = (IBehaviourTreeNode)System.Activator.CreateInstance(type);
+            if(type == null) node = null;
+            else node = (IBehaviourTreeNode)System.Activator.CreateInstance(type);
         }
 
         [System.Serializable]
