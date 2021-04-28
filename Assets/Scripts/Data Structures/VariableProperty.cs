@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
+[System.Serializable];
 public class VariableProperty
 {
-    public Type PropertyType { get; }
-    private Value value;
+    public Type PropertyType { get => propertyType; private set => propertyType = value; }
+    [SerializeField] private Type propertyType;
+    [SerializeField] private Value value;
 
     public VariableProperty(Type type)
     {
@@ -72,6 +74,7 @@ public class VariableProperty
     }
 
     [StructLayout(LayoutKind.Explicit)] //Explicit struct layout allows positions in memory to be defined
+    [System.Serializable]
     private struct Value
     {
         //Making field offset zero essentially creates a C-style union
