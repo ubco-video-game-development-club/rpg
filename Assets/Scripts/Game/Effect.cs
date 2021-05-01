@@ -6,5 +6,5 @@ public abstract class Effect : ScriptableObject
 {
     [SerializeField] protected Effect[] onHitActions;
 
-    public abstract void Invoke();
+    public abstract void Invoke(ActionData data);
 }
