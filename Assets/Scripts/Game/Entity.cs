@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
-    private Dictionary<PropertyName, dynamic> properties;
+    private Dictionary<PropertyName, dynamic> properties = new Dictionary<PropertyName, dynamic>();
 
     public T GetProperty<T>(PropertyName name)
     {
