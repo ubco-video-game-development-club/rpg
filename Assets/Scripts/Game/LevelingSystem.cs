@@ -62,15 +62,6 @@ public class LevelingSystem : MonoBehaviour
         private set { GameManager.Player.SetProperty<int>(PropertyName.Tappers, value); }
     }
 
-    private UnityEvent<int> onXPChanged = new UnityEvent<int>();
-    public UnityEvent<int> OnXPChanged { get { return onXPChanged; } }
-
-    private UnityEvent<int> onLevelChanged = new UnityEvent<int>();
-    public UnityEvent<int> OnLevelChanged { get { return onLevelChanged; } }
-
-    private UnityEvent<int> onLevelUpsChanged = new UnityEvent<int>();
-    public UnityEvent<int> OnLevelUpsChanged { get { return onLevelUpsChanged; } }
-
     void Awake()
     {
         XP = 0;
@@ -111,11 +102,9 @@ public class LevelingSystem : MonoBehaviour
     public void AddXP(int amount)
     {
         XP += amount;
-        onXPChanged.Invoke(XP);
 
         int newLevelUps = ToLevel(XP) - Level;
-        if (newLevelUps > LevelUps) onLevelUpsChanged.Invoke(newLevelUps);
-        LevelUps = newLevelUps;
+        if (newLevelUps > LevelUps) LevelUps = newLevelUps;
     }
 
     public void LevelUpQuackers()
@@ -139,10 +128,7 @@ public class LevelingSystem : MonoBehaviour
     private void ApplyLevelUp(LevelUpProperty[] pickedLevelUpProperties)
     {
         LevelUps--;
-        onLevelUpsChanged.Invoke(LevelUps);
-
         Level++;
-        onLevelChanged.Invoke(Level);
 
         Player player = GameManager.Player;
 

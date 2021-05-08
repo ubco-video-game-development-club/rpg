@@ -30,7 +30,6 @@ public abstract class Entity : MonoBehaviour
 
     public void AddPropertyChangedListener<T>(PropertyName name, UnityAction<T> listener)
     {
-        UnityEvent<T> propertyEvent = (UnityEvent<T>)propertyChangedEvents[name];
         GetPropertyChangedEvent<T>(name).AddListener(listener);
     }
 

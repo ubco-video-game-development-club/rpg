@@ -27,13 +27,9 @@ public class Actor : Entity
 
     protected virtual void Awake()
     {
-        UpdateMaxHealth(initialMaxHealth);
-    }
+        AddPropertyChangedListener<int>(PropertyName.MaxHealth, (maxHealth) => Health = maxHealth);
 
-    public void UpdateMaxHealth(int maxHealth)
-    {
-        MaxHealth = maxHealth;
-        Health = maxHealth;
+        MaxHealth = initialMaxHealth;
     }
 
     public void TakeDamage(int damage)
