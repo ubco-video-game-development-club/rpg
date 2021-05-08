@@ -14,7 +14,7 @@ public class HealthDebugText : MonoBehaviour
 
     void Start()
     {
-        GetComponentInParent<Actor>().OnHealthChanged.AddListener(UpdateHealthText);
+        GetComponentInParent<Actor>().AddPropertyChangedListener<int>(PropertyName.Health, UpdateHealthText);
     }
 
     private void UpdateHealthText(int health)
