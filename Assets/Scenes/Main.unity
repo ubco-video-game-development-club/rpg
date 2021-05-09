@@ -1420,7 +1420,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xpPerLevelBase: 80
   xpPerLevelGrowth: 30
-  baseLevelUpBonuses: []
+  myProp:
+    name: 2
+    type: 1
+    iValue: 123
+    fValue: 1.5
+    sValue: asdasd
+    bValue: 0
+  baseLevelUpBonuses:
+  - name: 0
+    type: 0
+    iValue: 20
+    fValue: 0
+    sValue: 
+    bValue: 0
   quackersLevelUpBonuses: []
   flappersLevelUpBonuses: []
   tappersLevelUpBonuses: []

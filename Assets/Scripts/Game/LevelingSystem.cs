@@ -5,26 +5,19 @@ using UnityEngine.Events;
 
 public class LevelingSystem : MonoBehaviour
 {
-    [System.Serializable]
-    public struct LevelUpProperty
-    {
-        public PropertyName name;
-        public float bonus;
-    }
-
     [Header("Experience")]
     [SerializeField] private int xpPerLevelBase = 80;
     [SerializeField] private int xpPerLevelGrowth = 30;
 
     [Header("Leveling")]
     [Tooltip("Set which properties should increase when the player levels up and by how much.")]
-    [SerializeField] private LevelUpProperty[] baseLevelUpBonuses;
+    [SerializeField] private EntityProperty[] baseLevelUpBonuses;
     [Tooltip("Set which properties should increase when the player picks Quackers and by how much.")]
-    [SerializeField] private LevelUpProperty[] quackersLevelUpBonuses;
+    [SerializeField] private EntityProperty[] quackersLevelUpBonuses;
     [Tooltip("Set which properties should increase when the player picks Flappers and by how much.")]
-    [SerializeField] private LevelUpProperty[] flappersLevelUpBonuses;
+    [SerializeField] private EntityProperty[] flappersLevelUpBonuses;
     [Tooltip("Set which properties should increase when the player picks Tappers and by how much.")]
-    [SerializeField] private LevelUpProperty[] tappersLevelUpBonuses;
+    [SerializeField] private EntityProperty[] tappersLevelUpBonuses;
 
     public int XP
     {
@@ -125,25 +118,41 @@ public class LevelingSystem : MonoBehaviour
         Tappers++;
     }
 
-    private void ApplyLevelUp(LevelUpProperty[] pickedLevelUpProperties)
+    private void ApplyLevelUp(EntityProperty[] selectedLevelUpBonuses)
     {
         LevelUps--;
         Level++;
 
-        Player player = GameManager.Player;
-
         // Apply the base level up bonuses
-        foreach (LevelUpProperty prop in baseLevelUpBonuses)
+        foreach (EntityProperty bonus in baseLevelUpBonuses)
         {
-            float currentValue = player.GetProperty<float>(prop.name);
-            player.SetProperty<float>(prop.name, currentValue + prop.bonus);
+            ApplyBonus(bonus);
         }
 
-        // Apply the level up bonuses for the picked type
-        foreach (LevelUpProperty prop in pickedLevelUpProperties)
+        // Apply the level up bonuses for the selected path
+        foreach (EntityProperty bonus in selectedLevelUpBonuses)
         {
-            float currentValue = player.GetProperty<float>(prop.name);
-            player.SetProperty<float>(prop.name, currentValue + prop.bonus);
+            ApplyBonus(bonus);
+        }
+    }
+
+    private void ApplyBonus(EntityProperty bonus)
+    {
+        // Apply the level up bonus to the player based on the property type
+        Player player = GameManager.Player;
+        switch (bonus.Type)
+        {
+            case PropertyType.Int:
+                int currentIntValue = player.GetProperty<int>(bonus.Name);
+                player.SetProperty<int>(bonus.Name, currentIntValue + bonus.Value);
+                break;
+            case PropertyType.Float:
+                float currentFloatValue = player.GetProperty<float>(bonus.Name);
+                player.SetProperty<float>(bonus.Name, currentFloatValue + bonus.Value);
+                break;
+            default:
+                Debug.LogError("Level Up bonus type must be either Int or Float!");
+                break;
         }
     }
 
