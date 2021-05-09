@@ -1903,6 +1903,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1226771121}
   - component: {fileID: 1226771122}
+  - component: {fileID: 1226771124}
   - component: {fileID: 1226771123}
   m_Layer: 0
   m_Name: GameManager
@@ -1956,15 +1957,20 @@ MonoBehaviour:
   dialogueButtons: {fileID: 1157983263}
   buttonPrefab: {fileID: 938752656141109365, guid: b8fb103db91193d499168bfd67df88f4,
     type: 3}
+--- !u!114 &1226771124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226771120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff90a5844019a943b67e7cf0996fc01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   xpPerLevelBase: 80
   xpPerLevelGrowth: 30
-  myProp:
-    name: 2
-    type: 1
-    iValue: 123
-    fValue: 1.5
-    sValue: asdasd
-    bValue: 0
   baseLevelUpBonuses:
   - name: 0
     type: 0

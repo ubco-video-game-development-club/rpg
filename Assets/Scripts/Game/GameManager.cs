@@ -10,8 +10,7 @@ public class GameManager : MonoBehaviour
     public static LevelingSystem LevelingSystem { get; private set; }
     public static DialogueSystem DialogueSystem { get; private set; }
 
-    private static Player player;
-    public static Player Player { get { return player; } }
+    public static Player Player { get; private set; }
 
     void Awake()
     {
@@ -25,6 +24,6 @@ public class GameManager : MonoBehaviour
         LevelingSystem = GetComponent<LevelingSystem>();
         DialogueSystem = GetComponent<DialogueSystem>();
 
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 }

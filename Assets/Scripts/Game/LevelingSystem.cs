@@ -55,7 +55,7 @@ public class LevelingSystem : MonoBehaviour
         private set { GameManager.Player.SetProperty<int>(PropertyName.Tappers, value); }
     }
 
-    void Awake()
+    void Start()
     {
         XP = 0;
         Level = ToLevel(XP);
