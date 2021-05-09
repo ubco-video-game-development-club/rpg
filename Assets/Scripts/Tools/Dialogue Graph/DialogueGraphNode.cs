@@ -25,7 +25,9 @@ namespace Dialogue
         {
             Vector2 pos = position - nodeSize / 2.0f;
             displayRect = new Rect(pos + offset, nodeSize);
-            GUI.Box(displayRect, name, GUI.skin.button);
+
+            string displayName = EditorUtils.TrimStringToFit(name, displayRect.width, GUI.skin.box);
+            GUI.Box(displayRect, displayName, GUI.skin.button);
         }
 
         public bool ProcessEvents(Event e)
