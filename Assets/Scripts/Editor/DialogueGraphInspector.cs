@@ -52,7 +52,6 @@ namespace Dialogue
 
         private void DrawTransition(DialogueGraphTransition transition)
         {
-
             string from = graph.nodes[transition.from].name;
             string to = "Exit";
             if (transition.to >= 0)
@@ -60,8 +59,14 @@ namespace Dialogue
                 to = graph.nodes[transition.to].name;
             }
 
+            float width = Screen.width * 0.3f; //75% of available width is for text; ~40% of that space is for each word. Thus, 30% is for each word.
+            GUIStyle style = GUI.skin.label;
+            from = EditorUtils.TrimStringToFit(from, width, style);
+            to = EditorUtils.TrimStringToFit(to, width, style);
+
             Rect rect = EditorGUILayout.BeginHorizontal();
             GUI.Box(rect, GUIContent.none);
+
             GUILayout.Label($"{from} -> {to}");
 
             if (GUILayout.Button("Remove"))
@@ -75,12 +80,13 @@ namespace Dialogue
         private void DrawNode(SerializedProperty node)
         {
             SerializedProperty name = node.FindPropertyRelative("name");
-            EditorGUILayout.PropertyField(name);
+            GUILayout.Label("Option");
+            name.stringValue = GUILayout.TextArea(name.stringValue, GUILayout.Height(100));
 
             GUILayout.Space(10);
 
             SerializedProperty body = node.FindPropertyRelative("body");
-            GUILayout.Label("Body");
+            GUILayout.Label("Response");
             body.stringValue = GUILayout.TextArea(body.stringValue, GUILayout.Height(100));
 
         }

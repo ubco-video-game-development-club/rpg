@@ -104,7 +104,11 @@ namespace Dialogue
                         menu.AddItem(
                             new GUIContent("Delete node"),
                             false,
-                            () => selectedGraph.RemoveNode(hoveredNode)
+                            () => 
+                            {
+                                selectedGraph.RemoveNode(hoveredNode);
+                                EditorUtility.SetDirty(selectedGraph);
+                            }
                         );
                     }
                 }
@@ -113,7 +117,11 @@ namespace Dialogue
                     menu.AddItem(
                         new GUIContent("Create node"),
                         false,
-                        () => selectedGraph.CreateNode("New node", position - CentreOfWindow)
+                        () => 
+                        {
+                            selectedGraph.CreateNode("New node", position - CentreOfWindow);
+                            EditorUtility.SetDirty(selectedGraph);
+                        }
                     );
                 }
             }
@@ -137,6 +145,8 @@ namespace Dialogue
             int toIndex = selectedGraph.nodes.IndexOf(to);
             DialogueGraphTransition transition = new DialogueGraphTransition("Transition", fromIndex, toIndex);
             selectedGraph.transitions.Add(transition);
+
+            EditorUtility.SetDirty(selectedGraph);
         }
 
         private void UpdateSelectedGraph()
