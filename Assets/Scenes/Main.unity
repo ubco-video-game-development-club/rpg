@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7157c15a42769b0458c85c94a11a8d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  initialMaxHealth: 10
   flashDuration: 0.15
 --- !u!61 &468670151
 BoxCollider2D:
@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7157c15a42769b0458c85c94a11a8d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  initialMaxHealth: 10
   flashDuration: 0.15
 --- !u!61 &624982965
 BoxCollider2D:
@@ -1891,7 +1891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7157c15a42769b0458c85c94a11a8d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  initialMaxHealth: 10
   flashDuration: 0.15
 --- !u!1 &1226771120
 GameObject:
@@ -1903,6 +1903,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1226771121}
   - component: {fileID: 1226771122}
+  - component: {fileID: 1226771124}
   - component: {fileID: 1226771123}
   m_Layer: 0
   m_Name: GameManager
@@ -1956,6 +1957,30 @@ MonoBehaviour:
   dialogueButtons: {fileID: 1157983263}
   buttonPrefab: {fileID: 938752656141109365, guid: b8fb103db91193d499168bfd67df88f4,
     type: 3}
+--- !u!114 &1226771124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226771120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff90a5844019a943b67e7cf0996fc01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpPerLevelBase: 80
+  xpPerLevelGrowth: 30
+  baseLevelUpBonuses:
+  - name: 0
+    type: 0
+    iValue: 20
+    fValue: 0
+    sValue: 
+    bValue: 0
+  quackersLevelUpBonuses: []
+  flappersLevelUpBonuses: []
+  tappersLevelUpBonuses: []
 --- !u!1 &1228657968
 GameObject:
   m_ObjectHideFlags: 0
@@ -4245,7 +4270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c468a67ddf1c947ba69dbf238f4734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  initialMaxHealth: 20
   moveSpeed: 3
   primaryAttack: {fileID: 11400000, guid: 4fb995a92a5d18a4ea756f8e66162494, type: 2}
   secondaryAttack: {fileID: 11400000, guid: eaa6856a482658241a2e5267f2b20a7c, type: 2}

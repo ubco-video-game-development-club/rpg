@@ -6,11 +6,11 @@ using Dialogue;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    public static GameManager Instance { get { return instance; } }
 
+    public static LevelingSystem LevelingSystem { get; private set; }
     public static DialogueSystem DialogueSystem { get; private set; }
 
-    private Player player;
+    public static Player Player { get; private set; }
 
     void Awake()
     {
@@ -21,16 +21,9 @@ public class GameManager : MonoBehaviour
         }
         instance = this;
 
+        LevelingSystem = GetComponent<LevelingSystem>();
         DialogueSystem = GetComponent<DialogueSystem>();
-    }
 
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-    }
-
-    public Player GetPlayer()
-    {
-        return player;
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 }

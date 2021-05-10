@@ -50,6 +50,20 @@ public class Player : Actor
         attackData = new ActionData(LayerMask.GetMask("Enemy"));
     }
 
+    void OnGUI()
+    {
+        GUILayout.BeginArea(new Rect(Screen.width - 160, 10, 150, Screen.height - 20));
+
+        GUILayout.Label("Player Properties");
+
+        foreach (KeyValuePair<PropertyName, dynamic> prop in Properties)
+        {
+            GUILayout.Label($"{prop.Key}: {prop.Value}");
+        }
+
+        GUILayout.EndArea();
+    }
+
     void Update()
     {
         // Handle movement inputs
