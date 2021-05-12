@@ -11,21 +11,21 @@ namespace RPG
 
         public int MaxHealth
         {
-            get { return GetProperty<int>(PropertyName.MaxHealth); }
-            private set { SetProperty<int>(PropertyName.MaxHealth, value); }
+            get => GetProperty<int>(PropertyName.MaxHealth);
+            private set => SetProperty<int>(PropertyName.MaxHealth, value);
         }
 
         public int Health
         {
-            get { return GetProperty<int>(PropertyName.Health); }
-            private set { SetProperty<int>(PropertyName.Health, value); }
+            get => GetProperty<int>(PropertyName.Health);
+            private set => SetProperty<int>(PropertyName.Health, value);
         }
 
         private UnityEvent<int> onDamageTaken = new UnityEvent<int>();
-        public UnityEvent<int> OnDamageTaken { get { return onDamageTaken; } }
+        public UnityEvent<int> OnDamageTaken { get => onDamageTaken; }
 
         private UnityEvent onDeath = new UnityEvent();
-        public UnityEvent OnDeath { get { return onDeath; } }
+        public UnityEvent OnDeath { get => onDeath; }
 
         protected virtual void Awake()
         {
