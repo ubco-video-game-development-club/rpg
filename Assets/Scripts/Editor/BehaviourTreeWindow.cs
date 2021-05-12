@@ -9,7 +9,7 @@ namespace BehaviourTree
     public class BehaviourTreeWindow : EditorWindow
     {
         private const float INDENT_MULTIPLIER = 10.0f;
-        private Vector2 CentreOfWindow { get { return this.position.size / 2.0f; } }
+        private Vector2 CentreOfWindow { get => this.position.size / 2.0f; }
         private BehaviourTree selectedTree = null;
         private Vector2 scrollPos = Vector2.zero;
 
@@ -91,7 +91,7 @@ namespace BehaviourTree
             if (Selection.activeObject is BehaviourTree)
             {
                 selectedTree = Selection.activeObject as BehaviourTree;
-                if (selectedTree.tree == null || selectedTree.tree.Root.Element == null) 
+                if (selectedTree.tree == null || selectedTree.tree.Root.Element == null)
                 {
                     selectedTree.tree = new Tree<BehaviourTreeNode>(new BehaviourTreeNode(new SequenceNode()));
                 }
@@ -119,5 +119,4 @@ namespace BehaviourTree
             window.titleContent = new GUIContent("Behaviour Tree");
         }
     }
-
 }

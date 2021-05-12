@@ -7,7 +7,7 @@ namespace Dialogue
 {
     public class DialogueGraphWindow : EditorWindow
     {
-        public Vector2 CentreOfWindow { get { return this.position.size / 2.0f; } }
+        public Vector2 CentreOfWindow { get => this.position.size / 2.0f; }
         private DialogueGraph selectedGraph = null;
         private bool isCreatingTransition = false;
         private DialogueGraphNode transitionFrom = null;
@@ -104,7 +104,7 @@ namespace Dialogue
                         menu.AddItem(
                             new GUIContent("Delete node"),
                             false,
-                            () => 
+                            () =>
                             {
                                 selectedGraph.RemoveNode(hoveredNode);
                                 EditorUtility.SetDirty(selectedGraph);
@@ -117,7 +117,7 @@ namespace Dialogue
                     menu.AddItem(
                         new GUIContent("Create node"),
                         false,
-                        () => 
+                        () =>
                         {
                             selectedGraph.CreateNode("New node", position - CentreOfWindow);
                             EditorUtility.SetDirty(selectedGraph);
