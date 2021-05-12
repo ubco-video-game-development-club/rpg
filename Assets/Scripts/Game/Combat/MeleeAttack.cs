@@ -7,9 +7,9 @@ namespace RPG
     [CreateAssetMenu(fileName = "New MeleeAttack", menuName = "Effects/MeleeAttack", order = 51)]
     public class MeleeAttack : Effect
     {
-        public int damage;
-        public float reach;
-        public float arcAngle;
+        [SerializeField] private int damage;
+        [SerializeField] private float reach;
+        [SerializeField] private float arcAngle;
 
         public override void Invoke(ActionData data)
         {

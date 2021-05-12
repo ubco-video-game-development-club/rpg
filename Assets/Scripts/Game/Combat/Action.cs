@@ -10,17 +10,12 @@ namespace RPG
         [SerializeField] private Effect[] effects;
 
         [SerializeField] private RuntimeAnimatorController animationController;
-        public RuntimeAnimatorController AnimationController { get { return animationController; } }
+        public RuntimeAnimatorController AnimationController { get => animationController; }
 
         [SerializeField] private float cooldown = 1f;
-        public float Cooldown { get { return cooldown; } }
+        public float Cooldown { get => cooldown; }
 
-        private bool enabled = true;
-        public bool Enabled
-        {
-            get { return enabled; }
-            set { enabled = value; }
-        }
+        public bool Enabled { get; set; }
 
         public void Invoke(ActionData data)
         {
