@@ -6,7 +6,7 @@ using UnityEngine;
 public class Tree<T> : ISerializationCallbackReceiver
 {
     public Node Root { get => root; }
-    
+
     [SerializeField] private List<SerializableNode> serializedNodes;
     private Node root;
 
@@ -17,14 +17,14 @@ public class Tree<T> : ISerializationCallbackReceiver
 
     public void OnBeforeSerialize()
     {
-        if(serializedNodes == null) serializedNodes = new List<SerializableNode>();
+        if (serializedNodes == null) serializedNodes = new List<SerializableNode>();
         serializedNodes.Clear();
         SerializeNode(root);
     }
 
     public void OnAfterDeserialize()
     {
-        if(serializedNodes.Count > 0) DeserializeNode(0, out root);
+        if (serializedNodes.Count > 0) DeserializeNode(0, out root);
         else root = new Node(default(T));
     }
 
@@ -32,7 +32,7 @@ public class Tree<T> : ISerializationCallbackReceiver
     {
         SerializableNode snode = new SerializableNode(node.ChildCount, node.Element, serializedNodes.Count + 1);
         serializedNodes.Add(snode);
-        for(int i = 0; i < node.ChildCount; i++)
+        for (int i = 0; i < node.ChildCount; i++)
         {
             SerializeNode(node.GetChild(i));
         }
@@ -42,7 +42,7 @@ public class Tree<T> : ISerializationCallbackReceiver
     {
         SerializableNode snode = serializedNodes[index];
         node = new Node(snode.element);
-        for(int i = 0; i < snode.childCount; i++)
+        for (int i = 0; i < snode.childCount; i++)
         {
             index = DeserializeNode(++index, out Node n);
             node.AddChild(n);

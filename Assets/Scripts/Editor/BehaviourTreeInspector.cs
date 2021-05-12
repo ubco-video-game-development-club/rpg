@@ -18,11 +18,11 @@ namespace BehaviourTree
         public override void OnInspectorGUI()
         {
             BehaviourTreeNode node = behaviourTree.selectedNode;
-            if(node == null) return;
+            if (node == null) return;
 
             string name = node.Node.GetType().Name;
             GUILayout.Label(name);
-            foreach(string propertyName in node.Properties.Keys)
+            foreach (string propertyName in node.Properties.Keys)
             {
                 DisplayProperty(propertyName, node.Properties[propertyName]);
             }
@@ -49,7 +49,7 @@ namespace BehaviourTree
                 case VariableProperty.Type.String:
                     property.Set(GUILayout.TextField(property.GetString()));
                     break;
-                }
+            }
 
             GUILayout.EndHorizontal();
         }

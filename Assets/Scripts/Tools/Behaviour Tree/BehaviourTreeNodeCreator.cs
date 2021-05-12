@@ -13,7 +13,7 @@ namespace BehaviourTree
     {
         public static IBehaviourTreeNode Create(BehaviourTreeNodeType type)
         {
-            switch(type)
+            switch (type)
             {
                 case BehaviourTreeNodeType.SelectorNode:
                     return new SelectorNode();

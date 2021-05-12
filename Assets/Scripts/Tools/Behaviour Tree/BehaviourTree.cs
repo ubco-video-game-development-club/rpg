@@ -35,13 +35,13 @@ namespace BehaviourTree
 
         public void AddProperty(string name, VariableProperty property)
         {
-            if(properties.ContainsKey(name)) return;
+            if (properties.ContainsKey(name)) return;
             properties.Add(name, property);
         }
 
         public VariableProperty GetProperty(string name)
         {
-            if(!properties.ContainsKey(name)) return null;
+            if (!properties.ContainsKey(name)) return null;
             return properties[name];
         }
 
@@ -50,30 +50,30 @@ namespace BehaviourTree
 
         public void OnBeforeSerialize()
         {
-            if(properties == null) properties = new Dictionary<string, VariableProperty>();
+            if (properties == null) properties = new Dictionary<string, VariableProperty>();
             propertyInfo = new PropertyInfo[properties.Count];
             int i = 0;
-            foreach(string name in properties.Keys)
+            foreach (string name in properties.Keys)
             {
                 propertyInfo[i].name = name;
                 propertyInfo[i].property = properties[name];
                 i++;
             }
 
-            if(node == null) nodeTypeName = "";
+            if (node == null) nodeTypeName = "";
             else nodeTypeName = node.GetType().FullName;
         }
 
         public void OnAfterDeserialize()
         {
-            if(properties == null) properties = new Dictionary<string, VariableProperty>();
-            foreach(PropertyInfo info in propertyInfo)
+            if (properties == null) properties = new Dictionary<string, VariableProperty>();
+            foreach (PropertyInfo info in propertyInfo)
             {
                 properties.Add(info.name, info.property);
             }
 
             System.Type type = System.Type.GetType(nodeTypeName);
-            if(type == null) node = null;
+            if (type == null) node = null;
             else node = (IBehaviourTreeNode)System.Activator.CreateInstance(type);
         }
 

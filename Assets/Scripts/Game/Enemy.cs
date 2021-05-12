@@ -2,38 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Actor
+namespace RPG
 {
-    [SerializeField] private float flashDuration = 0.3f;
-
-    private YieldInstruction flashDurationInstruction;
-
-    private SpriteRenderer spriteRenderer;
-
-    protected override void Awake()
+    public class Enemy : Actor
     {
-        base.Awake();
+        [SerializeField] private float flashDuration = 0.3f;
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        flashDurationInstruction = new WaitForSeconds(flashDuration);
-    }
+        private YieldInstruction flashDurationInstruction;
 
-    void Start()
-    {
-        OnDamageTaken.AddListener(FlashRed);
-        OnDamageTaken.AddListener((health) => GameManager.LevelingSystem.AddXP(20));
-        OnDeath.AddListener(() => GameManager.LevelingSystem.AddXP(100));
-    }
+        private SpriteRenderer spriteRenderer;
 
-    private void FlashRed(int health)
-    {
-        StartCoroutine(FlashRedTimer());
-    }
+        protected override void Awake()
+        {
+            base.Awake();
 
-    private IEnumerator FlashRedTimer()
-    {
-        spriteRenderer.color = Color.red;
-        yield return flashDurationInstruction;
-        spriteRenderer.color = Color.white;
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            flashDurationInstruction = new WaitForSeconds(flashDuration);
+        }
+
+        void Start()
+        {
+            OnDamageTaken.AddListener(FlashRed);
+            OnDamageTaken.AddListener((health) => GameManager.LevelingSystem.AddXP(20));
+            OnDeath.AddListener(() => GameManager.LevelingSystem.AddXP(100));
+        }
+
+        private void FlashRed(int health)
+        {
+            StartCoroutine(FlashRedTimer());
+        }
+
+        private IEnumerator FlashRedTimer()
+        {
+            spriteRenderer.color = Color.red;
+            yield return flashDurationInstruction;
+            spriteRenderer.color = Color.white;
+        }
     }
 }

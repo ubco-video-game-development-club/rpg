@@ -7,8 +7,13 @@ using UnityEngine;
 [System.Serializable]
 public class VariableProperty
 {
-    public Type PropertyType { get => propertyType; private set => propertyType = value; }
     [SerializeField] private Type propertyType;
+    public Type PropertyType
+    {
+        get => propertyType;
+        private set => propertyType = value;
+    }
+
     [SerializeField] private Value value;
 
     public VariableProperty(Type type)
@@ -19,7 +24,7 @@ public class VariableProperty
 
     public bool GetBoolean()
     {
-        if(PropertyType != Type.Boolean) throw new InvalidOperationException("This property is not a boolean type.");
+        if (PropertyType != Type.Boolean) throw new InvalidOperationException("This property is not a boolean type.");
         return value.b;
     }
 
@@ -31,7 +36,7 @@ public class VariableProperty
 
     public double GetNumber()
     {
-        if(PropertyType != Type.Number) throw new InvalidOperationException("This property is not a number type.");
+        if (PropertyType != Type.Number) throw new InvalidOperationException("This property is not a number type.");
         return value.n;
     }
 
@@ -55,7 +60,7 @@ public class VariableProperty
 
     public string GetString()
     {
-        if(PropertyType != Type.String) throw new InvalidOperationException("This property is not a string type.");
+        if (PropertyType != Type.String) throw new InvalidOperationException("This property is not a string type.");
         return value.s;
     }
 
@@ -69,7 +74,7 @@ public class VariableProperty
     {
         Boolean,
         Number,
-       // Array,
+        // Array,
         String
     }
 
@@ -85,9 +90,12 @@ public class VariableProperty
     private struct Value
     {
         //Making field offset zero essentially creates a C-style union
-        /*[FieldOffset(0)]*/ public bool b;
-        /*[FieldOffset(0)]*/ public double n;
+        /*[FieldOffset(0)]*/
+        public bool b;
+        /*[FieldOffset(0)]*/
+        public double n;
         //[FieldOffset(0)] public VariableProperty[] a;
-        /*[FieldOffset(0)]*/ public string s;
+        /*[FieldOffset(0)]*/
+        public string s;
     }
 }
