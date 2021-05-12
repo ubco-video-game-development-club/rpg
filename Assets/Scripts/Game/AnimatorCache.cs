@@ -9,7 +9,6 @@ namespace RPG
     public class AnimatorCache : MonoBehaviour
     {
         private AnimatorParameter[] parameterCache;
-
         private Animator animator;
 
         void Awake()
@@ -48,29 +47,24 @@ namespace RPG
 
         private class AnimatorParameter
         {
-            private AnimatorControllerParameterType paramType;
-            public AnimatorControllerParameterType ParamType { get { return paramType; } }
-
-            private string name;
-            public string Name { get { return name; } }
-
-            private object value;
-            public object Value { get { return value; } }
+            public AnimatorControllerParameterType ParamType { get; private set; }
+            public string Name { get; private set; }
+            public object Value { get; private set; }
 
             public AnimatorParameter(Animator animator, AnimatorControllerParameterType paramType, string name)
             {
-                this.paramType = paramType;
-                this.name = name;
+                ParamType = paramType;
+                Name = name;
                 switch (paramType)
                 {
                     case AnimatorControllerParameterType.Int:
-                        this.value = (int)animator.GetInteger(name);
+                        Value = (int)animator.GetInteger(name);
                         break;
                     case AnimatorControllerParameterType.Float:
-                        this.value = (float)animator.GetFloat(name);
+                        Value = (float)animator.GetFloat(name);
                         break;
                     case AnimatorControllerParameterType.Bool:
-                        this.value = (bool)animator.GetBool(name);
+                        Value = (bool)animator.GetBool(name);
                         break;
                 }
             }
