@@ -22,38 +22,38 @@ namespace RPG
 
         public int XP
         {
-            get { return GameManager.Player.GetProperty<int>(PropertyName.XP); }
-            private set { GameManager.Player.SetProperty<int>(PropertyName.XP, value); }
+            get => GameManager.Player.GetProperty<int>(PropertyName.XP);
+            private set => GameManager.Player.SetProperty<int>(PropertyName.XP, value);
         }
 
         public int Level
         {
-            get { return GameManager.Player.GetProperty<int>(PropertyName.Level); }
-            private set { GameManager.Player.SetProperty<int>(PropertyName.Level, value); }
+            get => GameManager.Player.GetProperty<int>(PropertyName.Level);
+            private set => GameManager.Player.SetProperty<int>(PropertyName.Level, value);
         }
 
         public int LevelUps
         {
-            get { return GameManager.Player.GetProperty<int>(PropertyName.LevelUps); }
-            private set { GameManager.Player.SetProperty<int>(PropertyName.LevelUps, value); }
+            get => GameManager.Player.GetProperty<int>(PropertyName.LevelUps);
+            private set => GameManager.Player.SetProperty<int>(PropertyName.LevelUps, value);
         }
 
         public int Quackers
         {
-            get { return GameManager.Player.GetProperty<int>(PropertyName.Quackers); }
-            private set { GameManager.Player.SetProperty<int>(PropertyName.Quackers, value); }
+            get => GameManager.Player.GetProperty<int>(PropertyName.Quackers);
+            private set => GameManager.Player.SetProperty<int>(PropertyName.Quackers, value);
         }
 
         public int Flappers
         {
-            get { return GameManager.Player.GetProperty<int>(PropertyName.Flappers); }
-            private set { GameManager.Player.SetProperty<int>(PropertyName.Flappers, value); }
+            get => GameManager.Player.GetProperty<int>(PropertyName.Flappers);
+            private set => GameManager.Player.SetProperty<int>(PropertyName.Flappers, value);
         }
 
         public int Tappers
         {
-            get { return GameManager.Player.GetProperty<int>(PropertyName.Tappers); }
-            private set { GameManager.Player.SetProperty<int>(PropertyName.Tappers, value); }
+            get => GameManager.Player.GetProperty<int>(PropertyName.Tappers);
+            private set => GameManager.Player.SetProperty<int>(PropertyName.Tappers, value);
         }
 
         void Start()
