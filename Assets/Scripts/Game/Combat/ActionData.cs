@@ -1,13 +1,16 @@
 using UnityEngine;
 
-public struct ActionData
+namespace RPG
 {
-    public LayerMask targetMask;
-    public Vector2 origin;
-
-    public ActionData(LayerMask targetMask)
+    public struct ActionData
     {
-        this.targetMask = targetMask;
-        this.origin = Vector2.zero;
+        public LayerMask targetMask;
+        public Vector2 origin;
+
+        public ActionData(LayerMask targetMask)
+        {
+            this.targetMask = targetMask;
+            this.origin = Vector2.zero;
+        }
     }
 }

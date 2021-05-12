@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using Dialogue;
 
-public class QuestGiver : MonoBehaviour
+namespace RPG
 {
-    [SerializeField] private new string name;
-    [SerializeField] private Sprite portrait;
-    [SerializeField] private DialogueGraph dialogue;
-
-    void OnMouseDown()
+    public class QuestGiver : MonoBehaviour
     {
-        Debug.LogWarning("This is for testing. Please fix me.");
-        Interact();
-    }
+        [SerializeField] private new string name;
+        [SerializeField] private Sprite portrait;
+        [SerializeField] private DialogueGraph dialogue;
 
-    public void Interact()
-    {
-        GameManager.DialogueSystem.BeginDialogue(portrait, name, dialogue);
+        void OnMouseDown()
+        {
+            Debug.LogWarning("This is for testing. Please fix me.");
+            Interact();
+        }
+
+        public void Interact()
+        {
+            GameManager.DialogueSystem.BeginDialogue(portrait, name, dialogue);
+        }
     }
 }

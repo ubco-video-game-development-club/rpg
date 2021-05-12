@@ -2,33 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New MeleeAttack", menuName = "Effects/MeleeAttack", order = 51)]
-public class MeleeAttack : Effect
+namespace RPG
 {
-    public int damage;
-    public float reach;
-    public float arcAngle;
-
-    public override void Invoke(ActionData data)
+    [CreateAssetMenu(fileName = "New MeleeAttack", menuName = "Effects/MeleeAttack", order = 51)]
+    public class MeleeAttack : Effect
     {
-        // Calculate direction based on mouse position
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 attackDir = (mousePos - data.origin).normalized;
+        public int damage;
+        public float reach;
+        public float arcAngle;
 
-        // Check all colliders within the reach
-        Collider2D[] hits = Physics2D.OverlapCircleAll(data.origin, reach, data.targetMask);
-        foreach (Collider2D hit in hits)
+        public override void Invoke(ActionData data)
         {
-            // Calculate direction to the target
-            Vector2 targetPos = hit.ClosestPoint(data.origin);
-            Vector2 targetDir = (targetPos - data.origin).normalized;
+            // Calculate direction based on mouse position
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 attackDir = (mousePos - data.origin).normalized;
 
-            // Determine whether the target is within the arcAngle
-            if (Vector2.Angle(attackDir, targetDir) < arcAngle / 2)
+            // Check all colliders within the reach
+            Collider2D[] hits = Physics2D.OverlapCircleAll(data.origin, reach, data.targetMask);
+            foreach (Collider2D hit in hits)
             {
-                if (hit.TryGetComponent<Actor>(out Actor target))
+                // Calculate direction to the target
+                Vector2 targetPos = hit.ClosestPoint(data.origin);
+                Vector2 targetDir = (targetPos - data.origin).normalized;
+
+                // Determine whether the target is within the arcAngle
+                if (Vector2.Angle(attackDir, targetDir) < arcAngle / 2)
                 {
-                    target.TakeDamage(damage);
+                    if (hit.TryGetComponent<Actor>(out Actor target))
+                    {
+                        target.TakeDamage(damage);
+                    }
                 }
             }
         }

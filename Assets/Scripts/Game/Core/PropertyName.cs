@@ -1,12 +1,15 @@
-public enum PropertyName
+namespace RPG
 {
-    MaxHealth,
-    Health,
-    Damage,
-    XP,
-    Level,
-    LevelUps,
-    Quackers,
-    Flappers,
-    Tappers
+    public enum PropertyName
+    {
+        MaxHealth,
+        Health,
+        Damage,
+        XP,
+        Level,
+        LevelUps,
+        Quackers,
+        Flappers,
+        Tappers
+    }
 }

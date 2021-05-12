@@ -2,29 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Action", menuName = "Action", order = 60)]
-public class Action : ScriptableObject
+namespace RPG
 {
-    [SerializeField] private Effect[] effects;
-
-    [SerializeField] private RuntimeAnimatorController animationController;
-    public RuntimeAnimatorController AnimationController { get { return animationController; } }
-
-    [SerializeField] private float cooldown = 1f;
-    public float Cooldown { get { return cooldown; } }
-
-    private bool enabled = true;
-    public bool Enabled
+    [CreateAssetMenu(fileName = "New Action", menuName = "Action", order = 60)]
+    public class Action : ScriptableObject
     {
-        get { return enabled; }
-        set { enabled = value; }
-    }
+        [SerializeField] private Effect[] effects;
 
-    public void Invoke(ActionData data)
-    {
-        foreach (Effect effect in effects)
+        [SerializeField] private RuntimeAnimatorController animationController;
+        public RuntimeAnimatorController AnimationController { get { return animationController; } }
+
+        [SerializeField] private float cooldown = 1f;
+        public float Cooldown { get { return cooldown; } }
+
+        private bool enabled = true;
+        public bool Enabled
         {
-            effect.Invoke(data);
+            get { return enabled; }
+            set { enabled = value; }
+        }
+
+        public void Invoke(ActionData data)
+        {
+            foreach (Effect effect in effects)
+            {
+                effect.Invoke(data);
+            }
         }
     }
 }

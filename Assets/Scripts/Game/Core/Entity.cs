@@ -3,42 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Entity : MonoBehaviour
+namespace RPG
 {
-    private Dictionary<PropertyName, dynamic> properties = new Dictionary<PropertyName, dynamic>();
-    public Dictionary<PropertyName, dynamic> Properties { get => properties; }
-
-    private Dictionary<PropertyName, UnityEventBase> propertyChangedEvents = new Dictionary<PropertyName, UnityEventBase>();
-
-    public T GetProperty<T>(PropertyName name)
+    public abstract class Entity : MonoBehaviour
     {
-        return properties[name];
-    }
+        private Dictionary<PropertyName, dynamic> properties = new Dictionary<PropertyName, dynamic>();
+        public Dictionary<PropertyName, dynamic> Properties { get => properties; }
 
-    public bool TryGetProperty<T>(PropertyName name, out T property)
-    {
-        bool exists = properties.ContainsKey(name);
-        property = exists ? GetProperty<T>(name) : default(T);
-        return exists;
-    }
+        private Dictionary<PropertyName, UnityEventBase> propertyChangedEvents = new Dictionary<PropertyName, UnityEventBase>();
 
-    public void SetProperty<T>(PropertyName name, T value)
-    {
-        properties[name] = value;
-        GetPropertyChangedEvent<T>(name).Invoke(value);
-    }
-
-    public void AddPropertyChangedListener<T>(PropertyName name, UnityAction<T> listener)
-    {
-        GetPropertyChangedEvent<T>(name).AddListener(listener);
-    }
-
-    public UnityEvent<T> GetPropertyChangedEvent<T>(PropertyName name)
-    {
-        if (!propertyChangedEvents.ContainsKey(name))
+        public T GetProperty<T>(PropertyName name)
         {
-            propertyChangedEvents[name] = new UnityEvent<T>();
+            return properties[name];
         }
-        return (UnityEvent<T>)propertyChangedEvents[name];
+
+        public bool TryGetProperty<T>(PropertyName name, out T property)
+        {
+            bool exists = properties.ContainsKey(name);
+            property = exists ? GetProperty<T>(name) : default(T);
+            return exists;
+        }
+
+        public void SetProperty<T>(PropertyName name, T value)
+        {
+            properties[name] = value;
+            GetPropertyChangedEvent<T>(name).Invoke(value);
+        }
+
+        public void AddPropertyChangedListener<T>(PropertyName name, UnityAction<T> listener)
+        {
+            GetPropertyChangedEvent<T>(name).AddListener(listener);
+        }
+
+        public UnityEvent<T> GetPropertyChangedEvent<T>(PropertyName name)
+        {
+            if (!propertyChangedEvents.ContainsKey(name))
+            {
+                propertyChangedEvents[name] = new UnityEvent<T>();
+            }
+            return (UnityEvent<T>)propertyChangedEvents[name];
+        }
     }
 }

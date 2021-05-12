@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class HealthDebugText : MonoBehaviour
+namespace RPG
 {
-    private TextMeshProUGUI text;
-
-    void Awake()
+    public class HealthDebugText : MonoBehaviour
     {
-        text = GetComponent<TextMeshProUGUI>();
-    }
+        private TextMeshProUGUI text;
 
-    void Start()
-    {
-        GetComponentInParent<Actor>().AddPropertyChangedListener<int>(PropertyName.Health, UpdateHealthText);
-    }
+        void Awake()
+        {
+            text = GetComponent<TextMeshProUGUI>();
+        }
 
-    private void UpdateHealthText(int health)
-    {
-        text.text = health.ToString();
+        void Start()
+        {
+            GetComponentInParent<Actor>().AddPropertyChangedListener<int>(PropertyName.Health, UpdateHealthText);
+        }
+
+        private void UpdateHealthText(int health)
+        {
+            text.text = health.ToString();
+        }
     }
 }
