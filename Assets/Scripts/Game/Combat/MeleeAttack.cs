@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RPG
 {
-    [CreateAssetMenu(fileName = "New MeleeAttack", menuName = "Effects/MeleeAttack", order = 51)]
+    [CreateAssetMenu(fileName = "New MeleeAttack", menuName = "Effects/MeleeAttack", order = 50)]
     public class MeleeAttack : Effect
     {
         [SerializeField] private int damage;

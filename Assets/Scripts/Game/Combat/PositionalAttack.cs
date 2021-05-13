@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RPG
 {
-    [CreateAssetMenu(fileName = "New PositionalAttack", menuName = "Effects/PositionalAttack", order = 50)]
+    [CreateAssetMenu(fileName = "New PositionalAttack", menuName = "Effects/PositionalAttack", order = 51)]
     public class PositionalAttack : Effect
     {
         [SerializeField] private GameObject visualPrefab;

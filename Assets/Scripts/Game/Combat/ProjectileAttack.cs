@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RPG
 {
-    [CreateAssetMenu(fileName = "New ProjectileAttack", menuName = "Effects/ProjectileAttack", order = 50)]
+    [CreateAssetMenu(fileName = "New ProjectileAttack", menuName = "Effects/ProjectileAttack", order = 52)]
     public class ProjectileAttack : Effect
     {
         [SerializeField] private GameObject projectilePrefab;

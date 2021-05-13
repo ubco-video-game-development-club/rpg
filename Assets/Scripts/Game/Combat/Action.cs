@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RPG
 {
-    [CreateAssetMenu(fileName = "New Action", menuName = "Action", order = 60)]
+    [CreateAssetMenu(fileName = "New Action", menuName = "Action", order = 59)]
     public class Action : ScriptableObject
     {
         [SerializeField] private Effect[] effects;
