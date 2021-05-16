@@ -12,16 +12,20 @@ namespace RPG
 
         private Dictionary<PropertyName, UnityEventBase> propertyChangedEvents = new Dictionary<PropertyName, UnityEventBase>();
 
+        public bool HasProperty(PropertyName name)
+        {
+            return properties.ContainsKey(name);
+        }
+
         public T GetProperty<T>(PropertyName name)
         {
-            return properties[name];
+            return HasProperty(name) ? properties[name] : default(T);
         }
 
         public bool TryGetProperty<T>(PropertyName name, out T property)
         {
-            bool exists = properties.ContainsKey(name);
-            property = exists ? GetProperty<T>(name) : default(T);
-            return exists;
+            property = GetProperty<T>(name);
+            return HasProperty(name);
         }
 
         public void SetProperty<T>(PropertyName name, T value)
@@ -33,6 +37,11 @@ namespace RPG
         public void AddPropertyChangedListener<T>(PropertyName name, UnityAction<T> listener)
         {
             GetPropertyChangedEvent<T>(name).AddListener(listener);
+        }
+
+        public void RemovePropertyChangedListener<T>(PropertyName name, UnityAction<T> listener)
+        {
+            GetPropertyChangedEvent<T>(name).RemoveListener(listener);
         }
 
         public UnityEvent<T> GetPropertyChangedEvent<T>(PropertyName name)
