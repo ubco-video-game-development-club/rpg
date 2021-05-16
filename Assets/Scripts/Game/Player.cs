@@ -7,8 +7,8 @@ namespace RPG
 {
     public struct AbilitySlot
     {
-        bool enabled;
-        ActiveAbility ability;
+        public bool enabled;
+        public Action ability;
     }
 
     [RequireComponent(typeof(AnimatorCache))]
@@ -27,7 +27,7 @@ namespace RPG
         private Vector3 prevFramePosition;
         private ActionData attackData;
 
-        public List<ActiveAbility> AvailableAbilities { get; set; }
+        public List<Action> AvailableAbilities { get; set; }
         public AbilitySlot[] AbilitySlots { get; set; }
         public RuntimeAnimatorController BaseAnimationController { get; private set; }
 
@@ -52,7 +52,7 @@ namespace RPG
             globalCooldownInstruction = new WaitForSeconds(GLOBAL_COOLDOWN);
             BaseAnimationController = animator.runtimeAnimatorController;
 
-            AvailableAbilities = new List<ActiveAbility>();
+            AvailableAbilities = new List<Action>();
             AbilitySlots = new AbilitySlot[MAX_ABILITY_SLOTS];
 
             primaryAttack.Enabled = true;
@@ -95,6 +95,14 @@ namespace RPG
             // Handle attack inputs
             HandleAttackInput("Primary", primaryAttack);
             HandleAttackInput("Secondary", secondaryAttack);
+
+            for (int i = 0; i < MAX_ABILITY_SLOTS; i++)
+            {
+                if (AbilitySlots[i].enabled)
+                {
+                    HandleAttackInput($"Ability{i}", AbilitySlots[i].ability);
+                }
+            }
         }
 
         public void ClearAnimationOverrides()

@@ -6,7 +6,7 @@ namespace RPG
 {
     public class ActiveLevelUpOption : LevelUpOption
     {
-        [SerializeField] private ActiveAbility ability;
+        [SerializeField] private Action ability;
 
         public override void Apply(Player player)
         {
