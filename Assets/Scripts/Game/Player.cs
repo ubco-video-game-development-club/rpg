@@ -5,11 +5,18 @@ using UnityEngine.Events;
 
 namespace RPG
 {
+    public struct AbilitySlot
+    {
+        bool enabled;
+        ActiveAbility ability;
+    }
+
     [RequireComponent(typeof(AnimatorCache))]
     public class Player : Actor
     {
         public const float GLOBAL_COOLDOWN = 0.25f;
         private const float ANIM_LOCK_DURATION = 0.05f;
+        private const int MAX_ABILITY_SLOTS = 4;
 
         [SerializeField] private float moveSpeed = 1f;
         [SerializeField] private Action primaryAttack;
@@ -20,6 +27,8 @@ namespace RPG
         private Vector3 prevFramePosition;
         private ActionData attackData;
 
+        public List<ActiveAbility> AvailableAbilities { get; set; }
+        public AbilitySlot[] AbilitySlots { get; set; }
         public RuntimeAnimatorController BaseAnimationController { get; private set; }
 
         private YieldInstruction animLockInstruction;
@@ -42,6 +51,9 @@ namespace RPG
             animLockInstruction = new WaitForSeconds(ANIM_LOCK_DURATION);
             globalCooldownInstruction = new WaitForSeconds(GLOBAL_COOLDOWN);
             BaseAnimationController = animator.runtimeAnimatorController;
+
+            AvailableAbilities = new List<ActiveAbility>();
+            AbilitySlots = new AbilitySlot[MAX_ABILITY_SLOTS];
 
             primaryAttack.Enabled = true;
             secondaryAttack.Enabled = true;
@@ -77,7 +89,7 @@ namespace RPG
             prevFramePosition = transform.position;
             rigidbody2D.velocity = inputDir * moveSpeed;
 
-            // Global Cooldown: Anything after this point will not run while the GDC is active
+            // Global Cooldown: Anything after this point will not run while the GCD is active
             if (isGCDActive) return;
 
             // Handle attack inputs
