@@ -4272,8 +4272,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialMaxHealth: 20
   moveSpeed: 3
-  primaryAttack: {fileID: 11400000, guid: 4fb995a92a5d18a4ea756f8e66162494, type: 2}
-  secondaryAttack: {fileID: 11400000, guid: eaa6856a482658241a2e5267f2b20a7c, type: 2}
+  primaryAttack: {fileID: 11400000, guid: 58818748f817268419f7b272f7ba0bb3, type: 2}
+  secondaryAttack: {fileID: 11400000, guid: 8fe01f050fb61734ba5d4635b94022b5, type: 2}
 --- !u!95 &2098406990
 Animator:
   serializedVersion: 3

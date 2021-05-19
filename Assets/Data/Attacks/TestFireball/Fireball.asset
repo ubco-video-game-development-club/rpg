@@ -9,11 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7ad955b4b8e17f40ac9aebba29058f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b4788869bbddbe4bac7d66e465d4ed6, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  effects:
-  - {fileID: 11400000, guid: 8fe01f050fb61734ba5d4635b94022b5, type: 2}
-  animationController: {fileID: 22100000, guid: 0c9a8c0ef0df9d04980f5a208c7f7af2,
-    type: 2}
-  cooldown: 4
+  onHitEffects: []
+  onKillEffects: []
+  animationController: {fileID: 0}
+  cooldown: 1
+  visualPrefab: {fileID: 7099387373307941033, guid: c0dd4c221daa62c4989c57b83c738b41,
+    type: 3}
+  damage: 3
+  radius: 1.5
