@@ -8,6 +8,7 @@ namespace ClassEditor
     public class ClassTree : ScriptableObject
     {
         private Dictionary<int, List<ClassTreeNode>> levelUpTiers = new Dictionary<int, List<ClassTreeNode>>();
+        public Dictionary<int, List<ClassTreeNode>> LevelUpTiers { get => levelUpTiers; }
 
         public void AddTier(int level)
         {

@@ -16,4 +16,32 @@ public static class EditorUtils
 
         return s;
     }
+
+    public static void DrawBox(Rect rect, Color color)
+    {
+        // Apply global color changes
+        Color tempColor = GUI.backgroundColor;
+        GUI.backgroundColor = color;
+
+        // Overwrite the default box skin to allow recoloring boxes (default is black, can't be tinted)
+        GUIStyle style = new GUIStyle(GUI.skin.box);
+        style.normal.background = Texture2D.whiteTexture;
+
+        // Create the box
+        GUI.Box(rect, "", style);
+
+        // Revert global color changes
+        GUI.backgroundColor = tempColor;
+    }
+
+    public static void DrawBorderBox(Rect rect, Color color, int borderWidth, Color borderColor)
+    {
+        // Draw border box
+        DrawBox(rect, borderColor);
+
+        // Draw inner box
+        int w = borderWidth;
+        Rect innerRect = new Rect(rect.x + w, rect.y + w, rect.width - w * 2, rect.height - w * 2);
+        DrawBox(innerRect, color);
+    }
 }
