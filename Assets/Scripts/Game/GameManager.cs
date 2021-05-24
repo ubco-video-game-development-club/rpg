@@ -12,6 +12,7 @@ namespace RPG
         public static LevelingSystem LevelingSystem { get; private set; }
         public static DialogueSystem DialogueSystem { get; private set; }
         public static PopupSystem PopupSystem { get; private set; }
+        public static QuestSystem QuestSystem {get; private set; }
 
         public static Player Player { get; private set; }
 
@@ -27,6 +28,7 @@ namespace RPG
             LevelingSystem = GetComponent<LevelingSystem>();
             DialogueSystem = GetComponent<DialogueSystem>();
             PopupSystem = GetComponent<PopupSystem>();
+            QuestSystem = GetComponent<QuestSystem>();
 
             Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         }

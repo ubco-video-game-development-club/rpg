@@ -7,18 +7,20 @@ public class PopupSystem : MonoBehaviour
     [SerializeField] private Transform canvas;
     [SerializeField] private PopupWindow popupPrefab;
 
-    public void CreatePopup(string title, GameObject content)
+    public GameObject CreatePopup(string title, GameObject content)
     {
         PopupWindow window = Instantiate(popupPrefab, canvas);
         window.Title = title;
 
         Instantiate(content, window.Content);
+        return window.gameObject;
     }
 
-    public Transform CreatePopup(string title)
+    public GameObject CreatePopup(string title, out Transform content)
     {
         PopupWindow window = Instantiate(popupPrefab, canvas);
         window.Title = title;
-        return window.Content.transform;
+        content = window.Content.transform;
+        return window.gameObject;
     }
 }
