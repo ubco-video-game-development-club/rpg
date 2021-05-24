@@ -603,8 +603,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -760,6 +760,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notesListContent: {fileID: 5829271783674790149}
   noteContent: {fileID: 5829271782778845222}
+  noteSelectButton: {fileID: 5065060264644065865, guid: 08a2d23ccdb11cf4aa2bef34fc0a5845,
+    type: 3}
 --- !u!1 &5829271783674790170
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,7 +794,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000039744544}
+  m_AnchoredPosition: {x: 0, y: 0.000013636714}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &5829271783759298969
@@ -952,7 +954,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 5829271782659756038}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9998865
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
