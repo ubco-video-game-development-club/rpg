@@ -1903,8 +1903,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1226771121}
   - component: {fileID: 1226771122}
-  - component: {fileID: 1226771124}
   - component: {fileID: 1226771123}
+  - component: {fileID: 1226771124}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1947,9 +1947,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1226771120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 150a9ee84d3cf9c40a5a8c518e96974a, type: 3}
+  m_Script: {fileID: 11500000, guid: 13ebcdc67d1b92f4ea89c5f1e3a5bf48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAligneChanged:
+    m_PersistentCalls:
+      m_Calls: []
   dialogueUI: {fileID: 930314892}
   dialoguePortrait: {fileID: 1774711815}
   dialogueName: {fileID: 1085417769}
