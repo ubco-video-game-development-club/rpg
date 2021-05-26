@@ -15,12 +15,4 @@ public class PopupSystem : MonoBehaviour
         Instantiate(content, window.Content);
         return window.gameObject;
     }
-
-    public GameObject CreatePopup(string title, out Transform content)
-    {
-        PopupWindow window = Instantiate(popupPrefab, canvas);
-        window.Title = title;
-        content = window.Content.transform;
-        return window.gameObject;
-    }
 }
