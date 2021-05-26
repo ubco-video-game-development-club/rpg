@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace RPG
 {
     public class QuestNotes : MonoBehaviour
     {
         [SerializeField] private RectTransform notesListContent;
-        [SerializeField] private TMPro.TextMeshProUGUI noteContent;
+        [SerializeField] private TextMeshProUGUI noteContent;
         [SerializeField] private Button noteSelectButton;
 
         void Start()
