@@ -7,7 +7,7 @@ namespace RPG
 {
     public class QuestSystem : MonoBehaviour
     {
-        public class QuestNoteEvent : UnityEvent<Note> { }
+        [System.Serializable] public class QuestNoteEvent : UnityEvent<Note> { }
 
         public int NoteCount { get => questNotes.Count; }
         public QuestNoteEvent OnQuestNoteAdd { get => onQuestNoteAdd; }
