@@ -1905,6 +1905,8 @@ GameObject:
   - component: {fileID: 1226771122}
   - component: {fileID: 1226771124}
   - component: {fileID: 1226771123}
+  - component: {fileID: 1226771125}
+  - component: {fileID: 1226771126}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1981,6 +1983,35 @@ MonoBehaviour:
   quackersLevelUpBonuses: []
   flappersLevelUpBonuses: []
   tappersLevelUpBonuses: []
+--- !u!114 &1226771125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226771120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d0e228c4f28c94aa0837293ab29cd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 971557428}
+  popupPrefab: {fileID: 8500890738462449253, guid: 3243bbf214ab97946bac6b75be901945,
+    type: 3}
+--- !u!114 &1226771126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226771120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c168fe99b7b2cee44b262eee2b78b7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notesPrefab: {fileID: 5829271783528141665, guid: 0be32f292ea12f547b09c0b43b3313fe,
+    type: 3}
 --- !u!1 &1228657968
 GameObject:
   m_ObjectHideFlags: 0
