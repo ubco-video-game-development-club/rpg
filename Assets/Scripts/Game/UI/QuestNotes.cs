@@ -24,7 +24,7 @@ namespace RPG
                 QuestSystem.Note note = questSystem.GetNote(i);
                 Button button = Instantiate(noteSelectButton, notesListContent);
                 button.GetComponent<RectTransform>().anchoredPosition = new Vector2(10, -(buttonHeight * i + 10.0f));
-                button.GetComponentInChildren<TMPro.TextMeshProUGUI>().SetText(note.name);
+                button.GetComponentInChildren<TextMeshProUGUI>().SetText(note.name);
                 
                 int index = i;
                 button.onClick.AddListener(delegate

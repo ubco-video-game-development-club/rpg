@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace RPG
 {
     public class QuestSystem : MonoBehaviour
     {
+        public class QuestNoteEvent : UnityEvent<Note> { }
+
         public int NoteCount { get => questNotes.Count; }
+        public QuestNoteEvent OnQuestNoteAdd { get => onQuestNoteAdd; }
+        public QuestNoteEvent OnQuestNoteRemove { get => onQuestNoteRemove; }
 
         //TODO: Quests
         [SerializeField] private GameObject notesPrefab;
+        [SerializeField] private QuestNoteEvent onQuestNoteAdd;
+        [SerializeField] private QuestNoteEvent onQuestNoteRemove;
         private List<Note> questNotes;
         private GameObject notesPopup;
 
@@ -58,16 +65,23 @@ namespace RPG
 
         public void AddNote(string name, string content)
         {
-            questNotes.Add(new Note()
+            Note note = new Note()
             {
                 name = name,
                 content = content
-            });
+            };
+
+            questNotes.Add(note);
+            onQuestNoteAdd.Invoke(note);
         }
 
         public Note GetNote(int index) => questNotes[index];
 
-        public bool RemoveNote(Note note) => questNotes.Remove(note);
+        public bool RemoveNote(Note note)
+        {
+            onQuestNoteRemove.Invoke(note);
+            return questNotes.Remove(note);
+        }
 
         public bool RemoveNote(string name)
         {
@@ -82,7 +96,7 @@ namespace RPG
             }
 
             if (remove == null) return false;
-            else return questNotes.Remove(remove ?? default(Note));
+            else return RemoveNote(remove ?? default(Note));
         }
 
         public struct Note
