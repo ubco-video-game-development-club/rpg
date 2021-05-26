@@ -42,7 +42,13 @@ namespace RPG
             noteContent = GUILayout.TextArea(noteContent, GUILayout.Height(100));
 
             GUILayout.BeginHorizontal();
-            if(GUILayout.Button("Add Note")) AddNote(noteName, noteContent);
+            if(GUILayout.Button("Add Note"))
+            {
+                AddNote(noteName, noteContent);
+                noteName = "";
+                noteContent = "";
+            }
+            
             if(GUILayout.Button("Remove Note")) RemoveNote(noteName);
             GUILayout.EndHorizontal();
 
