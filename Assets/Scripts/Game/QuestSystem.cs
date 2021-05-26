@@ -79,8 +79,9 @@ namespace RPG
 
         public bool RemoveNote(Note note)
         {
+            bool removed = questNotes.Remove(note);
             onQuestNoteRemove.Invoke(note);
-            return questNotes.Remove(note);
+            return removed;
         }
 
         public bool RemoveNote(string name)
