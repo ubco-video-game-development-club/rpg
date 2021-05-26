@@ -8,35 +8,34 @@ namespace RPG
 {
     public class AlignmentSystem : MonoBehaviour
     {
-        public UnityEvent<int> onAligneChanged;
-        [SerializeField] private float Morals = 0F;
-        [SerializeField] private float Leanings = 0F;
-        [SerializeField] private float Sexiness = 0F;
-
-        // Add new property names to PropertyName.cs
-        private int MyHealth
-        {
-            get => player.GetProperty<int>(PropertyName.Health);
-            set => player.SetProperty<int>(PropertyName.Health, value);
-        }
-
         private Player player;
+        public UnityEvent<int> onAligneChanged;
+
+        public int MySexiness
+        {
+            get => player.GetProperty<int>(PropertyName.Sexiness);
+            set => player.SetProperty<int>(PropertyName.Sexiness, value);
+        }
+        public int MyMorals
+        {
+            get => player.GetProperty<int>(PropertyName.Morals);
+            set => player.SetProperty<int>(PropertyName.Morals, value);
+        }
+        public int MyLeanings
+        {
+            get => player.GetProperty<int>(PropertyName.Leanings);
+            set => player.SetProperty<int>(PropertyName.Leanings, value);
+        }
 
         void Start()
         {
-            player = GameManager.Player;
-
             onAligneChanged.AddListener(UpdateMorals);
-            onAligneChanged.AddListener(UpdateLeaning);
+            onAligneChanged.AddListener(UpdateLeanings);
             onAligneChanged.AddListener(UpdateSexiness);
 
-            // Example code (old)
-            player.SetProperty<int>(PropertyName.Health, 3);
-            int health = player.GetProperty<int>(PropertyName.Health);
-
-            // Example code (new)
-            MyHealth = 3;
-            int tmpHealth = MyHealth;
+            MySexiness = 0;
+            MyLeanings = 0;
+            MyMorals = 0;
         }
         void Update()
         {
@@ -48,17 +47,17 @@ namespace RPG
         public void UpdateMorals(int points)
         {
             Debug.Log("Update Morals " + points);
-            //Morals = Morals + points;
+            MyMorals = MyMorals + points;
         }
-        public void UpdateLeaning(int points)
+        public void UpdateLeanings(int points)
         {
             Debug.Log("Update Leanings " + points);
-            //Leanings = Leanings + points;
+            MyLeanings = MyLeanings + points;
         }
         public void UpdateSexiness(int points)
         {
             Debug.Log("Update Sexiness " + points);
-            //Sexiness = Sexiness + points;
+            MySexiness = MySexiness + points;
         }
         public void TestAddPoints()
         {
