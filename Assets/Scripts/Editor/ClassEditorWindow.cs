@@ -5,7 +5,7 @@ using UnityEditor;
 
 namespace ClassEditor
 {
-    public class ClassTreeWindow : EditorWindow
+    public class ClassEditorWindow : EditorWindow
     {
         private const float TIER_SPACING = 50f;
         private const float NODE_WIDTH = 80f;
@@ -20,7 +20,7 @@ namespace ClassEditor
         [MenuItem("Window/Class Editor")]
         public static void ShowWindow()
         {
-            ClassTreeWindow window = EditorWindow.GetWindow<ClassTreeWindow>();
+            ClassEditorWindow window = EditorWindow.GetWindow<ClassEditorWindow>();
             window.titleContent = new GUIContent("Class Editor");
         }
 
@@ -60,7 +60,7 @@ namespace ClassEditor
             if (selectedClassTree != null)
             {
                 // Draw levelup tiers
-                float y = 31f;
+                float y = 21f + TIER_SPACING / 2f;
                 float h = (selectedClassTree.LevelUpTiers.Count + 1) * (NODE_HEIGHT + 4f + TIER_SPACING);
                 scrollPosition = GUI.BeginScrollView(new Rect(0, 21f, Screen.width - 2f, Screen.height - 42f), scrollPosition, new Rect(0, 21f, Screen.width - 15f, h));
                 foreach (KeyValuePair<int, List<ClassTreeNode>> tier in selectedClassTree.LevelUpTiers)
@@ -68,17 +68,43 @@ namespace ClassEditor
                     int level = tier.Key;
                     List<ClassTreeNode> nodes = tier.Value;
 
+                    float centerX = (Screen.width - MARGIN_WIDTH) / 2;
                     foreach (ClassTreeNode node in nodes)
                     {
                         // TODO: Spacing here!
-                        EditorUtils.DrawBorderBox(new Rect((Screen.width - MARGIN_WIDTH) / 2 - NODE_WIDTH / 2, y + 2f, NODE_WIDTH, NODE_HEIGHT), HEADER_COLOR, 1, DIVIDER_COLOR);
+                        EditorUtils.DrawBorderBox(new Rect(centerX - NODE_WIDTH / 2, y, NODE_WIDTH, NODE_HEIGHT), HEADER_COLOR, 1, DIVIDER_COLOR);
+
+                        if (GUI.Button(new Rect(centerX + NODE_WIDTH / 2 - 10f, y - NODE_HEIGHT / 2 + 15f, 18f, 18f), "X"))
+                        {
+                            selectedClassTree.AddTier(level + 1);
+                        }
                     }
 
-                    GUI.Label(new Rect(Screen.width - MARGIN_WIDTH + 10f, y + 2f, MARGIN_WIDTH - 20f, NODE_HEIGHT), $"Level {level}");
+                    if (GUI.Button(new Rect(centerX + NODE_WIDTH / 2 + 50f, y + NODE_HEIGHT / 2f - 10f, 80f, 20f), "Add Node"))
+                    {
+                        selectedClassTree.AddTier(level + 1);
+                    }
+
+                    EditorUtils.DrawBox(new Rect(0, y + NODE_HEIGHT + TIER_SPACING / 2, Screen.width, 2f), HEADER_COLOR);
+
+                    if (!selectedClassTree.ContainsTier(level + 1))
+                    {
+                        if (GUI.Button(new Rect(centerX - 10f, y + NODE_HEIGHT + TIER_SPACING / 2 - 10f, 20f, 20f), "+"))
+                        {
+                            selectedClassTree.AddTier(level + 1);
+                        }
+                    }
+
+                    GUI.Label(new Rect(Screen.width - MARGIN_WIDTH + 20f, y + 2f, 80f, NODE_HEIGHT), $"Level {level}");
+
+                    if (GUI.Button(new Rect(Screen.width - MARGIN_WIDTH + 109f, y - NODE_HEIGHT / 2 + 15f, 18f, 18f), "X"))
+                    {
+                        selectedClassTree.AddTier(level + 1);
+                    }
 
                     y += NODE_HEIGHT + 4f + TIER_SPACING;
                 }
-                GUI.Button(new Rect(Screen.width - MARGIN_WIDTH / 2 - 40f, y + 2f, 80f, 25f), "Add Tier");
+
                 GUI.EndScrollView();
 
                 // Draw vertical divider
@@ -92,21 +118,13 @@ namespace ClassEditor
             {
                 selectedClassTree = Selection.activeObject as ClassTree;
                 selectedClassTree.AddTier(1);
-                selectedClassTree.AddNode(1, new ClassTreeNode());
-                selectedClassTree.AddTier(2);
-                selectedClassTree.AddNode(2, new ClassTreeNode());
+                selectedClassTree.AddNode(1, new ClassTreeNode(Vector2.zero));
                 selectedClassTree.AddTier(3);
-                selectedClassTree.AddNode(3, new ClassTreeNode());
-                selectedClassTree.AddTier(4);
-                selectedClassTree.AddNode(4, new ClassTreeNode());
+                selectedClassTree.AddNode(3, new ClassTreeNode(Vector2.zero));
                 selectedClassTree.AddTier(5);
-                selectedClassTree.AddNode(5, new ClassTreeNode());
-                selectedClassTree.AddTier(6);
-                selectedClassTree.AddNode(6, new ClassTreeNode());
-                selectedClassTree.AddTier(7);
-                selectedClassTree.AddNode(7, new ClassTreeNode());
+                selectedClassTree.AddNode(5, new ClassTreeNode(Vector2.zero));
                 selectedClassTree.AddTier(8);
-                selectedClassTree.AddNode(8, new ClassTreeNode());
+                selectedClassTree.AddNode(8, new ClassTreeNode(Vector2.zero));
                 selectedAssetPath = AssetDatabase.GetAssetPath(selectedClassTree.GetInstanceID());
             }
             else
