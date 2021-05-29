@@ -3,6 +3,9 @@ using UnityEditor;
 
 public static class EditorUtils
 {
+    public static Color HEADER_COLOR = new Color(0.235f, 0.235f, 0.235f);
+    public static Color DIVIDER_COLOR = new Color(0.137f, 0.137f, 0.137f);
+
     public static string TrimStringToFit(string text, float width, GUIStyle style)
     {
         string s = text;

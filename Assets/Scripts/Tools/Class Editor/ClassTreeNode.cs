@@ -4,19 +4,24 @@ using UnityEngine;
 
 namespace ClassEditor
 {
-    public class ClassTreeNode : EditorNode
+    [System.Serializable]
+    public class ClassTreeNode
     {
         public bool unlocked;
         public bool taken;
 
-        public ClassTreeNode(Vector2 position) : base(position)
-        {
+        /// Editor Functions
 
+        private Rect displayRect;
+
+        public void Draw(Vector2 position)
+        {
+            float nodeWidth = ClassTree.NODE_WIDTH;
+            float nodeHeight = ClassTree.NODE_HEIGHT;
+            displayRect = new Rect(position.x, position.y, nodeWidth, nodeHeight);
+            EditorUtils.DrawBorderBox(displayRect, EditorUtils.HEADER_COLOR, 1, EditorUtils.DIVIDER_COLOR);
         }
 
-        public override void Draw(Vector2 offset)
-        {
-
-        }
+        public bool Contains(Vector2 position) => displayRect.Contains(position);
     }
 }
