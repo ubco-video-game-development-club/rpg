@@ -45,8 +45,8 @@ namespace ClassEditor
             ProcessEvents(Event.current);
 
             // Draw header
-            EditorUtils.DrawBox(new Rect(0, 0, Screen.width, 21), EditorUtils.DIVIDER_COLOR);
-            EditorUtils.DrawBox(new Rect(0, 0, Screen.width, 20), EditorUtils.HEADER_COLOR);
+            EditorUtils.DrawBox(new Rect(0, 0, Screen.width, 21), EditorUtils.BORDER_COLOR);
+            EditorUtils.DrawBox(new Rect(0, 0, Screen.width, 20), EditorUtils.BACKGROUND_COLOR);
             GUILayout.Label(selectedAssetPath != "" ? selectedAssetPath : "No Class Tree selected!");
 
             if (selectedClassTree != null)
@@ -71,10 +71,55 @@ namespace ClassEditor
         {
             GenericMenu menu = new GenericMenu();
 
-            ClassTreeTier selectedTier = selectedClassTree.GetTierAt(position);
-            if (selectedTier != null)
+            ClassTreeTier targetTier = selectedClassTree.GetTierAt(position);
+            if (targetTier != null)
             {
-                if (selectedClassTree.ContainsTier(selectedTier.Level + 1))
+                ClassTreeNode targetNode = selectedClassTree.GetNodeAt(position);
+                if (targetNode != null)
+                {
+                    menu.AddItem(
+                        new GUIContent("Delete Node"),
+                        false,
+                        () =>
+                        {
+                            selectedClassTree.RemoveNode(targetTier.level, targetNode);
+                            EditorUtility.SetDirty(selectedClassTree);
+                        }
+                    );
+                }
+                else
+                {
+                    menu.AddItem(
+                        new GUIContent("Create Node"),
+                        false,
+                        () =>
+                        {
+                            selectedClassTree.AddNode(targetTier.level);
+                            EditorUtility.SetDirty(selectedClassTree);
+                        }
+                    );
+                }
+
+                menu.AddSeparator("");
+
+                if (targetTier.level == 1)
+                {
+                    menu.AddDisabledItem(new GUIContent("Delete Tier"));
+                }
+                else
+                {
+                    menu.AddItem(
+                        new GUIContent("Delete Tier"),
+                        false,
+                        () =>
+                        {
+                            selectedClassTree.RemoveTier(targetTier.level);
+                            EditorUtility.SetDirty(selectedClassTree);
+                        }
+                    );
+                }
+
+                if (selectedClassTree.ContainsTier(targetTier.level + 1))
                 {
                     menu.AddDisabledItem(new GUIContent("Add Tier Below"));
                 }
@@ -85,21 +130,11 @@ namespace ClassEditor
                         false,
                         () =>
                         {
-                            selectedClassTree.AddTier(selectedTier.Level + 1);
+                            selectedClassTree.AddTier(targetTier.level + 1);
                             EditorUtility.SetDirty(selectedClassTree);
                         }
                     );
                 }
-
-                menu.AddItem(
-                    new GUIContent("Create Node"),
-                    false,
-                    () =>
-                    {
-                        selectedClassTree.AddNode(selectedTier.Level, new ClassTreeNode());
-                        EditorUtility.SetDirty(selectedClassTree);
-                    }
-                );
             }
 
             menu.ShowAsContext();

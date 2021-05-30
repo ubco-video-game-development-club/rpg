@@ -1,34 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 namespace ClassEditor
 {
     [System.Serializable]
     public class ClassTreeTier
     {
-        public int Level { get; private set; }
-        public List<ClassTreeNode> Nodes { get; private set; }
+        public int level;
+        public List<ClassTreeNode> nodes;
+
+        public bool isSelected;
+        private Rect displayRect;
 
         public ClassTreeTier(int level)
         {
-            Level = level;
-            Nodes = new List<ClassTreeNode>();
+            this.level = level;
+            nodes = new List<ClassTreeNode>();
         }
 
         public void AddNode(ClassTreeNode node)
         {
-            Nodes.Add(node);
+            nodes.Add(node);
         }
 
         public void RemoveNode(ClassTreeNode node)
         {
-            Nodes.Remove(node);
+            nodes.Remove(node);
         }
-
-        /// Editor Functions
-
-        private Rect displayRect;
 
         public void Draw(Rect area)
         {
@@ -39,28 +39,26 @@ namespace ClassEditor
             float nodeWidth = ClassTree.NODE_WIDTH;
             float nodeHeight = ClassTree.NODE_HEIGHT;
 
+            Color dividerColor = isSelected ? EditorUtils.HIGHLIGHTED_COLOR : EditorUtils.BACKGROUND_COLOR;
+
             // Draw top divider
-            EditorUtils.DrawBox(new Rect(area.x, area.y, area.width, 2), EditorUtils.HEADER_COLOR);
+            EditorUtils.DrawBox(new Rect(area.x, area.y, area.width, 2), dividerColor);
 
             // Draw nodes
             int idx = 0;
-            float sectionWidth = (area.width - marginWidth) / (Nodes.Count + 1);
+            float sectionWidth = (area.width - marginWidth) / (nodes.Count + 1);
             float yOffset = (tierheight - nodeHeight) / 2 + 1;
-            foreach (ClassTreeNode node in Nodes)
+            foreach (ClassTreeNode node in nodes)
             {
-                node.Draw(new Vector2(area.x + sectionWidth * (idx + 1) - nodeWidth / 2, area.y + yOffset));
+                node.Draw(new Vector2(area.x + marginWidth + sectionWidth * (idx + 1) - nodeWidth / 2, area.y + yOffset));
                 idx++;
             }
 
-            // TODO: Move this back to class tree, and move the margin to the left side
-            // Draw vertical divider
-            EditorUtils.DrawBox(new Rect(area.width - marginWidth + 1, area.y, 2, area.height), EditorUtils.DIVIDER_COLOR);
-
             // Draw level label
-            GUI.Label(new Rect(area.width - marginWidth + 20, area.y + area.height / 2 - 15, 80, 30), $"Level {Level}");
+            GUI.Label(new Rect(area.x + marginWidth - 60, area.y + area.height / 2 - 10, 60, 20), $"Level {level}");
 
             // Draw bottom divider
-            EditorUtils.DrawBox(new Rect(area.x, area.y + area.height, area.width, 2), EditorUtils.HEADER_COLOR);
+            EditorUtils.DrawBox(new Rect(area.x, area.y + area.height, area.width, 2), dividerColor);
         }
 
         public bool Contains(Vector2 position) => displayRect.Contains(position);
