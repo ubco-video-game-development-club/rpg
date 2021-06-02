@@ -71,10 +71,10 @@ namespace ClassEditor
         {
             GenericMenu menu = new GenericMenu();
 
-            ClassTreeTier targetTier = selectedClassTree.GetTierAt(position);
+            ClassTier targetTier = selectedClassTree.GetTierAt(position);
             if (targetTier != null)
             {
-                ClassTreeNode targetNode = selectedClassTree.GetNodeAt(position);
+                ClassNode targetNode = selectedClassTree.GetNodeAt(position);
                 if (targetNode != null)
                 {
                     menu.AddItem(

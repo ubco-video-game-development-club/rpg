@@ -9,27 +9,21 @@ namespace ClassEditor
     public class ClassTreeInspector : Editor
     {
         private ClassTree tree;
-        private SerializedProperty tierProp;
-        private SerializedProperty nodeProp;
+        private SerializedProperty layers;
 
         void OnEnable()
         {
             tree = serializedObject.targetObject as ClassTree;
-            tierProp = serializedObject.FindProperty("selectedTier");
-            nodeProp = serializedObject.FindProperty("selectedNode");
+            layers = serializedObject.FindProperty("layers");
         }
 
         public override void OnInspectorGUI()
         {
             serializedObject.Update();
 
-            if (tree.selectedTier.isSelected)
+            if (tree.selectedLevel >= 0)
             {
                 DisplayTier();
-            }
-            else if (tree.selectedNode.isSelected)
-            {
-                // TODO: node
             }
 
             serializedObject.ApplyModifiedProperties();
@@ -38,15 +32,28 @@ namespace ClassEditor
 
         private void DisplayTier()
         {
+            int levelIdx = tree.IndexOfLevel(tree.selectedLevel);
+            SerializedProperty levelsProp = layers.FindPropertyRelative("levels");
+            SerializedProperty tiersProp = layers.FindPropertyRelative("tiers");
+            SerializedProperty levelKeyProp = levelsProp.GetArrayElementAtIndex(levelIdx);
+            SerializedProperty tierProp = tiersProp.GetArrayElementAtIndex(levelIdx);
             SerializedProperty levelProp = tierProp.FindPropertyRelative("level");
+
             EditorGUILayout.LabelField("Class Tier", EditorStyles.boldLabel);
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.PrefixLabel("Level");
+            int currentLevel = tree.selectedLevel;
+            GUI.enabled = currentLevel == 1 ? false : true;
             int newLevel = EditorGUILayout.IntField(levelProp.intValue);
-            if (!tree.ContainsTier(newLevel))
+            GUI.enabled = true;
+            if (newLevel > 0 && !tree.ContainsTier(newLevel))
             {
+                levelKeyProp.intValue = newLevel;
                 levelProp.intValue = newLevel;
-                tree.MoveTier(tree.selectedTier.level, newLevel);
+                tree.MoveTier(currentLevel, newLevel);
+                tree.selectedLevel = newLevel;
+                Debug.Log("Here is the boi we just moved");
+                tree.Print();
             }
             EditorGUILayout.EndHorizontal();
         }

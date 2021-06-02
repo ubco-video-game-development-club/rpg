@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ClassEditor
 {
     [System.Serializable]
-    public class ClassTreeNode
+    public class ClassNode
     {
         public bool isSelected;
         private Rect displayRect;

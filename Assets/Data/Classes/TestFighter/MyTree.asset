@@ -10,5 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75d388fe7ae5e2542b66456d693ee7a5, type: 3}
-  m_Name: FighterTree
+  m_Name: MyTree
   m_EditorClassIdentifier: 
+  layers:
+    levels: 010000000500000007000000
+    tiers:
+    - level: 1
+      nodes: []
+      isSelected: 0
+    - level: 5
+      nodes:
+      - isSelected: 0
+      isSelected: 0
+    - level: 7
+      nodes:
+      - isSelected: 0
+      isSelected: 0

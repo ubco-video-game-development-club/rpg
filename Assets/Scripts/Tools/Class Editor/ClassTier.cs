@@ -6,32 +6,39 @@ using UnityEditor;
 namespace ClassEditor
 {
     [System.Serializable]
-    public class ClassTreeTier
+    public class ClassTier
     {
         public int level;
-        public List<ClassTreeNode> nodes;
+        public List<ClassNode> nodes;
 
         public bool isSelected;
         private Rect displayRect;
 
-        public ClassTreeTier(int level)
+        public ClassTier(int level)
         {
             this.level = level;
-            nodes = new List<ClassTreeNode>();
+            Debug.Log("Initialized");
+            nodes = new List<ClassNode>();
         }
 
-        public void AddNode(ClassTreeNode node)
+        public void AddNode(ClassNode node)
         {
             nodes.Add(node);
         }
 
-        public void RemoveNode(ClassTreeNode node)
+        public void RemoveNode(ClassNode node)
         {
             nodes.Remove(node);
         }
 
         public void Draw(Rect area)
         {
+            if (nodes == null)
+            {
+                Debug.Log("Uh oh.");
+                return;
+            }
+
             displayRect = area;
 
             float tierheight = ClassTree.TIER_HEIGHT;
@@ -48,7 +55,7 @@ namespace ClassEditor
             int idx = 0;
             float sectionWidth = (area.width - marginWidth) / (nodes.Count + 1);
             float yOffset = (tierheight - nodeHeight) / 2 + 1;
-            foreach (ClassTreeNode node in nodes)
+            foreach (ClassNode node in nodes)
             {
                 node.Draw(new Vector2(area.x + marginWidth + sectionWidth * (idx + 1) - nodeWidth / 2, area.y + yOffset));
                 idx++;
