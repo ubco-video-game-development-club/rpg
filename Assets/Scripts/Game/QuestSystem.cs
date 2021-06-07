@@ -32,11 +32,7 @@ namespace RPG
 
         void Update()
         {
-            if (Input.GetButtonDown("Toggle Notes"))
-            {
-                if (notesPopup == null) notesPopup = GameManager.PopupSystem.CreatePopup("Notes", notesPrefab);
-                else Destroy(notesPopup);
-            }
+            if (Input.GetButtonDown("Toggle Notes")) ToggleNotes();
         }
 
     #if UNITY_EDITOR
@@ -98,6 +94,12 @@ namespace RPG
 
             if (remove == null) return false;
             else return RemoveNote(remove ?? default(Note));
+        }
+
+        public void ToggleNotes()
+        {
+            if (notesPopup == null) notesPopup = GameManager.PopupSystem.CreatePopup("Notes", notesPrefab);
+            else Destroy(notesPopup);
         }
 
         public struct Note
