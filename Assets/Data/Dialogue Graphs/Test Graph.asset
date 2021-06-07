@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ac0479ced6a50409cc854a5b89a582, type: 3}
+  m_Name: Test Graph
+  m_EditorClassIdentifier: 
+  nodes:
+  - name: Entry
+    body: I have brought peace, freedom, justice, and security to my new empire.
+    position: {x: -660, y: -64}
+  - name: Your new empire?
+    body: Don't make me kill you.
+    position: {x: -478, y: -246}
+  - name: Only a Sith deals in absolutes. I will do what I must.
+    body: You will try.
+    position: {x: 156, y: -210}
+  - name: Good, good. Let the hate flow through you.
+    body: Dewit!
+    position: {x: -221, y: 119}
+  - name: Anakin, my allegiance is to the Republic, to Democracy!
+    body: If you are not with me, then you are my enemy.
+    position: {x: -191.5, y: -304}
+  transitions:
+  - name: Transition
+    from: 0
+    to: 1
+  - name: Transition
+    from: 2
+    to: -1
+  - name: Transition
+    from: 0
+    to: 3
+  - name: Transition
+    from: 3
+    to: -1
+  - name: Transition
+    from: 1
+    to: 4
+  - name: Transition
+    from: 4
+    to: 2
