@@ -21,7 +21,11 @@ namespace ClassEditor
         {
             serializedObject.Update();
 
-            if (tree.selectedLevel >= 0)
+            if (tree.selectedNodeIndex >= 0)
+            {
+                DisplayNode();
+            }
+            else if (tree.selectedLevel >= 0)
             {
                 DisplayTier();
             }
@@ -34,9 +38,9 @@ namespace ClassEditor
         {
             int levelIdx = tree.IndexOfLevel(tree.selectedLevel);
             SerializedProperty levelsProp = layers.FindPropertyRelative("levels");
-            SerializedProperty tiersProp = layers.FindPropertyRelative("tiers");
             SerializedProperty levelKeyProp = levelsProp.GetArrayElementAtIndex(levelIdx);
-            SerializedProperty tierProp = tiersProp.GetArrayElementAtIndex(levelIdx);
+
+            SerializedProperty tierProp = GetSelectedTierProperty();
             SerializedProperty levelProp = tierProp.FindPropertyRelative("level");
 
             EditorGUILayout.LabelField("Class Tier", EditorStyles.boldLabel);
@@ -56,6 +60,22 @@ namespace ClassEditor
                 tree.Print();
             }
             EditorGUILayout.EndHorizontal();
+        }
+
+        private void DisplayNode()
+        {
+            SerializedProperty tierProp = GetSelectedTierProperty();
+            SerializedProperty nodesProp = tierProp.FindPropertyRelative("nodes");
+            SerializedProperty nodeProp = nodesProp.GetArrayElementAtIndex(tree.selectedNodeIndex);
+            SerializedProperty levelUpOptionsProp = nodeProp.FindPropertyRelative("levelUpOptions");
+            EditorGUILayout.PropertyField(levelUpOptionsProp, GUIContent.none);
+        }
+
+        private SerializedProperty GetSelectedTierProperty()
+        {
+            int levelIdx = tree.IndexOfLevel(tree.selectedLevel);
+            SerializedProperty tiersProp = layers.FindPropertyRelative("tiers");
+            return tiersProp.GetArrayElementAtIndex(levelIdx);
         }
     }
 }

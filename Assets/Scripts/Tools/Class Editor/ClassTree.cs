@@ -91,14 +91,9 @@ namespace ClassEditor
             AddTier(newLevel, tier);
         }
 
-        public void AddNode(int level)
+        public void AddNode(int level, ClassNodeType nodeType)
         {
-            AddNode(level, new ClassNode());
-        }
-
-        public void AddNode(int level, ClassNode node)
-        {
-            layers[level].AddNode(node);
+            layers[level].AddNode(new ClassNode(nodeType));
         }
 
         public void RemoveNode(int level, ClassNode node)
@@ -196,6 +191,12 @@ namespace ClassEditor
                 {
                     ClearSelection();
 
+                    ClassTier targetTier = GetTierAt(e.mousePosition);
+                    if (targetTier != null)
+                    {
+                        selectedLevel = targetTier.level;
+                    }
+
                     ClassNode targetNode = GetNodeAt(e.mousePosition);
                     if (targetNode != null)
                     {
@@ -203,15 +204,10 @@ namespace ClassEditor
                         selectedNode.isSelected = true;
                         selectedNodeIndex = IndexOfNode(selectedNode);
                     }
-                    else
+                    else if (targetTier != null)
                     {
-                        ClassTier targetTier = GetTierAt(e.mousePosition);
-                        if (targetTier != null)
-                        {
-                            selectedTier = targetTier;
-                            selectedTier.isSelected = true;
-                            selectedLevel = selectedTier.level;
-                        }
+                        selectedTier = targetTier;
+                        selectedTier.isSelected = true;
                     }
                     e.Use();
                 }

@@ -89,12 +89,16 @@ namespace ClassEditor
                 }
                 else
                 {
+                    // TODO: implement subclasses
+                    menu.AddDisabledItem(
+                        new GUIContent("Create Subclass Node")
+                    );
                     menu.AddItem(
-                        new GUIContent("Create Node"),
+                        new GUIContent("Create Skill Node"),
                         false,
                         () =>
                         {
-                            selectedClassTree.AddNode(targetTier.level);
+                            selectedClassTree.AddNode(targetTier.level, ClassNodeType.Skill);
                             EditorUtility.SetDirty(selectedClassTree);
                         }
                     );
