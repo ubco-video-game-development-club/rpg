@@ -41,7 +41,7 @@ namespace ClassEditor
 
             if (nodeType == ClassNodeType.Skill)
             {
-                GUIStyle nameStyle = GUI.skin.label;
+                GUIStyle nameStyle = new GUIStyle(GUI.skin.label);
                 nameStyle.alignment = TextAnchor.MiddleCenter;
                 string nameText = EditorUtils.TrimStringToFit("Skill", nodeWidth, nameStyle);
                 GUI.Label(displayRect, nameText, nameStyle);
