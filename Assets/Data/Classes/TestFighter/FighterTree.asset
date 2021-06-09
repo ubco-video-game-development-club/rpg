@@ -13,26 +13,51 @@ MonoBehaviour:
   m_Name: FighterTree
   m_EditorClassIdentifier: 
   layers:
-    levels: 01000000050000000a000000
+    levels: 0100000003000000060000000a0000000f000000
     tiers:
     - level: 1
       nodes:
-      - isSelected: 0
-        nodeType: 1
-        childIndices: 
+      - level: 1
+        nodeType: 0
+        childIndices: 00000000
         levelUpOptions: []
-      isSelected: 0
-    - level: 5
+    - level: 3
       nodes:
-      - isSelected: 0
-        nodeType: 1
-        childIndices: 
+      - level: 3
+        nodeType: 2
+        childIndices: 0000000001000000
         levelUpOptions: []
-      isSelected: 0
+    - level: 6
+      nodes:
+      - level: 6
+        nodeType: 2
+        childIndices: 00000000
+        levelUpOptions: []
+      - level: 6
+        nodeType: 2
+        childIndices: 000000000100000002000000
+        levelUpOptions: []
     - level: 10
       nodes:
-      - isSelected: 0
-        nodeType: 1
+      - level: 10
+        nodeType: 2
+        childIndices: 00000000
+        levelUpOptions: []
+      - level: 10
+        nodeType: 2
+        childIndices: 00000000
+        levelUpOptions: []
+      - level: 10
+        nodeType: 2
+        childIndices: 01000000
+        levelUpOptions: []
+    - level: 15
+      nodes:
+      - level: 15
+        nodeType: 2
         childIndices: 
         levelUpOptions: []
-      isSelected: 0
+      - level: 15
+        nodeType: 2
+        childIndices: 
+        levelUpOptions: []

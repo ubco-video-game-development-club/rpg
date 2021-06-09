@@ -30,7 +30,10 @@ namespace ClassEditor
                 DisplayTier();
             }
 
-            serializedObject.ApplyModifiedProperties();
+            if (!EditorUtility.IsDirty(tree))
+            {
+                serializedObject.ApplyModifiedProperties();
+            }
             Repaint();
         }
 
@@ -52,12 +55,8 @@ namespace ClassEditor
             GUI.enabled = true;
             if (newLevel > 0 && !tree.ContainsTier(newLevel))
             {
-                levelKeyProp.intValue = newLevel;
-                levelProp.intValue = newLevel;
                 tree.MoveTier(currentLevel, newLevel);
                 tree.selectedLevel = newLevel;
-                Debug.Log("Here is the boi we just moved");
-                tree.Print();
             }
             EditorGUILayout.EndHorizontal();
         }

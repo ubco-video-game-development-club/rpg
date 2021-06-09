@@ -1,11 +1,13 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 namespace ClassEditor
 {
     [Serializable]
-    public class LayerDictionary : SortedDictionary<int, ClassTier>, ISerializationCallbackReceiver
+    public class LayerDictionary : SortedList<int, ClassTier>, ISerializationCallbackReceiver
     {
         [SerializeField] private List<int> levels = new List<int>();
         [SerializeField] private List<ClassTier> tiers = new List<ClassTier>();
@@ -26,11 +28,9 @@ namespace ClassEditor
         {
             // Pull dictionary data from lists
             Clear();
-            Debug.Log("uwu im gonna take dis now hehe");
             for (int i = 0; i < levels.Count; i++)
             {
                 this.Add(levels[i], tiers[i]);
-                Debug.Log($"i took {levels[i]}, {tiers[i]}");
             }
         }
     }
@@ -50,8 +50,18 @@ namespace ClassEditor
         [NonSerialized] public int selectedNodeIndex = -1;
 
         [SerializeField] private LayerDictionary layers = new LayerDictionary();
+        public LayerDictionary Layers { get => layers; }
 
+        public bool IsEditingPath { get => pathStartNode != null; }
+
+        private ClassNode pathStartNode = null;
         private Vector2 scrollPosition;
+
+        public void Initialize()
+        {
+            ClearSelection();
+            pathStartNode = null;
+        }
 
         public bool ContainsTier(int level)
         {
@@ -65,67 +75,116 @@ namespace ClassEditor
 
         public void AddTier(int level, ClassTier tier)
         {
-            Debug.Log($"Apparentlyyyy my mom said we're adding to level {level} apparentlyy");
+            ClearSelection();
             layers.Add(level, tier);
-            Debug.Log($"dis is wut i did owo");
-            foreach (KeyValuePair<int, ClassTier> layer in layers)
+            int parentTierIdx = IndexOfLevel(level) - 1;
+            if (parentTierIdx >= 0)
             {
-                int myLevel = layer.Key;
-                ClassTier myTier = layer.Value;
-                Debug.Log($"Key: {myLevel}, Tier Data: {myTier.level}");
+                foreach (ClassNode parent in layers.Values[parentTierIdx].nodes)
+                {
+                    parent.childIndices.Clear();
+                }
             }
         }
 
         public void RemoveTier(int level)
         {
-            bool succ = layers.Remove(level);
-            Debug.Log($"Succ = {succ}");
+            ClearSelection();
+            int parentTierIdx = IndexOfLevel(level) - 1;
+            if (parentTierIdx >= 0)
+            {
+                foreach (ClassNode parent in layers.Values[parentTierIdx].nodes)
+                {
+                    parent.childIndices.Clear();
+                }
+            }
+            layers.Remove(level);
         }
 
         public void MoveTier(int oldLevel, int newLevel)
         {
-            Debug.Log($"Moving from {oldLevel} to {newLevel}.");
+            ClearSelection();
             ClassTier tier = layers[oldLevel];
             tier.level = newLevel;
+            foreach (ClassNode node in tier.nodes)
+            {
+                node.level = newLevel;
+                node.childIndices.Clear();
+            }
             RemoveTier(oldLevel);
             AddTier(newLevel, tier);
+            EditorUtility.SetDirty(this);
+        }
+
+        public List<ClassNode> GetChildren(ClassNode parent)
+        {
+            List<ClassNode> children = new List<ClassNode>();
+            int childTierIdx = IndexOfLevel(parent.level) + 1;
+            if (layers.Count > childTierIdx)
+            {
+                int childLevel = layers.Values[childTierIdx].level;
+                List<ClassNode> childNodes = layers[childLevel].nodes;
+                foreach (int childIdx in parent.childIndices)
+                {
+                    children.Add(childNodes[childIdx]);
+                }
+            }
+            return children;
         }
 
         public void AddNode(int level, ClassNodeType nodeType)
         {
-            layers[level].AddNode(new ClassNode(nodeType));
+            layers[level].AddNode(new ClassNode(level, nodeType));
         }
 
-        public void RemoveNode(int level, ClassNode node)
+        public void RemoveNode(ClassNode node)
         {
-            layers[level].RemoveNode(node);
-        }
-
-        public void Print()
-        {
-            Debug.Log("Here's what we got:");
-            foreach (KeyValuePair<int, ClassTier> layer in layers)
+            ClearSelection();
+            int nodeIdx = IndexOfNode(node);
+            int parentTierIdx = IndexOfLevel(node.level) - 1;
+            foreach (ClassNode parent in layers.Values[parentTierIdx].nodes)
             {
-                int myLevel = layer.Key;
-                ClassTier tier = layer.Value;
-                Debug.Log($"Key: {myLevel}, Tier Data: {tier.level}");
+                if (parent.childIndices.Count <= 0) continue;
+                parent.childIndices.Remove(nodeIdx);
+                for (int i = 0; i < parent.childIndices.Count; i++)
+                {
+                    if (parent.childIndices[i] > nodeIdx)
+                    {
+                        parent.childIndices[i]--;
+                    }
+                }
             }
+            layers[node.level].RemoveNode(node);
         }
 
         public void Draw(Rect area)
         {
-            ProcessEvents(Event.current);
-
             // Create scroll view
             Rect scrollPosRect = new Rect(area.x, area.y, area.width, area.height);
             Rect scrollViewRect = new Rect(area.x, area.y, area.width - 15, layers.Count * TIER_HEIGHT + 10);
             scrollPosition = GUI.BeginScrollView(scrollPosRect, scrollPosition, scrollViewRect);
 
+            // Draw tiers
             int idx = 0;
             foreach (ClassTier tier in layers.Values)
             {
                 float yOffset = TIER_SPACING + idx * (TIER_HEIGHT + TIER_SPACING);
-                tier.Draw(new Rect(area.x, area.y + yOffset, area.width, TIER_HEIGHT));
+                tier.Draw(this, new Rect(area.x, area.y + yOffset, area.width, TIER_HEIGHT));
+                idx++;
+            }
+
+            // Draw paths
+            foreach (ClassTier tier in layers.Values)
+            {
+                tier.DrawPaths(this);
+            }
+
+            // Draw nodes
+            idx = 0;
+            foreach (ClassTier tier in layers.Values)
+            {
+                float yOffset = TIER_SPACING + idx * (TIER_HEIGHT + TIER_SPACING);
+                tier.DrawNodes(this, new Rect(area.x, area.y + yOffset, area.width, TIER_HEIGHT));
                 idx++;
             }
 
@@ -133,6 +192,17 @@ namespace ClassEditor
 
             // Draw vertical divider
             EditorUtils.DrawBox(new Rect(MARGIN_WIDTH + 1, area.y, 3, area.height), EditorUtils.BORDER_COLOR);
+
+            // Draw path edit line
+            if (IsEditingPath)
+            {
+                Vector2 startPos = pathStartNode.ButtonPosition;
+                Vector2 mousePos = Event.current.mousePosition;
+                Handles.DrawBezier(startPos, mousePos, startPos, mousePos, EditorUtils.LINE_COLOR, null, 3f);
+                GUI.changed = true;
+            }
+
+            ProcessEvents(Event.current);
         }
 
         public ClassTier GetTierAt(Vector2 position)
@@ -160,27 +230,22 @@ namespace ClassEditor
 
         public int IndexOfLevel(int level)
         {
-            int idx = 0;
-            foreach (int tierLevel in layers.Keys)
-            {
-                if (tierLevel == level) return idx;
-                idx++;
-            }
-            Debug.Log("Bad news chief.");
-            Print();
-            Debug.Log("Here's what we want:");
-            Debug.Log(level);
-            return -1;
+            return layers.IndexOfKey(level);
         }
 
         public int IndexOfNode(ClassNode node)
         {
-            foreach (ClassTier tier in layers.Values)
-            {
-                int idx = tier.nodes.IndexOf(node);
-                if (idx >= 0) return idx;
-            }
-            return -1;
+            return layers[node.level].nodes.IndexOf(node);
+        }
+
+        public void StartPathEdit(ClassNode startNode)
+        {
+            pathStartNode = startNode;
+        }
+
+        private void FinishPathEdit(ClassNode endNode)
+        {
+            pathStartNode.AddChild(IndexOfNode(endNode));
         }
 
         private void ProcessEvents(Event e)
@@ -191,24 +256,44 @@ namespace ClassEditor
                 {
                     ClearSelection();
 
-                    ClassTier targetTier = GetTierAt(e.mousePosition);
-                    if (targetTier != null)
+                    if (IsEditingPath)
                     {
-                        selectedLevel = targetTier.level;
+                        ClassTier targetTier = GetTierAt(e.mousePosition);
+                        if (targetTier != null)
+                        {
+                            ClassNode targetNode = GetNodeAt(e.mousePosition);
+                            if (targetNode != null)
+                            {
+                                int startLevelIdx = IndexOfLevel(pathStartNode.level);
+                                int targetLevelIdx = IndexOfLevel(targetNode.level);
+                                if (targetLevelIdx == startLevelIdx + 1) FinishPathEdit(targetNode);
+                            }
+                        }
+
+                        pathStartNode = null;
+                    }
+                    else
+                    {
+                        ClassTier targetTier = GetTierAt(e.mousePosition);
+                        if (targetTier != null)
+                        {
+                            selectedLevel = targetTier.level;
+                        }
+
+                        ClassNode targetNode = GetNodeAt(e.mousePosition);
+                        if (targetNode != null)
+                        {
+                            selectedNode = targetNode;
+                            selectedNode.isSelected = true;
+                            selectedNodeIndex = IndexOfNode(selectedNode);
+                        }
+                        else if (targetTier != null)
+                        {
+                            selectedTier = targetTier;
+                            selectedTier.isSelected = true;
+                        }
                     }
 
-                    ClassNode targetNode = GetNodeAt(e.mousePosition);
-                    if (targetNode != null)
-                    {
-                        selectedNode = targetNode;
-                        selectedNode.isSelected = true;
-                        selectedNodeIndex = IndexOfNode(selectedNode);
-                    }
-                    else if (targetTier != null)
-                    {
-                        selectedTier = targetTier;
-                        selectedTier.isSelected = true;
-                    }
                     e.Use();
                 }
             }
