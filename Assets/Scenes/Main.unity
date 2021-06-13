@@ -1903,6 +1903,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1226771121}
   - component: {fileID: 1226771122}
+  - component: {fileID: 1226771125}
   - component: {fileID: 1226771124}
   - component: {fileID: 1226771123}
   m_Layer: 0
@@ -1981,6 +1982,19 @@ MonoBehaviour:
   quackersLevelUpBonuses: []
   flappersLevelUpBonuses: []
   tappersLevelUpBonuses: []
+--- !u!114 &1226771125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226771120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 966e462fe21e6e948a32d1a51b01e9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myClass: {fileID: 11400000, guid: afc564a47d9520447b0ded5708a4f5b3, type: 2}
 --- !u!1 &1228657968
 GameObject:
   m_ObjectHideFlags: 0

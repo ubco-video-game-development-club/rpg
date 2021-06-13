@@ -20,44 +20,62 @@ MonoBehaviour:
       - level: 1
         nodeType: 0
         childIndices: 00000000
+        classData:
+          health: 50
         levelUpOptions: []
     - level: 3
       nodes:
       - level: 3
         nodeType: 2
         childIndices: 0000000001000000
+        classData:
+          health: 0
         levelUpOptions: []
     - level: 6
       nodes:
       - level: 6
         nodeType: 2
         childIndices: 00000000
+        classData:
+          health: 0
         levelUpOptions: []
       - level: 6
         nodeType: 2
         childIndices: 000000000100000002000000
+        classData:
+          health: 0
         levelUpOptions: []
     - level: 10
       nodes:
       - level: 10
         nodeType: 2
         childIndices: 00000000
+        classData:
+          health: 0
         levelUpOptions: []
       - level: 10
         nodeType: 2
         childIndices: 00000000
+        classData:
+          health: 0
         levelUpOptions: []
       - level: 10
         nodeType: 2
         childIndices: 01000000
+        classData:
+          health: 0
         levelUpOptions: []
     - level: 15
       nodes:
       - level: 15
         nodeType: 2
         childIndices: 
+        classData:
+          health: 0
         levelUpOptions: []
       - level: 15
         nodeType: 2
         childIndices: 
+        classData:
+          health: 0
         levelUpOptions: []

@@ -116,6 +116,11 @@ namespace ClassEditor
             EditorUtility.SetDirty(this);
         }
 
+        public ClassData GetClassData()
+        {
+            return layers[1].nodes[0].classData;
+        }
+
         public List<ClassNode> GetChildren(ClassNode parent)
         {
             List<ClassNode> children = new List<ClassNode>();

@@ -9,6 +9,7 @@ namespace RPG
     {
         private static GameManager instance;
 
+        public static ClassSystem ClassSystem { get; private set; }
         public static LevelingSystem LevelingSystem { get; private set; }
         public static DialogueSystem DialogueSystem { get; private set; }
 
@@ -23,6 +24,7 @@ namespace RPG
             }
             instance = this;
 
+            ClassSystem = GetComponent<ClassSystem>();
             LevelingSystem = GetComponent<LevelingSystem>();
             DialogueSystem = GetComponent<DialogueSystem>();
 

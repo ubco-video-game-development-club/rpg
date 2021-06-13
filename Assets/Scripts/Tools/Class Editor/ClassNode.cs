@@ -12,6 +12,12 @@ namespace ClassEditor
     }
 
     [System.Serializable]
+    public struct ClassData
+    {
+        public int health;
+    }
+
+    [System.Serializable]
     public class ClassNode
     {
         public int level;
@@ -24,10 +30,13 @@ namespace ClassEditor
         public Vector2 KnobPosition { get; private set; }
         public Vector2 ButtonPosition { get; private set; }
 
-        // Subclasses
+        // Class
+        public ClassData classData;
+
+        // Subclass
         // TODO: after first development milestone
 
-        // Skills
+        // Skill
         public LevelUpOption[] levelUpOptions;
 
         public ClassNode(int level, ClassNodeType nodeType)

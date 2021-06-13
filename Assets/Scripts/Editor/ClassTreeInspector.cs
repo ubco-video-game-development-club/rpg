@@ -66,8 +66,23 @@ namespace ClassEditor
             SerializedProperty tierProp = GetSelectedTierProperty();
             SerializedProperty nodesProp = tierProp.FindPropertyRelative("nodes");
             SerializedProperty nodeProp = nodesProp.GetArrayElementAtIndex(tree.selectedNodeIndex);
-            SerializedProperty levelUpOptionsProp = nodeProp.FindPropertyRelative("levelUpOptions");
-            EditorGUILayout.PropertyField(levelUpOptionsProp, GUIContent.none);
+
+            switch (tree.selectedNode.nodeType)
+            {
+                case ClassNodeType.Class:
+                    SerializedProperty classDataProp = nodeProp.FindPropertyRelative("classData");
+                    SerializedProperty healthProp = classDataProp.FindPropertyRelative("health");
+                    EditorGUILayout.LabelField("Class Node", EditorStyles.boldLabel);
+                    EditorGUILayout.PropertyField(healthProp);
+                    break;
+                case ClassNodeType.Skill:
+                    SerializedProperty levelUpOptionsProp = nodeProp.FindPropertyRelative("levelUpOptions");
+                    EditorGUILayout.LabelField("Skill Node", EditorStyles.boldLabel);
+                    EditorGUILayout.PropertyField(levelUpOptionsProp, GUIContent.none);
+                    break;
+            }
+
+            serializedObject.ApplyModifiedProperties();
         }
 
         private SerializedProperty GetSelectedTierProperty()
