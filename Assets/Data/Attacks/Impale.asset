@@ -19,4 +19,4 @@ MonoBehaviour:
   cooldown: 6
   damage: 4
   reach: 2
-  arcAngle: 10
+  arcAngle: 30

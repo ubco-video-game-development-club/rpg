@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9933a58d5c270b540b3346e93abda407, type: 3}
   m_Name: Deadly
   m_EditorClassIdentifier: 
-  optionName: Deadly
-  optionDescription: Deal an additional +2 damage per attack.
+  title: Deadly
+  description: You deal an additional 2 points of damage.
   levelUpBonuses:
   - name: 2
     type: 0

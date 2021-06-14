@@ -9,15 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9933a58d5c270b540b3346e93abda407, type: 3}
-  m_Name: Toughness
+  m_Script: {fileID: 11500000, guid: 65fe40d9c1506a14b9dbc1fb3d47d7ee, type: 3}
+  m_Name: Slap
   m_EditorClassIdentifier: 
-  title: Toughness
-  description: Increase your max health by 20.
-  levelUpBonuses:
-  - name: 0
-    type: 0
-    iValue: 20
-    fValue: 0
-    sValue: 
-    bValue: 0
+  onHitEffects: []
+  onKillEffects: []
+  animationController: {fileID: 22100000, guid: 0c9a8c0ef0df9d04980f5a208c7f7af2,
+    type: 2}
+  cooldown: 1
+  damage: 1
+  reach: 1.2
+  arcAngle: 30

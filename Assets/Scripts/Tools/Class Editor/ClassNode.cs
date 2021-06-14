@@ -6,11 +6,6 @@ using RPG;
 
 namespace ClassEditor
 {
-    public enum ClassNodeType
-    {
-        Class, Subclass, Skill
-    }
-
     [System.Serializable]
     public struct ClassData
     {
@@ -21,7 +16,7 @@ namespace ClassEditor
     public class ClassNode
     {
         public int level;
-        public ClassNodeType nodeType;
+        public ClassTierType nodeType;
         public List<int> childIndices;
 
         [NonSerialized] public bool isSelected;
@@ -39,7 +34,7 @@ namespace ClassEditor
         // Skill
         public LevelUpOption[] levelUpOptions;
 
-        public ClassNode(int level, ClassNodeType nodeType)
+        public ClassNode(int level, ClassTierType nodeType)
         {
             this.level = level;
             this.nodeType = nodeType;
@@ -89,17 +84,8 @@ namespace ClassEditor
             // Draw node label
             GUIStyle labelStyle = new GUIStyle(GUI.skin.label);
             labelStyle.alignment = TextAnchor.MiddleCenter;
-            switch (nodeType)
-            {
-                case ClassNodeType.Class:
-                    string classText = EditorUtils.TrimStringToFit("Class", nodeWidth, labelStyle);
-                    GUI.Label(displayRect, classText, labelStyle);
-                    break;
-                case ClassNodeType.Skill:
-                    string skillText = EditorUtils.TrimStringToFit("Skill", nodeWidth, labelStyle);
-                    GUI.Label(displayRect, skillText, labelStyle);
-                    break;
-            }
+            string nodeText = EditorUtils.TrimStringToFit(nodeType.ToString(), nodeWidth, labelStyle);
+            GUI.Label(displayRect, nodeText, labelStyle);
         }
 
         public void DrawPaths(ClassTree tree)

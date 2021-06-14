@@ -4,6 +4,11 @@ using UnityEngine;
 
 namespace RPG
 {
+    public enum LevelingState
+    {
+        Inactive, QFT, Skills
+    }
+
     public class LevelingSystem : MonoBehaviour
     {
         [Header("Experience")]
@@ -56,7 +61,15 @@ namespace RPG
             private set => GameManager.Player.SetProperty<int>(PropertyName.Tappers, value);
         }
 
-        void Start()
+        private LevelingState levelingState = LevelingState.Inactive;
+        private LevelUpOption[] skillOptions;
+
+        void Awake()
+        {
+            GameManager.AddPlayerCreatedListener(OnPlayerCreated);
+        }
+
+        private void OnPlayerCreated()
         {
             XP = 0;
             Level = ToLevel(XP);
@@ -68,29 +81,46 @@ namespace RPG
 
         void OnGUI()
         {
-            GUILayout.BeginArea(new Rect(10, 10, 150, Screen.height / 2 - 15));
+            if (!GameManager.IsPlayerCreated) return;
 
+            GUILayout.BeginArea(new Rect(10, 10, 150, Screen.height / 2 - 15));
             GUILayout.Label($"XP: {XP}");
             GUILayout.Label($"Level: {Level}");
             GUILayout.Label($"Available Level Ups: {LevelUps}");
-
             if (LevelUps > 0)
             {
-                if (GUILayout.Button("Level Up Quackers!"))
-                {
-                    LevelUpQuackers();
-                }
-                if (GUILayout.Button("Level Up Flappers!"))
-                {
-                    LevelUpFlappers();
-                }
-                if (GUILayout.Button("Level Up Tappers!"))
-                {
-                    LevelUpTappers();
-                }
+                if (levelingState != LevelingState.Inactive) GUI.enabled = false;
+                if (GUILayout.Button("Level Up")) levelingState = LevelingState.QFT;
+                GUI.enabled = true;
+            }
+            GUILayout.EndArea();
+
+            if (levelingState == LevelingState.QFT)
+            {
+                GUILayout.BeginArea(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 150, 150, 300));
+                GUILayout.Label("Select a levelup option!");
+                GUILayout.Space(10);
+                if (GUILayout.Button("Level Up Quackers!")) LevelUpQuackers();
+                GUILayout.Space(10);
+                if (GUILayout.Button("Level Up Flappers!")) LevelUpFlappers();
+                GUILayout.Space(10);
+                if (GUILayout.Button("Level Up Tappers!")) LevelUpTappers();
+                GUILayout.EndArea();
             }
 
-            GUILayout.EndArea();
+            if (levelingState == LevelingState.Skills)
+            {
+                GUILayout.BeginArea(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 150, 150, 300));
+                GUILayout.Label("Select one of the following skills!");
+                GUILayout.Space(10);
+                foreach (LevelUpOption option in skillOptions)
+                {
+                    if (GUILayout.Button(option.Title)) SelectSkill(option);
+                    GUILayout.Label(option.Description);
+                    GUILayout.Space(10);
+                }
+                GUILayout.EndArea();
+            }
         }
 
         public void AddXP(int amount)
@@ -119,6 +149,12 @@ namespace RPG
             Tappers++;
         }
 
+        public void SelectSkill(LevelUpOption skill)
+        {
+            skill.Apply(GameManager.Player);
+            levelingState = LevelingState.Inactive;
+        }
+
         private void ApplyLevelUp(EntityProperty[] selectedLevelUpBonuses)
         {
             LevelUps--;
@@ -134,6 +170,14 @@ namespace RPG
             foreach (EntityProperty bonus in selectedLevelUpBonuses)
             {
                 ApplyBonus(bonus);
+            }
+
+            // Update leveling state
+            levelingState = GameManager.ClassSystem.GetLevelUpType(Level);
+            if (levelingState == LevelingState.Skills)
+            {
+                skillOptions = GameManager.ClassSystem.GetSkillOptions(Level);
+                if (skillOptions.Length == 0) levelingState = LevelingState.Inactive;
             }
         }
 

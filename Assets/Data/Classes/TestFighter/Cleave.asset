@@ -9,15 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9933a58d5c270b540b3346e93abda407, type: 3}
-  m_Name: Toughness
+  m_Script: {fileID: 11500000, guid: 956cc07c06cceb145a5dbb2a353f9cf4, type: 3}
+  m_Name: Cleave
   m_EditorClassIdentifier: 
-  title: Toughness
-  description: Increase your max health by 20.
-  levelUpBonuses:
-  - name: 0
-    type: 0
-    iValue: 20
-    fValue: 0
-    sValue: 
-    bValue: 0
+  title: Cleave
+  description: 'Gain the Cleave ability.
+
+'
+  ability: {fileID: 11400000, guid: 58818748f817268419f7b272f7ba0bb3, type: 2}

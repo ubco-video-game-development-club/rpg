@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using RPG;
 
 namespace ClassEditor
 {
@@ -40,7 +41,8 @@ namespace ClassEditor
     {
         public static float TIER_HEIGHT = 54;
         public static float TIER_SPACING = 30;
-        public static float MARGIN_WIDTH = 140;
+        public static float LEVEL_MARGIN_WIDTH = 100;
+        public static float TYPE_MARGIN_WIDTH = 80;
         public static float NODE_WIDTH = 80;
         public static float NODE_HEIGHT = 50;
 
@@ -68,9 +70,9 @@ namespace ClassEditor
             return layers.ContainsKey(level);
         }
 
-        public void AddTier(int level)
+        public void AddTier(int level, ClassTierType type)
         {
-            AddTier(level, new ClassTier(level));
+            AddTier(level, new ClassTier(level, type));
         }
 
         public void AddTier(int level, ClassTier tier)
@@ -116,6 +118,16 @@ namespace ClassEditor
             EditorUtility.SetDirty(this);
         }
 
+        public ClassTierType GetTierType(int level)
+        {
+            return layers[level].tierType;
+        }
+
+        public LevelUpOption[] GetSkillOptions(int level)
+        {
+            return layers[level].nodes[0].levelUpOptions;
+        }
+
         public ClassData GetClassData()
         {
             return layers[1].nodes[0].classData;
@@ -137,9 +149,9 @@ namespace ClassEditor
             return children;
         }
 
-        public void AddNode(int level, ClassNodeType nodeType)
+        public void AddNode(int level)
         {
-            layers[level].AddNode(new ClassNode(level, nodeType));
+            layers[level].AddNode();
         }
 
         public void RemoveNode(ClassNode node)
@@ -195,8 +207,11 @@ namespace ClassEditor
 
             GUI.EndScrollView();
 
-            // Draw vertical divider
-            EditorUtils.DrawBox(new Rect(MARGIN_WIDTH + 1, area.y, 3, area.height), EditorUtils.BORDER_COLOR);
+            // Draw vertical divider for level
+            EditorUtils.DrawBox(new Rect(LEVEL_MARGIN_WIDTH + 1, area.y, 3, area.height), EditorUtils.BORDER_COLOR);
+
+            // Draw vertical divider for type
+            EditorUtils.DrawBox(new Rect(LEVEL_MARGIN_WIDTH + TYPE_MARGIN_WIDTH + 1, area.y, 3, area.height), EditorUtils.BORDER_COLOR);
 
             // Draw path edit line
             if (IsEditingPath)

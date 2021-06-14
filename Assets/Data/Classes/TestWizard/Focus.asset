@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9933a58d5c270b540b3346e93abda407, type: 3}
-  m_Name: Toughness
+  m_Name: Focus
   m_EditorClassIdentifier: 
-  title: Toughness
-  description: Increase your max health by 20.
+  title: Focus
+  description: Gain +3 damage.
   levelUpBonuses:
-  - name: 0
+  - name: 2
     type: 0
-    iValue: 20
+    iValue: 3
     fValue: 0
     sValue: 
     bValue: 0

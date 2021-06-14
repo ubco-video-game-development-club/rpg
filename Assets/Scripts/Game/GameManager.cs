@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Dialogue;
 
 namespace RPG
@@ -14,6 +15,11 @@ namespace RPG
         public static DialogueSystem DialogueSystem { get; private set; }
 
         public static Player Player { get; private set; }
+        public static bool IsPlayerCreated { get => Player != null; }
+
+        [SerializeField] private Player playerPrefab;
+
+        private UnityEvent onPlayerCreated = new UnityEvent();
 
         void Awake()
         {
@@ -27,8 +33,21 @@ namespace RPG
             ClassSystem = GetComponent<ClassSystem>();
             LevelingSystem = GetComponent<LevelingSystem>();
             DialogueSystem = GetComponent<DialogueSystem>();
+        }
 
-            Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        public static void CreatePlayer() => instance.InstanceCreatePlayer();
+
+        public static void AddPlayerCreatedListener(UnityAction listener) => instance.InstanceAddPlayerCreatedListener(listener);
+
+        private void InstanceCreatePlayer()
+        {
+            Player = Instantiate(playerPrefab);
+            onPlayerCreated.Invoke();
+        }
+
+        private void InstanceAddPlayerCreatedListener(UnityAction listener)
+        {
+            onPlayerCreated.AddListener(listener);
         }
     }
 }

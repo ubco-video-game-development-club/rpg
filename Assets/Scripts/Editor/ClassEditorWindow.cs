@@ -97,21 +97,18 @@ namespace ClassEditor
                 }
                 else
                 {
-                    if (targetTier.level == 1)
+                    if (targetTier.level == 1 || targetTier.tierType == ClassTierType.Skill)
                     {
-                        menu.AddDisabledItem(new GUIContent("Create Subclass Node"));
-                        menu.AddDisabledItem(new GUIContent("Create Skill Node"));
+                        menu.AddDisabledItem(new GUIContent("Create Node"));
                     }
                     else
                     {
-                        // TODO: implement subclasses
-                        menu.AddDisabledItem(new GUIContent("Create Subclass Node"));
                         menu.AddItem(
-                            new GUIContent("Create Skill Node"),
+                            new GUIContent("Create Node"),
                             false,
                             () =>
                             {
-                                selectedTree.AddNode(targetTier.level, ClassNodeType.Skill);
+                                selectedTree.AddNode(targetTier.level);
                                 EditorUtility.SetDirty(selectedTree);
                             }
                         );
@@ -139,16 +136,18 @@ namespace ClassEditor
 
                 if (selectedTree.ContainsTier(targetTier.level + 1))
                 {
-                    menu.AddDisabledItem(new GUIContent("Insert Tier Below"));
+                    menu.AddDisabledItem(new GUIContent("Add Subclass Tier Below"));
+                    menu.AddDisabledItem(new GUIContent("Add Skill Tier Below"));
                 }
                 else
                 {
+                    menu.AddDisabledItem(new GUIContent("Add Subclass Tier Below"));
                     menu.AddItem(
-                        new GUIContent("Insert Tier Below"),
+                        new GUIContent("Add Skill Tier Below"),
                         false,
                         () =>
                         {
-                            selectedTree.AddTier(targetTier.level + 1);
+                            selectedTree.AddTier(targetTier.level + 1, ClassTierType.Skill);
                             EditorUtility.SetDirty(selectedTree);
                         }
                     );
@@ -156,8 +155,10 @@ namespace ClassEditor
             }
             else
             {
+                // TODO: implement subclasses
+                menu.AddDisabledItem(new GUIContent("Add Subclass Tier"));
                 menu.AddItem(
-                    new GUIContent("New Tier"),
+                    new GUIContent("Add Skill Tier"),
                     false,
                     () =>
                     {
@@ -166,7 +167,7 @@ namespace ClassEditor
                         {
                             if (tier.level > highestLevel) highestLevel = tier.level;
                         }
-                        selectedTree.AddTier(highestLevel + 1);
+                        selectedTree.AddTier(highestLevel + 1, ClassTierType.Skill);
                         EditorUtility.SetDirty(selectedTree);
                     }
                 );
@@ -184,8 +185,8 @@ namespace ClassEditor
 
                 if (!selectedTree.ContainsTier(1))
                 {
-                    selectedTree.AddTier(1);
-                    selectedTree.AddNode(1, ClassNodeType.Class);
+                    selectedTree.AddTier(1, ClassTierType.Class);
+                    selectedTree.AddNode(1);
                 }
 
                 selectedTree.Initialize();

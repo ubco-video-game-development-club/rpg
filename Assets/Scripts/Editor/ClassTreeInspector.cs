@@ -46,7 +46,10 @@ namespace ClassEditor
             SerializedProperty tierProp = GetSelectedTierProperty();
             SerializedProperty levelProp = tierProp.FindPropertyRelative("level");
 
-            EditorGUILayout.LabelField("Class Tier", EditorStyles.boldLabel);
+            if (tree.selectedTier != null)
+            {
+                EditorGUILayout.LabelField($"{tree.selectedTier.tierType.ToString()} Tier", EditorStyles.boldLabel);
+            }
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.PrefixLabel("Level");
             int currentLevel = tree.selectedLevel;
@@ -57,6 +60,7 @@ namespace ClassEditor
             {
                 tree.MoveTier(currentLevel, newLevel);
                 tree.selectedLevel = newLevel;
+                tree.selectedTier = tree.Layers[newLevel];
             }
             EditorGUILayout.EndHorizontal();
         }
@@ -69,13 +73,13 @@ namespace ClassEditor
 
             switch (tree.selectedNode.nodeType)
             {
-                case ClassNodeType.Class:
+                case ClassTierType.Class:
                     SerializedProperty classDataProp = nodeProp.FindPropertyRelative("classData");
                     SerializedProperty healthProp = classDataProp.FindPropertyRelative("health");
                     EditorGUILayout.LabelField("Class Node", EditorStyles.boldLabel);
                     EditorGUILayout.PropertyField(healthProp);
                     break;
-                case ClassNodeType.Skill:
+                case ClassTierType.Skill:
                     SerializedProperty levelUpOptionsProp = nodeProp.FindPropertyRelative("levelUpOptions");
                     EditorGUILayout.LabelField("Skill Node", EditorStyles.boldLabel);
                     EditorGUILayout.PropertyField(levelUpOptionsProp, GUIContent.none);
