@@ -29,6 +29,10 @@ namespace ClassEditor
             {
                 DisplayTier();
             }
+            else
+            {
+                DisplayClass();
+            }
 
             if (!EditorUtility.IsDirty(tree))
             {
@@ -74,10 +78,7 @@ namespace ClassEditor
             switch (tree.selectedNode.nodeType)
             {
                 case ClassTierType.Class:
-                    SerializedProperty classDataProp = nodeProp.FindPropertyRelative("classData");
-                    SerializedProperty healthProp = classDataProp.FindPropertyRelative("health");
-                    EditorGUILayout.LabelField("Class Node", EditorStyles.boldLabel);
-                    EditorGUILayout.PropertyField(healthProp);
+                    DisplayClass();
                     break;
                 case ClassTierType.Skill:
                     SerializedProperty levelUpOptionsProp = nodeProp.FindPropertyRelative("levelUpOptions");
@@ -85,6 +86,23 @@ namespace ClassEditor
                     EditorGUILayout.PropertyField(levelUpOptionsProp, GUIContent.none);
                     break;
             }
+
+            serializedObject.ApplyModifiedProperties();
+        }
+
+        private void DisplayClass()
+        {
+            if (!tree.ContainsTier(1)) return;
+            
+            SerializedProperty tiersProp = layers.FindPropertyRelative("tiers");
+            SerializedProperty tierProp = tiersProp.GetArrayElementAtIndex(0);
+            SerializedProperty nodesProp = tierProp.FindPropertyRelative("nodes");
+            SerializedProperty nodeProp = nodesProp.GetArrayElementAtIndex(0);
+            
+            SerializedProperty classDataProp = nodeProp.FindPropertyRelative("classData");
+            SerializedProperty healthProp = classDataProp.FindPropertyRelative("health");
+            EditorGUILayout.LabelField("Class", EditorStyles.boldLabel);
+            EditorGUILayout.PropertyField(healthProp);
 
             serializedObject.ApplyModifiedProperties();
         }

@@ -34,7 +34,7 @@ MonoBehaviour:
           health: 0
         levelUpOptions:
         - {fileID: 11400000, guid: e5258b6658c609a4883f689dcbd5244f, type: 2}
-        - {fileID: 11400000, guid: 1bbba39a792b81449b060f14bdda593c, type: 2}
+        - {fileID: 11400000, guid: 83f9aaf3317df434b81bc5a6a21f4e94, type: 2}
     - level: 5
       tierType: 2
       nodes:
@@ -44,5 +44,5 @@ MonoBehaviour:
         classData:
           health: 0
         levelUpOptions:
+        - {fileID: 11400000, guid: 1bbba39a792b81449b060f14bdda593c, type: 2}
         - {fileID: 11400000, guid: bb363e64df91b7d469e146f9a0b9baad, type: 2}
-        - {fileID: 11400000, guid: 83f9aaf3317df434b81bc5a6a21f4e94, type: 2}
