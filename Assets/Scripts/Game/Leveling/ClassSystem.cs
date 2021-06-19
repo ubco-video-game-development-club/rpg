@@ -7,9 +7,7 @@ namespace RPG
 {
     public class ClassSystem : MonoBehaviour
     {
-        [SerializeField] private ClassTree selectedClass;
-
-        private LinkedList<ClassNode> levelUpPath = new LinkedList<ClassNode>();
+        private ClassTree selectedClass;
 
         public void SelectClass(ClassTree classTree)
         {
@@ -21,8 +19,6 @@ namespace RPG
             ClassData data = classTree.GetClassData();
             GameManager.Player.SetProperty<int>(PropertyName.MaxHealth, data.health);
             GameManager.Player.SetProperty<int>(PropertyName.Health, data.health);
-
-            // levelUpPath.AddFirst(new LinkedListNode<ClassNode>(selectedClass.G));
         }
 
         public LevelingState GetLevelUpType(int level)
