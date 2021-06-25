@@ -9,11 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7ad955b4b8e17f40ac9aebba29058f6, type: 3}
-  m_Name: MeleeCleave
+  m_Script: {fileID: 11500000, guid: 65fe40d9c1506a14b9dbc1fb3d47d7ee, type: 3}
+  m_Name: Slap
   m_EditorClassIdentifier: 
-  effects:
-  - {fileID: 11400000, guid: 58818748f817268419f7b272f7ba0bb3, type: 2}
+  onHitEffects: []
+  onKillEffects: []
   animationController: {fileID: 22100000, guid: 0c9a8c0ef0df9d04980f5a208c7f7af2,
     type: 2}
   cooldown: 1
+  damage: 1
+  reach: 1.2
+  arcAngle: 30

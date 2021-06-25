@@ -58,3 +58,16 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+

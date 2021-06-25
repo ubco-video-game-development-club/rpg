@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace RPG
 {
-    [CreateAssetMenu(fileName = "New ProjectileAttack", menuName = "Effects/ProjectileAttack", order = 50)]
-    public class ProjectileAttack : Effect
+    [CreateAssetMenu(fileName = "New ProjectileAttack", menuName = "Actions/Projectile Attack", order = 52)]
+    public class ProjectileAttack : Action
     {
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private float speed;

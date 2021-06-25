@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BehaviourTree
 {
-    [CreateAssetMenu(fileName = "Behaviour Tree", menuName = "Behaviour Tree", order = 65)]
+    [CreateAssetMenu(fileName = "Behaviour Tree", menuName = "Behaviour Tree", order = 66)]
     public class BehaviourTree : ScriptableObject
     {
         public Tree<BehaviourTreeNode> tree;

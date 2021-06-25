@@ -9,11 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4788869bbddbe4bac7d66e465d4ed6, type: 3}
-  m_Name: FireballAttack
+  m_Script: {fileID: 11500000, guid: 9933a58d5c270b540b3346e93abda407, type: 3}
+  m_Name: Toughness
   m_EditorClassIdentifier: 
-  onHitActions: []
-  visualPrefab: {fileID: 7099387373307941033, guid: c0dd4c221daa62c4989c57b83c738b41,
-    type: 3}
-  damage: 3
-  radius: 1.5
+  title: Toughness
+  description: Increase your max health by 20.
+  levelUpBonuses:
+  - name: 0
+    type: 0
+    iValue: 20
+    fValue: 0
+    sValue: 
+    bValue: 0
