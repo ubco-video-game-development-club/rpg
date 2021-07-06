@@ -17,19 +17,27 @@ namespace RPG
         public const float GLOBAL_COOLDOWN = 0.25f;
         private const float ANIM_LOCK_DURATION = 0.05f;
         private const int MAX_ABILITY_SLOTS = 4;
+        private const int MAX_INTERACT_TARGETS = 5;
 
         [SerializeField] private float moveSpeed = 1f;
         [SerializeField] private Action primaryAttack;
         [SerializeField] private Action secondaryAttack;
+        [SerializeField] private float interactRadius;
+        [SerializeField] private LayerMask interactLayer;
+        [SerializeField] private Tooltip interactTooltipPrefab;
+
+        public List<Action> AvailableAbilities { get; set; }
+        public AbilitySlot[] AbilitySlots { get; set; }
+        public RuntimeAnimatorController BaseAnimationController { get; private set; }
 
         private bool isGCDActive;
         private bool isAnimLocked;
         private Vector3 prevFramePosition;
         private ActionData attackData;
-
-        public List<Action> AvailableAbilities { get; set; }
-        public AbilitySlot[] AbilitySlots { get; set; }
-        public RuntimeAnimatorController BaseAnimationController { get; private set; }
+        private Collider2D[] interactTargets = new Collider2D[MAX_INTERACT_TARGETS];
+        private int numInteractTargets = 0;
+        private Interactable targetInteractable;
+        private Tooltip interactTooltip;
 
         private YieldInstruction animLockInstruction;
         private YieldInstruction globalCooldownInstruction;
@@ -47,6 +55,10 @@ namespace RPG
             animator = GetComponent<Animator>();
             animatorCache = GetComponent<AnimatorCache>();
             rigidbody2D = GetComponent<Rigidbody2D>();
+
+            interactTooltip = Instantiate(interactTooltipPrefab, transform.position, Quaternion.identity, HUD.TooltipParent);
+            interactTooltip.SetTarget(transform);
+            interactTooltip.SetActive(false);
 
             animLockInstruction = new WaitForSeconds(ANIM_LOCK_DURATION);
             globalCooldownInstruction = new WaitForSeconds(GLOBAL_COOLDOWN);
@@ -136,6 +148,13 @@ namespace RPG
             prevFramePosition = transform.position;
             rigidbody2D.velocity = inputDir * moveSpeed;
 
+            // Update interaction
+            UpdateInteractions();
+            if (Input.GetButtonDown("Interact") && targetInteractable != null)
+            {
+                targetInteractable.Interact(this);
+            }
+
             // Global Cooldown: Anything after this point will not run while the GCD is active
             if (isGCDActive) return;
 
@@ -224,6 +243,44 @@ namespace RPG
         {
             Vector2 mouseVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             return mouseVector.normalized;
+        }
+
+        private void UpdateInteractions()
+        {
+            Interactable interactable;
+
+            // Clear current interactions
+            for (int i = 0; i < numInteractTargets; i++)
+            {
+                if (interactTargets[i].TryGetComponent<Interactable>(out interactable))
+                {
+                    interactable.SetTooltipActive(false);
+                }
+            }
+            targetInteractable = null;
+            interactTooltip.SetActive(false);
+
+            // Check for nearby interactables
+            numInteractTargets = Physics2D.OverlapCircleNonAlloc(transform.position, interactRadius, interactTargets, interactLayer);
+            int closestIdx = -1;
+            float smallestSqrDist = float.MaxValue;
+            for (int i = 0; i < numInteractTargets; i++)
+            {
+                float sqrDist = (interactTargets[i].transform.position - transform.position).sqrMagnitude;
+                if (sqrDist < smallestSqrDist)
+                {
+                    smallestSqrDist = sqrDist;
+                    closestIdx = i;
+                }
+            }
+
+            // Set the nearest interactable active
+            if (closestIdx >= 0 && interactTargets[closestIdx].TryGetComponent<Interactable>(out interactable))
+            {
+                targetInteractable = interactable;
+                interactable.SetTooltipActive(true);
+                interactTooltip.SetActive(true);
+            }
         }
     }
 }
