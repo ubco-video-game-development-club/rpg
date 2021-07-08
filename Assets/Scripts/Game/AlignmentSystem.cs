@@ -11,17 +11,19 @@ namespace RPG
         private Player player;
         public UnityEvent<int> onAligneChanged;
 
-        public int MySexiness
+        public int Sexiness
         {
             get => player.GetProperty<int>(PropertyName.Sexiness);
             set => player.SetProperty<int>(PropertyName.Sexiness, value);
         }
-        public int MyMorals
+
+        public int Morals
         {
             get => player.GetProperty<int>(PropertyName.Morals);
             set => player.SetProperty<int>(PropertyName.Morals, value);
         }
-        public int MyLeanings
+
+        public int Leanings
         {
             get => player.GetProperty<int>(PropertyName.Leanings);
             set => player.SetProperty<int>(PropertyName.Leanings, value);
@@ -33,10 +35,11 @@ namespace RPG
             onAligneChanged.AddListener(UpdateLeanings);
             onAligneChanged.AddListener(UpdateSexiness);
 
-            MySexiness = 0;
-            MyLeanings = 0;
-            MyMorals = 0;
+            Sexiness = 0;
+            Leanings = 0;
+            Morals = 0;
         }
+
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -44,21 +47,25 @@ namespace RPG
                 TestAddPoints();
             }
         }
+
         public void UpdateMorals(int points)
         {
             Debug.Log("Update Morals " + points);
-            MyMorals = MyMorals + points;
+            Morals = Morals + points;
         }
+
         public void UpdateLeanings(int points)
         {
             Debug.Log("Update Leanings " + points);
-            MyLeanings = MyLeanings + points;
+            Leanings = Leanings + points;
         }
+
         public void UpdateSexiness(int points)
         {
             Debug.Log("Update Sexiness " + points);
-            MySexiness = MySexiness + points;
+            Sexiness = Sexiness + points;
         }
+
         public void TestAddPoints()
         {
             onAligneChanged.Invoke(5);
