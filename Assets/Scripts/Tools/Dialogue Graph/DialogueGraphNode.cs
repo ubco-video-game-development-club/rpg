@@ -12,13 +12,13 @@ namespace Dialogue
         public string name;
         public string body;
         public Vector2 position;
+
         private Rect displayRect;
         private bool isSelected = false;
 
         public DialogueGraphNode(string name, Vector2 position)
         {
             this.name = name;
-            this.position = position;
         }
 
         public void Draw(Vector2 offset)

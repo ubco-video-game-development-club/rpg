@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace RPG
 {
-    [CreateAssetMenu(fileName = "New Action", menuName = "Action", order = 60)]
-    public class Action : ScriptableObject
+    public abstract class Action : ScriptableObject
     {
-        [SerializeField] private Effect[] effects;
+        [SerializeField] private Effect[] onHitEffects;
+        public Effect[] OnHitEffects { get => onHitEffects; }
+
+        [SerializeField] private Effect[] onKillEffects;
+        public Effect[] OnKillEffects { get => onKillEffects; }
 
         [SerializeField] private RuntimeAnimatorController animationController;
         public RuntimeAnimatorController AnimationController { get => animationController; }
@@ -17,12 +21,12 @@ namespace RPG
 
         public bool Enabled { get; set; }
 
-        public void Invoke(ActionData data)
-        {
-            foreach (Effect effect in effects)
-            {
-                effect.Invoke(data);
-            }
-        }
+        private UnityEvent<Actor> onHit = new UnityEvent<Actor>();
+        public UnityEvent<Actor> OnHit { get => onHit; }
+
+        private UnityEvent<Actor> onKill = new UnityEvent<Actor>();
+        public UnityEvent<Actor> OnKill { get => onKill; }
+
+        public abstract void Invoke(ActionData data);
     }
 }
