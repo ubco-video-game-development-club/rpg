@@ -8,33 +8,37 @@ namespace RPG
 {
     public class AlignmentSystem : MonoBehaviour
     {
-        private Player player;
         public UnityEvent<int> onAligneChanged;
 
         public int Sexiness
         {
-            get => player.GetProperty<int>(PropertyName.Sexiness);
-            set => player.SetProperty<int>(PropertyName.Sexiness, value);
+            get => GameManager.Player.GetProperty<int>(PropertyName.Sexiness);
+            set => GameManager.Player.SetProperty<int>(PropertyName.Sexiness, value);
         }
 
         public int Morals
         {
-            get => player.GetProperty<int>(PropertyName.Morals);
-            set => player.SetProperty<int>(PropertyName.Morals, value);
+            get => GameManager.Player.GetProperty<int>(PropertyName.Morals);
+            set => GameManager.Player.SetProperty<int>(PropertyName.Morals, value);
         }
 
         public int Leanings
         {
-            get => player.GetProperty<int>(PropertyName.Leanings);
-            set => player.SetProperty<int>(PropertyName.Leanings, value);
+            get => GameManager.Player.GetProperty<int>(PropertyName.Leanings);
+            set => GameManager.Player.SetProperty<int>(PropertyName.Leanings, value);
         }
 
-        void Start()
+        void Awake()
         {
+            GameManager.AddPlayerCreatedListener(OnPlayerCreated);
+            
             onAligneChanged.AddListener(UpdateMorals);
             onAligneChanged.AddListener(UpdateLeanings);
             onAligneChanged.AddListener(UpdateSexiness);
+        }
 
+        private void OnPlayerCreated()
+        {
             Sexiness = 0;
             Leanings = 0;
             Morals = 0;
