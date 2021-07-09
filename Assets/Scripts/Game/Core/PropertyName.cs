@@ -10,6 +10,9 @@ namespace RPG
         LevelUps,
         Quackers,
         Flappers,
-        Tappers
+        Tappers,
+        Sexiness,
+        Morals,
+        Leanings
     }
 }
