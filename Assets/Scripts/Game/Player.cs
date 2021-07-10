@@ -28,6 +28,7 @@ namespace RPG
 
         public List<Action> AvailableAbilities { get; set; }
         public List<Upgrade> Upgrades { get; set; }
+        public ClassBaseStats ClassBaseStats { get; set; }
         public AbilitySlot[] AbilitySlots { get; set; }
         public RuntimeAnimatorController BaseAnimationController { get; private set; }
 

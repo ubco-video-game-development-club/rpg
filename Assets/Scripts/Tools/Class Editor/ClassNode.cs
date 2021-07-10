@@ -7,12 +7,6 @@ using RPG;
 namespace ClassEditor
 {
     [System.Serializable]
-    public struct ClassData
-    {
-        public int health;
-    }
-
-    [System.Serializable]
     public class ClassNode
     {
         public int level;
@@ -26,7 +20,7 @@ namespace ClassEditor
         public Vector2 ButtonPosition { get; private set; }
 
         // Class
-        public ClassData classData;
+        public ClassBaseStats classBaseStats;
 
         // Subclass
         // TODO: after first development milestone
