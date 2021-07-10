@@ -27,6 +27,7 @@ namespace RPG
         [SerializeField] private Tooltip interactTooltipPrefab;
 
         public List<Action> AvailableAbilities { get; set; }
+        public List<Upgrade> Upgrades { get; set; }
         public AbilitySlot[] AbilitySlots { get; set; }
         public RuntimeAnimatorController BaseAnimationController { get; private set; }
 

@@ -15,16 +15,13 @@ namespace RPG
         public string Title { get => title; }
         public string Description { get => description; }
 
-        public override void Apply(Entity entity)
+        public void Select()
         {
-            base.Apply(entity);
-
-            if (entity.TryGetComponent<Player>(out Player player))
+            Player player = GameManager.Player;
+            player.Upgrades.Add(this);
+            foreach (Action ability in abilities)
             {
-                foreach (Action ability in abilities)
-                {
-                    player.AvailableAbilities.Add(ability);
-                }
+                player.AvailableAbilities.Add(ability);
             }
         }
     }

@@ -151,7 +151,7 @@ namespace RPG
 
         public void SelectSkill(LevelUpOption skill)
         {
-            skill.Apply(GameManager.Player);
+            skill.Select();
             levelingState = LevelingState.Inactive;
         }
 
