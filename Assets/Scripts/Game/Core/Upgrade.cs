@@ -9,11 +9,11 @@ namespace RPG
         [SerializeField] private EntityProperty[] stats;
         public EntityProperty[] Stats { get => stats; }
 
-        public virtual void Apply(Entity entity)
+        public virtual void ApplyTo(Entity entity)
         {
             foreach (EntityProperty stat in stats)
             {
-                stat.Apply(entity);
+                stat.ApplyTo(entity);
             }
         }
     }

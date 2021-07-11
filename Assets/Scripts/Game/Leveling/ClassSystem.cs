@@ -41,8 +41,7 @@ namespace RPG
 
         private void OnPlayerCreated()
         {
-            // Apply class data to the player
-            GameManager.Player.ClassBaseStats = selectedClass.GetClassBaseStats();
+            GameManager.Player.ApplyClassBaseStats(selectedClass.GetClassBaseStats());
         }
     }
 }

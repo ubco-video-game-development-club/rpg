@@ -18,10 +18,10 @@ namespace RPG
         public void Select()
         {
             Player player = GameManager.Player;
-            player.Upgrades.Add(this);
+            ApplyTo(player);
             foreach (Action ability in abilities)
             {
-                player.AvailableAbilities.Add(ability);
+                player.AddAbility(ability);
             }
         }
     }

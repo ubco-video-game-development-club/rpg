@@ -35,7 +35,31 @@ namespace RPG
         [SerializeField] private string sValue;
         [SerializeField] private bool bValue;
 
-        public void Apply(Entity entity)
+        public EntityProperty(PropertyName name, PropertyType type, dynamic value)
+        {
+            this.name = name;
+            this.type = type;
+            switch (type)
+            {
+                case PropertyType.Int:
+                    iValue = value;
+                    break;
+                case PropertyType.Float:
+                    fValue = value;
+                    break;
+                case PropertyType.String:
+                    sValue = value;
+                    break;
+                case PropertyType.Bool:
+                    bValue = value;
+                    break;
+                default:
+                    Debug.LogError("Property must be a valid type!");
+                    break;
+            }
+        }
+
+        public void ApplyTo(Entity entity)
         {
             switch (Type)
             {
