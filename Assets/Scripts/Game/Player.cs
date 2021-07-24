@@ -31,6 +31,7 @@ namespace RPG
 
         private List<Action> availableAbilities;
         private AbilitySlot[] abilitySlots;
+        private Dictionary<ItemSlot, Item> equipment;
 
         private bool isGCDActive;
         private bool isAnimLocked;
@@ -71,6 +72,11 @@ namespace RPG
             for (int i = 0; i < MAX_ABILITY_SLOTS; i++)
             {
                 abilitySlots[i] = new AbilitySlot();
+            }
+            equipment = new Dictionary<ItemSlot, Item>();
+            foreach (ItemSlot slot in Item.SlotTypes)
+            {
+                equipment.Add(slot, null);
             }
 
             primaryAttack.Enabled = true;
@@ -184,6 +190,22 @@ namespace RPG
             availableAbilities.Add(ability);
         }
 
+        public void Equip(ItemSlot slot, Item item)
+        {
+            if (equipment[slot] != null)
+            {
+                UnEquip(slot);
+            }
+            equipment[slot] = item;
+            item.ApplyTo(this);
+        }
+
+        public void UnEquip(ItemSlot slot)
+        {
+            equipment[slot].RemoveFrom(this);
+            equipment[slot] = null;
+        }
+
         public void ClearAnimationOverrides()
         {
             // Clear any animator overrides caused by the current action
@@ -265,7 +287,8 @@ namespace RPG
             // Clear current interactions
             for (int i = 0; i < numInteractTargets; i++)
             {
-                if (interactTargets[i].TryGetComponent<Interactable>(out interactable))
+                Collider2D target = interactTargets[i];
+                if (target != null && target.TryGetComponent<Interactable>(out interactable))
                 {
                     interactable.SetTooltipActive(false);
                 }

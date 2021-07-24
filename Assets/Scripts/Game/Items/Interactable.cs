@@ -19,6 +19,11 @@ namespace RPG
             tooltip.SetActive(false);
         }
 
+        void OnDestroy()
+        {
+            Destroy(tooltip.gameObject);
+        }
+
         public void SetTooltipActive(bool active)
         {
             tooltip.SetActive(active);

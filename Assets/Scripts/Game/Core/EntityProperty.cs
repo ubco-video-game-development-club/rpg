@@ -76,5 +76,23 @@ namespace RPG
                     break;
             }
         }
+
+        public void RemoveFrom(Entity entity)
+        {
+            switch (Type)
+            {
+                case PropertyType.Int:
+                    int currentIntValue = entity.GetProperty<int>(Name);
+                    entity.SetProperty<int>(Name, currentIntValue - Value);
+                    break;
+                case PropertyType.Float:
+                    float currentFloatValue = entity.GetProperty<float>(Name);
+                    entity.SetProperty<float>(Name, currentFloatValue - Value);
+                    break;
+                default:
+                    Debug.LogError("Property must be a valid type!");
+                    break;
+            }
+        }
     }
 }
