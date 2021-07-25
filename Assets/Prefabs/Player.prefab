@@ -179,8 +179,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialMaxHealth: 20
   moveSpeed: 3
-  primaryAttack: {fileID: 11400000, guid: 4d1447551f2358e4daa2b17559943383, type: 2}
-  secondaryAttack: {fileID: 11400000, guid: 7e64fbbdb1b264e4891830e666029fd6, type: 2}
+  defaultPrimaryAttack: {fileID: 11400000, guid: 4d1447551f2358e4daa2b17559943383,
+    type: 2}
+  defaultSecondaryAttack: {fileID: 11400000, guid: 7e64fbbdb1b264e4891830e666029fd6,
+    type: 2}
   interactRadius: 1
   interactLayer:
     serializedVersion: 2

@@ -1,4 +1,7 @@
-public enum ItemSlot
+namespace RPG
 {
-    Mainhand
+    public enum ItemSlot
+    {
+        Mainhand
+    }
 }

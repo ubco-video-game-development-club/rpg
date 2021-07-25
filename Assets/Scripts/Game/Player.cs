@@ -20,8 +20,8 @@ namespace RPG
         private const int MAX_INTERACT_TARGETS = 5;
 
         [SerializeField] private float moveSpeed = 1f;
-        [SerializeField] private Action primaryAttack;
-        [SerializeField] private Action secondaryAttack;
+        [SerializeField] private Action defaultPrimaryAttack;
+        [SerializeField] private Action defaultSecondaryAttack;
         [SerializeField] private float interactRadius;
         [SerializeField] private LayerMask interactLayer;
         [SerializeField] private Tooltip interactTooltipPrefab;
@@ -32,6 +32,8 @@ namespace RPG
         private List<Action> availableAbilities;
         private AbilitySlot[] abilitySlots;
         private Dictionary<ItemSlot, Item> equipment;
+        private Action primaryAttack;
+        private Action secondaryAttack;
 
         private bool isGCDActive;
         private bool isAnimLocked;
@@ -78,6 +80,8 @@ namespace RPG
             {
                 equipment.Add(slot, null);
             }
+            primaryAttack = defaultPrimaryAttack;
+            secondaryAttack = defaultSecondaryAttack;
 
             primaryAttack.Enabled = true;
             secondaryAttack.Enabled = true;
@@ -198,12 +202,25 @@ namespace RPG
             }
             equipment[slot] = item;
             item.ApplyTo(this);
+
+            if (slot == ItemSlot.Mainhand)
+            {
+                Weapon weapon = (Weapon)item;
+                primaryAttack = weapon.Attack;
+                primaryAttack.Enabled = true;
+            }
         }
 
         public void UnEquip(ItemSlot slot)
         {
             equipment[slot].RemoveFrom(this);
             equipment[slot] = null;
+
+            if (slot == ItemSlot.Mainhand)
+            {
+                primaryAttack = defaultPrimaryAttack;
+                primaryAttack.Enabled = true;
+            }
         }
 
         public void ClearAnimationOverrides()
