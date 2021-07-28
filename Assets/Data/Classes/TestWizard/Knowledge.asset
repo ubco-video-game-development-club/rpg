@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9933a58d5c270b540b3346e93abda407, type: 3}
+  m_Script: {fileID: 11500000, guid: 6953ebffb78811941915ffa3016b71ca, type: 3}
   m_Name: Knowledge
   m_EditorClassIdentifier: 
-  title: Knowledge
-  description: Gain +1 damage and +5 max health.
-  levelUpBonuses:
+  stats:
   - name: 2
     type: 0
     iValue: 1
@@ -27,3 +25,6 @@ MonoBehaviour:
     fValue: 0
     sValue: 
     bValue: 0
+  abilities: []
+  title: Knowledge
+  description: Gain +1 damage and +5 max health.

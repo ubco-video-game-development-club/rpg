@@ -78,7 +78,7 @@ namespace ClassEditor
                 ClassNode targetNode = selectedTree.GetNodeAt(position);
                 if (targetNode != null)
                 {
-                    if (targetTier.level == 1)
+                    if (targetTier.level == 1 || targetTier.tierType == ClassTierType.Skill)
                     {
                         menu.AddDisabledItem(new GUIContent("Delete Node"));
                     }

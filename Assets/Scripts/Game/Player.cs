@@ -26,9 +26,11 @@ namespace RPG
         [SerializeField] private LayerMask interactLayer;
         [SerializeField] private Tooltip interactTooltipPrefab;
 
-        public List<Action> AvailableAbilities { get; set; }
-        public AbilitySlot[] AbilitySlots { get; set; }
+        public ClassBaseStats ClassBaseStats { get; private set; }
         public RuntimeAnimatorController BaseAnimationController { get; private set; }
+
+        private List<Action> availableAbilities;
+        private AbilitySlot[] abilitySlots;
 
         private bool isGCDActive;
         private bool isAnimLocked;
@@ -64,11 +66,11 @@ namespace RPG
             globalCooldownInstruction = new WaitForSeconds(GLOBAL_COOLDOWN);
             BaseAnimationController = animator.runtimeAnimatorController;
 
-            AvailableAbilities = new List<Action>();
-            AbilitySlots = new AbilitySlot[MAX_ABILITY_SLOTS];
+            availableAbilities = new List<Action>();
+            abilitySlots = new AbilitySlot[MAX_ABILITY_SLOTS];
             for (int i = 0; i < MAX_ABILITY_SLOTS; i++)
             {
-                AbilitySlots[i] = new AbilitySlot();
+                abilitySlots[i] = new AbilitySlot();
             }
 
             primaryAttack.Enabled = true;
@@ -89,28 +91,28 @@ namespace RPG
 
             GUILayout.BeginArea(new Rect(Screen.width - 160, Screen.height - 200, 150, 200));
             GUILayout.Label("Available Abilities");
-            foreach (Action ability in AvailableAbilities)
+            foreach (Action ability in availableAbilities)
             {
                 int matchingIdx = -1, lastInactiveIdx = -1;
                 for (int i = 0; i < MAX_ABILITY_SLOTS; i++)
                 {
-                    if (AbilitySlots[i].ability == ability) matchingIdx = i;
-                    if (lastInactiveIdx == -1 && !AbilitySlots[i].enabled) lastInactiveIdx = i;
+                    if (abilitySlots[i].ability == ability) matchingIdx = i;
+                    if (lastInactiveIdx == -1 && !abilitySlots[i].enabled) lastInactiveIdx = i;
                 }
                 if (matchingIdx == -1 && lastInactiveIdx == -1) GUI.enabled = false;
                 bool isOn = GUILayout.Toggle(matchingIdx >= 0, $"{ability.name}");
                 GUI.enabled = true;
                 if (isOn && matchingIdx == -1 && lastInactiveIdx >= 0)
                 {
-                    AbilitySlots[lastInactiveIdx].enabled = true;
-                    AbilitySlots[lastInactiveIdx].ability = ability;
-                    AbilitySlots[lastInactiveIdx].ability.Enabled = true;
+                    abilitySlots[lastInactiveIdx].enabled = true;
+                    abilitySlots[lastInactiveIdx].ability = ability;
+                    abilitySlots[lastInactiveIdx].ability.Enabled = true;
                 }
                 else if (!isOn && matchingIdx >= 0)
                 {
-                    AbilitySlots[matchingIdx].enabled = false;
-                    AbilitySlots[matchingIdx].ability.Enabled = false;
-                    AbilitySlots[matchingIdx].ability = null;
+                    abilitySlots[matchingIdx].enabled = false;
+                    abilitySlots[matchingIdx].ability.Enabled = false;
+                    abilitySlots[matchingIdx].ability = null;
                 }
             }
             GUILayout.EndArea();
@@ -120,10 +122,10 @@ namespace RPG
             for (int i = 0; i < MAX_ABILITY_SLOTS; i++)
             {
                 string abilityText = "";
-                if (AbilitySlots[i].enabled)
+                if (abilitySlots[i].enabled)
                 {
-                    abilityText = $"{AbilitySlots[i].ability.name}";
-                    GUI.color = AbilitySlots[i].ability.Enabled ? Color.white : Color.red;
+                    abilityText = $"{abilitySlots[i].ability.name}";
+                    GUI.color = abilitySlots[i].ability.Enabled ? Color.white : Color.red;
                 }
                 else GUI.enabled = false;
                 GUILayout.Box(abilityText);
@@ -164,11 +166,22 @@ namespace RPG
 
             for (int i = 0; i < MAX_ABILITY_SLOTS; i++)
             {
-                if (AbilitySlots[i].enabled)
+                if (abilitySlots[i].enabled)
                 {
-                    HandleAttackInput($"Ability{i + 1}", AbilitySlots[i].ability);
+                    HandleAttackInput($"Ability{i + 1}", abilitySlots[i].ability);
                 }
             }
+        }
+
+        public void ApplyClassBaseStats(ClassBaseStats classBaseStats)
+        {
+            ClassBaseStats = classBaseStats;
+            classBaseStats.ApplyTo(this);
+        }
+
+        public void AddAbility(Action ability)
+        {
+            availableAbilities.Add(ability);
         }
 
         public void ClearAnimationOverrides()

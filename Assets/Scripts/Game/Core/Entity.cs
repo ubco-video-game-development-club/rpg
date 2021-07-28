@@ -7,19 +7,19 @@ namespace RPG
 {
     public abstract class Entity : MonoBehaviour
     {
-        private Dictionary<PropertyName, dynamic> properties = new Dictionary<PropertyName, dynamic>();
-        public Dictionary<PropertyName, dynamic> Properties { get => properties; }
+        private PropertySet properties = new PropertySet();
+        public PropertySet Properties { get => properties; }
 
         private Dictionary<PropertyName, UnityEventBase> propertyChangedEvents = new Dictionary<PropertyName, UnityEventBase>();
 
         public bool HasProperty(PropertyName name)
         {
-            return properties.ContainsKey(name);
+            return properties.HasProperty(name);
         }
 
         public T GetProperty<T>(PropertyName name)
         {
-            return HasProperty(name) ? properties[name] : default(T);
+            return properties.GetProperty<T>(name);
         }
 
         public bool TryGetProperty<T>(PropertyName name, out T property)
@@ -30,7 +30,7 @@ namespace RPG
 
         public void SetProperty<T>(PropertyName name, T value)
         {
-            properties[name] = value;
+            properties.SetProperty<T>(name, value);
             GetPropertyChangedEvent<T>(name).Invoke(value);
         }
 
