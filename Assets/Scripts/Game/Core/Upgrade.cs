@@ -16,5 +16,13 @@ namespace RPG
                 stat.ApplyTo(entity);
             }
         }
+
+        public virtual void RemoveFrom(Entity entity)
+        {
+            foreach (EntityProperty stat in stats)
+            {
+                stat.RemoveFrom(entity);
+            }
+        }
     }
 }

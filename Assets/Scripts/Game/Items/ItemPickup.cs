@@ -6,9 +6,12 @@ namespace RPG
 {
     public class ItemPickup : Interactable
     {
+        [SerializeField] private Item item;
+
         public override void Interact(Player player)
         {
-            Debug.Log("Interacted!");
+            player.Equip(item.Slot, item);
+            Destroy(gameObject);
         }
     }
 }
