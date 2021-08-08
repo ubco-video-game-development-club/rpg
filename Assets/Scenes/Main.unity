@@ -3186,17 +3186,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1226771120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c168fe99b7b2cee44b262eee2b78b7f0, type: 3}
+  m_Script: {fileID: 11500000, guid: a1ab78947f476734a9d97ce44d153f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notesPrefab: {fileID: 5829271783528141665, guid: 0be32f292ea12f547b09c0b43b3313fe,
-    type: 3}
-  onQuestNoteAdd:
-    m_PersistentCalls:
-      m_Calls: []
-  onQuestNoteRemove:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1226771127
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ namespace RPG
         public static LevelingSystem LevelingSystem { get; private set; }
         public static DialogueSystem DialogueSystem { get; private set; }
         public static PopupSystem PopupSystem { get; private set; }
-        public static QuestSystem QuestSystem {get; private set; }
+        public static QuestSystem QuestSystem { get; private set; }
 
         public static Player Player { get; private set; }
         public static bool IsPlayerCreated { get => Player != null; }

@@ -1,109 +1,87 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace RPG
 {
+    public class QuestNote
+    {
+        public int QuestId { get; set; }
+        public string Desc { get; set; }
+    }
+
+    public class Quest
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public List<QuestNote> Notes { get; private set; }
+
+        public Quest(int id, string title)
+        {
+            Id = id;
+            Title = title;
+            Notes = new List<QuestNote>();
+        }
+
+        public void AddNote(QuestNote note)
+        {
+            Notes.Add(note);
+        }
+    }
+
     public class QuestSystem : MonoBehaviour
     {
-        [System.Serializable] public class QuestNoteEvent : UnityEvent<Note> { }
-
-        public int NoteCount { get => questNotes.Count; }
-        public QuestNoteEvent OnQuestNoteAdd { get => onQuestNoteAdd; }
-        public QuestNoteEvent OnQuestNoteRemove { get => onQuestNoteRemove; }
-
-        //TODO: Quests
-        [SerializeField] private GameObject notesPrefab;
-        [SerializeField] private QuestNoteEvent onQuestNoteAdd;
-        [SerializeField] private QuestNoteEvent onQuestNoteRemove;
-        private List<Note> questNotes;
-        private GameObject notesPopup;
-
-    #if UNITY_EDITOR
-        private string noteName = "Note Name";
-        private string noteContent = "Note Content";
-    #endif
+        public Dictionary<int, Quest> Quests { get; private set; }
 
         void Awake()
         {
-            questNotes = new List<Note>();
+            Quests = new Dictionary<int, Quest>();
+            Quests.Add(0, new Quest(0, "My Quest 1"));
+            Quests.Add(1, new Quest(1, "My Quest 2"));
         }
 
         void Update()
         {
-            if (Input.GetButtonDown("Toggle Notes"))
+            if (Input.GetKeyDown(KeyCode.O))
             {
-                if (notesPopup == null) notesPopup = GameManager.PopupSystem.CreatePopup("Notes", notesPrefab);
-                else Destroy(notesPopup);
+                QuestNote note = new QuestNote();
+                note.QuestId = 0;
+                note.Desc = "This is a note for quest 1";
+                AddQuestNote(note);
+            }
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                QuestNote note = new QuestNote();
+                note.QuestId = 1;
+                note.Desc = "This is a note for quest 2";
+                AddQuestNote(note);
             }
         }
 
-    #if UNITY_EDITOR
         void OnGUI()
         {
             Rect layoutRect = new Rect(0, Screen.height / 2.0f, 200.0f, Screen.height / 2.0f);
             GUILayout.BeginArea(layoutRect);
             GUILayout.Label("Quest Notes");
-            noteName = GUILayout.TextField(noteName);
-            noteContent = GUILayout.TextArea(noteContent, GUILayout.Height(100));
-
-            GUILayout.BeginHorizontal();
-            if(GUILayout.Button("Add Note"))
+            foreach (Quest quest in Quests.Values)
             {
-                AddNote(noteName, noteContent);
-                noteName = "";
-                noteContent = "";
+                GUILayout.Label(quest.Title);
+                GUILayout.BeginHorizontal();
+                GUILayout.Space(20);
+                GUILayout.BeginVertical();
+                foreach (QuestNote note in quest.Notes)
+                {
+                    GUILayout.Label("- " + note.Desc);
+                }
+                GUILayout.EndVertical();
+                GUILayout.EndHorizontal();
             }
-            
-            if(GUILayout.Button("Remove Note")) RemoveNote(noteName);
-            GUILayout.EndHorizontal();
-
             GUILayout.EndArea();
         }
-    #endif
 
-        public void AddNote(string name, string content)
+        public void AddQuestNote(QuestNote note)
         {
-            Note note = new Note()
-            {
-                name = name,
-                content = content
-            };
-
-            questNotes.Add(note);
-            onQuestNoteAdd.Invoke(note);
-        }
-
-        public Note GetNote(int index) => questNotes[index];
-
-        public bool RemoveNote(Note note)
-        {
-            bool removed = questNotes.Remove(note);
-            onQuestNoteRemove.Invoke(note);
-            return removed;
-        }
-
-        public bool RemoveNote(string name)
-        {
-            Note? remove = null;
-            foreach (Note note in questNotes)
-            {
-                if (note.name == name)
-                {
-                    remove = note;
-                    break;
-                }
-            }
-
-            if (remove == null) return false;
-            else return RemoveNote(remove ?? default(Note));
-        }
-
-        public struct Note
-        {
-            public string name;
-            public string content;
+            Quests[note.QuestId].AddNote(note);
         }
     }
 }
