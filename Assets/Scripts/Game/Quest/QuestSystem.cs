@@ -34,11 +34,21 @@ namespace RPG
             GUILayout.EndArea();
         }
 
-        public void AcquireNote(QuestNote note)
+        public void AddQuest(Quest quest)
+        {
+            if (!Journal.Contains(quest))
+            {
+                Journal.Add(quest);
+            }
+        }
+
+        public void AddNote(QuestNote note)
         {
             Quest quest = note.Quest;
-            if (!Journal.Contains(quest)) Journal.Add(quest);
-            quest.AddNote(note);
+            if (Journal.Contains(quest))
+            {
+                quest.AddNote(note);
+            }
         }
     }
 }
