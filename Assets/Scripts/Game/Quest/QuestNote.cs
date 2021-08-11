@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace RPG
 {
-    [CreateAssetMenu(fileName = "New QuestNote", menuName = "Quest Note", order = 62)]
+    [CreateAssetMenu(fileName = "New QuestNote", menuName = "Quest Note", order = 64)]
     public class QuestNote : ScriptableObject
     {
         [SerializeField] private Quest quest;
         public Quest Quest { get => quest; }
 
-        [SerializeField] private string desc;
+        [SerializeField] [TextArea] private string desc;
         public string Desc { get => desc; }
     }
 }

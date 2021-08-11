@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RPG
 {
-    [CreateAssetMenu(fileName = "New Quest", menuName = "Quest", order = 62)]
+    [CreateAssetMenu(fileName = "New Quest", menuName = "Quest", order = 63)]
     public class Quest : ScriptableObject
     {
         [SerializeField] private string title;
