@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ac0479ced6a50409cc854a5b89a582, type: 3}
+  m_Name: TestNPC2Dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - name: Entry
+    body: PSST. HEY. Here, take this note, and don't tell anyone I gave it to you!
+    position: {x: -13, y: -97}
+    questNotes:
+    - {fileID: 11400000, guid: c8434d24329704b43aefe67bf40b8654, type: 2}
+  transitions:
+  - name: Transition
+    from: 0
+    to: -1

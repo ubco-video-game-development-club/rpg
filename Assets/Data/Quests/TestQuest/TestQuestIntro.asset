@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TestQuestIntro
   m_EditorClassIdentifier: 
   quest: {fileID: 11400000, guid: 3dd2a78ebdce7eb41a66b96db2314849, type: 2}
-  desc: Welcome to the test quest!
+  desc: Great, you talked to the NPC! This is a test quest.

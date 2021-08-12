@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TestQuestMoreInfo
   m_EditorClassIdentifier: 
   quest: {fileID: 11400000, guid: 3dd2a78ebdce7eb41a66b96db2314849, type: 2}
-  desc: Wow, this tells you so much about the test quest!
+  desc: The NPC gave you this really cool note for talking to them!

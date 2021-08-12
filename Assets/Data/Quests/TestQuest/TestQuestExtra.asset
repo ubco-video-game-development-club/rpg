@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8075094e46989044f920eb0dfe88fc8b, type: 3}
-  m_Name: TestQuestEnd
+  m_Name: TestQuestExtra
   m_EditorClassIdentifier: 
   quest: {fileID: 11400000, guid: 3dd2a78ebdce7eb41a66b96db2314849, type: 2}
-  desc: You have completed the test quest!
+  desc: That was... odd. This is a secret note for the test quest!
