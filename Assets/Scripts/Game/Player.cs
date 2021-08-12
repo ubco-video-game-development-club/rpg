@@ -24,7 +24,6 @@ namespace RPG
         [SerializeField] private Action defaultSecondaryAttack;
         [SerializeField] private float interactRadius;
         [SerializeField] private LayerMask interactLayer;
-        [SerializeField] private Tooltip interactTooltipPrefab;
 
         public ClassBaseStats ClassBaseStats { get; private set; }
         public RuntimeAnimatorController BaseAnimationController { get; private set; }
@@ -42,7 +41,6 @@ namespace RPG
         private Collider2D[] interactTargets = new Collider2D[MAX_INTERACT_TARGETS];
         private int numInteractTargets = 0;
         private Interactable targetInteractable;
-        private Tooltip interactTooltip;
 
         private YieldInstruction animLockInstruction;
         private YieldInstruction globalCooldownInstruction;
@@ -60,10 +58,6 @@ namespace RPG
             animator = GetComponent<Animator>();
             animatorCache = GetComponent<AnimatorCache>();
             rigidbody2D = GetComponent<Rigidbody2D>();
-
-            interactTooltip = Instantiate(interactTooltipPrefab, transform.position, Quaternion.identity, HUD.TooltipParent);
-            interactTooltip.SetTarget(transform);
-            interactTooltip.SetActive(false);
 
             animLockInstruction = new WaitForSeconds(ANIM_LOCK_DURATION);
             globalCooldownInstruction = new WaitForSeconds(GLOBAL_COOLDOWN);
@@ -311,7 +305,6 @@ namespace RPG
                 }
             }
             targetInteractable = null;
-            interactTooltip.SetActive(false);
 
             // Check for nearby interactables
             numInteractTargets = Physics2D.OverlapCircleNonAlloc(transform.position, interactRadius, interactTargets, interactLayer);
@@ -332,7 +325,6 @@ namespace RPG
             {
                 targetInteractable = interactable;
                 interactable.SetTooltipActive(true);
-                interactTooltip.SetActive(true);
             }
         }
     }

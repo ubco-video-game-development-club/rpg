@@ -5,19 +5,13 @@ using Dialogue;
 
 namespace RPG
 {
-    public class QuestGiver : MonoBehaviour
+    public class QuestGiver : Interactable
     {
         [SerializeField] private new string name;
         [SerializeField] private Sprite portrait;
         [SerializeField] private DialogueGraph dialogue;
 
-        void OnMouseDown()
-        {
-            Debug.LogWarning("This is for testing. Please fix me.");
-            Interact();
-        }
-
-        public void Interact()
+        public override void Interact(Player player)
         {
             GameManager.DialogueSystem.BeginDialogue(portrait, name, dialogue);
         }

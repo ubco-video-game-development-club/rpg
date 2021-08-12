@@ -15,13 +15,16 @@ namespace RPG
         {
             tooltip = Instantiate(tooltipPrefab, transform.position, Quaternion.identity, HUD.TooltipParent);
             tooltip.SetTarget(transform);
-            tooltip.SetText(interactHint);
+            tooltip.SetText("[E] " + interactHint);
             tooltip.SetActive(false);
         }
 
         void OnDestroy()
         {
-            Destroy(tooltip.gameObject);
+            if (tooltip != null)
+            {
+                Destroy(tooltip.gameObject);
+            }
         }
 
         public void SetTooltipActive(bool active)
