@@ -1177,7 +1177,7 @@ GameObject:
   - component: {fileID: 511373792}
   - component: {fileID: 511373795}
   - component: {fileID: 511373794}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1261,6 +1261,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fba3685198575341bfedcdddb0b58fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
+    type: 3}
+  interactHint: Talk
   name: Goof
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
   dialogue: {fileID: 11400000, guid: 0c1c5a768969a034cb53f9294ce75608, type: 2}
