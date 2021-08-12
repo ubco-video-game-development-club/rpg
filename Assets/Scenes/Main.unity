@@ -359,7 +359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
-  interactHint: This is a test pickup!
+  interactHint: Equip
   item: {fileID: 11400000, guid: 79bb8ea93da783d49a8b102bdd54adfd, type: 2}
 --- !u!1 &34762231
 GameObject:
