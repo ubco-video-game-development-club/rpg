@@ -10,11 +10,19 @@ namespace RPG
         [SerializeField] private string title;
         public string Title { get => title; }
 
-        public List<QuestNote> Notes { get; private set; }
+        public HashSet<QuestNote> Notes { get; private set; }
+
+        public void Initialize()
+        {
+            Notes = new HashSet<QuestNote>();
+        }
 
         public void AddNote(QuestNote note)
         {
-            Notes.Add(note);
+            if (!Notes.Contains(note))
+            {
+                Notes.Add(note);
+            }
         }
     }
 }
