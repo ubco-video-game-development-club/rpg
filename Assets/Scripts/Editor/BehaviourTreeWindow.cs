@@ -47,6 +47,12 @@ namespace BehaviourTree
 
             if (GUI.Button(layout, GUIContent.none, GUI.skin.box)) selectedTree.selectedNode = node.Element;
 
+            if (selectedTree.selectedNode == node.Element)
+            {
+                layout.width = 2;
+                EditorUtils.DrawBox(layout, EditorUtils.HIGHLIGHTED_COLOR);
+            }
+
             GUILayout.Space((indent + 1) * INDENT_MULTIPLIER);
             GUILayout.Label(name);
 
