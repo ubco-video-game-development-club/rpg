@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54fb5e73c80040247a00b01917c6e426, type: 3}
-  m_Name: Test Tree
+  m_Name: MyBehaviourTree
   m_EditorClassIdentifier: 
   tree:
     serializedNodes:
@@ -36,5 +36,5 @@ MonoBehaviour:
               b: 0
               n: 2
               s: 
-        nodeTypeName: TestMoverNode
+        nodeTypeName: BehaviourTree.TestMoverNode
       firstChildIndex: 2
