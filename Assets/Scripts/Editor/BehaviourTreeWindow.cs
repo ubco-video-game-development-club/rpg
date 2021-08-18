@@ -28,8 +28,7 @@ namespace BehaviourTree
 
             GUILayout.Space(5);
             scrollPos = GUILayout.BeginScrollView(scrollPos);
-            Tree<BehaviourTreeNode> tree = selectedTree.tree;
-            Tree<BehaviourTreeNode>.Node root = tree.Root;
+            Tree<Behaviour>.Node root = selectedTree.Root;
             ShowNode(null, root);
             GUILayout.EndScrollView();
         }
@@ -39,7 +38,7 @@ namespace BehaviourTree
             UpdateSelectedTree();
         }
 
-        private void ShowNode(Tree<BehaviourTreeNode>.Node? parent, Tree<BehaviourTreeNode>.Node node, int indent = 0)
+        private void ShowNode(Tree<Behaviour>.Node? parent, Tree<Behaviour>.Node node, int indent = 0)
         {
             string name = node.Element.Node.GetType().Name;
             Rect layout = EditorGUILayout.BeginHorizontal();
@@ -69,7 +68,7 @@ namespace BehaviourTree
             }
         }
 
-        private void AddChild(Tree<BehaviourTreeNode>.Node parent)
+        private void AddChild(Tree<Behaviour>.Node parent)
         {
             GenericMenu menu = new GenericMenu();
             BehaviourTreeNodeType[] nodeTypes = (BehaviourTreeNodeType[])System.Enum.GetValues(typeof(BehaviourTreeNodeType));
@@ -81,9 +80,9 @@ namespace BehaviourTree
                     () =>
                     {
                         IBehaviourTreeNode node = BehaviourTreeNodeCreator.Create(type);
-                        BehaviourTreeNode bNode = new BehaviourTreeNode(node);
+                        Behaviour bNode = new Behaviour(node);
                         node.Init(bNode);
-                        parent.AddChild(new Tree<BehaviourTreeNode>.Node(bNode));
+                        parent.AddChild(new Tree<Behaviour>.Node(bNode));
                         EditorUtility.SetDirty(selectedTree);
                     }
                 );
@@ -99,7 +98,7 @@ namespace BehaviourTree
                 selectedTree = Selection.activeObject as BehaviourTree;
                 if (selectedTree.tree == null || selectedTree.tree.Root.Element == null)
                 {
-                    selectedTree.tree = new Tree<BehaviourTreeNode>(new BehaviourTreeNode(new SequenceNode()));
+                    selectedTree.tree = new Tree<Behaviour>(new Behaviour(new SequenceNode()));
                 }
             }
             else selectedTree = null;

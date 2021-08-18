@@ -17,7 +17,7 @@ namespace BehaviourTree
 
         public override void OnInspectorGUI()
         {
-            BehaviourTreeNode node = behaviourTree.selectedNode;
+            Behaviour node = behaviourTree.selectedNode;
             if (node == null) return;
 
             string name = node.Node.GetType().Name;

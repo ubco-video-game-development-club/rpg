@@ -6,7 +6,7 @@ namespace BehaviourTree
 {
     public interface IBehaviourTreeNode
     {
-        void Init(BehaviourTreeNode self);
-        NodeStatus Tick(Tree<BehaviourTreeNode>.Node self, Agent agent);
+        void Init(Behaviour behaviour);
+        NodeStatus Tick(Tree<Behaviour>.Node self, Agent agent);
     }
 }

@@ -7,11 +7,11 @@ namespace BehaviourTree
     public class Agent : MonoBehaviour
     {
         [SerializeField] private BehaviourTree behaviourTree;
-        private Tree<BehaviourTreeNode>.Node root;
+        private Tree<Behaviour>.Node root;
 
         void Awake()
         {
-            root = behaviourTree.tree.Root;
+            root = behaviourTree.Root;
         }
 
         void Update()
