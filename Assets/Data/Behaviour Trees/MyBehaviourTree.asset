@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tree:
     serializedNodes:
-    - childCount: 1
+    - childCount: 2
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
@@ -22,19 +22,62 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
-        - name: noise-smoothing
+        - name: check-radius
+          property:
+            propertyType: 1
+            value:
+              b: 0
+              n: 4
+              s: 
+        nodeTypeName: BehaviourTree.GetPlayerNode
+      firstChildIndex: 2
+    - childCount: 2
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SelectorNode
+      firstChildIndex: 3
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: attack-range
+          property:
+            propertyType: 1
+            value:
+              b: 0
+              n: 4
+              s: 
+        - name: attack-damage
           property:
             propertyType: 1
             value:
               b: 0
               n: 5
               s: 
+        - name: attack-cooldown
+          property:
+            propertyType: 1
+            value:
+              b: 0
+              n: 0.6
+              s: 
+        nodeTypeName: BehaviourTree.AttackNode
+      firstChildIndex: 4
+    - childCount: 0
+      element:
+        propertyInfo:
         - name: move-speed
+          property:
+            propertyType: 1
+            value:
+              b: 0
+              n: 3
+              s: 
+        - name: move-timeout
           property:
             propertyType: 1
             value:
               b: 0
               n: 2
               s: 
-        nodeTypeName: BehaviourTree.TestMoverNode
-      firstChildIndex: 2
+        nodeTypeName: BehaviourTree.MoveNode
+      firstChildIndex: 5
