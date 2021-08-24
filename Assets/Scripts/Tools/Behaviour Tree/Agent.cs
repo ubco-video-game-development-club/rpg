@@ -38,5 +38,10 @@ namespace BehaviourTree
         {
             return Properties.ContainsKey(name);
         }
+
+        public void RemoveProperty(string name)
+        {
+            Properties.Remove(name);
+        }
     }
 }

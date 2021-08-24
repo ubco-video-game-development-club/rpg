@@ -9,7 +9,7 @@ namespace BehaviourTree
         GetPlayerNode,
         AttackNode,
         MoveNode,
-        GetRandomDestinationNode,
+        MoveRandomNode,
         NotNode,
         IsNullNode
     }
@@ -30,8 +30,8 @@ namespace BehaviourTree
                     return new AttackNode();
                 case BehaviourTreeNodeType.MoveNode:
                     return new MoveNode();
-                case BehaviourTreeNodeType.GetRandomDestinationNode:
-                    return new GetRandomDestinationNode();
+                case BehaviourTreeNodeType.MoveRandomNode:
+                    return new MoveRandomNode();
                 case BehaviourTreeNodeType.NotNode:
                     return new NotNode();
                 case BehaviourTreeNodeType.IsNullNode:
