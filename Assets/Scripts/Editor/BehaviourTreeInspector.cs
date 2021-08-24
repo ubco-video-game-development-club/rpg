@@ -43,9 +43,6 @@ namespace BehaviourTree
                 case VariableProperty.Type.Number:
                     property.Set(EditorGUILayout.DoubleField(property.GetNumber()));
                     break;
-                /*case VariableProperty.Type.Array:
-                    Debug.Log("Not implemented!");
-                    break;*/
                 case VariableProperty.Type.String:
                     property.Set(GUILayout.TextField(property.GetString()));
                     break;
