@@ -6194,7 +6194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255646b43a4b22b4586a6b091e9ce397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: 0aba6634e63aa274788aba2a3a27f15b, type: 2}
+  behaviourTree: {fileID: 11400000, guid: 2f57ac9579691ae4290dee3f3f59226f, type: 2}
 --- !u!1 &2082100410
 GameObject:
   m_ObjectHideFlags: 0
