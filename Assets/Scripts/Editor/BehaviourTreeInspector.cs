@@ -46,6 +46,12 @@ namespace BehaviourTree
                 case VariableProperty.Type.String:
                     property.Set(GUILayout.TextField(property.GetString()));
                     break;
+                case VariableProperty.Type.Object:
+                    property.Set(EditorGUILayout.ObjectField(property.GetObject(), property.GetObjectType(), true));
+                    break;
+                case VariableProperty.Type.Vector:
+                    property.Set(EditorGUILayout.Vector2Field("", property.GetVector()));
+                    break;
             }
 
             GUILayout.EndHorizontal();
