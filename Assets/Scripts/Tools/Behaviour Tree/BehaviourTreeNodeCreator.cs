@@ -8,7 +8,8 @@ namespace BehaviourTree
         SequenceNode,
         GetPlayerNode,
         AttackNode,
-        MoveNode
+        MoveNode,
+        GetRandomPositionNode
     }
 
     public static class BehaviourTreeNodeCreator
@@ -27,6 +28,8 @@ namespace BehaviourTree
                     return new AttackNode();
                 case BehaviourTreeNodeType.MoveNode:
                     return new MoveNode();
+                case BehaviourTreeNodeType.GetRandomPositionNode:
+                    return new GetRandomDestinationNode();
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return null;
