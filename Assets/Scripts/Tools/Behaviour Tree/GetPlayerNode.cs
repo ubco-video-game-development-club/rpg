@@ -7,10 +7,7 @@ namespace BehaviourTree
 {
     public class GetPlayerNode : IBehaviourTreeNode
     {
-        public void Init(Behaviour behaviour)
-        {
-            behaviour.SetProperty("check-radius", new VariableProperty(VariableProperty.Type.Number));
-        }
+        public void Init(Behaviour behaviour) { }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, Agent agent)
         {
@@ -22,16 +19,9 @@ namespace BehaviourTree
             }
 
             Vector2 playerPos = player.transform.position;
-            Vector2 selfPos = agent.transform.position;
-            float checkRadius = (float)self.Element.GetProperty("check-radius").GetNumber();
-            if (Vector2.SqrMagnitude(playerPos - selfPos) < checkRadius * checkRadius)
-            {
-                agent.SetProperty("target", player);
-                agent.SetProperty("destination", playerPos);
-                return NodeStatus.Success;
-            }
-
-            return NodeStatus.Failure;
+            agent.SetProperty("target", player);
+            agent.SetProperty("destination", playerPos);
+            return NodeStatus.Success;
         }
     }
 }

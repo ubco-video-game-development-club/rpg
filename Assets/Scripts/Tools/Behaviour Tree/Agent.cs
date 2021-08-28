@@ -21,6 +21,7 @@ namespace BehaviourTree
 
         void Update()
         {
+            Debug.Log("~~~ Tick ~~~");
             root.Element.Tick(root, this);
         }
 

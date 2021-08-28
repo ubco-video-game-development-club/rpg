@@ -17,7 +17,7 @@ namespace BehaviourTree
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, Agent agent)
         {
-            Debug.Log("We here");
+            Debug.Log("MoveRandomNode");
 
             // Get random target position
             if (!agent.HasProperty("random-pos"))

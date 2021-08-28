@@ -16,6 +16,8 @@ namespace BehaviourTree
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, Agent agent)
         {
+            Debug.Log("AttackNode");
+
             if (!agent.HasProperty("target"))
             {
                 return NodeStatus.Failure;
