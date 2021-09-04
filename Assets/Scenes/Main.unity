@@ -6111,7 +6111,7 @@ GameObject:
   - component: {fileID: 2080807716}
   - component: {fileID: 2080807718}
   m_Layer: 0
-  m_Name: goof
+  m_Name: TestEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
