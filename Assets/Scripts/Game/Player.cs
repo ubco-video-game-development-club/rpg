@@ -20,15 +20,19 @@ namespace RPG
         private const int MAX_INTERACT_TARGETS = 5;
 
         [SerializeField] private float moveSpeed = 1f;
-        [SerializeField] private Action primaryAttack;
-        [SerializeField] private Action secondaryAttack;
+        [SerializeField] private Action defaultPrimaryAttack;
+        [SerializeField] private Action defaultSecondaryAttack;
         [SerializeField] private float interactRadius;
         [SerializeField] private LayerMask interactLayer;
-        [SerializeField] private Tooltip interactTooltipPrefab;
 
-        public List<Action> AvailableAbilities { get; set; }
-        public AbilitySlot[] AbilitySlots { get; set; }
+        public ClassBaseStats ClassBaseStats { get; private set; }
         public RuntimeAnimatorController BaseAnimationController { get; private set; }
+
+        private List<Action> availableAbilities;
+        private AbilitySlot[] abilitySlots;
+        private Dictionary<ItemSlot, Item> equipment;
+        private Action primaryAttack;
+        private Action secondaryAttack;
 
         private bool isGCDActive;
         private bool isAnimLocked;
@@ -37,7 +41,6 @@ namespace RPG
         private Collider2D[] interactTargets = new Collider2D[MAX_INTERACT_TARGETS];
         private int numInteractTargets = 0;
         private Interactable targetInteractable;
-        private Tooltip interactTooltip;
 
         private YieldInstruction animLockInstruction;
         private YieldInstruction globalCooldownInstruction;
@@ -56,20 +59,23 @@ namespace RPG
             animatorCache = GetComponent<AnimatorCache>();
             rigidbody2D = GetComponent<Rigidbody2D>();
 
-            interactTooltip = Instantiate(interactTooltipPrefab, transform.position, Quaternion.identity, HUD.TooltipParent);
-            interactTooltip.SetTarget(transform);
-            interactTooltip.SetActive(false);
-
             animLockInstruction = new WaitForSeconds(ANIM_LOCK_DURATION);
             globalCooldownInstruction = new WaitForSeconds(GLOBAL_COOLDOWN);
             BaseAnimationController = animator.runtimeAnimatorController;
 
-            AvailableAbilities = new List<Action>();
-            AbilitySlots = new AbilitySlot[MAX_ABILITY_SLOTS];
+            availableAbilities = new List<Action>();
+            abilitySlots = new AbilitySlot[MAX_ABILITY_SLOTS];
             for (int i = 0; i < MAX_ABILITY_SLOTS; i++)
             {
-                AbilitySlots[i] = new AbilitySlot();
+                abilitySlots[i] = new AbilitySlot();
             }
+            equipment = new Dictionary<ItemSlot, Item>();
+            foreach (ItemSlot slot in Item.SlotTypes)
+            {
+                equipment.Add(slot, null);
+            }
+            primaryAttack = defaultPrimaryAttack;
+            secondaryAttack = defaultSecondaryAttack;
 
             primaryAttack.Enabled = true;
             secondaryAttack.Enabled = true;
@@ -89,28 +95,28 @@ namespace RPG
 
             GUILayout.BeginArea(new Rect(Screen.width - 160, Screen.height - 200, 150, 200));
             GUILayout.Label("Available Abilities");
-            foreach (Action ability in AvailableAbilities)
+            foreach (Action ability in availableAbilities)
             {
                 int matchingIdx = -1, lastInactiveIdx = -1;
                 for (int i = 0; i < MAX_ABILITY_SLOTS; i++)
                 {
-                    if (AbilitySlots[i].ability == ability) matchingIdx = i;
-                    if (lastInactiveIdx == -1 && !AbilitySlots[i].enabled) lastInactiveIdx = i;
+                    if (abilitySlots[i].ability == ability) matchingIdx = i;
+                    if (lastInactiveIdx == -1 && !abilitySlots[i].enabled) lastInactiveIdx = i;
                 }
                 if (matchingIdx == -1 && lastInactiveIdx == -1) GUI.enabled = false;
                 bool isOn = GUILayout.Toggle(matchingIdx >= 0, $"{ability.name}");
                 GUI.enabled = true;
                 if (isOn && matchingIdx == -1 && lastInactiveIdx >= 0)
                 {
-                    AbilitySlots[lastInactiveIdx].enabled = true;
-                    AbilitySlots[lastInactiveIdx].ability = ability;
-                    AbilitySlots[lastInactiveIdx].ability.Enabled = true;
+                    abilitySlots[lastInactiveIdx].enabled = true;
+                    abilitySlots[lastInactiveIdx].ability = ability;
+                    abilitySlots[lastInactiveIdx].ability.Enabled = true;
                 }
                 else if (!isOn && matchingIdx >= 0)
                 {
-                    AbilitySlots[matchingIdx].enabled = false;
-                    AbilitySlots[matchingIdx].ability.Enabled = false;
-                    AbilitySlots[matchingIdx].ability = null;
+                    abilitySlots[matchingIdx].enabled = false;
+                    abilitySlots[matchingIdx].ability.Enabled = false;
+                    abilitySlots[matchingIdx].ability = null;
                 }
             }
             GUILayout.EndArea();
@@ -120,10 +126,10 @@ namespace RPG
             for (int i = 0; i < MAX_ABILITY_SLOTS; i++)
             {
                 string abilityText = "";
-                if (AbilitySlots[i].enabled)
+                if (abilitySlots[i].enabled)
                 {
-                    abilityText = $"{AbilitySlots[i].ability.name}";
-                    GUI.color = AbilitySlots[i].ability.Enabled ? Color.white : Color.red;
+                    abilityText = $"{abilitySlots[i].ability.name}";
+                    GUI.color = abilitySlots[i].ability.Enabled ? Color.white : Color.red;
                 }
                 else GUI.enabled = false;
                 GUILayout.Box(abilityText);
@@ -164,10 +170,50 @@ namespace RPG
 
             for (int i = 0; i < MAX_ABILITY_SLOTS; i++)
             {
-                if (AbilitySlots[i].enabled)
+                if (abilitySlots[i].enabled)
                 {
-                    HandleAttackInput($"Ability{i + 1}", AbilitySlots[i].ability);
+                    HandleAttackInput($"Ability{i + 1}", abilitySlots[i].ability);
                 }
+            }
+        }
+
+        public void ApplyClassBaseStats(ClassBaseStats classBaseStats)
+        {
+            ClassBaseStats = classBaseStats;
+            classBaseStats.ApplyTo(this);
+        }
+
+        public void AddAbility(Action ability)
+        {
+            availableAbilities.Add(ability);
+        }
+
+        public void Equip(ItemSlot slot, Item item)
+        {
+            if (equipment[slot] != null)
+            {
+                UnEquip(slot);
+            }
+            equipment[slot] = item;
+            item.ApplyTo(this);
+
+            if (slot == ItemSlot.Mainhand)
+            {
+                Weapon weapon = (Weapon)item;
+                primaryAttack = weapon.Attack;
+                primaryAttack.Enabled = true;
+            }
+        }
+
+        public void UnEquip(ItemSlot slot)
+        {
+            equipment[slot].RemoveFrom(this);
+            equipment[slot] = null;
+
+            if (slot == ItemSlot.Mainhand)
+            {
+                primaryAttack = defaultPrimaryAttack;
+                primaryAttack.Enabled = true;
             }
         }
 
@@ -252,13 +298,13 @@ namespace RPG
             // Clear current interactions
             for (int i = 0; i < numInteractTargets; i++)
             {
-                if (interactTargets[i].TryGetComponent<Interactable>(out interactable))
+                Collider2D target = interactTargets[i];
+                if (target != null && target.TryGetComponent<Interactable>(out interactable))
                 {
                     interactable.SetTooltipActive(false);
                 }
             }
             targetInteractable = null;
-            interactTooltip.SetActive(false);
 
             // Check for nearby interactables
             numInteractTargets = Physics2D.OverlapCircleNonAlloc(transform.position, interactRadius, interactTargets, interactLayer);
@@ -279,7 +325,6 @@ namespace RPG
             {
                 targetInteractable = interactable;
                 interactable.SetTooltipActive(true);
-                interactTooltip.SetActive(true);
             }
         }
     }

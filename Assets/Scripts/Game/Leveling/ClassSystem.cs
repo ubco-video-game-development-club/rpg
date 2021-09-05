@@ -9,16 +9,15 @@ namespace RPG
     {
         private ClassTree selectedClass;
 
+        void Start()
+        {
+            GameManager.AddPlayerCreatedListener(OnPlayerCreated);
+        }
+
         public void SelectClass(ClassTree classTree)
         {
-            GameManager.CreatePlayer();
-
-            // TODO: save the selected class to the player?
             selectedClass = classTree;
-
-            ClassData data = classTree.GetClassData();
-            GameManager.Player.SetProperty<int>(PropertyName.MaxHealth, data.health);
-            GameManager.Player.SetProperty<int>(PropertyName.Health, data.health);
+            GameManager.CreatePlayer();
         }
 
         public LevelingState GetLevelUpType(int level)
@@ -38,6 +37,11 @@ namespace RPG
         public LevelUpOption[] GetSkillOptions(int level)
         {
             return selectedClass.GetSkillOptions(level);
+        }
+
+        private void OnPlayerCreated()
+        {
+            GameManager.Player.ApplyClassBaseStats(selectedClass.GetClassBaseStats());
         }
     }
 }

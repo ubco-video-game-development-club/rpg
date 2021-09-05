@@ -89,6 +89,10 @@ namespace Dialogue
             GUILayout.Label("Response");
             body.stringValue = GUILayout.TextArea(body.stringValue, GUILayout.Height(100));
 
+            GUILayout.Space(10);
+
+            SerializedProperty questNotes = node.FindPropertyRelative("questNotes");
+            EditorGUILayout.PropertyField(questNotes);
         }
     }
 }

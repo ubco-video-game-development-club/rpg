@@ -21,8 +21,8 @@ MonoBehaviour:
       - level: 1
         nodeType: 0
         childIndices: 00000000
-        classData:
-          health: 50
+        classBaseStats: {fileID: 11400000, guid: 814dec06be3a01c438873b682240572f,
+          type: 2}
         levelUpOptions: []
     - level: 3
       tierType: 2
@@ -30,8 +30,7 @@ MonoBehaviour:
       - level: 3
         nodeType: 2
         childIndices: 00000000
-        classData:
-          health: 0
+        classBaseStats: {fileID: 0}
         levelUpOptions:
         - {fileID: 11400000, guid: 2e13d52727a78424d9eadf7ce9c6a5bb, type: 2}
         - {fileID: 11400000, guid: 63ac0a0e08a1e3b46b1137cecff5abe0, type: 2}
@@ -41,8 +40,7 @@ MonoBehaviour:
       - level: 5
         nodeType: 2
         childIndices: 
-        classData:
-          health: 0
+        classBaseStats: {fileID: 0}
         levelUpOptions:
         - {fileID: 11400000, guid: 03c6b09bbcae2ab40b386c393b2e1510, type: 2}
         - {fileID: 11400000, guid: c530d7c136df8254e9d02513c17331d2, type: 2}

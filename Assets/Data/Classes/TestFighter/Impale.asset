@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 956cc07c06cceb145a5dbb2a353f9cf4, type: 3}
+  m_Script: {fileID: 11500000, guid: 6953ebffb78811941915ffa3016b71ca, type: 3}
   m_Name: Impale
   m_EditorClassIdentifier: 
+  stats: []
+  abilities:
+  - {fileID: 11400000, guid: 58eef93215dcc2849922e1a0ca4b4c8f, type: 2}
   title: Impale
   description: Gain the Impale ability.
-  ability: {fileID: 11400000, guid: 58eef93215dcc2849922e1a0ca4b4c8f, type: 2}

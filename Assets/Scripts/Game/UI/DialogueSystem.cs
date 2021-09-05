@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using RPG;
 
 namespace Dialogue
 {
@@ -66,6 +67,12 @@ namespace Dialogue
             {
                 dialogueText.text = dialogue.Substring(0, index++);
                 yield return letterCooldown;
+            }
+
+            // Apply quest notes for this dialogue node after it finishes reading
+            foreach (QuestNote note in graphNode.questNotes)
+            {
+                GameManager.QuestSystem.AddNote(note);
             }
 
             DialogueGraphTransition[] transitions = GetTransitionsFor(currentGraph, node);

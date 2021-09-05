@@ -99,10 +99,9 @@ namespace ClassEditor
             SerializedProperty nodesProp = tierProp.FindPropertyRelative("nodes");
             SerializedProperty nodeProp = nodesProp.GetArrayElementAtIndex(0);
             
-            SerializedProperty classDataProp = nodeProp.FindPropertyRelative("classData");
-            SerializedProperty healthProp = classDataProp.FindPropertyRelative("health");
+            SerializedProperty classBaseStatsProp = nodeProp.FindPropertyRelative("classBaseStats");
             EditorGUILayout.LabelField("Class", EditorStyles.boldLabel);
-            EditorGUILayout.PropertyField(healthProp);
+            EditorGUILayout.PropertyField(classBaseStatsProp);
 
             serializedObject.ApplyModifiedProperties();
         }

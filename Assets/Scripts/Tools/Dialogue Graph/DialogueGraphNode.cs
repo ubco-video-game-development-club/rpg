@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPG;
 
 namespace Dialogue
 {
@@ -12,6 +13,7 @@ namespace Dialogue
         public string name;
         public string body;
         public Vector2 position;
+        public QuestNote[] questNotes;
 
         private Rect displayRect;
         private bool isSelected = false;

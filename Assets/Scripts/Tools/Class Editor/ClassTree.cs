@@ -128,9 +128,9 @@ namespace ClassEditor
             return layers[level].nodes[0].levelUpOptions;
         }
 
-        public ClassData GetClassData()
+        public ClassBaseStats GetClassBaseStats()
         {
-            return layers[1].nodes[0].classData;
+            return layers[1].nodes[0].classBaseStats;
         }
 
         public List<ClassNode> GetChildren(ClassNode parent)
