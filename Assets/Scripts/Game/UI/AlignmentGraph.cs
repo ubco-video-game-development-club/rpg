@@ -2,49 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using RPG;
 
-public class AlignmentGraph : MonoBehaviour
+namespace RPG
 {
-    private RectTransform GraphContainer;
-
-    [SerializeField] private Sprite point;
-
-    private void Awake()
+    public class AlignmentGraph : MonoBehaviour
     {
-        GraphContainer = transform.Find("GraphContainer").GetComponent<RectTransform>();
-    }
+        private RectTransform GraphContainer;
 
-    private void Start()
-    {
-        GameManager.AlignmentSystem.OnAlignmentChanged.AddListener(ShowGraph);
-    }
+        [SerializeField] private Sprite point;
 
-    private void CreatePoint(Vector2 anchoredPosition)
-    {
-        if (GameObject.Find("point") != null)
+        private void Awake()
         {
-            Destroy(GameObject.Find("point"));
+            GraphContainer = transform.Find("GraphContainer").GetComponent<RectTransform>();
         }
 
-        GameObject NewPoint = new GameObject("point", typeof(Image));
+        private void Start()
+        {
+            GameManager.AlignmentSystem.OnAlignmentChanged.AddListener(ShowGraph);
+        }
 
-        NewPoint.transform.SetParent(GraphContainer, false);
-        NewPoint.GetComponent<Image>().sprite = point;
+        private void CreatePoint(Vector2 anchoredPosition)
+        {
+            if (GameObject.Find("point") != null)
+            {
+                Destroy(GameObject.Find("point"));
+            }
 
-        RectTransform rectTransform = NewPoint.GetComponent<RectTransform>();
+            GameObject NewPoint = new GameObject("point", typeof(Image));
 
-        rectTransform.anchoredPosition = anchoredPosition;
-        rectTransform.sizeDelta = new Vector2(11, 11);
-        rectTransform.anchorMin = new Vector2(0, 0);
-        rectTransform.anchorMax = new Vector2(0, 0);
-    }
+            NewPoint.transform.SetParent(GraphContainer, false);
+            NewPoint.GetComponent<Image>().sprite = point;
 
-    private void ShowGraph(float Morals, float Leanings, float Sexiness)
-    {
-        float xPosition = (Morals * 50) + 50;
-        float yPosition = (Leanings * 50) + 50;
+            RectTransform rectTransform = NewPoint.GetComponent<RectTransform>();
 
-        CreatePoint(new Vector2(xPosition, yPosition));
+            rectTransform.anchoredPosition = anchoredPosition;
+            rectTransform.sizeDelta = new Vector2(11, 11);
+            rectTransform.anchorMin = new Vector2(0, 0);
+            rectTransform.anchorMax = new Vector2(0, 0);
+        }
+
+        private void ShowGraph(float Morals, float Leanings, float Sexiness)
+        {
+            float xPosition = (Morals * 50) + 50;
+            float yPosition = (Leanings * 50) + 50;
+
+            CreatePoint(new Vector2(xPosition, yPosition));
+        }
     }
 }

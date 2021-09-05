@@ -9,26 +9,6 @@ namespace RPG
     {
         public UnityEvent<float, float, float> OnAlignmentChanged { get; private set; }
 
-        private void Awake()
-        {
-            OnAlignmentChanged = new UnityEvent<float, float, float>();
-        }
-
-        private void Start()
-        {
-            Morals = 0;
-            Leanings = 0;
-            Sexiness = 0;
-        }
-
-        private void Update()
-        {
-            if(Input.GetKeyDown(KeyCode.Space) && OnAlignmentChanged != null)
-            {
-                TestAddPoints();
-            }
-        }
-
         public float Morals
         {
             get => GameManager.Player.GetProperty<float>(PropertyName.Morals);
@@ -45,6 +25,27 @@ namespace RPG
         {
             get => GameManager.Player.GetProperty<float>(PropertyName.Sexiness);
             private set => GameManager.Player.SetProperty<float>(PropertyName.Sexiness, value);
+        }
+
+        private void Awake()
+        {
+            OnAlignmentChanged = new UnityEvent<float, float, float>();
+            GameManager.AddPlayerCreatedListener(OnPlayerCreated);
+        }
+
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.Space) && OnAlignmentChanged != null)
+            {
+                TestAddPoints();
+            }
+        }
+
+        private void OnPlayerCreated()
+        {
+            Morals = 0;
+            Leanings = 0;
+            Sexiness = 0;
         }
 
         public void UpdateMorals(float points)
