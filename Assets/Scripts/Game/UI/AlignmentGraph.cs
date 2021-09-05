@@ -22,12 +22,17 @@ public class AlignmentGraph : MonoBehaviour
 
     private void CreatePoint(Vector2 anchoredPosition)
     {
-        GameObject gameObject = new GameObject("point", typeof(Image));
+        if (GameObject.Find("point") != null)
+        {
+            Destroy(GameObject.Find("point"));
+        }
 
-        gameObject.transform.SetParent(GraphContainer, false);
-        gameObject.GetComponent<Image>().sprite = point;
+        GameObject NewPoint = new GameObject("point", typeof(Image));
 
-        RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
+        NewPoint.transform.SetParent(GraphContainer, false);
+        NewPoint.GetComponent<Image>().sprite = point;
+
+        RectTransform rectTransform = NewPoint.GetComponent<RectTransform>();
 
         rectTransform.anchoredPosition = anchoredPosition;
         rectTransform.sizeDelta = new Vector2(11, 11);

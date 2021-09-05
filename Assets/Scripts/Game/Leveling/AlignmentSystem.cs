@@ -9,13 +9,13 @@ namespace RPG
     {
         public UnityEvent<float, float, float> OnAlignmentChanged { get; private set; }
 
+        private void Awake()
+        {
+            OnAlignmentChanged = new UnityEvent<float, float, float>();
+        }
+
         private void Start()
         {
-            if(OnAlignmentChanged == null)
-            {
-                OnAlignmentChanged = new UnityEvent<float, float, float>();
-            }
-
             Morals = 0;
             Leanings = 0;
             Sexiness = 0;
