@@ -1,78 +1,76 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using UnityEngine.Events;
 
 namespace RPG
 {
     public class AlignmentSystem : MonoBehaviour
     {
-        public UnityEvent<int> onAligneChanged;
+        public UnityEvent<float, float, float> OnAlignmentChanged { get; private set; }
 
-        public int Sexiness
+        private void Start()
         {
-            get => GameManager.Player.GetProperty<int>(PropertyName.Sexiness);
-            set => GameManager.Player.SetProperty<int>(PropertyName.Sexiness, value);
-        }
+            if(OnAlignmentChanged == null)
+            {
+                OnAlignmentChanged = new UnityEvent<float, float, float>();
+            }
 
-        public int Morals
-        {
-            get => GameManager.Player.GetProperty<int>(PropertyName.Morals);
-            set => GameManager.Player.SetProperty<int>(PropertyName.Morals, value);
-        }
-
-        public int Leanings
-        {
-            get => GameManager.Player.GetProperty<int>(PropertyName.Leanings);
-            set => GameManager.Player.SetProperty<int>(PropertyName.Leanings, value);
-        }
-
-        void Awake()
-        {
-            GameManager.AddPlayerCreatedListener(OnPlayerCreated);
-            
-            onAligneChanged.AddListener(UpdateMorals);
-            onAligneChanged.AddListener(UpdateLeanings);
-            onAligneChanged.AddListener(UpdateSexiness);
-        }
-
-        private void OnPlayerCreated()
-        {
-            Sexiness = 0;
-            Leanings = 0;
             Morals = 0;
+            Leanings = 0;
+            Sexiness = 0;
         }
 
-        void Update()
+        private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.Space) && OnAlignmentChanged != null)
             {
                 TestAddPoints();
             }
         }
 
-        public void UpdateMorals(int points)
+        public float Morals
+        {
+            get => GameManager.Player.GetProperty<float>(PropertyName.Morals);
+            private set => GameManager.Player.SetProperty<float>(PropertyName.Morals, value);
+        }
+
+        public float Leanings
+        {
+            get => GameManager.Player.GetProperty<float>(PropertyName.Leanings);
+            private set => GameManager.Player.SetProperty<float>(PropertyName.Leanings, value);
+        }
+
+        public float Sexiness
+        {
+            get => GameManager.Player.GetProperty<float>(PropertyName.Sexiness);
+            private set => GameManager.Player.SetProperty<float>(PropertyName.Sexiness, value);
+        }
+
+        public void UpdateMorals(float points)
         {
             Debug.Log("Update Morals " + points);
-            Morals = Morals + points;
+            Morals += points;
+            OnAlignmentChanged.Invoke(Morals, 0, 0);
         }
 
-        public void UpdateLeanings(int points)
+        public void UpdateLeanings(float points)
         {
             Debug.Log("Update Leanings " + points);
-            Leanings = Leanings + points;
+            Leanings += points;
+            OnAlignmentChanged.Invoke(0, Leanings, 0);
         }
 
-        public void UpdateSexiness(int points)
+        public void UpdateSexiness(float points)
         {
             Debug.Log("Update Sexiness " + points);
-            Sexiness = Sexiness + points;
+            Sexiness += points;
+            OnAlignmentChanged.Invoke(0, 0, points);
         }
 
         public void TestAddPoints()
         {
-            onAligneChanged.Invoke(5);
+            UpdateMorals(.1f);
         }
     }
 }
