@@ -52,26 +52,27 @@ namespace RPG
         {
             Debug.Log("Update Morals " + points);
             Morals += points;
-            OnAlignmentChanged.Invoke(Morals, 0, 0);
+            OnAlignmentChanged.Invoke(Morals, Leanings, Sexiness);
         }
 
         public void UpdateLeanings(float points)
         {
             Debug.Log("Update Leanings " + points);
             Leanings += points;
-            OnAlignmentChanged.Invoke(0, Leanings, 0);
+            OnAlignmentChanged.Invoke(Morals, Leanings, Sexiness);
         }
 
         public void UpdateSexiness(float points)
         {
             Debug.Log("Update Sexiness " + points);
             Sexiness += points;
-            OnAlignmentChanged.Invoke(0, 0, points);
+            OnAlignmentChanged.Invoke(Morals, Leanings, Sexiness);
         }
 
         public void TestAddPoints()
         {
             UpdateMorals(.1f);
+            UpdateLeanings(.1f);
         }
     }
 }
