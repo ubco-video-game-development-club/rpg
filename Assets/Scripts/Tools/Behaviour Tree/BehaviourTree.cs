@@ -7,8 +7,9 @@ namespace BehaviourTree
     [CreateAssetMenu(fileName = "Behaviour Tree", menuName = "Behaviour Tree", order = 66)]
     public class BehaviourTree : ScriptableObject
     {
-        public Tree<BehaviourTreeNode> tree;
-        [System.NonSerialized] public BehaviourTreeNode selectedNode;
+        public Tree<Behaviour> tree;
+        public Tree<Behaviour>.Node Root { get => tree.Root; }
+        [System.NonSerialized] public Behaviour selectedNode;
     }
 
     public enum NodeStatus
@@ -19,34 +20,33 @@ namespace BehaviourTree
     }
 
     [System.Serializable]
-    public class BehaviourTreeNode : ISerializationCallbackReceiver
+    public class Behaviour : ISerializationCallbackReceiver
     {
-        public Dictionary<string, VariableProperty> Properties { get => properties; }
-        public IBehaviourTreeNode Node { get => node; }
-        private Dictionary<string, VariableProperty> properties = new Dictionary<string, VariableProperty>();
-        private IBehaviourTreeNode node;
         [SerializeField] private PropertyInfo[] propertyInfo;
         [SerializeField] private string nodeTypeName;
 
-        public BehaviourTreeNode(IBehaviourTreeNode node)
+        public Dictionary<string, VariableProperty> Properties { get => properties; }
+        private Dictionary<string, VariableProperty> properties = new Dictionary<string, VariableProperty>();
+
+        public IBehaviourTreeNode Node { get => node; }
+        private IBehaviourTreeNode node;
+
+        public Behaviour(IBehaviourTreeNode node)
         {
             this.node = node;
         }
 
-        public void AddProperty(string name, VariableProperty property)
+        public void SetProperty(string name, VariableProperty property)
         {
-            if (properties.ContainsKey(name)) return;
-            properties.Add(name, property);
+            properties[name] = property;
         }
 
         public VariableProperty GetProperty(string name)
         {
-            if (!properties.ContainsKey(name)) return null;
-            return properties[name];
+            return properties.ContainsKey(name) ? properties[name] : null;
         }
 
-        public bool RemoveProperty(string name) => properties.Remove(name);
-        public NodeStatus Tick(Tree<BehaviourTreeNode>.Node self, Agent agent) => node.Tick(self, agent);
+        public NodeStatus Tick(Tree<Behaviour>.Node self, Agent agent) => node.Tick(self, agent);
 
         public void OnBeforeSerialize()
         {

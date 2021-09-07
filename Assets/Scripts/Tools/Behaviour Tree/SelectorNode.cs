@@ -6,13 +6,13 @@ namespace BehaviourTree
 {
     public class SelectorNode : IBehaviourTreeNode
     {
-        public void Init(BehaviourTreeNode self) { }
+        public void Init(Behaviour behaviour) { }
 
-        public NodeStatus Tick(Tree<BehaviourTreeNode>.Node self, Agent agent)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, Agent agent)
         {
             for (int i = 0; i < self.ChildCount; i++)
             {
-                Tree<BehaviourTreeNode>.Node child = self.GetChild(i);
+                Tree<Behaviour>.Node child = self.GetChild(i);
                 NodeStatus childStatus = child.Element.Tick(child, agent);
                 if (childStatus != NodeStatus.Failure) return childStatus;
             }

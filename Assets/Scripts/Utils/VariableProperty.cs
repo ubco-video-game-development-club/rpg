@@ -15,10 +15,18 @@ public class VariableProperty
     }
 
     [SerializeField] private Value value;
+    [SerializeField] private System.Type oType;
 
     public VariableProperty(Type type)
     {
         PropertyType = type;
+        value = new Value();
+    }
+
+    public VariableProperty(System.Type objectType)
+    {
+        PropertyType = Type.Object;
+        oType = objectType;
         value = new Value();
     }
 
@@ -46,18 +54,6 @@ public class VariableProperty
         this.value.n = value;
     }
 
-    /*public VariableProperty[] GetArray()
-    {
-        if(PropertyType != Type.Array) throw new InvalidOperationException("This property is not an array type.");
-        return value.a;
-    }*/
-
-    /*public void Set(VariableProperty[] value)
-    {
-        if (PropertyType != Type.Array) throw new InvalidOperationException("This property is not an array type.");
-        this.value.a = value;
-    }*/
-
     public string GetString()
     {
         if (PropertyType != Type.String) throw new InvalidOperationException("This property is not a string type.");
@@ -70,32 +66,52 @@ public class VariableProperty
         this.value.s = value;
     }
 
+    public UnityEngine.Object GetObject()
+    {
+        if (PropertyType != Type.Object) throw new InvalidOperationException("This property is not an object type.");
+        return value.o;
+    }
+
+    public System.Type GetObjectType()
+    {
+        if (PropertyType != Type.Object) throw new InvalidOperationException("This property is not an object type.");
+        return oType;
+    }
+
+    public void Set(UnityEngine.Object value)
+    {
+        if (PropertyType != Type.Object) throw new InvalidOperationException("This property is not a object type.");
+        this.value.o = value;
+    }
+
+    public Vector2 GetVector()
+    {
+        if (PropertyType != Type.Vector) throw new InvalidOperationException("This property is not an vector type.");
+        return value.v;
+    }
+
+    public void Set(Vector2 value)
+    {
+        if (PropertyType != Type.Vector) throw new InvalidOperationException("This property is not a vector type.");
+        this.value.v = value;
+    }
+
     public enum Type
     {
         Boolean,
         Number,
-        // Array,
-        String
+        String,
+        Object,
+        Vector
     }
 
-    /*
-        NOTICE:
-        The explicit struct layout was causing Unity to crash on serialization.
-        Honestly that's not a surprise.
-        Thus, this type will take up slightly more memory, but it's not a big deal.
-    */
-
-    //[StructLayout(LayoutKind.Explicit)] //Explicit struct layout allows positions in memory to be defined
     [System.Serializable]
     private struct Value
     {
-        //Making field offset zero essentially creates a C-style union
-        /*[FieldOffset(0)]*/
         public bool b;
-        /*[FieldOffset(0)]*/
         public double n;
-        //[FieldOffset(0)] public VariableProperty[] a;
-        /*[FieldOffset(0)]*/
         public string s;
+        public UnityEngine.Object o;
+        public Vector2 v;
     }
 }

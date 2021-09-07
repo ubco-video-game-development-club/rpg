@@ -17,7 +17,7 @@ namespace BehaviourTree
 
         public override void OnInspectorGUI()
         {
-            BehaviourTreeNode node = behaviourTree.selectedNode;
+            Behaviour node = behaviourTree.selectedNode;
             if (node == null) return;
 
             string name = node.Node.GetType().Name;
@@ -43,11 +43,14 @@ namespace BehaviourTree
                 case VariableProperty.Type.Number:
                     property.Set(EditorGUILayout.DoubleField(property.GetNumber()));
                     break;
-                /*case VariableProperty.Type.Array:
-                    Debug.Log("Not implemented!");
-                    break;*/
                 case VariableProperty.Type.String:
                     property.Set(GUILayout.TextField(property.GetString()));
+                    break;
+                case VariableProperty.Type.Object:
+                    property.Set(EditorGUILayout.ObjectField(property.GetObject(), property.GetObjectType(), true));
+                    break;
+                case VariableProperty.Type.Vector:
+                    property.Set(EditorGUILayout.Vector2Field("", property.GetVector()));
                     break;
             }
 
