@@ -29,8 +29,6 @@ namespace BehaviourTree
                 return NodeStatus.Failure;
             }
 
-            Debug.Log("Moving");
-
             // Move towards destination
             float moveSpeed = (float)self.Element.GetProperty("move-speed").GetNumber();
             if (Vector2.SqrMagnitude(dest - pos) > 0.1f)
