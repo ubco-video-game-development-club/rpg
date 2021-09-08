@@ -15,8 +15,6 @@ namespace BehaviourTree
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, Agent agent)
         {
-            Debug.Log("MoveNode");
-
             if (!agent.HasProperty("destination"))
             {
                 return NodeStatus.Failure;
