@@ -34,13 +34,8 @@ namespace BehaviourTree
                 return NodeStatus.Running;
             }
 
-            ClearProperties(agent);
-            return NodeStatus.Success;
-        }
-
-        private void ClearProperties(Agent agent)
-        {
             agent.RemoveProperty("random-pos");
+            return NodeStatus.Success;
         }
     }
 }

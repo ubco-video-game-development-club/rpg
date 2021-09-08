@@ -25,7 +25,7 @@ namespace BehaviourTree
             float moveRange = (float)self.Element.GetProperty("move-range").GetNumber();
             if (Vector2.SqrMagnitude(dest - pos) > moveRange * moveRange)
             {
-                ClearProperties(agent);
+                agent.RemoveProperty("destination");
                 return NodeStatus.Failure;
             }
 
@@ -37,13 +37,8 @@ namespace BehaviourTree
                 return NodeStatus.Running;
             }
 
-            ClearProperties(agent);
-            return NodeStatus.Success;
-        }
-
-        private void ClearProperties(Agent agent)
-        {
             agent.RemoveProperty("destination");
+            return NodeStatus.Success;
         }
     }
 }
