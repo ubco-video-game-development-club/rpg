@@ -40,17 +40,19 @@ namespace BehaviourTree
             // Validate attack
             float attackRange = (float)self.Element.GetProperty("attack-range").GetNumber();
             bool inRange = Vector2.SqrMagnitude(targetPos - selfPos) < attackRange * attackRange;
-            if (inRange && cooldownTime <= 0)
+            if (inRange)
             {
-                // Reset cooldown
-                float cooldown = (float)self.Element.GetProperty("attack-cooldown").GetNumber();
-                agent.SetProperty("attack-cooldown-time", cooldown);
+                if (cooldownTime <= 0)
+                {
+                    // Reset cooldown
+                    float cooldown = (float)self.Element.GetProperty("attack-cooldown").GetNumber();
+                    agent.SetProperty("attack-cooldown-time", cooldown);
 
-                // Apply attack
-                int attackDamage = (int)self.Element.GetProperty("attack-damage").GetNumber();
-                target.TakeDamage(attackDamage);
-
-                return NodeStatus.Success;
+                    // Apply attack
+                    int attackDamage = (int)self.Element.GetProperty("attack-damage").GetNumber();
+                    target.TakeDamage(attackDamage);
+                }
+                return NodeStatus.Running;
             }
 
             return NodeStatus.Failure;
