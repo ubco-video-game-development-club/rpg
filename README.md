@@ -25,18 +25,29 @@ If you are unfamiliar with Git use, please talk to one of the team leaders (pref
 2. After each set of changes, commit those changes to the branch
 3. Once your feature is complete, create a new pull request for your feature and request a code review
 
-## FAQ (Updated Dec 30th 2020)
+## FAQ (Updated Sept 10th 2021)
 
 **What is club-wide-rpg?**  
 The RPG is a VGDC club project that is currently in early development. The premise is a duck-themed top-down roleplaying game which includes story-focused gameplay with a detailed character progression system. Check out the [Wiki tab](https://github.com/ubco-video-game-development-club/rpg/wiki) of the GitHub repository for more documentation, as well as the #rpg-faq channel in our [Discord server](https://discord.gg/ydXaAjQ).
 
 **Who runs this project?**  
-This project is run by several of the club executives: [Jaden Balogh](https://github.com/JadenBalogh), [Adam Collins](https://github.com/wubbadukky), [Megan Nguyen](https://github.com/lilmergo), and [Logan Parker](https://github.com/LoganParker). The repository, meetings, tasks and final decisions are all organized by this team. However, any club member is welcome to contribute (see below)!
+This project is run by several of the club executives: [Jaden Balogh](https://github.com/JadenBalogh), [Adam Collins](https://github.com/wubbadukky), [Megan Nguyen](https://github.com/lilmergo), and [Logan Parker](https://github.com/LoganParker). The repository, meetings, and tasks are all organized by this team. However, any club member is welcome to contribute (see below)!
+
+**How can I join the team?**  
+The weekly RPG meeting details can be found in #event-info on [Discord](https://discord.gg/ydXaAjQ). All members are welcome to join, regardless of experience! Please message #rpg-discussion or [Jaden Balogh](https://github.com/JadenBalogh) about the roles you are interested in (see below).
 
 **What parts of the game are currently being worked on?**  
-The game is in early implementation phases. This means programming core systems and tools to allow us to play and add content to the game. We are using the Unity game engine to accomplish these tasks. Alongside this, our designers and artists will be developing the early concept art and story work for the game.
+As we move into the 2021W session, we're excited to start focusing development on the game's content and storyline. This will require art, sounds, dialogue, level design, game scripting and more, so ANY club member is more than welcome to join the game's development regardless of previous experience level.
 
-**How can I contribute?**  
-RPGs are one of the most design-heavy genres out there. If you're interested in the low-level implementation of core gameplay systems and tools, and you have some experience with Unity or are interested in working alongside an experienced member, please feel free to join our development team! If you're interested in fleshing out concept art and/or story development, we'd love to have your input also! See the How to Contribute section above for details.
-
-We have project-specific meetings for this project on Wednesdays at 4:30pm Pacific time in Discord. These are free-flowing meetings that also serve as a designated work time for the project. Please message #rpg-discussion in Discord if you're interested in contributing or have any questions or comments!
+These are types of roles that you can expect to see for this project, however if you're at all interested in joining the team, let us know your interests and we'll find a position for you! You can work one or many of these areas:
+ - **Level Designer**: Creating the layouts of landscapes and other in-game areas, as well as NPC and enemy placement, and working on quest design. No prior experience necessary.
+ - **Story Designer**: This a heavily creative position which will involve creating storylines and world lore to fit within the context of the game world. You can work with or double as a quest/level designer to decide exactly where and how the player will interact with these stories. No prior experience needed.
+ - **Writer**: This is a pure writing position focused on using our custom-made dialogue tools to bring the game's stories to life by writing NPC dialogue, voice lines and readable in-game text. Good eye for grammar+spelling highly encouraged.
+ - **Systems Designer**: The RPG will need loads of items, classes, monsters, abilities and more. This position is for creating, balancing and implementing any such content for use in the game's quests and general gameplay. No experience needed.
+ - **Sound Designer**: Recording and mastering sound effects for all parts of the game; ambience, combat, UI, etc. Some experience with sound design recommended but not required.
+ - **Composer**: Creating music tracks to bring the game world to life from the main menu to combat tracks. Some experience with music composition highly recommended.
+ - **World Artist**: This position involves creating 2D sprites and tiles to build terrain, buildings, foliage, and other objects that will make up the majority of the visible game world. Prior 2D art experience recommended.
+ - **Character Artist**: This role involves 2D art and animation for the player, enemies, NPCs and other dynamic parts of the game world. Prior 2D animation experience recommended.
+ - **UI Artist**: This role involves designing and creating 2D assets for use in the User Interface, such as healthbars or menu buttons, with a focus on optimizing the user experience. 2D art experience recommended, UI/UX design knowledge a plus.
+ - **UI Scripter**: This is a programming role involved in developing menus and other UI functionality. Will double as or work with a UI artist to develop clear and usable User Interfaces in Unity. Some general programming experience *required*.
+ - **Gameplay Scripter**: This is a more in-depth programming role which involves developing and improving in-game systems, and scripting specific elements such as special monster or ability logic. Some Unity coding experience *required*.
