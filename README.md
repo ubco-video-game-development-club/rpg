@@ -6,11 +6,16 @@ Explore a divided world and develop your hidden powers as you hunt for the ultim
 To set up the required programs to contribute code to the game, follow these instructions:
 1. [Install Unity Hub](https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.exe?_ga=2.44506595.613451577.1609220232-1621664689.1584733812)
 2. After installing Unity Hub, install [Unity version 2020.2.1](https://unity3d.com/get-unity/download/archive)
-3. Install [Visual Studio Code](https://code.visualstudio.com/download)
-4. Follow the [instructions to setup Visual Studio Code for Unity](https://code.visualstudio.com/docs/other/unity)
-5. Install [GitHub Desktop](https://desktop.github.com/)
-6. Login to GitHub Desktop with your GitHub credentials
-7. In GitHub Desktop, go to File > Clone repository > URL and enter `https://github.com/ubco-video-game-development-club/rpg`
+3. Sign into Unity Hub and go to Manage License, and follow the steps to activate either a free license or your student license if you have one
+4. Install [GitHub Desktop](https://desktop.github.com/)
+5. Login to GitHub Desktop with your GitHub credentials
+6. In GitHub Desktop, go to File > Clone repository > URL and enter `https://github.com/ubco-video-game-development-club/rpg`
+7. Go back to Unity Hub, and under the Projects tab click "Add" and select your newly cloned project folder (the file location you chose in step 6)
+8. Click on the RPG project in your projects list to open it for the first time
+9. Install [Visual Studio Code](https://code.visualstudio.com/download)
+10. Follow the [instructions to setup Visual Studio Code for Unity](https://code.visualstudio.com/docs/other/unity)
+
+Let us know on Discord if you have any difficulties with the setup!
 
 ### Git Standards
 Our team uses Feature Branches for our git flow. This means that each feature (typically described by a single Issue) should have its own branch that may be worked on by multiple collaborators. All features will be merged into the `dev` branch using Pull Requests, and each PR must be reviewed by at least 1 individual before it can be merged.
