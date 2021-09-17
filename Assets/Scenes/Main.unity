@@ -360,7 +360,7 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Equip
-  item: {fileID: 11400000, guid: 79bb8ea93da783d49a8b102bdd54adfd, type: 2}
+  item: {fileID: 11400000, guid: 156919a1f2d27a94f81793aad33903e7, type: 2}
 --- !u!1 &34762231
 GameObject:
   m_ObjectHideFlags: 0
@@ -3329,6 +3329,7 @@ GameObject:
   - component: {fileID: 1226771123}
   - component: {fileID: 1226771125}
   - component: {fileID: 1226771126}
+  - component: {fileID: 1226771128}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3439,6 +3440,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966e462fe21e6e948a32d1a51b01e9df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1226771128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226771120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 150a9ee84d3cf9c40a5a8c518e96974a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueUI: {fileID: 930314892}
+  dialoguePortrait: {fileID: 1774711815}
+  dialogueName: {fileID: 1085417769}
+  dialogueText: {fileID: 1056019372}
+  dialogueButtons: {fileID: 1157983263}
+  buttonPrefab: {fileID: 938752656141109365, guid: b8fb103db91193d499168bfd67df88f4,
+    type: 3}
 --- !u!1 &1228657968
 GameObject:
   m_ObjectHideFlags: 0
