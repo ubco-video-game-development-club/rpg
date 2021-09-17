@@ -360,7 +360,7 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Equip
-  item: {fileID: 11400000, guid: 156919a1f2d27a94f81793aad33903e7, type: 2}
+  item: {fileID: 0}
 --- !u!1 &34762231
 GameObject:
   m_ObjectHideFlags: 0
@@ -4518,11 +4518,11 @@ RectTransform:
   m_Father: {fileID: 971557428}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 357, y: -96}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 40, y: 40}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1815439234
 MonoBehaviour:
   m_ObjectHideFlags: 0
