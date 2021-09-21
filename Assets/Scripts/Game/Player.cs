@@ -14,7 +14,7 @@ namespace RPG
     [RequireComponent(typeof(AnimatorCache))]
     public class Player : Actor
     {
-        public const float GLOBAL_COOLDOWN = 0.25f;
+        public const float GLOBAL_COOLDOWN = 0.5f;
         private const float ANIM_LOCK_DURATION = 0.05f;
         private const int MAX_ABILITY_SLOTS = 4;
         private const int MAX_INTERACT_TARGETS = 5;
