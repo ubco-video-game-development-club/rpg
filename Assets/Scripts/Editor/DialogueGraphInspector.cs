@@ -91,6 +91,19 @@ namespace Dialogue
 
             GUILayout.Space(10);
 
+            // We don't allow alignment mods on entry nodes
+            if (graph.selectedNode > 0)
+            {
+                SerializedProperty moralsMod = node.FindPropertyRelative("moralsMod");
+                EditorGUILayout.PropertyField(moralsMod);
+                SerializedProperty leaningsMod = node.FindPropertyRelative("leaningsMod");
+                EditorGUILayout.PropertyField(leaningsMod);
+                SerializedProperty sexinessMod = node.FindPropertyRelative("sexinessMod");
+                EditorGUILayout.PropertyField(sexinessMod);
+
+                GUILayout.Space(10);
+            }
+
             SerializedProperty questNotes = node.FindPropertyRelative("questNotes");
             EditorGUILayout.PropertyField(questNotes);
         }

@@ -13,6 +13,9 @@ namespace Dialogue
         public string name;
         public string body;
         public Vector2 position;
+        [Range(-1.0f, 1.0f)] public float moralsMod;
+        [Range(-1.0f, 1.0f)] public float leaningsMod;
+        [Range(-1.0f, 1.0f)] public float sexinessMod;
         public QuestNote[] questNotes;
 
         private Rect displayRect;

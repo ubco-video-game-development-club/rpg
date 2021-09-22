@@ -88,8 +88,21 @@ namespace Dialogue
         {
             DialogueGraphTransition[] transitions = GetTransitionsFor(currentGraph, currentNode);
             DialogueGraphTransition transition = transitions[index];
-            if (transition.to < 0) dialogueUI.SetActive(false);
-            else StartCoroutine(ShowDialogue(transition.to));
+            if (transition.to < 0)
+            {
+                dialogueUI.SetActive(false);
+                return;
+            }
+            else
+            {
+                // Apply alignment modifications
+                DialogueGraphNode graphNode = currentGraph.nodes[transition.to];
+                GameManager.AlignmentSystem.UpdateLeanings(graphNode.leaningsMod);
+                GameManager.AlignmentSystem.UpdateMorals(graphNode.moralsMod);
+                GameManager.AlignmentSystem.UpdateSexiness(graphNode.sexinessMod);
+
+                StartCoroutine(ShowDialogue(transition.to));
+            }
         }
 
         private void CreateButton(string name)
