@@ -8,6 +8,7 @@ namespace BehaviourTree
         GetActorPositionNode,
         SelectorNode,
         SequenceNode,
+        SimpleMoveNode,
     }
 
     public static class BehaviourTreeNodeCreator
@@ -24,6 +25,8 @@ namespace BehaviourTree
                     return new SelectorNode();
                 case BehaviourTreeNodeType.SequenceNode:
                     return new SequenceNode();
+                case BehaviourTreeNodeType.SimpleMoveNode:
+                    return new SimpleMoveNode();
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return null;
