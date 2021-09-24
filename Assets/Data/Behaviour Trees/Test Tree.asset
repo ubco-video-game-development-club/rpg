@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tree:
     serializedNodes:
-    - childCount: 2
+    - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
@@ -65,3 +65,35 @@ MonoBehaviour:
               v: {x: 0, y: 0}
         nodeTypeName: BehaviourTree.GetActorPositionNode
       firstChildIndex: 3
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: position-source
+          property:
+            propertyType: 2
+            value:
+              b: 0
+              n: 0
+              s: target-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+        - name: min-distance
+          property:
+            propertyType: 1
+            value:
+              b: 0
+              n: 3
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+        - name: move-speed
+          property:
+            propertyType: 1
+            value:
+              b: 0
+              n: 2
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+        nodeTypeName: BehaviourTree.SimpleMoveNode
+      firstChildIndex: 4
