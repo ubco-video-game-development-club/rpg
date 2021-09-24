@@ -6,13 +6,14 @@ namespace BehaviourTree
 {
     public class SimpleMoveNode : IBehaviourTreeNode
     {
-        private const float MIN_DISTANCE = 0.5f;
         private const string PROP_POSITION_SRC = "position-source";
+        private const string PROP_MIN_DISTANCE = "min-distance";
         private const string PROP_MOVE_SPEED = "move-speed";
 
         public void Init(Behaviour behaviour)
         {
             behaviour.Properties.Add(PROP_POSITION_SRC, new VariableProperty(VariableProperty.Type.String));
+            behaviour.Properties.Add(PROP_MIN_DISTANCE, new VariableProperty(VariableProperty.Type.Number));
             behaviour.Properties.Add(PROP_MOVE_SPEED, new VariableProperty(VariableProperty.Type.Number));
         }
 
@@ -26,7 +27,9 @@ namespace BehaviourTree
                 Vector2 targetPosition = (Vector2)agent.GetProperty(src);
                 Vector2 currentPosition = agent.transform.position;
                 Vector2 d = currentPosition - targetPosition;
-                if(d.sqrMagnitude > MIN_DISTANCE * MIN_DISTANCE)
+
+                float minDist = (float)behaviour.Properties[PROP_MIN_DISTANCE].GetNumber();
+                if(d.sqrMagnitude > minDist * minDist)
                 {
                     float speed = (float)behaviour.Properties[PROP_MOVE_SPEED].GetNumber();
                     agent.transform.position = Vector2.MoveTowards(currentPosition, targetPosition, speed * Time.deltaTime);
