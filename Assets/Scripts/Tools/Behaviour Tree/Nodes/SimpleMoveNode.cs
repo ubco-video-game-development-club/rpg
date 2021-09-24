@@ -10,17 +10,16 @@ namespace BehaviourTree
         private const string PROP_POSITION_SRC = "position-source";
         private const string PROP_MOVE_SPEED = "move-speed";
 
-        private Behaviour behaviour;
-
         public void Init(Behaviour behaviour)
         {
-            this.behaviour = behaviour;
             behaviour.Properties.Add(PROP_POSITION_SRC, new VariableProperty(VariableProperty.Type.String));
             behaviour.Properties.Add(PROP_MOVE_SPEED, new VariableProperty(VariableProperty.Type.Number));
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, Agent agent)
         {
+            Behaviour behaviour = self.Element;
+
             string src = behaviour.Properties[PROP_POSITION_SRC].GetString();
             if(agent.HasProperty(src))
             {
