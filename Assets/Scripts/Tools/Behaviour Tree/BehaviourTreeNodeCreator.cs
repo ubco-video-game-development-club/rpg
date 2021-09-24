@@ -4,6 +4,7 @@ namespace BehaviourTree
 {
     public enum BehaviourTreeNodeType
     {
+        FindObjectByTagNode,
         SelectorNode,
         SequenceNode,
     }
@@ -14,6 +15,8 @@ namespace BehaviourTree
         {
             switch (type)
             {
+                case BehaviourTreeNodeType.FindObjectByTagNode:
+                    return new FindObjectByTagNode();
                 case BehaviourTreeNodeType.SelectorNode:
                     return new SelectorNode();
                 case BehaviourTreeNodeType.SequenceNode:
