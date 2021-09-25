@@ -90,8 +90,8 @@ namespace Dialogue
             DialogueGraphTransition transition = transitions[index];
             if (transition.to < 0)
             {
+                // We've reached the end of the tree
                 dialogueUI.SetActive(false);
-                return;
             }
             else
             {
