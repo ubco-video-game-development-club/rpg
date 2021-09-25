@@ -69,6 +69,7 @@ namespace Dialogue
                     else if (hoverNode == null)
                     {
                         selectedGraph.selectedNode = -1;
+                        EditorUtility.SetDirty(selectedGraph);
                     }
                 }
                 else if (e.button == 1)
