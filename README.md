@@ -1,5 +1,5 @@
 # RPG
-Explore a divided world and develop your hidden powers as you hunt for the ultimate reward in this beautiful RPG traumedy.
+Explore a divided world and develop your hidden powers as you hunt for the ultimate reward in this beautiful RPG traumedy. 
 
 ## How to Contribute
 ### Setting up your development environment
