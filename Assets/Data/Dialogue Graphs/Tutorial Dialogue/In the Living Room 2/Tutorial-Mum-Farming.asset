@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ac0479ced6a50409cc854a5b89a582, type: 3}
+  m_Name: Tutorial-Mum-Farming
+  m_EditorClassIdentifier: 
+  nodes:
+  - name: Speak to Mum
+    body: ...Oh! Do you hear that music? It sounds like the parade is starting. Let's
+      get our potluck donation ready and get out there!
+    position: {x: -75, y: -169}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+  - name: ->
+    body: "I\u2019ve been growing those sunflowers in the backyard all season. Would
+      you be a dear and go grab one for me?"
+    position: {x: 200, y: -162}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+  - name: ->
+    body: "Be careful though. I saw some bees back there earlier in the day. It shouldn\u2019t
+      be too big a deal though. "
+    position: {x: 194, y: -98}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+  - name: ->
+    body: "I left the gate on the side of the house open so you shouldn\u2019t need
+      a key I\u2019ll be waiting for you in the front yard\r."
+    position: {x: 98, y: -12}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+  transitions:
+  - name: Transition
+    from: 0
+    to: 1
+  - name: Transition
+    from: 1
+    to: 2
+  - name: Transition
+    from: 2
+    to: 3
+  - name: Transition
+    from: 3
+    to: -1
+  exitNode:
+    name: Exit
+    body: 
+    position: {x: 28, y: 67}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []

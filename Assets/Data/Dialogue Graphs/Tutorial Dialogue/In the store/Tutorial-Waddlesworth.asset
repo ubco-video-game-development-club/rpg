@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ac0479ced6a50409cc854a5b89a582, type: 3}
+  m_Name: Tutorial-Waddlesworth
+  m_EditorClassIdentifier: 
+  nodes:
+  - name: Speak to Mr.Waddlesworth
+    body: "Hello! Your Mum let me know you would be coming by to grab her package
+      for her.\r"
+    position: {x: -75, y: -169}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+  - name: ->
+    body: "I have unfortunate news however. Last night there was a break in and someone
+      has taken your package\u2026"
+    position: {x: 200, y: -162}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+  - name: ->
+    body: I would have just told you to let your Mum know I am sorry. And, that I
+      will get her a reimbursement for her stolen package soon.
+    position: {x: 194, y: -98}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+  - name: ->
+    body: "However\u2026 I do have a sneaking suspicion as to who may have taken
+      it."
+    position: {x: 193, y: -30}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+  - name: ->
+    body: "I\u2019m not sure if you are supposed to know this or not. But, the package
+      your Mum ordered had some new clothes for you."
+    position: {x: 198, y: 29}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+  - name: ->
+    body: And I happened to see Lil Jimmy Beakington this morning in a sweater uncannily
+      similar to the one your Mum ordered.
+    position: {x: 194, y: 98}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+  - name: ->
+    body: "Now I\u2019m not saying you should go \u201CConfront Jimmy\u201D or \u201CCause
+      a scene\u201D however, I am saying I do love drama."
+    position: {x: -108, y: -93}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+  - name: ->
+    body: "Anyways, the bottom line is you can just go home and let your Mum know
+      she will be reimbursed. Or you can go be \u201Ccivil\u201D *wink* and talk
+      it out with Jimmy *wink*"
+    position: {x: -124, y: -17}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+  - name: I think I will go talk to Jimmy.
+    body: "Well regardless of what you do I can\u2019t have you leave empty handed.
+      Not on Recipe Day. You are free to take a slingshot or this neat little sword
+      that came in the other day. "
+    position: {x: -262, y: 50}
+    moralsMod: 0.1
+    leaningsMod: 0.05
+    sexinessMod: 0
+    questNotes: []
+  - name: I will head home and let my Mum know what happened.
+    body: "Well regardless of what you do I can\u2019t have you leave empty handed.
+      Not on Recipe Day. You are free to take a slingshot or this neat little sword
+      that came in the other day. "
+    position: {x: -18, y: 52}
+    moralsMod: 0.1
+    leaningsMod: 0.1
+    sexinessMod: 0
+    questNotes: []
+  - name: ->
+    body: Whether you use them or not is up to you *wink*
+    position: {x: -129, y: 121}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+  transitions:
+  - name: Transition
+    from: 0
+    to: 1
+  - name: Transition
+    from: 1
+    to: 2
+  - name: Transition
+    from: 2
+    to: 3
+  - name: Transition
+    from: 3
+    to: 4
+  - name: Transition
+    from: 4
+    to: 5
+  - name: Transition
+    from: 5
+    to: 6
+  - name: Transition
+    from: 6
+    to: 7
+  - name: Transition
+    from: 7
+    to: 8
+  - name: Transition
+    from: 7
+    to: 9
+  - name: Transition
+    from: 8
+    to: 10
+  - name: Transition
+    from: 9
+    to: 10
+  - name: Transition
+    from: 10
+    to: -1
+  exitNode:
+    name: Exit
+    body: 
+    position: {x: -362, y: 164}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []

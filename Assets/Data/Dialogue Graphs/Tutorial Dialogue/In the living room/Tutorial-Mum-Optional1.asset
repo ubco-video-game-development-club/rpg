@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ac0479ced6a50409cc854a5b89a582, type: 3}
+  m_Name: Tutorial-Mum-Optional1
+  m_EditorClassIdentifier: 
+  nodes:
+  - name: Speak to Mum
+    body: "What are you still doing here! If you don\u2019t get to the shop in time
+      you\u2019re going to miss out on a surprise."
+    position: {x: -13, y: -97}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+  transitions:
+  - name: Transition
+    from: 0
+    to: -1
+  exitNode:
+    name: Exit
+    body: 
+    position: {x: 0, y: 0}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []

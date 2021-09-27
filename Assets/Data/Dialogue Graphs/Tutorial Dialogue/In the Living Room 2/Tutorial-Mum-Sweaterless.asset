@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ac0479ced6a50409cc854a5b89a582, type: 3}
+  m_Name: Tutorial-Mum-Sweaterless
+  m_EditorClassIdentifier: 
+  nodes:
+  - name: Speak to Mum about how you have no sweater
+    body: "\u2026.Mr,waddlesworth\u2019s shop was robbed, that\u2019s awful! At least
+      he is ok. I will have to make another order then it seems."
+    position: {x: -75, y: -169}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+  - name: ->
+    body: "Sorry Hun, seems you\u2019ll need to wait for your surprise."
+    position: {x: 200, y: -162}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+  transitions:
+  - name: Transition
+    from: 0
+    to: 1
+  - name: Transition
+    from: 1
+    to: -1
+  exitNode:
+    name: Exit
+    body: 
+    position: {x: 71, y: -56}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
