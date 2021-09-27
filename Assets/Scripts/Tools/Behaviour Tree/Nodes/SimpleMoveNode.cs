@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BehaviourTree 
+namespace BehaviourTree
 {
     public class SimpleMoveNode : IBehaviourTreeNode
     {
@@ -22,20 +22,22 @@ namespace BehaviourTree
             Behaviour behaviour = self.Element;
 
             string src = behaviour.Properties[PROP_POSITION_SRC].GetString();
-            if(agent.HasProperty(src))
+            if (agent.HasProperty(src))
             {
                 Vector2 targetPosition = (Vector2)agent.GetProperty(src);
                 Vector2 currentPosition = agent.transform.position;
                 Vector2 d = currentPosition - targetPosition;
 
                 float minDist = (float)behaviour.Properties[PROP_MIN_DISTANCE].GetNumber();
-                if(d.sqrMagnitude > minDist * minDist)
+                if (d.sqrMagnitude > minDist * minDist)
                 {
                     float speed = (float)behaviour.Properties[PROP_MOVE_SPEED].GetNumber();
                     agent.transform.position = Vector2.MoveTowards(currentPosition, targetPosition, speed * Time.deltaTime);
                     return NodeStatus.Running;
-                } else return NodeStatus.Success;
-            } else return NodeStatus.Failure;
+                }
+                return NodeStatus.Success;
+            }
+            return NodeStatus.Failure;
         }
     }
 }

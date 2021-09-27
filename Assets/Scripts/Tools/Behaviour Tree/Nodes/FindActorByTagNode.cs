@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BehaviourTree 
 {
-    public class FindObjectByTagNode : IBehaviourTreeNode
+    public class FindActorByTagNode : IBehaviourTreeNode
     {
         private const string PROP_ACTOR_DEST = "actor-destination";
         private const string PROP_TAG_NAME = "tag-name";

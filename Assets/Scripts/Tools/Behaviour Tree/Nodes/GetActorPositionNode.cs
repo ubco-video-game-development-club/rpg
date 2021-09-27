@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BehaviourTree 
+namespace BehaviourTree
 {
     public class GetActorPositionNode : IBehaviourTreeNode
     {
@@ -20,14 +20,15 @@ namespace BehaviourTree
             Behaviour behaviour = self.Element;
 
             string src = behaviour.Properties[PROP_ACTOR_SRC].GetString();
-            if(agent.HasProperty(src))
+            if (agent.HasProperty(src))
             {
                 string dest = behaviour.Properties[PROP_POSITION_DEST].GetString();
                 GameObject actor = agent.GetProperty(src) as GameObject;
                 Vector2 position = actor.transform.position;
                 agent.SetProperty(dest, position);
                 return NodeStatus.Success;
-            } else return NodeStatus.Failure;
+            }
+            return NodeStatus.Failure;
         }
     }
 }

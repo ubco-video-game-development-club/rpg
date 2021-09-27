@@ -4,11 +4,16 @@ namespace BehaviourTree
 {
     public enum BehaviourTreeNodeType
     {
-        FindObjectByTagNode,
-        GetActorPositionNode,
         SelectorNode,
         SequenceNode,
-        SimpleMoveNode,
+        SuccessNode,
+        NotNode,
+        HasPropertyNode,
+        RangeCheckNode,
+        FindActorByTagNode,
+        GetActorPositionNode,
+        GetRandomPositionNode,
+        SimpleMoveNode
     }
 
     public static class BehaviourTreeNodeCreator
@@ -17,14 +22,24 @@ namespace BehaviourTree
         {
             switch (type)
             {
-                case BehaviourTreeNodeType.FindObjectByTagNode:
-                    return new FindObjectByTagNode();
-                case BehaviourTreeNodeType.GetActorPositionNode:
-                    return new GetActorPositionNode();
                 case BehaviourTreeNodeType.SelectorNode:
                     return new SelectorNode();
                 case BehaviourTreeNodeType.SequenceNode:
                     return new SequenceNode();
+                case BehaviourTreeNodeType.SuccessNode:
+                    return new SuccessNode();
+                case BehaviourTreeNodeType.NotNode:
+                    return new NotNode();
+                case BehaviourTreeNodeType.HasPropertyNode:
+                    return new HasPropertyNode();
+                case BehaviourTreeNodeType.RangeCheckNode:
+                    return new RangeCheckNode();
+                case BehaviourTreeNodeType.FindActorByTagNode:
+                    return new FindActorByTagNode();
+                case BehaviourTreeNodeType.GetActorPositionNode:
+                    return new GetActorPositionNode();
+                case BehaviourTreeNodeType.GetRandomPositionNode:
+                    return new GetRandomPositionNode();
                 case BehaviourTreeNodeType.SimpleMoveNode:
                     return new SimpleMoveNode();
                 default:
