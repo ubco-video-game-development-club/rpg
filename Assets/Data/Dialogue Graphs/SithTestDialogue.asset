@@ -53,3 +53,8 @@ MonoBehaviour:
   - name: Transition
     from: 4
     to: 2
+  exitNode:
+    name: Exit
+    body: 
+    position: {x: -218, y: -175}
+    questNotes: []

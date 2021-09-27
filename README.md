@@ -1,5 +1,5 @@
 # RPG
-Explore a divided world and develop your hidden powers as you hunt for the ultimate reward in this beautiful RPG traumedy.
+Explore a divided world and develop your hidden powers as you hunt for the ultimate reward in this beautiful RPG traumedy. 
 
 ## How to Contribute
 ### Setting up your development environment
@@ -25,7 +25,7 @@ Naming conventions should follow Git standards: branches should be written in `k
 Our repository uses a `master` branch and a `dev` branch. The `master` branch should always contain stable code that represents a complete set of features. The `dev` branch contains stable code that may contain parts of in-progress features, and is used for testing different features together before they are merged to `master`.
 
 ### Uploading your code changes to the project
-If you are unfamiliar with Git use, please talk to one of the team leaders (preferably through Discord) to help you get started. This is a basic overview of the process of submitting your code changes:
+If you are unfamiliar with Git use, you can go through a summary of it [here](https://github.com/ubco-video-game-development-club/rpg/wiki/Using-GitHub) or talk to one of the team leaders (preferably through Discord) to help you get started. This is a basic overview of the process of submitting your code changes:
 1. Ensure you are working on the branch pertaining to your current feature
 2. After each set of changes, commit those changes to the branch
 3. Once your feature is complete, create a new pull request for your feature and request a code review
