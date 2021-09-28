@@ -24,6 +24,7 @@ namespace Dialogue
         public DialogueGraphNode(string name, Vector2 position)
         {
             this.name = name;
+            this.position = position;
         }
 
         public void Draw(Vector2 offset)
