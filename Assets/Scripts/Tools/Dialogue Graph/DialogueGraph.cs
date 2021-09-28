@@ -28,16 +28,19 @@ namespace Dialogue
 
         public void ProcessEvents(Event e)
         {
+            bool nodeMoving = false;
             for (int i = 0; i < nodes.Count; i++)
             {
                 if (nodes[i].ProcessEvents(e))
                 {
                     selectedNode = i;
                     EditorUtility.SetDirty(this);
+                    nodeMoving = true;
+                    break;
                 }
             }
 
-            if(exitNode.ProcessEvents(e)) EditorUtility.SetDirty(this);
+            if(!nodeMoving && exitNode.ProcessEvents(e)) EditorUtility.SetDirty(this);
         }
 
         public void CreateNode(string name, Vector2 position)
