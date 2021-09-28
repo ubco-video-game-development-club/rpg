@@ -135,7 +135,7 @@ MonoBehaviour:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
       firstChildIndex: 8
-    - childCount: 2
+    - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SelectorNode
@@ -258,6 +258,11 @@ MonoBehaviour:
       firstChildIndex: 16
     - childCount: 0
       element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SuccessNode
+      firstChildIndex: 17
+    - childCount: 0
+      element:
         propertyInfo:
         - name: position-source
           property:
@@ -287,4 +292,4 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
         nodeTypeName: BehaviourTree.SimpleMoveNode
-      firstChildIndex: 17
+      firstChildIndex: 18
