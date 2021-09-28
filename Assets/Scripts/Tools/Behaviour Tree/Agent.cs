@@ -13,15 +13,21 @@ namespace BehaviourTree
 
         private Tree<Behaviour>.Node root;
 
+        private bool isEnabled;
+
         void Awake()
         {
             root = behaviourTree.Root;
             Properties = new Dictionary<string, object>();
+            isEnabled=true;
         }
 
         void Update()
         {
-            root.Element.Tick(root, this);
+            if(isEnabled){
+                root.Element.Tick(root, this);
+            }
+
         }
 
         public void SetProperty(string name, object property)
@@ -42,6 +48,14 @@ namespace BehaviourTree
         public void RemoveProperty(string name)
         {
             Properties.Remove(name);
+        }
+
+        public void DisableBehaviours(){
+            isEnabled=false;
+        }
+
+        public void EnableBehaviours(){
+            isEnabled=true;
         }
     }
 }
