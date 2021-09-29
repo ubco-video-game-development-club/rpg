@@ -6,32 +6,59 @@ namespace RPG{
 
     public class BaseNPC: Actor
     {
-        QuestGiver dialogue;
-        Agent agent;
+        public QuestGiver dialogue;
+        private Agent agent;
 
+        [SerializeField]private float interactionDistance=5.0f;
+
+        private bool dialogueInitiated=false;//Delete this when we have a means of catching when dialogue is done
+        
+        private NPCMovement movement;
+
+        List<Vector2> testNodes=new List<Vector2>();
+        private SpriteRenderer spriteRenderer;
         // Start is called before the first frame update
-        void Start()
-        {
+        private void Awake() {
+            base.Awake();
             dialogue=GetComponent<QuestGiver>();
             agent=GetComponent<Agent>();
-            InitiateDialogue();
+            spriteRenderer=GetComponent<SpriteRenderer>();
+            movement=new NPCMovement(2.0f);
         }
 
         // Update is called once per frame
         void Update()
         {
-            
         }
 
         //Force Dialogue with player;
         public void InitiateDialogue(){
-            Player p=GameObject.FindGameObjectWithTag("player").GetComponent<Player>();
-            dialogue.Interact(p);
-            //disable the behaviour script in the meantime
-            agent.DisableBehaviours();
+            GameObject player=GameObject.FindGameObjectWithTag("Player");
+            //Detect if player is within range of the player
+            if(!dialogueInitiated && player!=null && Vector2.Distance(transform.position, player.transform.position)<=interactionDistance){
+                Debug.Log("Dialogue initiated");
+                dialogue.Interact(player.GetComponent<Player>());
+                dialogueInitiated=true;
+                //disable the behaviour script in the meantime
+                agent.DisableBehaviours();
             
-            //TODO Detect when dialogue box is closed then switch to regular behaviours
-            agent.EnableBehaviours();
+                //TODO Detect when dialogue box is closed then switch to regular behaviours
+                agent.EnableBehaviours();
+            }
+        }
+
+        public void TurnIntoEnemy(){
+            //Change to enemy Layer;
+            gameObject.layer=LayerMask.NameToLayer("Enemy");
+
+            //Doesnt if this doesn't have Enemy Script will add it
+            if(gameObject.GetComponent<Enemy>()==null){
+                gameObject.AddComponent<Enemy>();
+            }
+            else{
+                gameObject.GetComponent<Enemy>().enabled=true;
+            }
+            //TODO add AttackBehaviour in BehaviourTree
         }
     }
 }

@@ -22,21 +22,12 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
-        - name: origin
-          property:
-            propertyType: 4
-            value:
-              b: 0
-              n: 0
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-        - name: max-distance
+        - name: move-range
           property:
             propertyType: 1
             value:
               b: 0
-              n: 5
+              n: 4
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
@@ -45,9 +36,9 @@ MonoBehaviour:
             propertyType: 1
             value:
               b: 0
-              n: 5
+              n: 4
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
-        nodeTypeName: BehaviourTree.MoveRandomNode
+        nodeTypeName: BehaviourTree.MoveNode
       firstChildIndex: 2
