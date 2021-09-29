@@ -15,17 +15,12 @@ namespace RPG
 
         [SerializeField] private DialogueGraph[] dialogueGraphs;
 
-        private int currentIndex = 0;
+        public int ActiveIndex { get; set; }
 
         public override void Interact(Player player)
         {
-            DialogueGraph graph = dialogueGraphs[currentIndex];
+            DialogueGraph graph = dialogueGraphs[ActiveIndex];
             GameManager.DialogueSystem.BeginDialogue(this, graph);
-        }
-
-        public void SetActiveIndex(int idx)
-        {
-            currentIndex = idx;
         }
     }
 }

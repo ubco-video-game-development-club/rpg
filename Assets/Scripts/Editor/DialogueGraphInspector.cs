@@ -111,6 +111,11 @@ namespace Dialogue
 
             SerializedProperty dialogueIndexOverrides = node.FindPropertyRelative("dialogueIndexOverrides");
             EditorGUILayout.PropertyField(dialogueIndexOverrides);
+
+            GUILayout.Space(10);
+
+            SerializedProperty customBehaviour = node.FindPropertyRelative("customBehaviour");
+            EditorGUILayout.PropertyField(customBehaviour);
         }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 using RPG;
+using BehaviourTree;
 
 namespace Dialogue
 {
@@ -85,7 +86,14 @@ namespace Dialogue
                 {
                     target = Entity.Find(idxOverride.targetUniqueID).GetComponent<QuestGiver>();
                 }
-                target.SetActiveIndex(idxOverride.indexOverride);
+                target.ActiveIndex = idxOverride.indexOverride;
+            }
+
+            // Run custom dialogue behaviour
+            if (graphNode.customBehaviour != null)
+            {
+                Tree<BehaviourTree.Behaviour>.Node root = graphNode.customBehaviour.Root;
+                root.Element.Tick(root, dialogueUI.GetComponent<BehaviourObject>());
             }
 
             DialogueGraphTransition[] transitions = GetTransitionsFor(currentGraph, node);
