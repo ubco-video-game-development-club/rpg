@@ -17,7 +17,10 @@ namespace BehaviourTree
 
         public override void OnInspectorGUI()
         {
+            serializedObject.Update();
+
             Behaviour node = behaviourTree.selectedNode;
+            Debug.Log(node);
             if (node == null) return;
 
             string name = node.Node.GetType().Name;
@@ -27,6 +30,8 @@ namespace BehaviourTree
                 DisplayProperty(propertyName, node.Properties[propertyName]);
             }
 
+            serializedObject.ApplyModifiedProperties();
+            EditorUtility.SetDirty(behaviourTree);
             Repaint();
         }
 
