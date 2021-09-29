@@ -17,14 +17,14 @@ namespace BehaviourTree
             behaviour.Properties.Add(PROP_POSITION_DEST, new VariableProperty(VariableProperty.Type.String));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, Agent agent)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
         {
             Behaviour behaviour = self.Element;
 
             string dest = behaviour.GetProperty(PROP_POSITION_DEST).GetString();
             Vector2 origin = behaviour.GetProperty(PROP_ORIGIN_POSITION).GetVector();
             float maxDist = (float)behaviour.GetProperty(PROP_MAX_DIST).GetNumber();
-            agent.SetProperty(dest, origin + Random.insideUnitCircle * maxDist);
+            obj.SetProperty(dest, origin + Random.insideUnitCircle * maxDist);
 
             return NodeStatus.Success;
         }

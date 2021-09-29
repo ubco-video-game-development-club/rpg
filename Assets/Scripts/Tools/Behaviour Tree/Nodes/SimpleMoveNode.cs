@@ -17,22 +17,22 @@ namespace BehaviourTree
             behaviour.Properties.Add(PROP_MOVE_SPEED, new VariableProperty(VariableProperty.Type.Number));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, Agent agent)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
         {
             Behaviour behaviour = self.Element;
 
             string src = behaviour.Properties[PROP_POSITION_SRC].GetString();
-            if (agent.HasProperty(src))
+            if (obj.HasProperty(src))
             {
-                Vector2 targetPosition = (Vector2)agent.GetProperty(src);
-                Vector2 currentPosition = agent.transform.position;
+                Vector2 targetPosition = (Vector2)obj.GetProperty(src);
+                Vector2 currentPosition = obj.transform.position;
                 Vector2 d = currentPosition - targetPosition;
 
                 float minDist = (float)behaviour.Properties[PROP_MIN_DISTANCE].GetNumber();
                 if (d.sqrMagnitude > minDist * minDist)
                 {
                     float speed = (float)behaviour.Properties[PROP_MOVE_SPEED].GetNumber();
-                    agent.transform.position = Vector2.MoveTowards(currentPosition, targetPosition, speed * Time.deltaTime);
+                    obj.transform.position = Vector2.MoveTowards(currentPosition, targetPosition, speed * Time.deltaTime);
                     return NodeStatus.Running;
                 }
                 return NodeStatus.Success;
