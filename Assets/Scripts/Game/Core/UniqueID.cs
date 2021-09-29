@@ -11,14 +11,6 @@ namespace RPG
 
         private static Dictionary<string, GameObject> uniqueObjects = new Dictionary<string, GameObject>();
 
-        protected void OnValidate()
-        {
-            if (uniqueID == null) return;
-            if (!ValidateNotEmpty(uniqueID)) return;
-            if (uniqueObjects.ContainsKey(uniqueID) && uniqueObjects[uniqueID] == gameObject) return;
-            if (!ValidateExists(uniqueID)) return;
-        }
-
         protected void Awake()
         {
             if (!ValidateNotEmpty(uniqueID)) return;
