@@ -7,13 +7,25 @@ namespace RPG
 {
     public class QuestGiver : Interactable
     {
-        [SerializeField] private new string name;
+        [SerializeField] private string characterName;
+        public string CharacterName { get => characterName; }
+
         [SerializeField] private Sprite portrait;
-        [SerializeField] private DialogueGraph dialogue;
+        public Sprite Portrait { get => portrait; }
+
+        [SerializeField] private DialogueGraph[] dialogueGraphs;
+
+        private int currentIndex = 0;
 
         public override void Interact(Player player)
         {
-            GameManager.DialogueSystem.BeginDialogue(portrait, name, dialogue);
+            DialogueGraph graph = dialogueGraphs[currentIndex];
+            GameManager.DialogueSystem.BeginDialogue(this, graph);
+        }
+
+        public void SetActiveIndex(int idx)
+        {
+            currentIndex = idx;
         }
     }
 }

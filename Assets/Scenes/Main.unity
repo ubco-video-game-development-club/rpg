@@ -1264,9 +1264,11 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Talk
-  name: Goof
+  characterName: Goof
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
-  dialogue: {fileID: 11400000, guid: 1038a25bb80e70e4da7c513479466015, type: 2}
+  dialogueGraphs:
+  - {fileID: 11400000, guid: 1038a25bb80e70e4da7c513479466015, type: 2}
+  - {fileID: 11400000, guid: 709ad8f986fdd3442bad33d63bed2752, type: 2}
 --- !u!58 &511373795
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1400,9 +1402,11 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Talk
-  name: Sneeko
+  characterName: Sneeko
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
-  dialogue: {fileID: 11400000, guid: 8c096da2b4b78d14492866a0ace564a7, type: 2}
+  dialogueGraphs:
+  - {fileID: 11400000, guid: 8c096da2b4b78d14492866a0ace564a7, type: 2}
+  - {fileID: 11400000, guid: 7852df3d4fd29ae498cfed742fd1b8f7, type: 2}
 --- !u!58 &539150547
 CircleCollider2D:
   m_ObjectHideFlags: 0

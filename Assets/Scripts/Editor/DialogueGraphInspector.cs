@@ -106,6 +106,11 @@ namespace Dialogue
 
             SerializedProperty questNotes = node.FindPropertyRelative("questNotes");
             EditorGUILayout.PropertyField(questNotes);
+
+            GUILayout.Space(10);
+
+            SerializedProperty dialogueIndexOverrides = node.FindPropertyRelative("dialogueIndexOverrides");
+            EditorGUILayout.PropertyField(dialogueIndexOverrides);
         }
     }
 }
