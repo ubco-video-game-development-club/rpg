@@ -20,7 +20,6 @@ namespace BehaviourTree
             serializedObject.Update();
 
             Behaviour node = behaviourTree.selectedNode;
-            Debug.Log(node);
             if (node == null) return;
 
             string name = node.Node.GetType().Name;
