@@ -60,6 +60,8 @@ MonoBehaviour:
     dialogueIndexOverrides:
     - targetUniqueID: 
       indexOverride: 1
+    - targetUniqueID: Sneeko
+      indexOverride: 2
   - name: Errrrr, never mind. See ya later.
     body: Alright. Later!
     position: {x: 338, y: -49}
