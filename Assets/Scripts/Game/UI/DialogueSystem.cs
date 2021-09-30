@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 using RPG;
+using BehaviourTree;
 
 namespace Dialogue
 {
@@ -20,16 +21,18 @@ namespace Dialogue
         private List<GameObject> buttonPool = new List<GameObject>();
         private int buttonPoolIndex = 0;
         private YieldInstruction letterCooldown = new WaitForSeconds(0.05f);
+        private QuestGiver currentTarget;
         private DialogueGraph currentGraph;
         private int currentNode = 0;
 
-        public void BeginDialogue(Sprite portrait, string name, DialogueGraph graph)
+        public void BeginDialogue(QuestGiver target, DialogueGraph graph)
         {
+            currentTarget = target;
             currentGraph = graph;
 
             dialogueUI.SetActive(true);
-            dialoguePortrait.sprite = portrait;
-            dialogueName.text = name;
+            dialoguePortrait.sprite = target.Portrait;
+            dialogueName.text = target.CharacterName;
 
             StartCoroutine(ShowDialogue(0));
         }
@@ -73,6 +76,24 @@ namespace Dialogue
             foreach (QuestNote note in graphNode.questNotes)
             {
                 GameManager.QuestSystem.AddNote(note);
+            }
+
+            // Apply any dialogue index overrides
+            foreach (DialogueIndexOverride idxOverride in graphNode.dialogueIndexOverrides)
+            {
+                QuestGiver target = currentTarget;
+                if (idxOverride.targetUniqueID != "")
+                {
+                    target = Entity.Find<QuestGiver>(idxOverride.targetUniqueID);
+                }
+                target.ActiveIndex = idxOverride.indexOverride;
+            }
+
+            // Run custom dialogue behaviour
+            if (graphNode.customBehaviour != null)
+            {
+                Tree<BehaviourTree.Behaviour>.Node root = graphNode.customBehaviour.Root;
+                root.Element.Tick(root, dialogueUI.GetComponent<BehaviourObject>());
             }
 
             DialogueGraphTransition[] transitions = GetTransitionsFor(currentGraph, node);

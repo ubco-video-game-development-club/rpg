@@ -1032,7 +1032,7 @@ GameObject:
   - component: {fileID: 468670150}
   m_Layer: 7
   m_Name: Enemy (2)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1264,9 +1264,11 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Talk
-  name: Goof
+  characterName: Goof
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
-  dialogue: {fileID: 11400000, guid: 1038a25bb80e70e4da7c513479466015, type: 2}
+  dialogueGraphs:
+  - {fileID: 11400000, guid: 1038a25bb80e70e4da7c513479466015, type: 2}
+  - {fileID: 11400000, guid: 709ad8f986fdd3442bad33d63bed2752, type: 2}
 --- !u!58 &511373795
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1378,6 +1380,7 @@ GameObject:
   - component: {fileID: 539150548}
   - component: {fileID: 539150547}
   - component: {fileID: 539150546}
+  - component: {fileID: 539150550}
   m_Layer: 8
   m_Name: TestNPC2
   m_TagString: Untagged
@@ -1400,9 +1403,12 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Talk
-  name: Sneeko
+  characterName: Sneeko
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
-  dialogue: {fileID: 11400000, guid: 8c096da2b4b78d14492866a0ace564a7, type: 2}
+  dialogueGraphs:
+  - {fileID: 11400000, guid: 8c096da2b4b78d14492866a0ace564a7, type: 2}
+  - {fileID: 11400000, guid: 7852df3d4fd29ae498cfed742fd1b8f7, type: 2}
+  - {fileID: 11400000, guid: 2e067e40d2dbdc8499f8b6226f5fccf1, type: 2}
 --- !u!58 &539150547
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1484,6 +1490,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &539150550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539150545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc071df6b26c2c4682605f65e5c191c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: Sneeko
 --- !u!1 &604390397
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,7 +1557,7 @@ GameObject:
   - component: {fileID: 624982964}
   m_Layer: 7
   m_Name: Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2203,6 +2222,7 @@ GameObject:
   - component: {fileID: 930314893}
   - component: {fileID: 930314895}
   - component: {fileID: 930314894}
+  - component: {fileID: 930314896}
   m_Layer: 5
   m_Name: DialogueUI
   m_TagString: Untagged
@@ -2271,6 +2291,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930314892}
   m_CullTransparentMesh: 1
+--- !u!114 &930314896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930314892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6314624073fd19344a66e0b14acc8eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &934195510
 GameObject:
   m_ObjectHideFlags: 0
@@ -3181,7 +3213,7 @@ GameObject:
   - component: {fileID: 1166346082}
   m_Layer: 7
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

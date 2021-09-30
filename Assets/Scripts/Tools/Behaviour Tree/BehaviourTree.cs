@@ -46,7 +46,7 @@ namespace BehaviourTree
             return properties.ContainsKey(name) ? properties[name] : null;
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, Agent agent) => node.Tick(self, agent);
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj) => node.Tick(self, obj);
 
         public void OnBeforeSerialize()
         {
