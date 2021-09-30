@@ -84,7 +84,7 @@ namespace Dialogue
                 QuestGiver target = currentTarget;
                 if (idxOverride.targetUniqueID != "")
                 {
-                    target = Entity.Find(idxOverride.targetUniqueID).GetComponent<QuestGiver>();
+                    target = Entity.Find<QuestGiver>(idxOverride.targetUniqueID);
                 }
                 target.ActiveIndex = idxOverride.indexOverride;
             }

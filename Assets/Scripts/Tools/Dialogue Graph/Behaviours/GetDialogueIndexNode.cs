@@ -22,7 +22,7 @@ namespace BehaviourTree
 
             // Get the target NPC
             string targetID = behaviour.GetProperty(PROP_TARGET_ID).GetString();
-            QuestGiver target = Entity.Find(targetID).GetComponent<QuestGiver>();
+            QuestGiver target = Entity.Find<QuestGiver>(targetID);
 
             // Get and save the dialogue index in destination prop
             string indexDest = behaviour.GetProperty(PROP_DEST).GetString();
