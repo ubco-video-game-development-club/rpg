@@ -20,6 +20,8 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   - name: Oh, hello!
     body: I'm a test NPC. We give quests and are just like, cool to talk to and stuff.
       Also, we can add notes to your quest journal!
@@ -29,6 +31,8 @@ MonoBehaviour:
     sexinessMod: 0
     questNotes:
     - {fileID: 11400000, guid: fba2ff1b3d07a634e96c0f3eebe64fab, type: 2}
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   - name: Oh, alright. That's cool I guess.
     body: You betcha. Speaking of cool, take this quest note!
     position: {x: -146, y: -49}
@@ -37,22 +41,30 @@ MonoBehaviour:
     sexinessMod: -0.02
     questNotes:
     - {fileID: 11400000, guid: f2bc5ca5b69e9a64f8251f5192f97b7a, type: 2}
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   - name: Wow, that's an epic gamer moment!
     body: Absolutely. Speaking of epic gamer moments, take this quest note!
-    position: {x: 95, y: -50}
+    position: {x: 95, y: -51}
     moralsMod: 0.02
     leaningsMod: 0
     sexinessMod: 0.05
     questNotes:
     - {fileID: 11400000, guid: f2bc5ca5b69e9a64f8251f5192f97b7a, type: 2}
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   - name: Thanks!
     body: No problem! By the way, if you see my friend around, they have another
       note for you!
-    position: {x: -23, y: 29}
+    position: {x: -15, y: 43}
     moralsMod: 0.02
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides:
+    - targetUniqueID: 
+      indexOverride: 1
+    customBehaviour: {fileID: 11400000, guid: 64a6070144d65fb4a86a0493bb5d72a7, type: 2}
   - name: Errrrr, never mind. See ya later.
     body: Alright. Later!
     position: {x: 338, y: -49}
@@ -60,6 +72,8 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   transitions:
   - name: Transition
     from: 0
@@ -88,3 +102,13 @@ MonoBehaviour:
   - name: Transition
     from: 1
     to: 5
+  exitNode:
+    name: Exit
+    body: 
+    position: {x: -16, y: 129}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}

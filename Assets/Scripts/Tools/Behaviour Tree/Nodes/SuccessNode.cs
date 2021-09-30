@@ -8,7 +8,7 @@ namespace BehaviourTree
     {
         public void Init(Behaviour behaviour) { }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, Agent agent)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
         {
             return NodeStatus.Success;
         }

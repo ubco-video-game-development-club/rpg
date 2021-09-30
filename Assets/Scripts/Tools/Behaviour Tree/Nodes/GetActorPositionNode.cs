@@ -15,17 +15,17 @@ namespace BehaviourTree
             behaviour.Properties.Add(PROP_POSITION_DEST, new VariableProperty(VariableProperty.Type.String));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, Agent agent)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
         {
             Behaviour behaviour = self.Element;
 
             string src = behaviour.Properties[PROP_ACTOR_SRC].GetString();
-            if (agent.HasProperty(src))
+            if (obj.HasProperty(src))
             {
                 string dest = behaviour.Properties[PROP_POSITION_DEST].GetString();
-                GameObject actor = agent.GetProperty(src) as GameObject;
+                GameObject actor = obj.GetProperty(src) as GameObject;
                 Vector2 position = actor.transform.position;
-                agent.SetProperty(dest, position);
+                obj.SetProperty(dest, position);
                 return NodeStatus.Success;
             }
             return NodeStatus.Failure;

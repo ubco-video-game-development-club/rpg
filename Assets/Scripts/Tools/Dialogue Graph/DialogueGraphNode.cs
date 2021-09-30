@@ -17,6 +17,9 @@ namespace Dialogue
         [Range(-1.0f, 1.0f)] public float leaningsMod;
         [Range(-1.0f, 1.0f)] public float sexinessMod;
         public QuestNote[] questNotes;
+        [Tooltip("Overrides the currently active dialogue graph index for the target entity (using UniqueID).")]
+        public DialogueIndexOverride[] dialogueIndexOverrides;
+        public BehaviourTree.BehaviourTree customBehaviour;
 
         private Rect displayRect;
         private bool isSelected = false;

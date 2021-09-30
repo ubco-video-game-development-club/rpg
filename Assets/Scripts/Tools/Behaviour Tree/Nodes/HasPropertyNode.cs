@@ -13,12 +13,12 @@ namespace BehaviourTree
             behaviour.Properties.Add(PROP_NAME, new VariableProperty(VariableProperty.Type.String));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, Agent agent)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
         {
             Behaviour behaviour = self.Element;
 
             string src = behaviour.GetProperty(PROP_NAME).GetString();
-            if (agent.HasProperty(src))
+            if (obj.HasProperty(src))
             {
                 return NodeStatus.Success;
             }

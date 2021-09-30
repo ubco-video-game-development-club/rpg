@@ -15,7 +15,7 @@ namespace BehaviourTree
             behaviour.Properties.Add(PROP_ACTOR_DEST, new VariableProperty(VariableProperty.Type.String));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, Agent agent)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
         {
             Behaviour behaviour = self.Element;
             
@@ -24,7 +24,7 @@ namespace BehaviourTree
             if(actor == null) return NodeStatus.Failure;
             
             string destination = behaviour.Properties[PROP_ACTOR_DEST].GetString();
-            agent.SetProperty(destination, actor);
+            obj.SetProperty(destination, actor);
             return NodeStatus.Success;
         }
     }

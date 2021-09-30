@@ -8,12 +8,12 @@ namespace BehaviourTree
     {
         public void Init(Behaviour behaviour) { }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, Agent agent)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
         {
             for (int i = 0; i < self.ChildCount; i++)
             {
                 Tree<Behaviour>.Node child = self.GetChild(i);
-                NodeStatus childStatus = child.Element.Tick(child, agent);
+                NodeStatus childStatus = child.Element.Tick(child, obj);
                 if (childStatus != NodeStatus.Success) return childStatus;
             }
 

@@ -8,12 +8,15 @@ namespace BehaviourTree
         SequenceNode,
         SuccessNode,
         NotNode,
+        EqualsNode,
         HasPropertyNode,
         RangeCheckNode,
         FindActorByTagNode,
         GetActorPositionNode,
         GetRandomPositionNode,
-        SimpleMoveNode
+        SimpleMoveNode,
+        GetDialogueIndexNode,
+        SetDialogueIndexNode
     }
 
     public static class BehaviourTreeNodeCreator
@@ -30,6 +33,8 @@ namespace BehaviourTree
                     return new SuccessNode();
                 case BehaviourTreeNodeType.NotNode:
                     return new NotNode();
+                case BehaviourTreeNodeType.EqualsNode:
+                    return new EqualsNode();
                 case BehaviourTreeNodeType.HasPropertyNode:
                     return new HasPropertyNode();
                 case BehaviourTreeNodeType.RangeCheckNode:
@@ -42,6 +47,10 @@ namespace BehaviourTree
                     return new GetRandomPositionNode();
                 case BehaviourTreeNodeType.SimpleMoveNode:
                     return new SimpleMoveNode();
+                case BehaviourTreeNodeType.GetDialogueIndexNode:
+                    return new GetDialogueIndexNode();
+                case BehaviourTreeNodeType.SetDialogueIndexNode:
+                    return new SetDialogueIndexNode();
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return null;
