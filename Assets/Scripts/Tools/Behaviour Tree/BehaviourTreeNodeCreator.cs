@@ -16,7 +16,9 @@ namespace BehaviourTree
         GetRandomPositionNode,
         SimpleMoveNode,
         GetDialogueIndexNode,
-        SetDialogueIndexNode
+        SetDialogueIndexNode,
+        VectorIteratorNode,
+        ArrayIncrementNode
     }
 
     public static class BehaviourTreeNodeCreator
@@ -51,6 +53,10 @@ namespace BehaviourTree
                     return new GetDialogueIndexNode();
                 case BehaviourTreeNodeType.SetDialogueIndexNode:
                     return new SetDialogueIndexNode();
+                case BehaviourTreeNodeType.VectorIteratorNode:
+                    return new VectorIteratorNode();
+                case BehaviourTreeNodeType.ArrayIncrementNode:
+                    return new ArrayIncrementNode();
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return null;
