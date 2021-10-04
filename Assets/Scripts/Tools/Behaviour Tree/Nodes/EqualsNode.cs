@@ -10,7 +10,7 @@ namespace BehaviourTree
         private const string PROP_SOURCE = "source-property";
         private const string PROP_NUMBER = "comparison-number";
 
-        public void Init(Behaviour behaviour)
+        public void Serialize(Behaviour behaviour)
         {
             behaviour.Properties.Add(PROP_SOURCE, new VariableProperty(VariableProperty.Type.String));
             behaviour.Properties.Add(PROP_NUMBER, new VariableProperty(VariableProperty.Type.Number));

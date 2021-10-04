@@ -10,7 +10,7 @@ namespace BehaviourTree
         private const string PROP_MAX_DIST = "max-distance";
         private const string PROP_POSITION_DEST = "position-destination";
 
-        public void Init(Behaviour behaviour)
+        public void Serialize(Behaviour behaviour)
         {
             behaviour.Properties.Add(PROP_ORIGIN_POSITION, new VariableProperty(VariableProperty.Type.Vector));
             behaviour.Properties.Add(PROP_MAX_DIST, new VariableProperty(VariableProperty.Type.Number));

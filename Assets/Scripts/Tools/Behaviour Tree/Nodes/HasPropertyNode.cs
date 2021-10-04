@@ -8,7 +8,7 @@ namespace BehaviourTree
     {
         private const string PROP_NAME = "property-name";
 
-        public void Init(Behaviour behaviour)
+        public void Serialize(Behaviour behaviour)
         {
             behaviour.Properties.Add(PROP_NAME, new VariableProperty(VariableProperty.Type.String));
         }

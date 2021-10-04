@@ -9,7 +9,7 @@ namespace BehaviourTree
         private const string PROP_ACTOR_DEST = "actor-destination";
         private const string PROP_TAG_NAME = "tag-name";
 
-        public void Init(Behaviour behaviour)
+        public void Serialize(Behaviour behaviour)
         {
             behaviour.Properties.Add(PROP_TAG_NAME, new VariableProperty(VariableProperty.Type.String));
             behaviour.Properties.Add(PROP_ACTOR_DEST, new VariableProperty(VariableProperty.Type.String));

@@ -9,7 +9,7 @@ namespace BehaviourTree
         private const string PROP_RANGE = "range";
         private const string PROP_POSITION_SRC = "position-source";
 
-        public void Init(Behaviour behaviour)
+        public void Serialize(Behaviour behaviour)
         {
             behaviour.Properties.Add(PROP_RANGE, new VariableProperty(VariableProperty.Type.Number));
             behaviour.Properties.Add(PROP_POSITION_SRC, new VariableProperty(VariableProperty.Type.String));

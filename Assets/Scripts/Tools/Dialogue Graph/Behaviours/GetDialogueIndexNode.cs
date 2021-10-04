@@ -10,7 +10,7 @@ namespace BehaviourTree
         private const string PROP_TARGET_ID = "target-entity-id";
         private const string PROP_DEST = "index-destination";
 
-        public void Init(Behaviour behaviour)
+        public void Serialize(Behaviour behaviour)
         {
             behaviour.Properties.Add(PROP_TARGET_ID, new VariableProperty(VariableProperty.Type.String));
             behaviour.Properties.Add(PROP_DEST, new VariableProperty(VariableProperty.Type.String));

@@ -10,7 +10,7 @@ namespace BehaviourTree
         private const string PROP_MIN_DISTANCE = "min-distance";
         private const string PROP_MOVE_SPEED = "move-speed";
 
-        public void Init(Behaviour behaviour)
+        public void Serialize(Behaviour behaviour)
         {
             behaviour.Properties.Add(PROP_POSITION_SRC, new VariableProperty(VariableProperty.Type.String));
             behaviour.Properties.Add(PROP_MIN_DISTANCE, new VariableProperty(VariableProperty.Type.Number));

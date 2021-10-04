@@ -81,7 +81,7 @@ namespace BehaviourTree
                     {
                         IBehaviourTreeNode node = BehaviourTreeNodeCreator.Create(type);
                         Behaviour bNode = new Behaviour(node);
-                        node.Init(bNode);
+                        node.Serialize(bNode);
                         parent.AddChild(new Tree<Behaviour>.Node(bNode));
                         EditorUtility.SetDirty(selectedTree);
                     }

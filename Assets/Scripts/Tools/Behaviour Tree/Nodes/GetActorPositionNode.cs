@@ -9,7 +9,7 @@ namespace BehaviourTree
         private const string PROP_ACTOR_SRC = "actor-source";
         private const string PROP_POSITION_DEST = "position-destination";
 
-        public void Init(Behaviour behaviour)
+        public void Serialize(Behaviour behaviour)
         {
             behaviour.Properties.Add(PROP_ACTOR_SRC, new VariableProperty(VariableProperty.Type.String));
             behaviour.Properties.Add(PROP_POSITION_DEST, new VariableProperty(VariableProperty.Type.String));

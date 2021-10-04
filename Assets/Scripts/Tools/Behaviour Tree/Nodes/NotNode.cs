@@ -6,7 +6,7 @@ namespace BehaviourTree
 {
     public class NotNode : IBehaviourTreeNode
     {
-        public void Init(Behaviour behaviour) { }
+        public void Serialize(Behaviour behaviour) { }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
         {
