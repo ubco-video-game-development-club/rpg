@@ -81,7 +81,7 @@ namespace BehaviourTree
                     {
                         IBehaviourTreeNode node = BehaviourTreeNodeCreator.Create(type);
                         Behaviour bNode = new Behaviour(node);
-                        node.Init(bNode);
+                        node.Serialize(bNode);
                         parent.AddChild(new Tree<Behaviour>.Node(bNode));
                         EditorUtility.SetDirty(selectedTree);
                     }
@@ -100,6 +100,7 @@ namespace BehaviourTree
                 {
                     selectedTree.tree = new Tree<Behaviour>(new Behaviour(new SequenceNode()));
                 }
+                selectedTree.selectedNode = selectedTree.Root.Element;
             }
             else selectedTree = null;
 
@@ -122,6 +123,19 @@ namespace BehaviourTree
         {
             BehaviourTreeWindow window = GetWindow<BehaviourTreeWindow>();
             window.titleContent = new GUIContent("Behaviour Tree");
+        }
+
+        [UnityEditor.Callbacks.OnOpenAsset(1)]
+        public static bool OnOpenAsset(int instanceID, int line)
+        {
+            string assetPath = AssetDatabase.GetAssetPath(instanceID);
+            BehaviourTree behaviourTree = AssetDatabase.LoadAssetAtPath<BehaviourTree>(assetPath);
+            if (behaviourTree != null)
+            {
+                CreateWindow();
+                return true;
+            }
+            return false;
         }
     }
 }

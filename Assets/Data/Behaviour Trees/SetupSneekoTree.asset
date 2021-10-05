@@ -10,102 +10,51 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54fb5e73c80040247a00b01917c6e426, type: 3}
-  m_Name: TestBehaviourTree
+  m_Name: SetupSneekoTree
   m_EditorClassIdentifier: 
   tree:
     serializedNodes:
-    - childCount: 2
+    - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
       firstChildIndex: 1
     - childCount: 0
       element:
-        propertyInfo: []
-        nodeTypeName: BehaviourTree.GetPlayerNode
-      firstChildIndex: 2
-    - childCount: 3
-      element:
-        propertyInfo: []
-        nodeTypeName: BehaviourTree.SelectorNode
-      firstChildIndex: 3
-    - childCount: 0
-      element:
         propertyInfo:
-        - name: attack-range
+        - name: target-entity-id
           property:
-            propertyType: 1
-            value:
-              b: 0
-              n: 0.8
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-        - name: attack-damage
-          property:
-            propertyType: 1
-            value:
-              b: 0
-              n: 5
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-        - name: attack-cooldown
-          property:
-            propertyType: 1
-            value:
-              b: 0
-              n: 1.5
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-        nodeTypeName: BehaviourTree.AttackNode
-      firstChildIndex: 4
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: move-range
-          property:
-            propertyType: 1
-            value:
-              b: 0
-              n: 4
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-        - name: move-speed
-          property:
-            propertyType: 1
-            value:
-              b: 0
-              n: 2
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-        nodeTypeName: BehaviourTree.MoveNode
-      firstChildIndex: 5
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: origin
-          property:
-            propertyType: 4
+            propertyType: 2
             value:
               b: 0
               n: 0
-              s: 
-              o: {fileID: 0}
-              v: {x: 5, y: 4}
-        - name: max-distance
-          property:
-            propertyType: 1
-            value:
-              b: 0
-              n: 4
-              s: 
+              s: Sneeko
               o: {fileID: 0}
               v: {x: 0, y: 0}
-        - name: move-speed
+        - name: index-destination
+          property:
+            propertyType: 2
+            value:
+              b: 0
+              n: 0
+              s: sneeko-index
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+        nodeTypeName: BehaviourTree.GetDialogueIndexNode
+      firstChildIndex: 2
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: source-property
+          property:
+            propertyType: 2
+            value:
+              b: 0
+              n: 0
+              s: sneeko-index
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+        - name: comparison-number
           property:
             propertyType: 1
             value:
@@ -114,5 +63,28 @@ MonoBehaviour:
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
-        nodeTypeName: BehaviourTree.MoveRandomNode
-      firstChildIndex: 6
+        nodeTypeName: BehaviourTree.EqualsNode
+      firstChildIndex: 3
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: target-entity-id
+          property:
+            propertyType: 2
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+        - name: dialogue-index
+          property:
+            propertyType: 1
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+        nodeTypeName: BehaviourTree.SetDialogueIndexNode
+      firstChildIndex: 4
