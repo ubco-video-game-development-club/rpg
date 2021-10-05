@@ -122,7 +122,10 @@ public class VariableProperty
     public object[] GetArray()
     {
         if (PropertyType != Type.Array) throw new InvalidOperationException("This property is not an array type.");
+        
         VariablePropertyBase[] arr = value.a;
+        if (arr == null) return new object[0];
+
         object[] result = new object[arr.Length];
         for (int i = 0; i < arr.Length; i++)
         {

@@ -79,11 +79,7 @@ namespace BehaviourTree
             if (arr == null)
             {
                 object[] propArr = property.GetArray();
-                arr = new object[propArr.Length];
-                for (int i = 0; i < propArr.Length; i++)
-                {
-                    arr[i] = propArr[i];
-                }
+                arr = propArr;
                 arrayLength = propArr.Length;
             }
 
