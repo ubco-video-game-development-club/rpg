@@ -21,6 +21,10 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides:
+    - targetUniqueID: Picture
+      indexOverride: 0
+    customBehaviour: {fileID: 0}
   transitions:
   - name: Transition
     from: 0
@@ -33,3 +37,5 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}

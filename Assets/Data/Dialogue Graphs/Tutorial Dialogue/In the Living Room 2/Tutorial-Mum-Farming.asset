@@ -21,6 +21,10 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides:
+    - targetUniqueID: Mum
+      indexOverride: 7
+    customBehaviour: {fileID: 0}
   - name: ->
     body: "I\u2019ve been growing those sunflowers in the backyard all season. Would
       you be a dear and go grab one for me?"
@@ -29,6 +33,8 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   - name: ->
     body: "Be careful though. I saw some bees back there earlier in the day. It shouldn\u2019t
       be too big a deal though. "
@@ -37,6 +43,8 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   - name: ->
     body: "I left the gate on the side of the house open so you shouldn\u2019t need
       a key I\u2019ll be waiting for you in the front yard\r."
@@ -44,7 +52,10 @@ MonoBehaviour:
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
-    questNotes: []
+    questNotes:
+    - {fileID: 11400000, guid: d6151f1813da3f6438bacc14c784be95, type: 2}
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   transitions:
   - name: Transition
     from: 0
@@ -66,3 +77,5 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}

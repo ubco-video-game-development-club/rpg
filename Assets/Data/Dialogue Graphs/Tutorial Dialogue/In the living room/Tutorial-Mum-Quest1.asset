@@ -20,7 +20,12 @@ MonoBehaviour:
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
-    questNotes: []
+    questNotes:
+    - {fileID: 11400000, guid: a01c6efa6fbc8504984f921eed3cfb9b, type: 2}
+    dialogueIndexOverrides:
+    - targetUniqueID: Mum
+      indexOverride: 2
+    customBehaviour: {fileID: 0}
   transitions:
   - name: Transition
     from: 0
@@ -33,3 +38,5 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}

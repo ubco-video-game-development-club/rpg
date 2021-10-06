@@ -20,7 +20,12 @@ MonoBehaviour:
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
-    questNotes: []
+    questNotes:
+    - {fileID: 11400000, guid: 5e9f1c3faf7b7c34db1354c1649b0295, type: 2}
+    dialogueIndexOverrides:
+    - targetUniqueID: Mum
+      indexOverride: 6
+    customBehaviour: {fileID: 0}
   - name: ->
     body: I wanted to get you a Recipe Day surprise and I know some of your old clothes
       are wearing out. I hope you like it.
@@ -29,6 +34,8 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   transitions:
   - name: Transition
     from: 0
@@ -44,3 +51,5 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}

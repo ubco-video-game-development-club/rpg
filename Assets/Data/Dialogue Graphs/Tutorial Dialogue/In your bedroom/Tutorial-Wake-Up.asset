@@ -20,6 +20,8 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   - name: ->
     body: "Seriously, get up. It\u2019s like 3 pm and you said you would run errands
       for me today."
@@ -28,6 +30,8 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   - name: ->
     body: "You need to get to Mr.Waddleswoth\u2019s shop closes up. So you better
       get there soon!"
@@ -36,6 +40,10 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides:
+    - targetUniqueID: Mum
+      indexOverride: 1
+    customBehaviour: {fileID: 0}
   transitions:
   - name: Transition
     from: 0
@@ -54,3 +62,5 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}

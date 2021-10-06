@@ -21,6 +21,8 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   - name: ->
     body: "I have unfortunate news however. Last night there was a break in and someone
       has taken your package\u2026"
@@ -29,6 +31,8 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   - name: ->
     body: I would have just told you to let your Mum know I am sorry. And, that I
       will get her a reimbursement for her stolen package soon.
@@ -37,6 +41,8 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   - name: ->
     body: "However\u2026 I do have a sneaking suspicion as to who may have taken
       it."
@@ -45,6 +51,8 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   - name: ->
     body: "I\u2019m not sure if you are supposed to know this or not. But, the package
       your Mum ordered had some new clothes for you."
@@ -53,6 +61,8 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   - name: ->
     body: And I happened to see Lil Jimmy Beakington this morning in a sweater uncannily
       similar to the one your Mum ordered.
@@ -61,6 +71,8 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   - name: ->
     body: "Now I\u2019m not saying you should go \u201CConfront Jimmy\u201D or \u201CCause
       a scene\u201D however, I am saying I do love drama."
@@ -69,6 +81,8 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   - name: ->
     body: "Anyways, the bottom line is you can just go home and let your Mum know
       she will be reimbursed. Or you can go be \u201Ccivil\u201D *wink* and talk
@@ -77,7 +91,14 @@ MonoBehaviour:
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
-    questNotes: []
+    questNotes:
+    - {fileID: 11400000, guid: 9a9fcbf02cbfa5d49a04993c143be305, type: 2}
+    dialogueIndexOverrides:
+    - targetUniqueID: Mum
+      indexOverride: 3
+    - targetUniqueID: Waddlesworth
+      indexOverride: 1
+    customBehaviour: {fileID: 0}
   - name: I think I will go talk to Jimmy.
     body: "Well regardless of what you do I can\u2019t have you leave empty handed.
       Not on Recipe Day. You are free to take a slingshot or this neat little sword
@@ -87,6 +108,8 @@ MonoBehaviour:
     leaningsMod: 0.05
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   - name: I will head home and let my Mum know what happened.
     body: "Well regardless of what you do I can\u2019t have you leave empty handed.
       Not on Recipe Day. You are free to take a slingshot or this neat little sword
@@ -96,6 +119,8 @@ MonoBehaviour:
     leaningsMod: 0.1
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   - name: ->
     body: Whether you use them or not is up to you *wink*
     position: {x: -129, y: 121}
@@ -103,6 +128,8 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
   transitions:
   - name: Transition
     from: 0
@@ -148,3 +175,5 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
