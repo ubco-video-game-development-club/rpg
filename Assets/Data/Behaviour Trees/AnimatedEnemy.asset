@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fb5e73c80040247a00b01917c6e426, type: 3}
+  m_Name: AnimatedEnemy
+  m_EditorClassIdentifier: 
+  tree:
+    serializedNodes:
+    - childCount: 3
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 1
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: direction-destination
+          property:
+            propertyType: 2
+            value:
+              b: 0
+              n: 0
+              s: move-dir
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+            aType: 0
+        nodeTypeName: BehaviourTree.GetMoveDirectionNode
+      firstChildIndex: 2
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: vector-source
+          property:
+            propertyType: 2
+            value:
+              b: 0
+              n: 0
+              s: move-dir
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+            aType: 0
+        - name: axis-name
+          property:
+            propertyType: 2
+            value:
+              b: 0
+              n: 0
+              s: x
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+            aType: 0
+        - name: axis-destination
+          property:
+            propertyType: 2
+            value:
+              b: 0
+              n: 0
+              s: x-dir
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+            aType: 0
+        nodeTypeName: BehaviourTree.GetVectorAxisNode
+      firstChildIndex: 3
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: parameter-name
+          property:
+            propertyType: 2
+            value:
+              b: 0
+              n: 0
+              s: dirX
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+            aType: 0
+        - name: parameter-type
+          property:
+            propertyType: 2
+            value:
+              b: 0
+              n: 0
+              s: Int
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+            aType: 0
+        - name: value-source
+          property:
+            propertyType: 2
+            value:
+              b: 0
+              n: 0
+              s: x-dir
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+            aType: 0
+        nodeTypeName: BehaviourTree.SetAnimParamNode
+      firstChildIndex: 4
