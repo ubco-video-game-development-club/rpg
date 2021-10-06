@@ -6,24 +6,23 @@ namespace RPG{
 
     public class BaseNPC: Actor
     {
-        public QuestGiver dialogue;
+        private QuestGiver dialogue;
+        private CircleCollider2D npcCollider;
         private Agent agent;
+
+        private bool isNPCFollower;
 
         [SerializeField]private float interactionDistance=5.0f;
 
         private bool dialogueInitiated=false;//Delete this when we have a means of catching when dialogue is done
-        
-        private NPCMovement movement;
 
-        List<Vector2> testNodes=new List<Vector2>();
-        private SpriteRenderer spriteRenderer;
         // Start is called before the first frame update
-        private void Awake() {
+        protected override void Awake() {
             base.Awake();
             dialogue=GetComponent<QuestGiver>();
             agent=GetComponent<Agent>();
-            spriteRenderer=GetComponent<SpriteRenderer>();
-            movement=new NPCMovement(2.0f);
+            npcCollider=GetComponent<CircleCollider2D>();
+
         }
 
         // Update is called once per frame
@@ -59,6 +58,11 @@ namespace RPG{
                 gameObject.GetComponent<Enemy>().enabled=true;
             }
             //TODO add AttackBehaviour in BehaviourTree
+        }
+
+        public void TurnIntoCompanion(){
+            //TODO Make Follower movement, interactable
+            npcCollider.enabled=false;
         }
     }
 }
