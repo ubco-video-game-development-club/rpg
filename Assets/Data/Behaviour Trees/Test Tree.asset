@@ -124,12 +124,12 @@ MonoBehaviour:
               v: {x: 0, y: 0}
               a: []
             aType: 0
-        - name: min-distance
+        - name: stop-distance
           property:
             propertyType: 1
             value:
               b: 0
-              n: 0.5
+              n: 1
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
@@ -235,7 +235,7 @@ MonoBehaviour:
             propertyType: 1
             value:
               b: 0
-              n: 0.1
+              n: 0.2
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
@@ -311,12 +311,12 @@ MonoBehaviour:
               v: {x: 0, y: 0}
               a: []
             aType: 0
-        - name: min-distance
+        - name: stop-distance
           property:
             propertyType: 1
             value:
               b: 0
-              n: 0.05
+              n: 0.1
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
