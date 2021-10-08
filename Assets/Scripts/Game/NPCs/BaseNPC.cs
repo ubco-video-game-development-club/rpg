@@ -30,22 +30,6 @@ namespace RPG{
         {
         }
 
-        //Force Dialogue with player;
-        public void InitiateDialogue(){
-            GameObject player=GameObject.FindGameObjectWithTag("Player");
-            //Detect if player is within range of the player
-            if(!dialogueInitiated && player!=null && Vector2.Distance(transform.position, player.transform.position)<=interactionDistance){
-                Debug.Log("Dialogue initiated");
-                dialogue.Interact(player.GetComponent<Player>());
-                dialogueInitiated=true;
-                //disable the behaviour script in the meantime
-                agent.DisableBehaviours();
-            
-                //TODO Detect when dialogue box is closed then switch to regular behaviours
-                agent.EnableBehaviours();
-            }
-        }
-
         public void TurnIntoEnemy(){
             //Change to enemy Layer;
             gameObject.layer=LayerMask.NameToLayer("Enemy");
