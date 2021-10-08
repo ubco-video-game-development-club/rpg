@@ -6,6 +6,7 @@ namespace BehaviourTree
     {
         SelectorNode,
         SequenceNode,
+        ExecuteAllNode,
         SuccessNode,
         NotNode,
         EqualsNode,
@@ -32,6 +33,8 @@ namespace BehaviourTree
                     return new SelectorNode();
                 case BehaviourTreeNodeType.SequenceNode:
                     return new SequenceNode();
+                case BehaviourTreeNodeType.ExecuteAllNode:
+                    return new ExecuteAllNode();
                 case BehaviourTreeNodeType.SuccessNode:
                     return new SuccessNode();
                 case BehaviourTreeNodeType.NotNode:

@@ -33,8 +33,8 @@ namespace BehaviourTree
                     animator.SetFloat(paramName, (float)fVal);
                     break;
                 case "Int":
-                    double iVal = (double)val;
-                    animator.SetInteger(paramName, (int)iVal);
+                    int iVal = Mathf.RoundToInt((float)(double)val);
+                    animator.SetInteger(paramName, iVal);
                     break;
                 case "Bool":
                     animator.SetBool(paramName, (bool)val);
