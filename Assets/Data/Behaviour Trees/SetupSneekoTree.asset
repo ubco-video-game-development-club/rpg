@@ -31,6 +31,7 @@ MonoBehaviour:
               s: Sneeko
               o: {fileID: 0}
               v: {x: 0, y: 0}
+            aType: 0
         - name: index-destination
           property:
             propertyType: 2
@@ -40,6 +41,7 @@ MonoBehaviour:
               s: sneeko-index
               o: {fileID: 0}
               v: {x: 0, y: 0}
+            aType: 0
         nodeTypeName: BehaviourTree.GetDialogueIndexNode
       firstChildIndex: 2
     - childCount: 0
@@ -54,6 +56,7 @@ MonoBehaviour:
               s: sneeko-index
               o: {fileID: 0}
               v: {x: 0, y: 0}
+            aType: 0
         - name: comparison-number
           property:
             propertyType: 1
@@ -63,6 +66,7 @@ MonoBehaviour:
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
+            aType: 0
         nodeTypeName: BehaviourTree.EqualsNode
       firstChildIndex: 3
     - childCount: 0
@@ -77,6 +81,7 @@ MonoBehaviour:
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
+            aType: 0
         - name: dialogue-index
           property:
             propertyType: 1
@@ -86,5 +91,6 @@ MonoBehaviour:
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
+            aType: 0
         nodeTypeName: BehaviourTree.SetDialogueIndexNode
       firstChildIndex: 4
