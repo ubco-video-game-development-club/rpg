@@ -14,8 +14,14 @@ public class VariableProperty
         private set => propertyType = value;
     }
 
+    [SerializeField] private string objectType;
+    public System.Type ObjectType
+    {
+        get => System.Type.GetType(objectType);
+        private set => objectType = value.AssemblyQualifiedName;
+    }
+
     [SerializeField] private Value value;
-    [SerializeField] private System.Type oType;
     [SerializeField] private Type aType;
 
     public VariableProperty(Type type)
@@ -30,7 +36,7 @@ public class VariableProperty
     {
         if (type != Type.Object && type != Type.Enum) Debug.LogError("ERROR: Attempting to use Object/Enum-based VariableProperty constructor with non-Object/Enum type!");
         PropertyType = type;
-        oType = objectType;
+        ObjectType = objectType;
         value = new Value();
         if (type == Type.Enum) Set(0);
     }
@@ -49,8 +55,9 @@ public class VariableProperty
     {
         if (type != Type.Array) Debug.LogError("ERROR: Attempting to use Array-based VariableProperty constructor with non-Array type!");
         if (arrayType == Type.Array) Debug.LogError("ERROR: VariableProperty Array type cannot have nested Arrays!");
-        PropertyType = Type.Array;
+        PropertyType = type;
         aType = arrayType;
+        ObjectType = objectType;
         value = new Value();
     }
 
@@ -94,12 +101,6 @@ public class VariableProperty
     {
         if (PropertyType != Type.Object) throw new InvalidOperationException("This property is not an object type.");
         return value.o;
-    }
-
-    public System.Type GetObjectType()
-    {
-        if (PropertyType != Type.Object && PropertyType != Type.Enum) throw new InvalidOperationException("This property is not an object/enum type.");
-        return oType;
     }
 
     public void Set(UnityEngine.Object value)
@@ -195,7 +196,7 @@ public class VariableProperty
     public T GetEnum<T>() where T : Enum
     {
         if (PropertyType != Type.Enum) throw new InvalidOperationException("This property is not an enum type.");
-        return (T)Enum.ToObject(GetObjectType(), value.e);
+        return (T)Enum.ToObject(ObjectType, value.e);
     }
 
     public void Set(int value)
