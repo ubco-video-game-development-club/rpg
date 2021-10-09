@@ -68,6 +68,12 @@ namespace BehaviourTree
                 case VariableProperty.Type.Vector:
                     property.Set(EditorGUILayout.Vector2Field("", property.GetVector()));
                     break;
+                case VariableProperty.Type.Enum:
+                    System.Enum eVal = (System.Enum)System.Enum.ToObject(property.GetObjectType(), property.GetEnum());
+                    string sResult = EditorGUILayout.EnumPopup(eVal).ToString();
+                    int iResult = (int)System.Enum.Parse(property.GetObjectType(), sResult);
+                    property.Set(iResult);
+                    break;
             }
 
             GUILayout.EndHorizontal();

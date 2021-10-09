@@ -28,10 +28,11 @@ public class VariableProperty
 
     public VariableProperty(Type type, System.Type objectType)
     {
-        if (type != Type.Object) Debug.LogError("ERROR: Attempting to use Object-based VariableProperty constructor with non-Object type!");
-        PropertyType = Type.Object;
+        if (type != Type.Object && type != Type.Enum) Debug.LogError("ERROR: Attempting to use Object/Enum-based VariableProperty constructor with non-Object/Enum type!");
+        PropertyType = type;
         oType = objectType;
         value = new Value();
+        if (type == Type.Enum) Set(0);
     }
 
     public VariableProperty(Type type, Type arrayType)
@@ -97,7 +98,7 @@ public class VariableProperty
 
     public System.Type GetObjectType()
     {
-        if (PropertyType != Type.Object) throw new InvalidOperationException("This property is not an object type.");
+        if (PropertyType != Type.Object && PropertyType != Type.Enum) throw new InvalidOperationException("This property is not an object/enum type.");
         return oType;
     }
 
@@ -122,7 +123,7 @@ public class VariableProperty
     public object[] GetArray()
     {
         if (PropertyType != Type.Array) throw new InvalidOperationException("This property is not an array type.");
-        
+
         VariablePropertyBase[] arr = value.a;
         if (arr == null) return new object[0];
 
@@ -185,6 +186,24 @@ public class VariableProperty
         }
     }
 
+    public int GetEnum()
+    {
+        if (PropertyType != Type.Enum) throw new InvalidOperationException("This property is not an enum type.");
+        return value.e;
+    }
+
+    public T GetEnum<T>() where T : Enum
+    {
+        if (PropertyType != Type.Enum) throw new InvalidOperationException("This property is not an enum type.");
+        return (T)Enum.ToObject(GetObjectType(), value.e);
+    }
+
+    public void Set(int value)
+    {
+        if (PropertyType != Type.Enum) throw new InvalidOperationException("This property is not an enum type.");
+        this.value.e = value;
+    }
+
     public enum Type
     {
         Boolean,
@@ -192,7 +211,8 @@ public class VariableProperty
         String,
         Object,
         Vector,
-        Array
+        Array,
+        Enum
     }
 
     [System.Serializable]
@@ -204,6 +224,7 @@ public class VariableProperty
         public UnityEngine.Object o;
         public Vector2 v;
         public VariablePropertyBase[] a;
+        public int e;
     }
 
     [System.Serializable]
