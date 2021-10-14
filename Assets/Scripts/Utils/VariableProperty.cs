@@ -14,8 +14,14 @@ public class VariableProperty
         private set => propertyType = value;
     }
 
+    [SerializeField] private string objectType;
+    public System.Type ObjectType
+    {
+        get => System.Type.GetType(objectType);
+        private set => objectType = value.AssemblyQualifiedName;
+    }
+
     [SerializeField] private Value value;
-    [SerializeField] private System.Type oType;
     [SerializeField] private Type aType;
 
     public VariableProperty(Type type)
@@ -28,10 +34,11 @@ public class VariableProperty
 
     public VariableProperty(Type type, System.Type objectType)
     {
-        if (type != Type.Object) Debug.LogError("ERROR: Attempting to use Object-based VariableProperty constructor with non-Object type!");
-        PropertyType = Type.Object;
-        oType = objectType;
+        if (type != Type.Object && type != Type.Enum) Debug.LogError("ERROR: Attempting to use Object/Enum-based VariableProperty constructor with non-Object/Enum type!");
+        PropertyType = type;
+        ObjectType = objectType;
         value = new Value();
+        if (type == Type.Enum) Set(0);
     }
 
     public VariableProperty(Type type, Type arrayType)
@@ -48,8 +55,9 @@ public class VariableProperty
     {
         if (type != Type.Array) Debug.LogError("ERROR: Attempting to use Array-based VariableProperty constructor with non-Array type!");
         if (arrayType == Type.Array) Debug.LogError("ERROR: VariableProperty Array type cannot have nested Arrays!");
-        PropertyType = Type.Array;
+        PropertyType = type;
         aType = arrayType;
+        ObjectType = objectType;
         value = new Value();
     }
 
@@ -95,12 +103,6 @@ public class VariableProperty
         return value.o;
     }
 
-    public System.Type GetObjectType()
-    {
-        if (PropertyType != Type.Object) throw new InvalidOperationException("This property is not an object type.");
-        return oType;
-    }
-
     public void Set(UnityEngine.Object value)
     {
         if (PropertyType != Type.Object) throw new InvalidOperationException("This property is not an object type.");
@@ -122,7 +124,7 @@ public class VariableProperty
     public object[] GetArray()
     {
         if (PropertyType != Type.Array) throw new InvalidOperationException("This property is not an array type.");
-        
+
         VariablePropertyBase[] arr = value.a;
         if (arr == null) return new object[0];
 
@@ -185,6 +187,24 @@ public class VariableProperty
         }
     }
 
+    public int GetEnum()
+    {
+        if (PropertyType != Type.Enum) throw new InvalidOperationException("This property is not an enum type.");
+        return value.e;
+    }
+
+    public T GetEnum<T>() where T : Enum
+    {
+        if (PropertyType != Type.Enum) throw new InvalidOperationException("This property is not an enum type.");
+        return (T)Enum.ToObject(ObjectType, value.e);
+    }
+
+    public void Set(int value)
+    {
+        if (PropertyType != Type.Enum) throw new InvalidOperationException("This property is not an enum type.");
+        this.value.e = value;
+    }
+
     public enum Type
     {
         Boolean,
@@ -192,7 +212,8 @@ public class VariableProperty
         String,
         Object,
         Vector,
-        Array
+        Array,
+        Enum
     }
 
     [System.Serializable]
@@ -204,6 +225,7 @@ public class VariableProperty
         public UnityEngine.Object o;
         public Vector2 v;
         public VariablePropertyBase[] a;
+        public int e;
     }
 
     [System.Serializable]
