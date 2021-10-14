@@ -25,6 +25,7 @@ MonoBehaviour:
         - name: target-entity-id
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -32,10 +33,12 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: index-destination
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -43,6 +46,7 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.GetDialogueIndexNode
       firstChildIndex: 2
@@ -52,6 +56,7 @@ MonoBehaviour:
         - name: source-property
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -59,10 +64,12 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: comparison-number
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
               n: 1
@@ -70,6 +77,7 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.EqualsNode
       firstChildIndex: 3
@@ -79,6 +87,7 @@ MonoBehaviour:
         - name: target-entity-id
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -86,10 +95,12 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: dialogue-index
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
               n: 0
@@ -97,6 +108,7 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SetDialogueIndexNode
       firstChildIndex: 4

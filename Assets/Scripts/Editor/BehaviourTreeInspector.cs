@@ -63,10 +63,16 @@ namespace BehaviourTree
                     property.Set(GUILayout.TextField(property.GetString()));
                     break;
                 case VariableProperty.Type.Object:
-                    property.Set(EditorGUILayout.ObjectField(property.GetObject(), property.GetObjectType(), true));
+                    property.Set(EditorGUILayout.ObjectField(property.GetObject(), property.ObjectType, true));
                     break;
                 case VariableProperty.Type.Vector:
                     property.Set(EditorGUILayout.Vector2Field("", property.GetVector()));
+                    break;
+                case VariableProperty.Type.Enum:
+                    System.Enum eVal = (System.Enum)System.Enum.ToObject(property.ObjectType, property.GetEnum());
+                    string sResult = EditorGUILayout.EnumPopup(eVal).ToString();
+                    int iResult = (int)System.Enum.Parse(property.ObjectType, sResult);
+                    property.Set(iResult);
                     break;
             }
 
@@ -145,7 +151,7 @@ namespace BehaviourTree
                             arr[i] = GUILayout.TextField((string)arr[i]);
                             break;
                         case VariableProperty.Type.Object:
-                            arr[i] = EditorGUILayout.ObjectField((Object)arr[i], property.GetObjectType(), true);
+                            arr[i] = EditorGUILayout.ObjectField((Object)arr[i], property.ObjectType, true);
                             break;
                         case VariableProperty.Type.Vector:
                             arr[i] = EditorGUILayout.Vector2Field("", (Vector2)arr[i]);

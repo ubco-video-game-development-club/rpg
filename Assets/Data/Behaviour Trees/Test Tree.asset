@@ -25,6 +25,7 @@ MonoBehaviour:
         - name: tag-name
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -32,10 +33,12 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: actor-destination
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -43,6 +46,7 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.FindActorByTagNode
       firstChildIndex: 2
@@ -52,6 +56,7 @@ MonoBehaviour:
         - name: actor-source
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -59,10 +64,12 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: position-destination
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -70,6 +77,7 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.GetActorPositionNode
       firstChildIndex: 3
@@ -89,6 +97,7 @@ MonoBehaviour:
         - name: range
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
               n: 3
@@ -96,10 +105,12 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: position-source
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -107,6 +118,7 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.RangeCheckNode
       firstChildIndex: 6
@@ -116,6 +128,7 @@ MonoBehaviour:
         - name: position-source
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -123,10 +136,12 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: stop-distance
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
               n: 1
@@ -134,10 +149,12 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: move-speed
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
               n: 2
@@ -145,6 +162,7 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SimpleMoveNode
       firstChildIndex: 7
@@ -174,6 +192,7 @@ MonoBehaviour:
         - name: property-name
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -181,6 +200,7 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.HasPropertyNode
       firstChildIndex: 12
@@ -190,6 +210,7 @@ MonoBehaviour:
         - name: origin-position
           property:
             propertyType: 4
+            objectType: 
             value:
               b: 0
               n: 0
@@ -197,10 +218,12 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 4, y: 5}
               a: []
+              e: 0
             aType: 0
         - name: max-distance
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
               n: 3
@@ -208,10 +231,12 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: position-destination
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -219,6 +244,7 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.GetRandomPositionNode
       firstChildIndex: 13
@@ -233,6 +259,7 @@ MonoBehaviour:
         - name: range
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
               n: 0.2
@@ -240,10 +267,12 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: position-source
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -251,6 +280,7 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.RangeCheckNode
       firstChildIndex: 15
@@ -260,6 +290,7 @@ MonoBehaviour:
         - name: origin-position
           property:
             propertyType: 4
+            objectType: 
             value:
               b: 0
               n: 0
@@ -267,10 +298,12 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 4, y: 5}
               a: []
+              e: 0
             aType: 0
         - name: max-distance
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
               n: 3
@@ -278,10 +311,12 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: position-destination
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -289,6 +324,7 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.GetRandomPositionNode
       firstChildIndex: 16
@@ -303,6 +339,7 @@ MonoBehaviour:
         - name: position-source
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -310,10 +347,12 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: stop-distance
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
               n: 0.1
@@ -321,10 +360,12 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: move-speed
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
               n: 0.8
@@ -332,6 +373,7 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SimpleMoveNode
       firstChildIndex: 18
