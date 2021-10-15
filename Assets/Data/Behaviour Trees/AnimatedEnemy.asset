@@ -40,13 +40,15 @@ MonoBehaviour:
         - name: property-name
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
-              s: target-pos
+              s: random-pos
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.HasPropertyNode
       firstChildIndex: 5
@@ -56,17 +58,20 @@ MonoBehaviour:
         - name: origin-position
           property:
             propertyType: 4
+            objectType: 
             value:
               b: 0
               n: 0
               s: 
               o: {fileID: 0}
-              v: {x: -2, y: -5}
+              v: {x: -2, y: -4.5}
               a: []
+              e: 0
             aType: 0
         - name: max-distance
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
               n: 0.1
@@ -74,17 +79,20 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: position-destination
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
-              s: target-pos
+              s: random-pos
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.GetRandomPositionNode
       firstChildIndex: 6
@@ -94,6 +102,7 @@ MonoBehaviour:
         - name: direction-destination
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -101,6 +110,7 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.GetMoveDirectionNode
       firstChildIndex: 7
@@ -110,6 +120,7 @@ MonoBehaviour:
         - name: vector-source
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -117,21 +128,26 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: axis-name
           property:
-            propertyType: 2
+            propertyType: 6
+            objectType: BehaviourTree.VectorAxis, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
             value:
               b: 0
               n: 0
-              s: x
+              s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: axis-destination
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -139,6 +155,7 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.GetVectorAxisNode
       firstChildIndex: 8
@@ -148,6 +165,7 @@ MonoBehaviour:
         - name: parameter-name
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -155,21 +173,26 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: parameter-type
           property:
-            propertyType: 2
+            propertyType: 6
+            objectType: BehaviourTree.AnimationParamType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
             value:
               b: 0
               n: 0
-              s: Int
+              s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: value-source
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
@@ -177,6 +200,7 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SetAnimParamNode
       firstChildIndex: 9
@@ -186,17 +210,20 @@ MonoBehaviour:
         - name: position-source
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
-              s: target-pos
+              s: random-pos
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: stop-distance
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
               n: 0.1
@@ -204,17 +231,20 @@ MonoBehaviour:
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         - name: move-speed
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
-              n: 1
+              n: 0.8
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SimpleMoveNode
       firstChildIndex: 10
