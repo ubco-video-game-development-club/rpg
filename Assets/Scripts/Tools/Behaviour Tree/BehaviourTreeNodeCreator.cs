@@ -12,6 +12,7 @@ namespace BehaviourTree
         HasPropertyNode,
         RangeCheckNode,
         FindActorByTagNode,
+        FindObjectByIdNode,
         GetActorPositionNode,
         GetRandomPositionNode,
         SimpleMoveNode,
@@ -41,6 +42,8 @@ namespace BehaviourTree
                     return new RangeCheckNode();
                 case BehaviourTreeNodeType.FindActorByTagNode:
                     return new FindActorByTagNode();
+                case BehaviourTreeNodeType.FindObjectByIdNode:
+                    return new FindObjectByIdNode();
                 case BehaviourTreeNodeType.GetActorPositionNode:
                     return new GetActorPositionNode();
                 case BehaviourTreeNodeType.GetRandomPositionNode:
