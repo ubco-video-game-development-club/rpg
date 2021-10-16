@@ -8,6 +8,7 @@ namespace RPG
     public class Actor : Entity
     {
         [SerializeField] private int initialMaxHealth;
+        [SerializeField] private Trait traits = 0;
 
         public int MaxHealth
         {
@@ -32,6 +33,11 @@ namespace RPG
             AddPropertyChangedListener<int>(PropertyName.MaxHealth, (maxHealth) => Health = maxHealth);
 
             MaxHealth = initialMaxHealth;
+        }
+
+        public bool HasTrait(Trait trait)
+        {
+            return (traits & trait) > 0;
         }
 
         public void TakeDamage(int damage)
