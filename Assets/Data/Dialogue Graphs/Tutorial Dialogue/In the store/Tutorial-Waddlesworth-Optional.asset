@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Speak to Mr.Waddlesworth
-    body: "I\u2019m not saying you should fight Jimmy but if you do I hope I don\u2019t
+    body: "I\u2019m not saying you should fight Jimmy. But, if you do, I hope I don\u2019t
       miss it."
     position: {x: -13, y: -97}
     moralsMod: 0

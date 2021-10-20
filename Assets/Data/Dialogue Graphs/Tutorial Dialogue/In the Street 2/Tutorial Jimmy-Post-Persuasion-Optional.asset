@@ -10,19 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1ac0479ced6a50409cc854a5b89a582, type: 3}
-  m_Name: Tutorial-Mum-Back-Home
+  m_Name: Tutorial Jimmy-Post-Persuasion-Optional
   m_EditorClassIdentifier: 
   nodes:
-  - name: Speak to Mum
-    body: Hey Hun, did you get the package for me?
-    position: {x: -75, y: -169}
+  - name: Speak to Lil Jimmy
+    body: If I'm being honest. I think you might pull that sweater off better than
+      I did.
+    position: {x: -200, y: 0}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
-    dialogueIndexOverrides:
-    - targetUniqueID: Mum
-      indexOverride: 5
+    dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
   transitions:
   - name: Transition
@@ -31,7 +30,7 @@ MonoBehaviour:
   exitNode:
     name: Exit
     body: 
-    position: {x: -75, y: -94}
+    position: {x: 200, y: 0}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0

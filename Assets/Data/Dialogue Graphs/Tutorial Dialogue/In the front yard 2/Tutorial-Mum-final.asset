@@ -23,7 +23,7 @@ MonoBehaviour:
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
   - name: ->
-    body: "I hope this bees didn\u2019t cause you too much trouble. They\u2019re
+    body: "I hope those bees didn\u2019t cause you too much trouble. They\u2019re
       so entitled sometimes."
     position: {x: -69, y: -99}
     moralsMod: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
   - name: ->
-    body: "Anyways! Let\u2019s get to the fun stuff down the street. I know this
+    body: "Anyways, let\u2019s get to the fun stuff down the street! I know this
       sunflower is gonna be a big hit! "
     position: {x: -73, y: -32}
     moralsMod: 0

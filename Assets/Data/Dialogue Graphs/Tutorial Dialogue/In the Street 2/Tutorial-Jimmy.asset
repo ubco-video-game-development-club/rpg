@@ -44,8 +44,10 @@ MonoBehaviour:
     sexinessMod: 0
     questNotes: []
     dialogueIndexOverrides:
+    - targetUniqueID: 
+      indexOverride: 3
     - targetUniqueID: Mum
-      indexOverride: 4
+      indexOverride: 3
     customBehaviour: {fileID: 0}
   - name: "~Intimidate~ I\u2019m pretty sure Id look better in those than you. Hand
       them over before you feel the wrath of my quackers, tappers and also flappers."
@@ -55,7 +57,9 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
-    dialogueIndexOverrides: []
+    dialogueIndexOverrides:
+    - targetUniqueID: 
+      indexOverride: 1
     customBehaviour: {fileID: 0}
   transitions:
   - name: Transition

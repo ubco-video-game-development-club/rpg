@@ -21,8 +21,10 @@ MonoBehaviour:
     sexinessMod: 0
     questNotes: []
     dialogueIndexOverrides:
+    - targetUniqueID: 
+      indexOverride: 2
     - targetUniqueID: Mum
-      indexOverride: 4
+      indexOverride: 3
     customBehaviour: {fileID: 0}
   transitions:
   - name: Transition

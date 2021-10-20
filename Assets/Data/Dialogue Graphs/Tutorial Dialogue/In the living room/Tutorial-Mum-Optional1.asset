@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Speak to Mum
-    body: "What are you still doing here! If you don\u2019t get to the shop in time
-      you\u2019re going to miss out on a surprise."
+    body: "What are you still doing here?! If you don\u2019t get to the shop in time
+      you\u2019re going to miss out on a surprise!"
     position: {x: -13, y: -97}
     moralsMod: 0
     leaningsMod: 0

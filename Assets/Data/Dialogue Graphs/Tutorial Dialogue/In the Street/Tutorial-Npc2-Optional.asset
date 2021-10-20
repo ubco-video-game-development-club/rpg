@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Talk to Griffin
-    body: 'My back is sore from all this lifting. I used my back like they said and
-      then did not pan out.
+    body: 'My back is so sore from all this lifting. I used my back like they said
+      to. But, that did not pan out.
 
 '
     position: {x: -13, y: -97}

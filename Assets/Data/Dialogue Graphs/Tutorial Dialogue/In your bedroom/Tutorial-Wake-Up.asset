@@ -33,8 +33,8 @@ MonoBehaviour:
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
   - name: ->
-    body: "You need to get to Mr.Waddleswoth\u2019s shop closes up. So you better
-      get there soon!"
+    body: "You need to get to Mr.Waddleswoth\u2019s shop before it closes up. So
+      you better get there soon!"
     position: {x: -26, y: 98}
     moralsMod: 0
     leaningsMod: 0

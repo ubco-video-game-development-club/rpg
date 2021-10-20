@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Speak to Mergo
-    body: "I can\u2019t believe the Recipe Day parade is back again. Seemed like
+    body: "I can\u2019t believe the Recipe Day parade is back again! Seemed like
       the last one just happened?"
     position: {x: -13, y: -97}
     moralsMod: 0

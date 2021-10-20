@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Talk to Kat
-    body: We are putting these barriers up today for the parade!
+    body: We are putting these barriers up today, for the parade!
     position: {x: -11, y: -97}
     moralsMod: 0
     leaningsMod: 0

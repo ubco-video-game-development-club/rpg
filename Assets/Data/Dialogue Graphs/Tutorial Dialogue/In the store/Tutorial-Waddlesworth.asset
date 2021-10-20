@@ -24,8 +24,8 @@ MonoBehaviour:
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
   - name: ->
-    body: "I have unfortunate news however. Last night there was a break in and someone
-      has taken your package\u2026"
+    body: "I have unfortunate news however. Last night there was a break in and somebody
+      has taken the package your Mum ordered\u2026"
     position: {x: 200, y: -162}
     moralsMod: 0
     leaningsMod: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
     customBehaviour: {fileID: 0}
   - name: ->
     body: "I\u2019m not sure if you are supposed to know this or not. But, the package
-      your Mum ordered had some new clothes for you."
+      your Mum ordered had in it, some new clothes for you."
     position: {x: 198, y: 29}
     moralsMod: 0
     leaningsMod: 0
@@ -64,8 +64,8 @@ MonoBehaviour:
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
   - name: ->
-    body: And I happened to see Lil Jimmy Beakington this morning in a sweater uncannily
-      similar to the one your Mum ordered.
+    body: And this morning, I happened to see Lil Jimmy Beakington wearing  a sweater
+      uncannily similar to the one your Mum had ordered.
     position: {x: 194, y: 98}
     moralsMod: 0
     leaningsMod: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
     customBehaviour: {fileID: 0}
   - name: ->
     body: "Now I\u2019m not saying you should go \u201CConfront Jimmy\u201D or \u201CCause
-      a scene\u201D however, I am saying I do love drama."
+      a scene.\u201D However, I am saying I do love drama."
     position: {x: -107, y: -94}
     moralsMod: 0
     leaningsMod: 0
@@ -84,9 +84,9 @@ MonoBehaviour:
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
   - name: ->
-    body: "Anyways, the bottom line is you can just go home and let your Mum know
-      she will be reimbursed. Or you can go be \u201Ccivil\u201D *wink* and talk
-      it out with Jimmy *wink*"
+    body: "Anyways, the bottom line is this. You can go home and let your Mum know
+      she will be reimbursed in due time. Or, you can go be \u201Ccivil\u201D *wink*
+      and \"talk it out\" with Jimmy. *wink*"
     position: {x: -125, y: -18}
     moralsMod: 0
     leaningsMod: 0
@@ -95,13 +95,13 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 9a9fcbf02cbfa5d49a04993c143be305, type: 2}
     dialogueIndexOverrides:
     - targetUniqueID: Mum
-      indexOverride: 3
+      indexOverride: 4
     - targetUniqueID: 
       indexOverride: 1
     customBehaviour: {fileID: 0}
   - name: I think I will go talk to Jimmy.
     body: "Well regardless of what you do I can\u2019t have you leave empty handed.
-      Not on Recipe Day. You are free to take a slingshot or this neat little sword
+      Not on Recipe Day! You are free to take a slingshot or this neat little sword
       that came in the other day. "
     position: {x: -264, y: 49}
     moralsMod: 0.1
@@ -112,7 +112,7 @@ MonoBehaviour:
     customBehaviour: {fileID: 0}
   - name: I will head home and let my Mum know what happened.
     body: "Well regardless of what you do I can\u2019t have you leave empty handed.
-      Not on Recipe Day. You are free to take a slingshot or this neat little sword
+      Not on Recipe Day! You are free to take a slingshot or this neat little sword
       that came in the other day. "
     position: {x: -16, y: 51}
     moralsMod: 0.1
@@ -122,7 +122,7 @@ MonoBehaviour:
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
   - name: ->
-    body: Whether you use them or not is up to you *wink*
+    body: Whether you use them or not is up to you. *wink*
     position: {x: -134, y: 118}
     moralsMod: 0
     leaningsMod: 0
