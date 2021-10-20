@@ -15,7 +15,7 @@ MonoBehaviour:
   nodes:
   - name: Speak to Lil Jimmy
     body: "Here you take it then if you want it so bad. I\u2019m out of here."
-    position: {x: -75, y: -169}
+    position: {x: -76, y: -172}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0

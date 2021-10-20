@@ -639,6 +639,7 @@ GameObject:
   - component: {fileID: 141597918}
   - component: {fileID: 141597917}
   - component: {fileID: 141597916}
+  - component: {fileID: 141597920}
   m_Layer: 8
   m_Name: Mum NPC
   m_TagString: Untagged
@@ -753,6 +754,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &141597920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141597915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc071df6b26c2c4682605f65e5c191c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: Mum
 --- !u!1 &174102886
 GameObject:
   m_ObjectHideFlags: 0
@@ -3684,8 +3698,8 @@ MonoBehaviour:
   characterName: QueenBee
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
   dialogueGraphs:
-  - {fileID: 11400000, guid: 0f47a4bdeaa57fb4cbb71798ddb17b3c, type: 2}
   - {fileID: 11400000, guid: b841a9376d1e11440948e5662caa909b, type: 2}
+  - {fileID: 11400000, guid: 0f47a4bdeaa57fb4cbb71798ddb17b3c, type: 2}
 --- !u!58 &1060987546
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -22,7 +22,7 @@ MonoBehaviour:
     sexinessMod: 0
     questNotes: []
     dialogueIndexOverrides:
-    - targetUniqueID: QueenBee
+    - targetUniqueID: 
       indexOverride: 1
     customBehaviour: {fileID: 0}
   - name: ->

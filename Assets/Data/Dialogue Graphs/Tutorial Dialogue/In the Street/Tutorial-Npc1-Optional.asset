@@ -15,7 +15,7 @@ MonoBehaviour:
   nodes:
   - name: Talk to Kat
     body: We are putting these barriers up today for the parade!
-    position: {x: -13, y: -97}
+    position: {x: -11, y: -97}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0

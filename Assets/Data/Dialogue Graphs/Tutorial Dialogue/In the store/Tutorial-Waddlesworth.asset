@@ -76,7 +76,7 @@ MonoBehaviour:
   - name: ->
     body: "Now I\u2019m not saying you should go \u201CConfront Jimmy\u201D or \u201CCause
       a scene\u201D however, I am saying I do love drama."
-    position: {x: -108, y: -93}
+    position: {x: -107, y: -94}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
@@ -87,7 +87,7 @@ MonoBehaviour:
     body: "Anyways, the bottom line is you can just go home and let your Mum know
       she will be reimbursed. Or you can go be \u201Ccivil\u201D *wink* and talk
       it out with Jimmy *wink*"
-    position: {x: -124, y: -17}
+    position: {x: -125, y: -18}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
@@ -96,14 +96,14 @@ MonoBehaviour:
     dialogueIndexOverrides:
     - targetUniqueID: Mum
       indexOverride: 3
-    - targetUniqueID: Waddlesworth
+    - targetUniqueID: 
       indexOverride: 1
     customBehaviour: {fileID: 0}
   - name: I think I will go talk to Jimmy.
     body: "Well regardless of what you do I can\u2019t have you leave empty handed.
       Not on Recipe Day. You are free to take a slingshot or this neat little sword
       that came in the other day. "
-    position: {x: -262, y: 50}
+    position: {x: -264, y: 49}
     moralsMod: 0.1
     leaningsMod: 0.05
     sexinessMod: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
     body: "Well regardless of what you do I can\u2019t have you leave empty handed.
       Not on Recipe Day. You are free to take a slingshot or this neat little sword
       that came in the other day. "
-    position: {x: -18, y: 52}
+    position: {x: -16, y: 51}
     moralsMod: 0.1
     leaningsMod: 0.1
     sexinessMod: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
     customBehaviour: {fileID: 0}
   - name: ->
     body: Whether you use them or not is up to you *wink*
-    position: {x: -129, y: 121}
+    position: {x: -134, y: 118}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
