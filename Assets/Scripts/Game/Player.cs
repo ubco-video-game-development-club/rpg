@@ -240,6 +240,7 @@ namespace RPG
                 StartCoroutine(AttackCooldown(attack));
 
                 UpdateAttackAnimations(attack);
+                attackData.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 attackData.origin = transform.position;
                 attack.Invoke(attackData);
             }
