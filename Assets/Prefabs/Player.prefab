@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5389251662664734668}
   - component: {fileID: 5389251662664734667}
   - component: {fileID: 5389251662664734670}
-  - component: {fileID: 5389251662664734671}
+  - component: {fileID: 7304593468949281675}
   - component: {fileID: 5389251662664734669}
   m_Layer: 6
   m_Name: Player
@@ -144,7 +144,7 @@ Animator:
   m_GameObject: {fileID: 5389251662664734664}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 27483261c7cd7a5449e287c1662a91be, type: 2}
+  m_Controller: {fileID: 9100000, guid: d3af1bb34e9ffb044886be104dc98f2f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -153,7 +153,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5389251662664734671
+--- !u!114 &7304593468949281675
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5389251662664734664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59b8aef35e8c9d948bd5f52d4869abfe, type: 3}
+  m_Script: {fileID: 11500000, guid: 3841cfd75fe64b8498769758ea31c7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &5389251662664734669
@@ -187,3 +187,30 @@ MonoBehaviour:
   interactLayer:
     serializedVersion: 2
     m_Bits: 256
+  idleAnimations:
+    bottom: {fileID: 7400000, guid: 29c6110d28c34154ab1c2b365c5fc25e, type: 2}
+    bottomLeft: {fileID: 7400000, guid: d9f57774bdd62624385ad159ae1afd32, type: 2}
+    bottomRight: {fileID: 7400000, guid: 57d130c518c02b54fbd3a0306fb3f366, type: 2}
+    left: {fileID: 7400000, guid: 69baf1e8402461e4a83758a535fa70ae, type: 2}
+    right: {fileID: 7400000, guid: 18d6fb876b5667849b228db4c3fb6365, type: 2}
+    top: {fileID: 7400000, guid: 04aba8569a8477e409d4d60aae56f0dd, type: 2}
+    topLeft: {fileID: 7400000, guid: e3aef5fab3cd1a047a958f8643169511, type: 2}
+    topRight: {fileID: 7400000, guid: 6c70a5bf76fa3764c93fa1f2cb210090, type: 2}
+  moveAnimations:
+    bottom: {fileID: 7400000, guid: 1da28aaa94d0b6b4b97a14742946486f, type: 2}
+    bottomLeft: {fileID: 7400000, guid: 2520fb8e1af07fc45bb86099189a198c, type: 2}
+    bottomRight: {fileID: 7400000, guid: 10b0169a78683dd4eb117cdd82e5e949, type: 2}
+    left: {fileID: 7400000, guid: 68ec9fcc5a3804d4189a855a0662b350, type: 2}
+    right: {fileID: 7400000, guid: 61b1895aa028a8a439321636f09a0a13, type: 2}
+    top: {fileID: 7400000, guid: 77214dc791cb9134899aafe1d0b4138f, type: 2}
+    topLeft: {fileID: 7400000, guid: 4aa4c71a374ecbf4c80f47abd8b3f7b9, type: 2}
+    topRight: {fileID: 7400000, guid: e76297a54015d4a4698802199e88b5cc, type: 2}
+  attackAnimations:
+    bottom: {fileID: 7400000, guid: e94a24cdd9d033b4b9241c2e071ac876, type: 2}
+    bottomLeft: {fileID: 7400000, guid: 58b21099642f566459dc7ca13f2bbd02, type: 2}
+    bottomRight: {fileID: 7400000, guid: dc961961d5c63034a9e8614b69856605, type: 2}
+    left: {fileID: 7400000, guid: 3d5bac2b2202e0346b5823228d449eb0, type: 2}
+    right: {fileID: 7400000, guid: 967d52dfead2079448f83daec5e924e7, type: 2}
+    top: {fileID: 7400000, guid: 6f5bd466240d18542ae07b737c568f6c, type: 2}
+    topLeft: {fileID: 7400000, guid: 4463dc4edca3f044898a7f0767c51bad, type: 2}
+    topRight: {fileID: 7400000, guid: 8d6aff05c0f187747b037052e3b7ba0b, type: 2}

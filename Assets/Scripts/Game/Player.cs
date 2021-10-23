@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using RPG.Animation;
 
 namespace RPG
 {
@@ -11,11 +12,11 @@ namespace RPG
         public Action ability;
     }
 
-    [RequireComponent(typeof(AnimatorCache))]
     public class Player : Actor
     {
-        public const float GLOBAL_COOLDOWN = 0.5f;
-        private const float ANIM_LOCK_DURATION = 0.05f;
+        private const float GLOBAL_COOLDOWN = 0.5f;
+        private const float ANIM_LOCK_DURATION = 0.08f;
+        private const float ATTACK_ANGLE_THRESHOLD = 0.45f;
         private const int MAX_ABILITY_SLOTS = 4;
         private const int MAX_INTERACT_TARGETS = 5;
 
@@ -24,9 +25,11 @@ namespace RPG
         [SerializeField] private Action defaultSecondaryAttack;
         [SerializeField] private float interactRadius;
         [SerializeField] private LayerMask interactLayer;
+        [SerializeField] private AnimationSet8D idleAnimations;
+        [SerializeField] private AnimationSet8D moveAnimations;
+        [SerializeField] private AnimationSet8D attackAnimations;
 
         public ClassBaseStats ClassBaseStats { get; private set; }
-        public RuntimeAnimatorController BaseAnimationController { get; private set; }
 
         private List<Action> availableAbilities;
         private AbilitySlot[] abilitySlots;
@@ -37,6 +40,7 @@ namespace RPG
         private bool isGCDActive;
         private bool isAnimLocked;
         private Vector3 prevFramePosition;
+        private Vector2Int facingDirection;
         private ActionData attackData;
         private Collider2D[] interactTargets = new Collider2D[MAX_INTERACT_TARGETS];
         private int numInteractTargets = 0;
@@ -45,8 +49,7 @@ namespace RPG
         private YieldInstruction animLockInstruction;
         private YieldInstruction globalCooldownInstruction;
 
-        private Animator animator;
-        private AnimatorCache animatorCache;
+        private Animator2D animator2D;
         private new Rigidbody2D rigidbody2D;
 
         private UnityEvent<Vector2> onPositionChanged = new UnityEvent<Vector2>();
@@ -55,13 +58,11 @@ namespace RPG
         {
             base.Awake();
 
-            animator = GetComponent<Animator>();
-            animatorCache = GetComponent<AnimatorCache>();
+            animator2D = GetComponent<Animator2D>();
             rigidbody2D = GetComponent<Rigidbody2D>();
 
             animLockInstruction = new WaitForSeconds(ANIM_LOCK_DURATION);
             globalCooldownInstruction = new WaitForSeconds(GLOBAL_COOLDOWN);
-            BaseAnimationController = animator.runtimeAnimatorController;
 
             availableAbilities = new List<Action>();
             abilitySlots = new AbilitySlot[MAX_ABILITY_SLOTS];
@@ -81,6 +82,7 @@ namespace RPG
             secondaryAttack.Enabled = true;
 
             attackData = new ActionData(LayerMask.GetMask("Enemy"));
+            facingDirection = Vector2Int.right;
         }
 
         void OnGUI()
@@ -147,12 +149,13 @@ namespace RPG
             float inputV = Input.GetAxisRaw("Vertical");
             Vector2 inputDir = new Vector2(inputH, inputV).normalized;
 
-            if (inputH != 0 || inputV != 0) UpdateMoveAnimations(inputH, inputV);
-
-            if (transform.position != prevFramePosition) onPositionChanged.Invoke(transform.position);
-
+            // Update position
             prevFramePosition = transform.position;
             rigidbody2D.velocity = inputDir * moveSpeed;
+            if (transform.position != prevFramePosition) onPositionChanged.Invoke(transform.position);
+
+            // Update move animations
+            UpdateMoveAnimations();
 
             // Update interaction
             UpdateInteractions();
@@ -217,12 +220,17 @@ namespace RPG
             }
         }
 
-        public void ClearAnimationOverrides()
+        private void HandleAttackInput(string button, Action attack)
         {
-            // Clear any animator overrides caused by the current action
-            animatorCache.CacheParameters();
-            animator.runtimeAnimatorController = BaseAnimationController;
-            animatorCache.RestoreParameters();
+            if (!isGCDActive && attack.Enabled && Input.GetButton(button))
+            {
+                StartCoroutine(GlobalCooldown());
+                StartCoroutine(AttackCooldown(attack));
+
+                UpdateAttackAnimations();
+                attackData.origin = transform.position;
+                attack.Invoke(attackData);
+            }
         }
 
         private IEnumerator GlobalCooldown()
@@ -232,50 +240,11 @@ namespace RPG
             isGCDActive = false;
         }
 
-        private void HandleAttackInput(string button, Action attack)
-        {
-            if (!isGCDActive && attack.Enabled && Input.GetButton(button))
-            {
-                StartCoroutine(GlobalCooldown());
-                StartCoroutine(AttackCooldown(attack));
-
-                UpdateAttackAnimations(attack);
-                attackData.origin = transform.position;
-                attack.Invoke(attackData);
-            }
-        }
-
-        private void UpdateAttackAnimations(Action attack)
-        {
-            // Temporarily override the player's animation controller with this attack's controller
-            animator.runtimeAnimatorController = attack.AnimationController;
-
-            // Update animator parameters
-            Vector2 mouseDir = GetMouseDirection();
-            float xWeight = Mathf.Round(mouseDir.x);
-            float yWeight = Mathf.Round(mouseDir.y);
-            animator.SetFloat("hSpeed", xWeight);
-            animator.SetFloat("vSpeed", yWeight);
-            animator.SetFloat("hDirection", xWeight);
-            animator.SetFloat("vDirection", yWeight);
-            animator.SetTrigger("attack");
-        }
-
         private IEnumerator AttackCooldown(Action attack)
         {
             attack.Enabled = false;
             yield return new WaitForSeconds(attack.Cooldown);
             attack.Enabled = true;
-        }
-
-        private void UpdateMoveAnimations(float inputH, float inputV)
-        {
-            if (!isAnimLocked)
-            {
-                StartCoroutine(AnimationLock());
-                animator.SetFloat("hSpeed", inputH);
-                animator.SetFloat("vSpeed", inputV);
-            }
         }
 
         private IEnumerator AnimationLock()
@@ -285,10 +254,47 @@ namespace RPG
             isAnimLocked = false;
         }
 
-        private Vector2 GetMouseDirection()
+        private void UpdateAttackAnimations()
         {
-            Vector2 mouseVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            return mouseVector.normalized;
+            StartCoroutine(AnimationLock());
+            facingDirection = GetAttackDirection();
+            animator2D.PlayAnimation(attackAnimations.Get(facingDirection), false);
+        }
+
+        private void UpdateMoveAnimations()
+        {
+            Vector2Int moveDir = GetMoveDirection();
+            if (moveDir != Vector2.zero)
+            {
+                if (!isAnimLocked)
+                {
+                    StartCoroutine(AnimationLock());
+                    facingDirection = moveDir;
+                    animator2D.PlayAnimation(moveAnimations.Get(facingDirection), true);
+                }
+            }
+            else
+            {
+                animator2D.PlayAnimation(idleAnimations.Get(facingDirection), true);
+            }
+        }
+
+        private Vector2Int GetMoveDirection()
+        {
+            int dirX = MathUtils.Sign(rigidbody2D.velocity.x);
+            int dirY = MathUtils.Sign(rigidbody2D.velocity.y);
+            return new Vector2Int(dirX, dirY);
+        }
+
+        private Vector2Int GetAttackDirection()
+        {
+            Vector2 mouseDiff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            float angle = Vector2.SignedAngle(Vector2.right, mouseDiff) * Mathf.Deg2Rad;
+            float x = Mathf.Cos(angle);
+            float y = Mathf.Sin(angle);
+            int dirX = x > ATTACK_ANGLE_THRESHOLD ? 1 : x < -ATTACK_ANGLE_THRESHOLD ? -1 : 0;
+            int dirY = y > ATTACK_ANGLE_THRESHOLD ? 1 : y < -ATTACK_ANGLE_THRESHOLD ? -1 : 0;
+            return new Vector2Int(dirX, dirY);
         }
 
         private void UpdateInteractions()
