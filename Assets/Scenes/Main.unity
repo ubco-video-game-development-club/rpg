@@ -1159,6 +1159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialMaxHealth: 10
+  actions: []
   flashDuration: 0.15
 --- !u!61 &357008712
 BoxCollider2D:
@@ -1307,6 +1308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialMaxHealth: 10
+  actions: []
   flashDuration: 0.15
 --- !u!61 &468670151
 BoxCollider2D:
@@ -2073,6 +2075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialMaxHealth: 10
+  actions: []
   flashDuration: 0.15
 --- !u!61 &624982965
 BoxCollider2D:
@@ -2834,6 +2837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialMaxHealth: 10
+  actions: []
   flashDuration: 0.15
 --- !u!61 &934195512
 BoxCollider2D:
@@ -4202,6 +4206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialMaxHealth: 10
+  actions: []
   flashDuration: 0.15
 --- !u!1 &1226771120
 GameObject:
@@ -7648,6 +7653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialMaxHealth: 10
+  actions: []
   flashDuration: 0.15
 --- !u!61 &2036185236
 BoxCollider2D:

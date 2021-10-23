@@ -149,4 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialMaxHealth: 15
+  actions:
+  - {fileID: 11400000, guid: cd54c1a41bfdb6745b6a33c7b765967e, type: 2}
   flashDuration: 0.2
