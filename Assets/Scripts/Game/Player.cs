@@ -21,6 +21,7 @@ namespace RPG
         private const int MAX_INTERACT_TARGETS = 5;
 
         [SerializeField] private float moveSpeed = 1f;
+        [SerializeField] private Animator2D weaponAnimator2D;
         [SerializeField] private Weapon defaultPrimaryWeapon;
         [SerializeField] private Weapon defaultSecondaryWeapon;
         [SerializeField] private float interactRadius;
@@ -272,6 +273,7 @@ namespace RPG
             StartCoroutine(AnimationLock());
             facingDirection = GetAttackDirection();
             animator2D.PlayAnimation(actionAnimation.AvatarAnimation.Get(facingDirection), false);
+            weaponAnimator2D.PlayAnimation(actionAnimation.WeaponAnimation.Get(facingDirection), false, true);
         }
 
         private void UpdateMoveAnimations()
