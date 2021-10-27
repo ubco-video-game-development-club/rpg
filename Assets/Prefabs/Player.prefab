@@ -179,38 +179,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialMaxHealth: 20
   moveSpeed: 3
-  defaultPrimaryAttack: {fileID: 11400000, guid: 4d1447551f2358e4daa2b17559943383,
+  defaultPrimaryWeapon: {fileID: 11400000, guid: e93cb9a67234a314d82e25e67a31ee2b,
     type: 2}
-  defaultSecondaryAttack: {fileID: 11400000, guid: 7e64fbbdb1b264e4891830e666029fd6,
+  defaultSecondaryWeapon: {fileID: 11400000, guid: 3405a42b8f465c6419e86f2ffb0e89f4,
     type: 2}
   interactRadius: 1
   interactLayer:
     serializedVersion: 2
     m_Bits: 256
-  idleAnimations:
-    bottom: {fileID: 7400000, guid: 29c6110d28c34154ab1c2b365c5fc25e, type: 2}
-    bottomLeft: {fileID: 7400000, guid: d9f57774bdd62624385ad159ae1afd32, type: 2}
-    bottomRight: {fileID: 7400000, guid: 57d130c518c02b54fbd3a0306fb3f366, type: 2}
-    left: {fileID: 7400000, guid: 69baf1e8402461e4a83758a535fa70ae, type: 2}
-    right: {fileID: 7400000, guid: 18d6fb876b5667849b228db4c3fb6365, type: 2}
-    top: {fileID: 7400000, guid: 04aba8569a8477e409d4d60aae56f0dd, type: 2}
-    topLeft: {fileID: 7400000, guid: e3aef5fab3cd1a047a958f8643169511, type: 2}
-    topRight: {fileID: 7400000, guid: 6c70a5bf76fa3764c93fa1f2cb210090, type: 2}
-  moveAnimations:
-    bottom: {fileID: 7400000, guid: 1da28aaa94d0b6b4b97a14742946486f, type: 2}
-    bottomLeft: {fileID: 7400000, guid: 2520fb8e1af07fc45bb86099189a198c, type: 2}
-    bottomRight: {fileID: 7400000, guid: 10b0169a78683dd4eb117cdd82e5e949, type: 2}
-    left: {fileID: 7400000, guid: 68ec9fcc5a3804d4189a855a0662b350, type: 2}
-    right: {fileID: 7400000, guid: 61b1895aa028a8a439321636f09a0a13, type: 2}
-    top: {fileID: 7400000, guid: 77214dc791cb9134899aafe1d0b4138f, type: 2}
-    topLeft: {fileID: 7400000, guid: 4aa4c71a374ecbf4c80f47abd8b3f7b9, type: 2}
-    topRight: {fileID: 7400000, guid: e76297a54015d4a4698802199e88b5cc, type: 2}
-  attackAnimations:
-    bottom: {fileID: 7400000, guid: e94a24cdd9d033b4b9241c2e071ac876, type: 2}
-    bottomLeft: {fileID: 7400000, guid: 58b21099642f566459dc7ca13f2bbd02, type: 2}
-    bottomRight: {fileID: 7400000, guid: dc961961d5c63034a9e8614b69856605, type: 2}
-    left: {fileID: 7400000, guid: 3d5bac2b2202e0346b5823228d449eb0, type: 2}
-    right: {fileID: 7400000, guid: 967d52dfead2079448f83daec5e924e7, type: 2}
-    top: {fileID: 7400000, guid: 6f5bd466240d18542ae07b737c568f6c, type: 2}
-    topLeft: {fileID: 7400000, guid: 4463dc4edca3f044898a7f0767c51bad, type: 2}
-    topRight: {fileID: 7400000, guid: 8d6aff05c0f187747b037052e3b7ba0b, type: 2}
+  idleAnimations: {fileID: 11400000, guid: ab2732c9ce2543244ae7f2afb3cdf3c2, type: 2}
+  moveAnimations: {fileID: 11400000, guid: c8e1499bd9535f747acacebd995f7220, type: 2}

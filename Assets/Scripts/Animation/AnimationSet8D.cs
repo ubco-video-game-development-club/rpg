@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace RPG.Animation
 {
-    [System.Serializable]
-    public class AnimationSet8D
+    [CreateAssetMenu(fileName = "New AnimationSet8D", menuName = "AnimationSet8D", order = 400)]
+    public class AnimationSet8D : ScriptableObject
     {
         [SerializeField] private AnimationClip bottom;
         [SerializeField] private AnimationClip bottomLeft;

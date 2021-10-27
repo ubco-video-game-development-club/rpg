@@ -21,27 +21,27 @@ namespace RPG
         private const int MAX_INTERACT_TARGETS = 5;
 
         [SerializeField] private float moveSpeed = 1f;
-        [SerializeField] private Action defaultPrimaryAttack;
-        [SerializeField] private Action defaultSecondaryAttack;
+        [SerializeField] private Weapon defaultPrimaryWeapon;
+        [SerializeField] private Weapon defaultSecondaryWeapon;
         [SerializeField] private float interactRadius;
         [SerializeField] private LayerMask interactLayer;
         [SerializeField] private AnimationSet8D idleAnimations;
         [SerializeField] private AnimationSet8D moveAnimations;
-        [SerializeField] private AnimationSet8D attackAnimations;
 
         public ClassBaseStats ClassBaseStats { get; private set; }
 
         private List<Action> availableAbilities;
         private AbilitySlot[] abilitySlots;
         private Dictionary<ItemSlot, Item> equipment;
-        private Action primaryAttack;
-        private Action secondaryAttack;
+
+        private Weapon PrimaryWeapon { get => ((Weapon)equipment[ItemSlot.Mainhand]); }
+        private Weapon SecondaryWeapon { get => ((Weapon)equipment[ItemSlot.Offhand]); }
 
         private bool isGCDActive;
         private bool isAnimLocked;
         private Vector3 prevFramePosition;
         private Vector2Int facingDirection;
-        private ActionData attackData;
+        private ActionData actionData;
         private Collider2D[] interactTargets = new Collider2D[MAX_INTERACT_TARGETS];
         private int numInteractTargets = 0;
         private Interactable targetInteractable;
@@ -75,13 +75,10 @@ namespace RPG
             {
                 equipment.Add(slot, null);
             }
-            primaryAttack = defaultPrimaryAttack;
-            secondaryAttack = defaultSecondaryAttack;
+            Equip(ItemSlot.Mainhand, defaultPrimaryWeapon);
+            Equip(ItemSlot.Offhand, defaultSecondaryWeapon);
 
-            primaryAttack.Enabled = true;
-            secondaryAttack.Enabled = true;
-
-            attackData = new ActionData(LayerMask.GetMask("Enemy"));
+            actionData = new ActionData(LayerMask.GetMask("Enemy"));
             facingDirection = Vector2Int.right;
         }
 
@@ -168,14 +165,14 @@ namespace RPG
             if (isGCDActive) return;
 
             // Handle attack inputs
-            HandleAttackInput("Primary", primaryAttack);
-            HandleAttackInput("Secondary", secondaryAttack);
+            HandleActionInput("Primary", PrimaryWeapon.Attack);
+            HandleActionInput("Secondary", SecondaryWeapon.Attack);
 
             for (int i = 0; i < MAX_ABILITY_SLOTS; i++)
             {
                 if (abilitySlots[i].enabled)
                 {
-                    HandleAttackInput($"Ability{i + 1}", abilitySlots[i].ability);
+                    HandleActionInput($"Ability{i + 1}", abilitySlots[i].ability);
                 }
             }
         }
@@ -193,44 +190,60 @@ namespace RPG
 
         public void Equip(ItemSlot slot, Item item)
         {
-            if (equipment[slot] != null)
+            if (equipment[slot] != null && slot != ItemSlot.Mainhand && slot != ItemSlot.Offhand)
             {
                 UnEquip(slot);
             }
             equipment[slot] = item;
             item.ApplyTo(this);
 
-            if (slot == ItemSlot.Mainhand)
+            switch (slot)
             {
-                Weapon weapon = (Weapon)item;
-                primaryAttack = weapon.Attack;
-                primaryAttack.Enabled = true;
+                case ItemSlot.Mainhand:
+                case ItemSlot.Offhand:
+                    Weapon weapon = (Weapon)item;
+                    weapon.Attack.Enabled = true;
+                    break;
             }
         }
 
         public void UnEquip(ItemSlot slot)
         {
             equipment[slot].RemoveFrom(this);
+            equipment[slot].Drop(transform.position);
             equipment[slot] = null;
 
-            if (slot == ItemSlot.Mainhand)
+            switch (slot)
             {
-                primaryAttack = defaultPrimaryAttack;
-                primaryAttack.Enabled = true;
+                case ItemSlot.Mainhand:
+                    Equip(ItemSlot.Mainhand, defaultPrimaryWeapon);
+                    break;
+                case ItemSlot.Offhand:
+                    Equip(ItemSlot.Offhand, defaultSecondaryWeapon);
+                    break;
             }
         }
 
-        private void HandleAttackInput(string button, Action attack)
+        private bool HandleActionInput(string button, Action action)
         {
-            if (!isGCDActive && attack.Enabled && Input.GetButton(button))
+            if (!isGCDActive && action.Enabled && Input.GetButtonDown(button))
             {
                 StartCoroutine(GlobalCooldown());
-                StartCoroutine(AttackCooldown(attack));
+                StartCoroutine(ActionCooldown(action));
 
-                UpdateAttackAnimations();
-                attackData.origin = transform.position;
-                attack.Invoke(attackData);
+                ActionAnimation actionAnimation = action.Animation;
+                if (action.UseWeaponAnimation)
+                {
+                    actionAnimation = PrimaryWeapon.GetAnimation(action.AnimationType);
+                }
+                UpdateActionAnimations(actionAnimation);
+
+                actionData.origin = transform.position;
+                action.Invoke(actionData);
+
+                return true;
             }
+            return false;
         }
 
         private IEnumerator GlobalCooldown()
@@ -240,7 +253,7 @@ namespace RPG
             isGCDActive = false;
         }
 
-        private IEnumerator AttackCooldown(Action attack)
+        private IEnumerator ActionCooldown(Action attack)
         {
             attack.Enabled = false;
             yield return new WaitForSeconds(attack.Cooldown);
@@ -254,11 +267,11 @@ namespace RPG
             isAnimLocked = false;
         }
 
-        private void UpdateAttackAnimations()
+        private void UpdateActionAnimations(ActionAnimation actionAnimation)
         {
             StartCoroutine(AnimationLock());
             facingDirection = GetAttackDirection();
-            animator2D.PlayAnimation(attackAnimations.Get(facingDirection), false);
+            animator2D.PlayAnimation(actionAnimation.AvatarAnimation.Get(facingDirection), false);
         }
 
         private void UpdateMoveAnimations()
