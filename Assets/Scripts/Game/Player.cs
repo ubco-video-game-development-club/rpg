@@ -239,6 +239,7 @@ namespace RPG
                 }
                 UpdateActionAnimations(actionAnimation);
 
+                actionData.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 actionData.origin = transform.position;
                 action.Invoke(actionData);
 

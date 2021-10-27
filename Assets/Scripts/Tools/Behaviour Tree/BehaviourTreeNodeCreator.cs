@@ -16,6 +16,8 @@ namespace BehaviourTree
         GetActorPositionNode,
         GetRandomPositionNode,
         SimpleMoveNode,
+        SetActionTargetNode,
+        InvokeActionNode,
         GetDialogueIndexNode,
         SetDialogueIndexNode
     }
@@ -50,6 +52,10 @@ namespace BehaviourTree
                     return new GetRandomPositionNode();
                 case BehaviourTreeNodeType.SimpleMoveNode:
                     return new SimpleMoveNode();
+                case BehaviourTreeNodeType.SetActionTargetNode:
+                    return new SetActionTargetNode();
+                case BehaviourTreeNodeType.InvokeActionNode:
+                    return new InvokeActionNode();
                 case BehaviourTreeNodeType.GetDialogueIndexNode:
                     return new GetDialogueIndexNode();
                 case BehaviourTreeNodeType.SetDialogueIndexNode:

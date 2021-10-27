@@ -13,9 +13,8 @@ namespace RPG
 
         public override void Invoke(ActionData data)
         {
-            // Calculate direction based on mouse position
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 attackDir = (mousePos - data.origin).normalized;
+            // Calculate direction based on target
+            Vector2 attackDir = (data.target - data.origin).normalized;
 
             // Check all colliders within the reach
             Collider2D[] hits = Physics2D.OverlapCircleAll(data.origin, reach, data.targetMask);
