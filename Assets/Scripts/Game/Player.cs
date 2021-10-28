@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using RPG.Animation;
 
 namespace RPG
 {
@@ -11,33 +12,37 @@ namespace RPG
         public Action ability;
     }
 
-    [RequireComponent(typeof(AnimatorCache))]
     public class Player : Actor
     {
-        public const float GLOBAL_COOLDOWN = 0.5f;
-        private const float ANIM_LOCK_DURATION = 0.05f;
+        private const float GLOBAL_COOLDOWN = 0.5f;
+        private const float ANIM_LOCK_DURATION = 0.08f;
+        private const float ATTACK_ANGLE_THRESHOLD = 0.45f;
         private const int MAX_ABILITY_SLOTS = 4;
         private const int MAX_INTERACT_TARGETS = 5;
 
         [SerializeField] private float moveSpeed = 1f;
-        [SerializeField] private Action defaultPrimaryAttack;
-        [SerializeField] private Action defaultSecondaryAttack;
+        [SerializeField] private Animator2D weaponAnimator2D;
+        [SerializeField] private Weapon defaultPrimaryWeapon;
+        [SerializeField] private Weapon defaultSecondaryWeapon;
         [SerializeField] private float interactRadius;
         [SerializeField] private LayerMask interactLayer;
+        [SerializeField] private AnimationSet8D idleAnimations;
+        [SerializeField] private AnimationSet8D moveAnimations;
 
         public ClassBaseStats ClassBaseStats { get; private set; }
-        public RuntimeAnimatorController BaseAnimationController { get; private set; }
 
         private List<Action> availableAbilities;
         private AbilitySlot[] abilitySlots;
         private Dictionary<ItemSlot, Item> equipment;
-        private Action primaryAttack;
-        private Action secondaryAttack;
+
+        private Weapon PrimaryWeapon { get => ((Weapon)equipment[ItemSlot.Mainhand]); }
+        private Weapon SecondaryWeapon { get => ((Weapon)equipment[ItemSlot.Offhand]); }
 
         private bool isGCDActive;
         private bool isAnimLocked;
         private Vector3 prevFramePosition;
-        private ActionData attackData;
+        private Vector2Int facingDirection;
+        private ActionData actionData;
         private Collider2D[] interactTargets = new Collider2D[MAX_INTERACT_TARGETS];
         private int numInteractTargets = 0;
         private Interactable targetInteractable;
@@ -45,8 +50,7 @@ namespace RPG
         private YieldInstruction animLockInstruction;
         private YieldInstruction globalCooldownInstruction;
 
-        private Animator animator;
-        private AnimatorCache animatorCache;
+        private Animator2D animator2D;
         private new Rigidbody2D rigidbody2D;
 
         private UnityEvent<Vector2> onPositionChanged = new UnityEvent<Vector2>();
@@ -55,13 +59,11 @@ namespace RPG
         {
             base.Awake();
 
-            animator = GetComponent<Animator>();
-            animatorCache = GetComponent<AnimatorCache>();
+            animator2D = GetComponent<Animator2D>();
             rigidbody2D = GetComponent<Rigidbody2D>();
 
             animLockInstruction = new WaitForSeconds(ANIM_LOCK_DURATION);
             globalCooldownInstruction = new WaitForSeconds(GLOBAL_COOLDOWN);
-            BaseAnimationController = animator.runtimeAnimatorController;
 
             availableAbilities = new List<Action>();
             abilitySlots = new AbilitySlot[MAX_ABILITY_SLOTS];
@@ -74,13 +76,11 @@ namespace RPG
             {
                 equipment.Add(slot, null);
             }
-            primaryAttack = defaultPrimaryAttack;
-            secondaryAttack = defaultSecondaryAttack;
+            Equip(ItemSlot.Mainhand, defaultPrimaryWeapon);
+            Equip(ItemSlot.Offhand, defaultSecondaryWeapon);
 
-            primaryAttack.Enabled = true;
-            secondaryAttack.Enabled = true;
-
-            attackData = new ActionData(LayerMask.GetMask("Enemy"));
+            actionData = new ActionData(LayerMask.GetMask("Enemy"));
+            facingDirection = Vector2Int.right;
         }
 
         void OnGUI()
@@ -147,12 +147,13 @@ namespace RPG
             float inputV = Input.GetAxisRaw("Vertical");
             Vector2 inputDir = new Vector2(inputH, inputV).normalized;
 
-            if (inputH != 0 || inputV != 0) UpdateMoveAnimations(inputH, inputV);
-
-            if (transform.position != prevFramePosition) onPositionChanged.Invoke(transform.position);
-
+            // Update position
             prevFramePosition = transform.position;
             rigidbody2D.velocity = inputDir * moveSpeed;
+            if (transform.position != prevFramePosition) onPositionChanged.Invoke(transform.position);
+
+            // Update move animations
+            UpdateMoveAnimations();
 
             // Update interaction
             UpdateInteractions();
@@ -165,14 +166,14 @@ namespace RPG
             if (isGCDActive) return;
 
             // Handle attack inputs
-            HandleAttackInput("Primary", primaryAttack);
-            HandleAttackInput("Secondary", secondaryAttack);
+            HandleActionInput("Primary", PrimaryWeapon.Attack);
+            HandleActionInput("Secondary", SecondaryWeapon.Attack);
 
             for (int i = 0; i < MAX_ABILITY_SLOTS; i++)
             {
                 if (abilitySlots[i].enabled)
                 {
-                    HandleAttackInput($"Ability{i + 1}", abilitySlots[i].ability);
+                    HandleActionInput($"Ability{i + 1}", abilitySlots[i].ability);
                 }
             }
         }
@@ -190,39 +191,61 @@ namespace RPG
 
         public void Equip(ItemSlot slot, Item item)
         {
-            if (equipment[slot] != null)
+            if (equipment[slot] != null && slot != ItemSlot.Mainhand && slot != ItemSlot.Offhand)
             {
                 UnEquip(slot);
             }
             equipment[slot] = item;
             item.ApplyTo(this);
 
-            if (slot == ItemSlot.Mainhand)
+            switch (slot)
             {
-                Weapon weapon = (Weapon)item;
-                primaryAttack = weapon.Attack;
-                primaryAttack.Enabled = true;
+                case ItemSlot.Mainhand:
+                case ItemSlot.Offhand:
+                    Weapon weapon = (Weapon)item;
+                    weapon.Attack.Enabled = true;
+                    break;
             }
         }
 
         public void UnEquip(ItemSlot slot)
         {
             equipment[slot].RemoveFrom(this);
+            equipment[slot].Drop(transform.position);
             equipment[slot] = null;
 
-            if (slot == ItemSlot.Mainhand)
+            switch (slot)
             {
-                primaryAttack = defaultPrimaryAttack;
-                primaryAttack.Enabled = true;
+                case ItemSlot.Mainhand:
+                    Equip(ItemSlot.Mainhand, defaultPrimaryWeapon);
+                    break;
+                case ItemSlot.Offhand:
+                    Equip(ItemSlot.Offhand, defaultSecondaryWeapon);
+                    break;
             }
         }
 
-        public void ClearAnimationOverrides()
+        private bool HandleActionInput(string button, Action action)
         {
-            // Clear any animator overrides caused by the current action
-            animatorCache.CacheParameters();
-            animator.runtimeAnimatorController = BaseAnimationController;
-            animatorCache.RestoreParameters();
+            if (!isGCDActive && action.Enabled && Input.GetButtonDown(button))
+            {
+                StartCoroutine(GlobalCooldown());
+                StartCoroutine(ActionCooldown(action));
+
+                ActionAnimation actionAnimation = action.Animation;
+                if (action.UseWeaponAnimation)
+                {
+                    actionAnimation = PrimaryWeapon.GetAnimation(action.AnimationType);
+                }
+                UpdateActionAnimations(actionAnimation);
+
+                actionData.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                actionData.origin = transform.position;
+                action.Invoke(actionData);
+
+                return true;
+            }
+            return false;
         }
 
         private IEnumerator GlobalCooldown()
@@ -232,51 +255,11 @@ namespace RPG
             isGCDActive = false;
         }
 
-        private void HandleAttackInput(string button, Action attack)
-        {
-            if (!isGCDActive && attack.Enabled && Input.GetButton(button))
-            {
-                StartCoroutine(GlobalCooldown());
-                StartCoroutine(AttackCooldown(attack));
-
-                UpdateAttackAnimations(attack);
-                attackData.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                attackData.origin = transform.position;
-                attack.Invoke(attackData);
-            }
-        }
-
-        private void UpdateAttackAnimations(Action attack)
-        {
-            // Temporarily override the player's animation controller with this attack's controller
-            animator.runtimeAnimatorController = attack.AnimationController;
-
-            // Update animator parameters
-            Vector2 mouseDir = GetMouseDirection();
-            float xWeight = Mathf.Round(mouseDir.x);
-            float yWeight = Mathf.Round(mouseDir.y);
-            animator.SetFloat("hSpeed", xWeight);
-            animator.SetFloat("vSpeed", yWeight);
-            animator.SetFloat("hDirection", xWeight);
-            animator.SetFloat("vDirection", yWeight);
-            animator.SetTrigger("attack");
-        }
-
-        private IEnumerator AttackCooldown(Action attack)
+        private IEnumerator ActionCooldown(Action attack)
         {
             attack.Enabled = false;
             yield return new WaitForSeconds(attack.Cooldown);
             attack.Enabled = true;
-        }
-
-        private void UpdateMoveAnimations(float inputH, float inputV)
-        {
-            if (!isAnimLocked)
-            {
-                StartCoroutine(AnimationLock());
-                animator.SetFloat("hSpeed", inputH);
-                animator.SetFloat("vSpeed", inputV);
-            }
         }
 
         private IEnumerator AnimationLock()
@@ -286,10 +269,48 @@ namespace RPG
             isAnimLocked = false;
         }
 
-        private Vector2 GetMouseDirection()
+        private void UpdateActionAnimations(ActionAnimation actionAnimation)
         {
-            Vector2 mouseVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            return mouseVector.normalized;
+            StartCoroutine(AnimationLock());
+            facingDirection = GetAttackDirection();
+            animator2D.PlayAnimation(actionAnimation.AvatarAnimation.Get(facingDirection), false);
+            weaponAnimator2D.PlayAnimation(actionAnimation.WeaponAnimation.Get(facingDirection), false, true);
+        }
+
+        private void UpdateMoveAnimations()
+        {
+            Vector2Int moveDir = GetMoveDirection();
+            if (moveDir != Vector2.zero)
+            {
+                if (!isAnimLocked)
+                {
+                    StartCoroutine(AnimationLock());
+                    facingDirection = moveDir;
+                    animator2D.PlayAnimation(moveAnimations.Get(facingDirection), true);
+                }
+            }
+            else
+            {
+                animator2D.PlayAnimation(idleAnimations.Get(facingDirection), true);
+            }
+        }
+
+        private Vector2Int GetMoveDirection()
+        {
+            int dirX = MathUtils.Sign(rigidbody2D.velocity.x);
+            int dirY = MathUtils.Sign(rigidbody2D.velocity.y);
+            return new Vector2Int(dirX, dirY);
+        }
+
+        private Vector2Int GetAttackDirection()
+        {
+            Vector2 mouseDiff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            float angle = Vector2.SignedAngle(Vector2.right, mouseDiff) * Mathf.Deg2Rad;
+            float x = Mathf.Cos(angle);
+            float y = Mathf.Sin(angle);
+            int dirX = x > ATTACK_ANGLE_THRESHOLD ? 1 : x < -ATTACK_ANGLE_THRESHOLD ? -1 : 0;
+            int dirY = y > ATTACK_ANGLE_THRESHOLD ? 1 : y < -ATTACK_ANGLE_THRESHOLD ? -1 : 0;
+            return new Vector2Int(dirX, dirY);
         }
 
         private void UpdateInteractions()

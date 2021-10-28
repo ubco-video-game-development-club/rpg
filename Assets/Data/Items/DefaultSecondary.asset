@@ -9,18 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65fe40d9c1506a14b9dbc1fb3d47d7ee, type: 3}
-  m_Name: Cleave
+  m_Script: {fileID: 11500000, guid: 1664294becd0f5b4ea20b23c195a4a9c, type: 3}
+  m_Name: DefaultSecondary
   m_EditorClassIdentifier: 
-  onHitEffects: []
-  onKillEffects: []
-  useWeaponAnimation: 1
-  animationType: 0
-  animation:
-    type: 0
+  stats: []
+  pickupPrefab: {fileID: 0}
+  defaultSlot: 1
+  attack: {fileID: 11400000, guid: 7e64fbbdb1b264e4891830e666029fd6, type: 2}
+  animations:
+  - type: 0
     avatarAnimation: {fileID: 11400000, guid: 6b2d400b29640cf46b111ac5fdad87c9, type: 2}
     weaponAnimation: {fileID: 11400000, guid: 6b2d400b29640cf46b111ac5fdad87c9, type: 2}
-  cooldown: 1.5
-  damage: 2
-  reach: 1.5
-  arcAngle: 360

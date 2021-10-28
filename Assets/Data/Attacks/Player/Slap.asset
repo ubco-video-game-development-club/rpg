@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onHitEffects: []
   onKillEffects: []
-  animationController: {fileID: 22100000, guid: 0c9a8c0ef0df9d04980f5a208c7f7af2,
-    type: 2}
+  useWeaponAnimation: 1
+  animationType: 0
+  animation:
+    type: 0
+    avatarAnimation: {fileID: 0}
+    weaponAnimation: {fileID: 0}
   cooldown: 1
   damage: 1
   reach: 1.2

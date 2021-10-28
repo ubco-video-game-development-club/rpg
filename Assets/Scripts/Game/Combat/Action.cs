@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using RPG.Animation;
 
 namespace RPG
 {
@@ -13,8 +14,14 @@ namespace RPG
         [SerializeField] private Effect[] onKillEffects;
         public Effect[] OnKillEffects { get => onKillEffects; }
 
-        [SerializeField] private RuntimeAnimatorController animationController;
-        public RuntimeAnimatorController AnimationController { get => animationController; }
+        [SerializeField] private bool useWeaponAnimation = false;
+        public bool UseWeaponAnimation { get => useWeaponAnimation; }
+
+        [SerializeField] private AnimationType animationType;
+        public AnimationType AnimationType { get => animationType; }
+
+        [SerializeField] private ActionAnimation animation;
+        public ActionAnimation Animation { get => animation; }
 
         [SerializeField] private float cooldown = 1f;
         public float Cooldown { get => cooldown; }

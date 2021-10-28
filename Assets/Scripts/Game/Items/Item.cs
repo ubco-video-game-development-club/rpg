@@ -8,7 +8,14 @@ namespace RPG
     {
         public static ItemSlot[] SlotTypes { get => (ItemSlot[])Enum.GetValues(typeof(ItemSlot)); }
 
-        [SerializeField] private ItemSlot slot;
-        public ItemSlot Slot { get => slot; }
+        [SerializeField] private ItemPickup pickupPrefab;
+
+        [SerializeField] private ItemSlot defaultSlot;
+        public ItemSlot DefaultSlot { get => defaultSlot; }
+
+        public void Drop(Vector2 position)
+        {
+            Instantiate(pickupPrefab, position, Quaternion.identity);
+        }
     }
 }
