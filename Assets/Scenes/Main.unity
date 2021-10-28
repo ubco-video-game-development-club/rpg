@@ -500,8 +500,10 @@ GameObject:
   - component: {fileID: 141597919}
   - component: {fileID: 141597918}
   - component: {fileID: 141597917}
-  - component: {fileID: 141597916}
+  - component: {fileID: 141597922}
+  - component: {fileID: 141597921}
   - component: {fileID: 141597920}
+  - component: {fileID: 141597916}
   m_Layer: 8
   m_Name: Mum NPC
   m_TagString: Untagged
@@ -525,7 +527,8 @@ MonoBehaviour:
     type: 3}
   interactHint: Talk
   characterName: Mum
-  portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
+  portrait: {fileID: 8835284309397123848, guid: 568b897490088f8439d263b261216ec0,
+    type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: 36bc0c21d35b53f4fa3de317361e9a85, type: 2}
   - {fileID: 11400000, guid: 3683391ddc8ff1141a5488ab59cf1199, type: 2}
@@ -589,7 +592,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
+  m_Sprite: {fileID: 8835284309397123848, guid: 568b897490088f8439d263b261216ec0,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -608,7 +612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141597915}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.29, y: 3.79, z: 0}
+  m_LocalPosition: {x: -4.97, y: 4.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -627,6 +631,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uniqueID: Mum
+--- !u!114 &141597921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141597915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3841cfd75fe64b8498769758ea31c7be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultAnimation: {fileID: 7400000, guid: 2dfd4942e6e789b45922a7d97aeec914, type: 2}
+--- !u!95 &141597922
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141597915}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3af1bb34e9ffb044886be104dc98f2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &174102886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2826,6 +2862,8 @@ GameObject:
   - component: {fileID: 940472401}
   - component: {fileID: 940472400}
   - component: {fileID: 940472399}
+  - component: {fileID: 940472403}
+  - component: {fileID: 940472402}
   - component: {fileID: 940472398}
   m_Layer: 8
   m_Name: Waddlesworth NPC
@@ -2850,7 +2888,8 @@ MonoBehaviour:
     type: 3}
   interactHint: Talk
   characterName: Waddlesworth
-  portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
+  portrait: {fileID: -3713467532807335336, guid: 0bbfe1fef35fa2243a811a7b497fb9e2,
+    type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: e2d41534d805e214b87b7147251687f5, type: 2}
   - {fileID: 11400000, guid: 48f86ea51390adb459028fd4ce49c74d, type: 2}
@@ -2910,7 +2949,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
+  m_Sprite: {fileID: -3713467532807335336, guid: 0bbfe1fef35fa2243a811a7b497fb9e2,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2935,6 +2975,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &940472402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940472397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3841cfd75fe64b8498769758ea31c7be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultAnimation: {fileID: 7400000, guid: 115a74ec457a67848b42f9e73c4c0748, type: 2}
+--- !u!95 &940472403
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940472397}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3af1bb34e9ffb044886be104dc98f2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &955532252
 GameObject:
   m_ObjectHideFlags: 0
