@@ -13,9 +13,12 @@ namespace BehaviourTree
         HasPropertyNode,
         RangeCheckNode,
         FindActorByTagNode,
+        FindObjectByIdNode,
         GetActorPositionNode,
         GetRandomPositionNode,
         SimpleMoveNode,
+        SetActionTargetNode,
+        InvokeActionNode,
         GetDialogueIndexNode,
         SetDialogueIndexNode,
         SetAnimParamNode,
@@ -47,12 +50,18 @@ namespace BehaviourTree
                     return new RangeCheckNode();
                 case BehaviourTreeNodeType.FindActorByTagNode:
                     return new FindActorByTagNode();
+                case BehaviourTreeNodeType.FindObjectByIdNode:
+                    return new FindObjectByIdNode();
                 case BehaviourTreeNodeType.GetActorPositionNode:
                     return new GetActorPositionNode();
                 case BehaviourTreeNodeType.GetRandomPositionNode:
                     return new GetRandomPositionNode();
                 case BehaviourTreeNodeType.SimpleMoveNode:
                     return new SimpleMoveNode();
+                case BehaviourTreeNodeType.SetActionTargetNode:
+                    return new SetActionTargetNode();
+                case BehaviourTreeNodeType.InvokeActionNode:
+                    return new InvokeActionNode();
                 case BehaviourTreeNodeType.GetDialogueIndexNode:
                     return new GetDialogueIndexNode();
                 case BehaviourTreeNodeType.SetDialogueIndexNode:

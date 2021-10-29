@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1664294becd0f5b4ea20b23c195a4a9c, type: 3}
+  m_Name: DefaultPrimary
+  m_EditorClassIdentifier: 
+  stats: []
+  pickupPrefab: {fileID: 0}
+  slot: 0
+  attack: {fileID: 11400000, guid: 4d1447551f2358e4daa2b17559943383, type: 2}
+  animations:
+  - type: 0
+    avatarAnimation: {fileID: 11400000, guid: 6b2d400b29640cf46b111ac5fdad87c9, type: 2}
+    weaponAnimation: {fileID: 11400000, guid: 6b2d400b29640cf46b111ac5fdad87c9, type: 2}
