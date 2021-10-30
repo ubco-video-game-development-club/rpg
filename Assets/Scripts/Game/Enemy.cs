@@ -9,7 +9,6 @@ namespace RPG
         [SerializeField] private Action[] actions;
         [SerializeField] private float flashDuration = 0.3f;
 
-        private ActionData actionData;
         private YieldInstruction flashDurationInstruction;
         private SpriteRenderer spriteRenderer;
 
@@ -19,9 +18,10 @@ namespace RPG
 
             // Initialize actions
             actionData = new ActionData(LayerMask.GetMask("Player"));
-            foreach (Action action in actions)
+            for (int i = 0; i < actions.Length; i++)
             {
-                action.Enabled = true;
+                actions[i] = Instantiate(actions[i]);
+                actions[i].Enabled = true;
             }
 
             flashDurationInstruction = new WaitForSeconds(flashDuration);
@@ -43,11 +43,13 @@ namespace RPG
         public void InvokeAction(int actionId)
         {
             Action action = actions[actionId];
+            Debug.Log(name + " invoking " + action.name + ": enabled = " + action.Enabled);
             if (action.Enabled)
             {
                 StartCoroutine(ActionCooldown(action));
                 actionData.origin = transform.position;
                 action.Invoke(actionData);
+                AnimateAction(action);
             }
         }
 

@@ -9,6 +9,12 @@ namespace RPG
     [RequireComponent(typeof(Rigidbody2D), typeof(Animator2D))]
     public class Actor : Entity
     {
+        ///<summary>
+        /// Value beyond which a direction is considered to be left, right,
+        /// down, or up for the purposes of character animation orientation.
+        ///</summary>
+        private const float DIRECTION_LOOK_THRESHOLD = 0.45f;
+
         [SerializeField] private int initialMaxHealth;
         [SerializeField] private AnimationSet8D idleAnimations;
         [SerializeField] private AnimationSet8D moveAnimations;
@@ -31,6 +37,7 @@ namespace RPG
         private UnityEvent onDeath = new UnityEvent();
         public UnityEvent OnDeath { get => onDeath; }
 
+        protected ActionData actionData;
         protected Vector2Int facingDirection;
         protected new Rigidbody2D rigidbody2D;
         protected Animator2D animator2D;
@@ -69,6 +76,12 @@ namespace RPG
             if (Health <= 0) Die();
         }
 
+        protected virtual void Die()
+        {
+            onDeath.Invoke();
+            Destroy(gameObject);
+        }
+
         protected virtual void AnimateIdle()
         {
             animator2D.PlayAnimation(idleAnimations.Get(facingDirection), true);
@@ -80,16 +93,27 @@ namespace RPG
             animator2D.PlayAnimation(moveAnimations.Get(facingDirection), true);
         }
 
-        protected virtual void Die()
+        protected virtual void AnimateAction(Action action)
         {
-            onDeath.Invoke();
-            Destroy(gameObject);
+            facingDirection = GetActionDirection();
+            animator2D.PlayAnimation(action.Animation.Get(facingDirection), false);
         }
 
         protected Vector2Int GetMoveDirection()
         {
             int dirX = MathUtils.Sign(rigidbody2D.velocity.x);
             int dirY = MathUtils.Sign(rigidbody2D.velocity.y);
+            return new Vector2Int(dirX, dirY);
+        }
+
+        protected Vector2Int GetActionDirection()
+        {
+            Vector2 mouseDiff = actionData.target - (Vector2)transform.position;
+            float angle = Vector2.SignedAngle(Vector2.right, mouseDiff) * Mathf.Deg2Rad;
+            float x = Mathf.Cos(angle);
+            float y = Mathf.Sin(angle);
+            int dirX = x > DIRECTION_LOOK_THRESHOLD ? 1 : x < -DIRECTION_LOOK_THRESHOLD ? -1 : 0;
+            int dirY = y > DIRECTION_LOOK_THRESHOLD ? 1 : y < -DIRECTION_LOOK_THRESHOLD ? -1 : 0;
             return new Vector2Int(dirX, dirY);
         }
     }

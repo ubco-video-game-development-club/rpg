@@ -9,11 +9,11 @@ namespace RPG
         [SerializeField] private Action attack;
         public Action Attack { get => attack; }
 
-        [SerializeField] private ActionAnimation[] animations;
+        [SerializeField] private WeaponAnimation[] animations;
         
-        public ActionAnimation GetAnimation(AnimationType type)
+        public WeaponAnimation GetAnimation(AnimationType type)
         {
-            foreach (ActionAnimation anim in animations)
+            foreach (WeaponAnimation anim in animations)
             {
                 if (anim.Type == type)
                 {

@@ -16,7 +16,6 @@ namespace RPG
     {
         private const float GLOBAL_COOLDOWN = 0.5f;
         private const float ANIM_LOCK_DURATION = 0.08f;
-        private const float ATTACK_ANGLE_THRESHOLD = 0.45f;
         private const int MAX_ABILITY_SLOTS = 4;
         private const int MAX_INTERACT_TARGETS = 5;
 
@@ -39,7 +38,6 @@ namespace RPG
         private bool isGCDActive;
         private bool isAnimLocked;
         private Vector3 prevFramePosition;
-        private ActionData actionData;
         private Collider2D[] interactTargets = new Collider2D[MAX_INTERACT_TARGETS];
         private int numInteractTargets = 0;
         private Interactable targetInteractable;
@@ -176,11 +174,12 @@ namespace RPG
 
         public void AddAbility(Action ability)
         {
-            availableAbilities.Add(ability);
+            availableAbilities.Add(Instantiate(ability));
         }
 
         public void Equip(ItemSlot slot, Item item)
         {
+            item = Instantiate(item);
             if (equipment[slot] != null && slot != ItemSlot.Mainhand && slot != ItemSlot.Offhand)
             {
                 UnEquip(slot);
@@ -224,27 +223,35 @@ namespace RPG
             }
         }
 
-        private bool HandleActionInput(string button, Action action)
+        protected override void AnimateAction(Action action)
+        {
+            facingDirection = GetActionDirection();
+            AnimationSet8D avatarAnim = action.Animation;
+            if (action.UseWeaponAnimation)
+            {
+                WeaponAnimation weaponAnim = PrimaryWeapon.GetAnimation(action.AnimationType);
+                avatarAnim = weaponAnim.AvatarAnimation;
+                weaponAnimator2D.PlayAnimation(weaponAnim.Animation.Get(facingDirection), false, true);
+            }
+            animator2D.PlayAnimation(avatarAnim.Get(facingDirection), false);
+        }
+
+        private void HandleActionInput(string button, Action action)
         {
             if (!isGCDActive && action.Enabled && Input.GetButtonDown(button))
             {
+                // Apply cooldowns
                 StartCoroutine(GlobalCooldown());
                 StartCoroutine(ActionCooldown(action));
 
-                ActionAnimation actionAnimation = action.Animation;
-                if (action.UseWeaponAnimation)
-                {
-                    actionAnimation = PrimaryWeapon.GetAnimation(action.AnimationType);
-                }
-                AnimateAction(actionAnimation);
-
+                // Invoke action
                 actionData.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 actionData.origin = transform.position;
                 action.Invoke(actionData);
 
-                return true;
+                // Run animations (requires action data to be set!)
+                AnimateAction(action);
             }
-            return false;
         }
 
         private IEnumerator GlobalCooldown()
@@ -266,25 +273,6 @@ namespace RPG
             isAnimLocked = true;
             yield return animLockInstruction;
             isAnimLocked = false;
-        }
-
-        private void AnimateAction(ActionAnimation actionAnimation)
-        {
-            StartCoroutine(AnimationLock());
-            facingDirection = GetAttackDirection();
-            animator2D.PlayAnimation(actionAnimation.AvatarAnimation.Get(facingDirection), false);
-            weaponAnimator2D.PlayAnimation(actionAnimation.WeaponAnimation.Get(facingDirection), false, true);
-        }
-
-        private Vector2Int GetAttackDirection()
-        {
-            Vector2 mouseDiff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            float angle = Vector2.SignedAngle(Vector2.right, mouseDiff) * Mathf.Deg2Rad;
-            float x = Mathf.Cos(angle);
-            float y = Mathf.Sin(angle);
-            int dirX = x > ATTACK_ANGLE_THRESHOLD ? 1 : x < -ATTACK_ANGLE_THRESHOLD ? -1 : 0;
-            int dirY = y > ATTACK_ANGLE_THRESHOLD ? 1 : y < -ATTACK_ANGLE_THRESHOLD ? -1 : 0;
-            return new Vector2Int(dirX, dirY);
         }
 
         private void UpdateInteractions()

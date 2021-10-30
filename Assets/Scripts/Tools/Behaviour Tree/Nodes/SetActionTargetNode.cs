@@ -22,6 +22,8 @@ namespace BehaviourTree
             Vector2 target = (Vector2)obj.GetProperty(src);
             obj.GetComponent<Enemy>().SetActionTarget(target);
 
+            Debug.Log(obj.name + " is attacking position " + target);
+
             return NodeStatus.Success;
         }
     }
