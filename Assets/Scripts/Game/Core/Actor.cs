@@ -18,6 +18,7 @@ namespace RPG
         [SerializeField] private int initialMaxHealth;
         [SerializeField] private AnimationSet8D idleAnimations;
         [SerializeField] private AnimationSet8D moveAnimations;
+        [SerializeField] private AnimationSet8D hurtAnimations;
 
         public int MaxHealth
         {
@@ -74,6 +75,7 @@ namespace RPG
             Health = Mathf.Max(0, Health - damage);
             onDamageTaken.Invoke(damage);
             if (Health <= 0) Die();
+            else AnimateHurt();
         }
 
         protected virtual void Die()
@@ -91,6 +93,11 @@ namespace RPG
         {
             facingDirection = GetMoveDirection();
             animator2D.PlayAnimation(moveAnimations.Get(facingDirection), true);
+        }
+
+        protected virtual void AnimateHurt()
+        {
+            animator2D.PlayAnimation(hurtAnimations.Get(facingDirection), false);
         }
 
         protected virtual void AnimateAction(Action action)

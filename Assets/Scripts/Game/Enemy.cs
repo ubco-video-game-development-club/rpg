@@ -43,7 +43,6 @@ namespace RPG
         public void InvokeAction(int actionId)
         {
             Action action = actions[actionId];
-            Debug.Log(name + " invoking " + action.name + ": enabled = " + action.Enabled);
             if (action.Enabled)
             {
                 StartCoroutine(ActionCooldown(action));

@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 217792dc696582246b229734f40e79fb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6623e952de9f54641a46a2cb947c0898, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -172,6 +172,7 @@ MonoBehaviour:
   initialMaxHealth: 15
   idleAnimations: {fileID: 11400000, guid: fb206d7e94c25e94b899ed54a07145c6, type: 2}
   moveAnimations: {fileID: 11400000, guid: e22d4c8424148f645ae60e803585d737, type: 2}
+  hurtAnimations: {fileID: 11400000, guid: 1fce7b2292cd9e545984412811fa1820, type: 2}
   actions:
   - {fileID: 11400000, guid: cd54c1a41bfdb6745b6a33c7b765967e, type: 2}
   flashDuration: 0.2
