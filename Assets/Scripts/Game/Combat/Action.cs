@@ -6,7 +6,7 @@ using RPG.Animation;
 
 namespace RPG
 {
-    public abstract class Action : ScriptableObject
+    public abstract class Action : ScriptableObject, IInstantiable<Action>
     {
         [SerializeField] private Effect[] onHitEffects;
         public Effect[] OnHitEffects { get => onHitEffects; }
@@ -35,5 +35,7 @@ namespace RPG
         public UnityEvent<Actor> OnKill { get => onKill; }
 
         public abstract void Invoke(ActionData data);
+
+        public Action GetInstance() => Instantiate(this);
     }
 }

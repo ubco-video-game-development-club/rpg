@@ -20,7 +20,7 @@ namespace RPG
             actionData = new ActionData(LayerMask.GetMask("Player"));
             for (int i = 0; i < actions.Length; i++)
             {
-                actions[i] = Instantiate(actions[i]);
+                actions[i] = actions[i].GetInstance();
                 actions[i].Enabled = true;
             }
 

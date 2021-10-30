@@ -174,12 +174,12 @@ namespace RPG
 
         public void AddAbility(Action ability)
         {
-            availableAbilities.Add(Instantiate(ability));
+            availableAbilities.Add(ability.GetInstance());
         }
 
         public void Equip(ItemSlot slot, Item item)
         {
-            item = Instantiate(item);
+            item = item.GetInstance();
             if (equipment[slot] != null && slot != ItemSlot.Mainhand && slot != ItemSlot.Offhand)
             {
                 UnEquip(slot);
