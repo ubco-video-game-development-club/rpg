@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 4011296362009397302}
   - component: {fileID: 6355321360058552055}
   - component: {fileID: 6378035049344801659}
-  - component: {fileID: 4011296362009397300}
+  - component: {fileID: 5109116941591888584}
+  - component: {fileID: -1146975194291114816}
   - component: {fileID: -2009479549292690084}
+  - component: {fileID: 4011296362009397300}
   m_Layer: 7
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -123,7 +125,26 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.32128906
---- !u!114 &4011296362009397300
+--- !u!95 &5109116941591888584
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4011296362009397297}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3af1bb34e9ffb044886be104dc98f2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-1146975194291114816
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,10 +153,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4011296362009397297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 255646b43a4b22b4586a6b091e9ce397, type: 3}
+  m_Script: {fileID: 11500000, guid: 3841cfd75fe64b8498769758ea31c7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: 9918b41f664786a4598cf4ffba7134ec, type: 2}
+  defaultAnimation: {fileID: 7400000, guid: 9e341e0589474734e85c03acab0bef7d, type: 2}
 --- !u!114 &-2009479549292690084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +170,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialMaxHealth: 15
+  idleAnimations: {fileID: 11400000, guid: fb206d7e94c25e94b899ed54a07145c6, type: 2}
+  moveAnimations: {fileID: 11400000, guid: e22d4c8424148f645ae60e803585d737, type: 2}
   actions:
   - {fileID: 11400000, guid: cd54c1a41bfdb6745b6a33c7b765967e, type: 2}
   flashDuration: 0.2
+--- !u!114 &4011296362009397300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4011296362009397297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255646b43a4b22b4586a6b091e9ce397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviourTree: {fileID: 11400000, guid: 9918b41f664786a4598cf4ffba7134ec, type: 2}

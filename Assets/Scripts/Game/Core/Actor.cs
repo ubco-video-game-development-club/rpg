@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using RPG.Animation;
 
 namespace RPG
 {
+    [RequireComponent(typeof(Rigidbody2D), typeof(Animator2D))]
     public class Actor : Entity
     {
         [SerializeField] private int initialMaxHealth;
+        [SerializeField] private AnimationSet8D idleAnimations;
+        [SerializeField] private AnimationSet8D moveAnimations;
 
         public int MaxHealth
         {
@@ -27,24 +31,66 @@ namespace RPG
         private UnityEvent onDeath = new UnityEvent();
         public UnityEvent OnDeath { get => onDeath; }
 
+        protected Vector2Int facingDirection;
+        protected new Rigidbody2D rigidbody2D;
+        protected Animator2D animator2D;
+
         protected virtual void Awake()
         {
+            // Initialize components
+            rigidbody2D = GetComponent<Rigidbody2D>();
+            animator2D = GetComponent<Animator2D>();
+
+            // Setup events
             AddPropertyChangedListener<int>(PropertyName.MaxHealth, (maxHealth) => Health = maxHealth);
 
+            // Initialize properties
             MaxHealth = initialMaxHealth;
+            facingDirection = Vector2Int.right;
         }
 
-        public void TakeDamage(int damage)
+        protected virtual void Update()
+        {
+            // Animate movement
+            if (GetMoveDirection() != Vector2Int.zero)
+            {
+                AnimateMove();
+            }
+            else
+            {
+                AnimateIdle();
+            }
+        }
+
+        public virtual void TakeDamage(int damage)
         {
             Health = Mathf.Max(0, Health - damage);
             onDamageTaken.Invoke(damage);
             if (Health <= 0) Die();
         }
 
-        private void Die()
+        protected virtual void AnimateIdle()
+        {
+            animator2D.PlayAnimation(idleAnimations.Get(facingDirection), true);
+        }
+
+        protected virtual void AnimateMove()
+        {
+            facingDirection = GetMoveDirection();
+            animator2D.PlayAnimation(moveAnimations.Get(facingDirection), true);
+        }
+
+        protected virtual void Die()
         {
             onDeath.Invoke();
             Destroy(gameObject);
+        }
+
+        protected Vector2Int GetMoveDirection()
+        {
+            int dirX = MathUtils.Sign(rigidbody2D.velocity.x);
+            int dirY = MathUtils.Sign(rigidbody2D.velocity.y);
+            return new Vector2Int(dirX, dirY);
         }
     }
 }

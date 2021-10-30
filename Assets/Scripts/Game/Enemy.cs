@@ -28,7 +28,7 @@ namespace RPG
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        void Start()
+        protected void Start()
         {
             OnDamageTaken.AddListener(FlashRed);
             OnDamageTaken.AddListener((health) => GameManager.LevelingSystem.AddXP(20));
