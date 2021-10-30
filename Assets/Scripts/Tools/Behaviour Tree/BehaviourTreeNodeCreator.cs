@@ -21,7 +21,6 @@ namespace BehaviourTree
         InvokeActionNode,
         GetDialogueIndexNode,
         SetDialogueIndexNode,
-        SetAnimParamNode,
         GetMoveDirectionNode,
         GetVectorAxisNode
     }
@@ -66,8 +65,6 @@ namespace BehaviourTree
                     return new GetDialogueIndexNode();
                 case BehaviourTreeNodeType.SetDialogueIndexNode:
                     return new SetDialogueIndexNode();
-                case BehaviourTreeNodeType.SetAnimParamNode:
-                    return new SetAnimParamNode();
                 case BehaviourTreeNodeType.GetMoveDirectionNode:
                     return new GetMoveDirectionNode();
                 case BehaviourTreeNodeType.GetVectorAxisNode:
