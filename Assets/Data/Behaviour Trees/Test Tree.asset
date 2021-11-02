@@ -210,13 +210,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: min-distance
+        - name: stop-distance
           property:
             propertyType: 1
             objectType: 
             value:
               b: 0
-              n: 0.5
+              n: 1
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
@@ -334,7 +334,7 @@ MonoBehaviour:
             objectType: 
             value:
               b: 0
-              n: 0.1
+              n: 0.2
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
@@ -421,13 +421,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: min-distance
+        - name: stop-distance
           property:
             propertyType: 1
             objectType: 
             value:
               b: 0
-              n: 0.05
+              n: 0.1
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}

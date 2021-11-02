@@ -7,11 +7,6 @@ namespace RPG
     public class Enemy : Actor
     {
         [SerializeField] private Action[] actions;
-        [SerializeField] private float flashDuration = 0.3f;
-
-        private ActionData actionData;
-        private YieldInstruction flashDurationInstruction;
-        private SpriteRenderer spriteRenderer;
 
         protected override void Awake()
         {
@@ -19,18 +14,15 @@ namespace RPG
 
             // Initialize actions
             actionData = new ActionData(LayerMask.GetMask("Player"));
-            foreach (Action action in actions)
+            for (int i = 0; i < actions.Length; i++)
             {
-                action.Enabled = true;
+                actions[i] = actions[i].GetInstance();
+                actions[i].Enabled = true;
             }
-
-            flashDurationInstruction = new WaitForSeconds(flashDuration);
-            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        void Start()
+        protected void Start()
         {
-            OnDamageTaken.AddListener(FlashRed);
             OnDamageTaken.AddListener((health) => GameManager.LevelingSystem.AddXP(20));
             OnDeath.AddListener(() => GameManager.LevelingSystem.AddXP(100));
         }
@@ -48,6 +40,7 @@ namespace RPG
                 StartCoroutine(ActionCooldown(action));
                 actionData.origin = transform.position;
                 action.Invoke(actionData);
+                AnimateAction(action);
             }
         }
 
@@ -56,18 +49,6 @@ namespace RPG
             action.Enabled = false;
             yield return new WaitForSeconds(action.Cooldown);
             action.Enabled = true;
-        }
-
-        private void FlashRed(int health)
-        {
-            StartCoroutine(FlashRedTimer());
-        }
-
-        private IEnumerator FlashRedTimer()
-        {
-            spriteRenderer.color = Color.red;
-            yield return flashDurationInstruction;
-            spriteRenderer.color = Color.white;
         }
     }
 }

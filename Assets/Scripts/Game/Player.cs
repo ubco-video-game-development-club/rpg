@@ -16,7 +16,6 @@ namespace RPG
     {
         private const float GLOBAL_COOLDOWN = 0.5f;
         private const float ANIM_LOCK_DURATION = 0.08f;
-        private const float ATTACK_ANGLE_THRESHOLD = 0.45f;
         private const int MAX_ABILITY_SLOTS = 4;
         private const int MAX_INTERACT_TARGETS = 5;
 
@@ -26,8 +25,6 @@ namespace RPG
         [SerializeField] private Weapon defaultSecondaryWeapon;
         [SerializeField] private float interactRadius;
         [SerializeField] private LayerMask interactLayer;
-        [SerializeField] private AnimationSet8D idleAnimations;
-        [SerializeField] private AnimationSet8D moveAnimations;
 
         public ClassBaseStats ClassBaseStats { get; private set; }
 
@@ -41,8 +38,6 @@ namespace RPG
         private bool isGCDActive;
         private bool isAnimLocked;
         private Vector3 prevFramePosition;
-        private Vector2Int facingDirection;
-        private ActionData actionData;
         private Collider2D[] interactTargets = new Collider2D[MAX_INTERACT_TARGETS];
         private int numInteractTargets = 0;
         private Interactable targetInteractable;
@@ -50,17 +45,11 @@ namespace RPG
         private YieldInstruction animLockInstruction;
         private YieldInstruction globalCooldownInstruction;
 
-        private Animator2D animator2D;
-        private new Rigidbody2D rigidbody2D;
-
         private UnityEvent<Vector2> onPositionChanged = new UnityEvent<Vector2>();
 
         protected override void Awake()
         {
             base.Awake();
-
-            animator2D = GetComponent<Animator2D>();
-            rigidbody2D = GetComponent<Rigidbody2D>();
 
             animLockInstruction = new WaitForSeconds(ANIM_LOCK_DURATION);
             globalCooldownInstruction = new WaitForSeconds(GLOBAL_COOLDOWN);
@@ -80,7 +69,6 @@ namespace RPG
             Equip(ItemSlot.Offhand, defaultSecondaryWeapon);
 
             actionData = new ActionData(LayerMask.GetMask("Enemy"));
-            facingDirection = Vector2Int.right;
         }
 
         void OnGUI()
@@ -140,7 +128,7 @@ namespace RPG
             GUILayout.EndArea();
         }
 
-        void Update()
+        protected override void Update()
         {
             // Handle movement inputs
             float inputH = Input.GetAxisRaw("Horizontal");
@@ -152,8 +140,8 @@ namespace RPG
             rigidbody2D.velocity = inputDir * moveSpeed;
             if (transform.position != prevFramePosition) onPositionChanged.Invoke(transform.position);
 
-            // Update move animations
-            UpdateMoveAnimations();
+            // Run base Actor update
+            base.Update();
 
             // Update interaction
             UpdateInteractions();
@@ -186,11 +174,12 @@ namespace RPG
 
         public void AddAbility(Action ability)
         {
-            availableAbilities.Add(ability);
+            availableAbilities.Add(ability.GetInstance());
         }
 
         public void Equip(ItemSlot slot, Item item)
         {
+            item = item.GetInstance();
             if (equipment[slot] != null && slot != ItemSlot.Mainhand && slot != ItemSlot.Offhand)
             {
                 UnEquip(slot);
@@ -225,27 +214,44 @@ namespace RPG
             }
         }
 
-        private bool HandleActionInput(string button, Action action)
+        protected override void AnimateMove()
+        {
+            if (!isAnimLocked)
+            {
+                StartCoroutine(AnimationLock());
+                base.AnimateMove();
+            }
+        }
+
+        protected override void AnimateAction(Action action)
+        {
+            facingDirection = GetActionDirection();
+            AnimationSet8D avatarAnim = action.Animation;
+            if (action.UseWeaponAnimation)
+            {
+                WeaponAnimation weaponAnim = PrimaryWeapon.GetAnimation(action.AnimationType);
+                avatarAnim = weaponAnim.AvatarAnimation;
+                weaponAnimator2D.PlayAnimation(weaponAnim.Animation.Get(facingDirection), false, true);
+            }
+            animator2D.PlayAnimation(avatarAnim.Get(facingDirection), false);
+        }
+
+        private void HandleActionInput(string button, Action action)
         {
             if (!isGCDActive && action.Enabled && Input.GetButtonDown(button))
             {
+                // Apply cooldowns
                 StartCoroutine(GlobalCooldown());
                 StartCoroutine(ActionCooldown(action));
 
-                ActionAnimation actionAnimation = action.Animation;
-                if (action.UseWeaponAnimation)
-                {
-                    actionAnimation = PrimaryWeapon.GetAnimation(action.AnimationType);
-                }
-                UpdateActionAnimations(actionAnimation);
-
+                // Invoke action
                 actionData.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 actionData.origin = transform.position;
                 action.Invoke(actionData);
 
-                return true;
+                // Run animations (requires action data to be set!)
+                AnimateAction(action);
             }
-            return false;
         }
 
         private IEnumerator GlobalCooldown()
@@ -267,50 +273,6 @@ namespace RPG
             isAnimLocked = true;
             yield return animLockInstruction;
             isAnimLocked = false;
-        }
-
-        private void UpdateActionAnimations(ActionAnimation actionAnimation)
-        {
-            StartCoroutine(AnimationLock());
-            facingDirection = GetAttackDirection();
-            animator2D.PlayAnimation(actionAnimation.AvatarAnimation.Get(facingDirection), false);
-            weaponAnimator2D.PlayAnimation(actionAnimation.WeaponAnimation.Get(facingDirection), false, true);
-        }
-
-        private void UpdateMoveAnimations()
-        {
-            Vector2Int moveDir = GetMoveDirection();
-            if (moveDir != Vector2.zero)
-            {
-                if (!isAnimLocked)
-                {
-                    StartCoroutine(AnimationLock());
-                    facingDirection = moveDir;
-                    animator2D.PlayAnimation(moveAnimations.Get(facingDirection), true);
-                }
-            }
-            else
-            {
-                animator2D.PlayAnimation(idleAnimations.Get(facingDirection), true);
-            }
-        }
-
-        private Vector2Int GetMoveDirection()
-        {
-            int dirX = MathUtils.Sign(rigidbody2D.velocity.x);
-            int dirY = MathUtils.Sign(rigidbody2D.velocity.y);
-            return new Vector2Int(dirX, dirY);
-        }
-
-        private Vector2Int GetAttackDirection()
-        {
-            Vector2 mouseDiff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            float angle = Vector2.SignedAngle(Vector2.right, mouseDiff) * Mathf.Deg2Rad;
-            float x = Mathf.Cos(angle);
-            float y = Mathf.Sin(angle);
-            int dirX = x > ATTACK_ANGLE_THRESHOLD ? 1 : x < -ATTACK_ANGLE_THRESHOLD ? -1 : 0;
-            int dirY = y > ATTACK_ANGLE_THRESHOLD ? 1 : y < -ATTACK_ANGLE_THRESHOLD ? -1 : 0;
-            return new Vector2Int(dirX, dirY);
         }
 
         private void UpdateInteractions()

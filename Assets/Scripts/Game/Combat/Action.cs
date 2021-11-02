@@ -6,7 +6,7 @@ using RPG.Animation;
 
 namespace RPG
 {
-    public abstract class Action : ScriptableObject
+    public abstract class Action : ScriptableObject, IInstantiable<Action>
     {
         [SerializeField] private Effect[] onHitEffects;
         public Effect[] OnHitEffects { get => onHitEffects; }
@@ -20,8 +20,8 @@ namespace RPG
         [SerializeField] private AnimationType animationType;
         public AnimationType AnimationType { get => animationType; }
 
-        [SerializeField] private ActionAnimation animation;
-        public ActionAnimation Animation { get => animation; }
+        [SerializeField] private AnimationSet8D animation;
+        public AnimationSet8D Animation { get => animation; }
 
         [SerializeField] private float cooldown = 1f;
         public float Cooldown { get => cooldown; }
@@ -35,5 +35,7 @@ namespace RPG
         public UnityEvent<Actor> OnKill { get => onKill; }
 
         public abstract void Invoke(ActionData data);
+
+        public Action GetInstance() => Instantiate(this);
     }
 }

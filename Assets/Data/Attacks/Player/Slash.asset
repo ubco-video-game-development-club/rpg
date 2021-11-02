@@ -20,7 +20,7 @@ MonoBehaviour:
     type: 0
     avatarAnimation: {fileID: 0}
     weaponAnimation: {fileID: 0}
-  cooldown: 0.8
+  cooldown: 0.5
   damage: 2
   reach: 1.2
   arcAngle: 60
