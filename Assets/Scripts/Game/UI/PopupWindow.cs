@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PopupWindow : MonoBehaviour
+namespace RPG
 {
-    public string Title { get => title.text; set => title.SetText(value); }
-    public Transform Content { get => content; }
+    public class PopupWindow : MonoBehaviour
+    {
+        public string Title { get => title.text; set => title.SetText(value); }
+        public Transform Content { get => content; }
 
-    [SerializeField] private TextMeshProUGUI title;
-    [SerializeField] private Transform content;
+        [SerializeField] private TextMeshProUGUI title;
+        [SerializeField] private Transform content;
 
-    public void OnClose() => Destroy(gameObject);
+        public void OnClose() => Destroy(gameObject);
+    }
 }

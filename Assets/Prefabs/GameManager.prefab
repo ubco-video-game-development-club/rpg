@@ -111,7 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2d0e228c4f28c94aa0837293ab29cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
   popupPrefab: {fileID: 8500890738462449253, guid: 3243bbf214ab97946bac6b75be901945,
     type: 3}
 --- !u!114 &3399411770004483277

@@ -11,6 +11,9 @@ namespace RPG
         [SerializeField] private RectTransform tooltipParent;
         public static RectTransform TooltipParent { get => instance.tooltipParent; }
 
+        [SerializeField] private RectTransform popupParent;
+        public static RectTransform PopupParent { get => instance.popupParent; }
+
         void Awake()
         {
             if (instance != null)
