@@ -14,6 +14,9 @@ namespace RPG
         [SerializeField] private RectTransform popupParent;
         public static RectTransform PopupParent { get => instance.popupParent; }
 
+        [SerializeField] private DialoguePanel dialoguePanel;
+        public static DialoguePanel DialoguePanel { get => instance.dialoguePanel; }
+
         void Awake()
         {
             if (instance != null)

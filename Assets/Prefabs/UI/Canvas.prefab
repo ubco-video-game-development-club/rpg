@@ -233,6 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipParent: {fileID: 1594993686226260617}
   popupParent: {fileID: 1288152616948430222}
+  dialoguePanel: {fileID: 216887218}
 --- !u!1 &1594993686462527033
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +455,7 @@ GameObject:
   - component: {fileID: 1594993686604947228}
   - component: {fileID: 1594993686604947229}
   - component: {fileID: 1594993686604947203}
+  - component: {fileID: 216887218}
   m_Layer: 5
   m_Name: DialogueUI
   m_TagString: Untagged
@@ -534,6 +536,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6314624073fd19344a66e0b14acc8eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &216887218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594993686604947231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44a07bd0e6c97594b91f1a21af225479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialoguePortrait: {fileID: 1594993687788556692}
+  dialogueName: {fileID: 1594993687372582074}
+  dialogueText: {fileID: 1594993686462527039}
+  dialogueButtons: {fileID: 1594993687448914316}
+  buttonPrefab: {fileID: 938752656141109365, guid: b8fb103db91193d499168bfd67df88f4,
+    type: 3}
 --- !u!1 &1594993686623443760
 GameObject:
   m_ObjectHideFlags: 0
