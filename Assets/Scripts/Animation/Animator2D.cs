@@ -23,18 +23,18 @@ namespace RPG.Animation
 
         public void PlayAnimation(AnimationClip animation, bool looping, bool reset = false)
         {
-            if (!isLocked)
+            if (isLocked && looping) return;
+
+            if (!looping)
             {
-                if (!looping)
-                {
-                    StartCoroutine(LockAnimation(animation, reset));
-                }
-                else
-                {
-                    prev = animation;
-                }
-                controller["Main"] = animation;
+                StartCoroutine(LockAnimation(animation, reset));
             }
+            else
+            {
+                prev = animation;
+            }
+            
+            controller["Main"] = animation;
         }
 
         private IEnumerator LockAnimation(AnimationClip animation, bool reset)

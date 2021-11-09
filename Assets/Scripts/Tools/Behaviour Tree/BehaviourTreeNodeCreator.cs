@@ -6,6 +6,7 @@ namespace BehaviourTree
     {
         SelectorNode,
         SequenceNode,
+        ExecuteAllNode,
         SuccessNode,
         NotNode,
         EqualsNode,
@@ -19,7 +20,9 @@ namespace BehaviourTree
         SetActionTargetNode,
         InvokeActionNode,
         GetDialogueIndexNode,
-        SetDialogueIndexNode
+        SetDialogueIndexNode,
+        GetMoveDirectionNode,
+        GetVectorAxisNode
     }
 
     public static class BehaviourTreeNodeCreator
@@ -32,6 +35,8 @@ namespace BehaviourTree
                     return new SelectorNode();
                 case BehaviourTreeNodeType.SequenceNode:
                     return new SequenceNode();
+                case BehaviourTreeNodeType.ExecuteAllNode:
+                    return new ExecuteAllNode();
                 case BehaviourTreeNodeType.SuccessNode:
                     return new SuccessNode();
                 case BehaviourTreeNodeType.NotNode:
@@ -60,6 +65,10 @@ namespace BehaviourTree
                     return new GetDialogueIndexNode();
                 case BehaviourTreeNodeType.SetDialogueIndexNode:
                     return new SetDialogueIndexNode();
+                case BehaviourTreeNodeType.GetMoveDirectionNode:
+                    return new GetMoveDirectionNode();
+                case BehaviourTreeNodeType.GetVectorAxisNode:
+                    return new GetVectorAxisNode();
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return null;
