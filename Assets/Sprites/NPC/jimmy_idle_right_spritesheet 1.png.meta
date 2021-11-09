@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: c0d7d5c59a8b86d41a6ed7f9fcafb424
+guid: cb4a569abfd3f7044bbbe78cc5e95ae3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2300348186413011325
-    second: jimmy_idle_right_spritesheet_0
+      213: 1305642477128488618
+    second: jimmy_idle_right_spritesheet 1_0
   - first:
-      213: -5152222820520676494
-    second: jimmy_idle_right_spritesheet_1
+      213: -8273484000198534134
+    second: jimmy_idle_right_spritesheet 1_1
   - first:
-      213: 2381611387390164356
-    second: jimmy_idle_right_spritesheet_2
+      213: -8960400919701807499
+    second: jimmy_idle_right_spritesheet 1_2
   - first:
-      213: 479583841197734673
-    second: jimmy_idle_right_spritesheet_3
+      213: -1187968453265188053
+    second: jimmy_idle_right_spritesheet 1_3
   - first:
-      213: 5478956903006438039
-    second: jimmy_idle_right_spritesheet_4
+      213: -8820884283729410743
+    second: jimmy_idle_right_spritesheet 1_4
   - first:
-      213: 3990814649669714990
-    second: jimmy_idle_right_spritesheet_5
+      213: 5095777027811378864
+    second: jimmy_idle_right_spritesheet 1_5
   - first:
-      213: 7028348310845219900
-    second: jimmy_idle_right_spritesheet_6
+      213: 7226256086331943428
+    second: jimmy_idle_right_spritesheet 1_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jimmy_idle_right_spritesheet_0
+      name: jimmy_idle_right_spritesheet 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d719cdedc7a7cef10800000000000000
-      internalID: 2300348186413011325
+      spriteID: aa697e45ae29e1210800000000000000
+      internalID: 1305642477128488618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jimmy_idle_right_spritesheet_1
+      name: jimmy_idle_right_spritesheet 1_1
       rect:
         serializedVersion: 2
         x: 300
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 273343374a0af78b0800000000000000
-      internalID: -5152222820520676494
+      spriteID: a0cd949f22eae2d80800000000000000
+      internalID: -8273484000198534134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jimmy_idle_right_spritesheet_2
+      name: jimmy_idle_right_spritesheet 1_2
       rect:
         serializedVersion: 2
         x: 600
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48d7a6240fe2d0120800000000000000
-      internalID: 2381611387390164356
+      spriteID: 57e171876d246a380800000000000000
+      internalID: -8960400919701807499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jimmy_idle_right_spritesheet_3
+      name: jimmy_idle_right_spritesheet 1_3
       rect:
         serializedVersion: 2
         x: 900
@@ -213,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11bbb9e66f2d7a600800000000000000
-      internalID: 479583841197734673
+      spriteID: b2b12c26cfc738fe0800000000000000
+      internalID: -1187968453265188053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jimmy_idle_right_spritesheet_4
+      name: jimmy_idle_right_spritesheet 1_4
       rect:
         serializedVersion: 2
         x: 1200
@@ -234,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7928f57464a290c40800000000000000
-      internalID: 5478956903006438039
+      spriteID: 9458b7f9a7ce59580800000000000000
+      internalID: -8820884283729410743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jimmy_idle_right_spritesheet_5
+      name: jimmy_idle_right_spritesheet 1_5
       rect:
         serializedVersion: 2
         x: 1500
@@ -255,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e240df597c8326730800000000000000
-      internalID: 3990814649669714990
+      spriteID: 0b60b4d4536d7b640800000000000000
+      internalID: 5095777027811378864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jimmy_idle_right_spritesheet_6
+      name: jimmy_idle_right_spritesheet 1_6
       rect:
         serializedVersion: 2
         x: 1800
@@ -276,8 +276,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3465a90d85b98160800000000000000
-      internalID: 7028348310845219900
+      spriteID: 40ae1d9cf91d84460800000000000000
+      internalID: 7226256086331943428
       vertices: []
       indices: 
       edges: []

@@ -1,28 +1,13 @@
 fileFormatVersion: 2
-guid: 6b7e523a33eec494190865423a2b13c1
+guid: d3f5e2aaea10aeb42af7e774f09a7773
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2904786295502281427
-    second: jimmy_walk__left_spritesheet_0
+      213: 4087427574736349741
+    second: BootHouse_0
   - first:
-      213: -1392106456922227558
-    second: jimmy_walk__left_spritesheet_1
-  - first:
-      213: -7047889666266844355
-    second: jimmy_walk__left_spritesheet_2
-  - first:
-      213: -3648505929668849494
-    second: jimmy_walk__left_spritesheet_3
-  - first:
-      213: 5323348003050223442
-    second: jimmy_walk__left_spritesheet_4
-  - first:
-      213: 106034792376050260
-    second: jimmy_walk__left_spritesheet_5
-  - first:
-      213: -6250015927603742184
-    second: jimmy_walk__left_spritesheet_6
+      213: -4042688435320515616
+    second: BootHouse_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -136,13 +121,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jimmy_walk__left_spritesheet_0
+      name: BootHouse_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 300
-        height: 300
+        width: 1200
+        height: 1200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,83 +135,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d25e924214020b7d0800000000000000
-      internalID: -2904786295502281427
+      spriteID: d2aeb4d19b579b830800000000000000
+      internalID: 4087427574736349741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jimmy_walk__left_spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 0
-        width: 300
-        height: 300
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9c7f999d8e3eace0800000000000000
-      internalID: -1392106456922227558
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jimmy_walk__left_spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 0
-        width: 300
-        height: 300
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d33b40a90bdd03e90800000000000000
-      internalID: -7047889666266844355
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jimmy_walk__left_spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 900
-        y: 0
-        width: 300
-        height: 300
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa09e250037ed5dc0800000000000000
-      internalID: -3648505929668849494
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jimmy_walk__left_spritesheet_4
+      name: BootHouse_1
       rect:
         serializedVersion: 2
         x: 1200
         y: 0
-        width: 300
-        height: 300
+        width: 1200
+        height: 1200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,50 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 257f791fdc450e940800000000000000
-      internalID: 5323348003050223442
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jimmy_walk__left_spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 1500
-        y: 0
-        width: 300
-        height: 300
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4522865f416b87100800000000000000
-      internalID: 106034792376050260
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jimmy_walk__left_spritesheet_6
-      rect:
-        serializedVersion: 2
-        x: 1800
-        y: 0
-        width: 300
-        height: 300
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 81a35aab0ab7349a0800000000000000
-      internalID: -6250015927603742184
+      spriteID: 0e31423894c75e7c0800000000000000
+      internalID: -4042688435320515616
       vertices: []
       indices: 
       edges: []
