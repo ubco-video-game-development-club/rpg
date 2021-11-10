@@ -24,23 +24,25 @@ namespace BehaviourTree
             Animator = GetComponent<Animator>();
 
             root = behaviourTree.Root;
-            isEnabled=true;
+            isEnabled = true;
         }
 
         protected void Update()
         {
-            if(isEnabled){
+            if (isEnabled)
+            {
                 root.Element.Tick(root, this);
             }
-
         }
 
-        public void DisableBehaviours(){
-            isEnabled=false;
+        public void DisableBehaviours()
+        {
+            isEnabled = false;
         }
 
-        public void EnableBehaviours(){
-            isEnabled=true;
+        public void EnableBehaviours()
+        {
+            isEnabled = true;
         }
     }
 }

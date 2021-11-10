@@ -10,7 +10,7 @@ namespace BehaviourTree
         private const string PROP_INDEX_SRC = "index-source";
         private const string PROP_VECTOR_DEST = "vector-destination";
 
-        public void Init(Behaviour behaviour)
+        public void Serialize(Behaviour behaviour)
         {
             // TODO: have an array property to drive these values
             behaviour.Properties.Add(PROP_ARRAY, new VariableProperty(VariableProperty.Type.String)); // todo: change type to array (of vectors)

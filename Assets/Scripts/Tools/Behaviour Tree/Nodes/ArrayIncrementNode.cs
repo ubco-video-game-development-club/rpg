@@ -10,7 +10,7 @@ namespace BehaviourTree
         private const string PROP_INDEX_SRC = "index-source";
         private const string PROP_MAX_INDEX = "max-index";
 
-        public void Init(Behaviour behaviour)
+        public void Serialize(Behaviour behaviour)
         {
             behaviour.Properties.Add(PROP_INDEX_SRC, new VariableProperty(VariableProperty.Type.String));
             behaviour.Properties.Add(PROP_MAX_INDEX, new VariableProperty(VariableProperty.Type.Number));
