@@ -2,6 +2,7 @@ namespace RPG
 {
     public enum ItemSlot
     {
-        Mainhand
+        Mainhand,
+        Offhand
     }
 }

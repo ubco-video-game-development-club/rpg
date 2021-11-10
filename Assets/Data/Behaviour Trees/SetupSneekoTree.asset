@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tree:
     serializedNodes:
-    - childCount: 3
+    - childCount: 4
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
@@ -22,75 +22,124 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
-        - name: target-entity-id
+        - name: unique-id
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
               s: Sneeko
               o: {fileID: 0}
               v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: object-destination
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: sneeko
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.FindObjectByIdNode
+      firstChildIndex: 2
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: npc-source
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: sneeko
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
             aType: 0
         - name: index-destination
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
-              s: sneeko-index
+              s: sneeko-idx
               o: {fileID: 0}
               v: {x: 0, y: 0}
+              a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.GetDialogueIndexNode
-      firstChildIndex: 2
+      firstChildIndex: 3
     - childCount: 0
       element:
         propertyInfo:
         - name: source-property
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
-              s: sneeko-index
+              s: sneeko-idx
               o: {fileID: 0}
               v: {x: 0, y: 0}
+              a: []
+              e: 0
             aType: 0
         - name: comparison-number
           property:
             propertyType: 1
-            value:
-              b: 0
-              n: 1
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-            aType: 0
-        nodeTypeName: BehaviourTree.EqualsNode
-      firstChildIndex: 3
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: target-entity-id
-          property:
-            propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.EqualsNode
+      firstChildIndex: 4
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: npc-source
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: sneeko
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
             aType: 0
         - name: dialogue-index
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
-              n: 0
+              n: 2
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
+              a: []
+              e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SetDialogueIndexNode
-      firstChildIndex: 4
+      firstChildIndex: 5

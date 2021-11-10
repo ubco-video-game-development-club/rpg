@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69acb03430977f418a2083c0b4c73f9, type: 3}
+  m_Name: TestEnemyMove
+  m_EditorClassIdentifier: 
+  bottom: {fileID: 7400000, guid: 1e730daf4b671f449b7e15ba7e6eb22b, type: 2}
+  bottomLeft: {fileID: 7400000, guid: 1e730daf4b671f449b7e15ba7e6eb22b, type: 2}
+  bottomRight: {fileID: 7400000, guid: 8461375abf5eb8e4ebab35ebfa031e62, type: 2}
+  left: {fileID: 7400000, guid: 1e730daf4b671f449b7e15ba7e6eb22b, type: 2}
+  right: {fileID: 7400000, guid: 8461375abf5eb8e4ebab35ebfa031e62, type: 2}
+  top: {fileID: 7400000, guid: 8461375abf5eb8e4ebab35ebfa031e62, type: 2}
+  topLeft: {fileID: 7400000, guid: 1e730daf4b671f449b7e15ba7e6eb22b, type: 2}
+  topRight: {fileID: 7400000, guid: 8461375abf5eb8e4ebab35ebfa031e62, type: 2}

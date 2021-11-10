@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fb5e73c80040247a00b01917c6e426, type: 3}
+  m_Name: AnimatedEnemy
+  m_EditorClassIdentifier: 
+  tree:
+    serializedNodes:
+    - childCount: 1
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 1
+    - childCount: 2
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.ExecuteAllNode
+      firstChildIndex: 2
+    - childCount: 2
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 3
+    - childCount: 1
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.NotNode
+      firstChildIndex: 4
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-name
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: random-pos
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.HasPropertyNode
+      firstChildIndex: 5
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: origin-position
+          property:
+            propertyType: 4
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: -2, y: -4.5}
+              a: []
+              e: 0
+            aType: 0
+        - name: max-distance
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 0.1
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-destination
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: random-pos
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.GetRandomPositionNode
+      firstChildIndex: 6
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: position-source
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: random-pos
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: stop-distance
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 0.1
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: move-speed
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 0.8
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.SimpleMoveNode
+      firstChildIndex: 7

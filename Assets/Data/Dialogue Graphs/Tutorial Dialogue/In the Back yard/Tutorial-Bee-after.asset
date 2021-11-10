@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ac0479ced6a50409cc854a5b89a582, type: 3}
+  m_Name: Tutorial-Bee-after
+  m_EditorClassIdentifier: 
+  nodes:
+  - name: Speak to Queen Bee
+    body: " I may have underestimated you duck. But, don\u2019t worry. I\u2019ve
+      got a good few hundred kids back home at the hive and they\u2019ll be back
+      to get you. Just you wait\u2026\r\n"
+    position: {x: -75, y: -169}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes:
+    - {fileID: 11400000, guid: fd6bea3234c831b4d883f8ba9833019d, type: 2}
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
+  transitions:
+  - name: Transition
+    from: 0
+    to: -1
+  exitNode:
+    name: Exit
+    body: 
+    position: {x: -71, y: -51}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}

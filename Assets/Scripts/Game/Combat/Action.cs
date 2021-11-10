@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using RPG.Animation;
 
 namespace RPG
 {
-    public abstract class Action : ScriptableObject
+    public abstract class Action : ScriptableObject, IInstantiable<Action>
     {
         [SerializeField] private Effect[] onHitEffects;
         public Effect[] OnHitEffects { get => onHitEffects; }
@@ -13,8 +14,14 @@ namespace RPG
         [SerializeField] private Effect[] onKillEffects;
         public Effect[] OnKillEffects { get => onKillEffects; }
 
-        [SerializeField] private RuntimeAnimatorController animationController;
-        public RuntimeAnimatorController AnimationController { get => animationController; }
+        [SerializeField] private bool useWeaponAnimation = false;
+        public bool UseWeaponAnimation { get => useWeaponAnimation; }
+
+        [SerializeField] private AnimationType animationType;
+        public AnimationType AnimationType { get => animationType; }
+
+        [SerializeField] private AnimationSet8D animation;
+        public AnimationSet8D Animation { get => animation; }
 
         [SerializeField] private float cooldown = 1f;
         public float Cooldown { get => cooldown; }
@@ -28,5 +35,7 @@ namespace RPG
         public UnityEvent<Actor> OnKill { get => onKill; }
 
         public abstract void Invoke(ActionData data);
+
+        public Action GetInstance() => Instantiate(this);
     }
 }

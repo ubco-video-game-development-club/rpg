@@ -10,7 +10,7 @@ namespace RPG
 
         public override void Interact(Player player)
         {
-            player.Equip(item.Slot, item);
+            player.Equip(item.DefaultSlot, item);
             Destroy(gameObject);
         }
     }
