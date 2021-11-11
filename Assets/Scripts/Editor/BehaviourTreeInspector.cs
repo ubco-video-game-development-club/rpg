@@ -9,6 +9,7 @@ namespace BehaviourTree
     public class BehaviourTreeInspector : Editor
     {
         private BehaviourTree behaviourTree;
+        private Behaviour selected = null;
 
         private bool isArrayExpanded = false;
         private int arrayLength = 0;
@@ -25,6 +26,13 @@ namespace BehaviourTree
 
             Behaviour node = behaviourTree.selectedNode;
             if (node == null) return;
+            if (selected == null || selected != node)
+            {
+                isArrayExpanded = false;
+                arrayLength = 0;
+                arr = null;
+            }
+            selected = node;
 
             ClearArrayData();
 
