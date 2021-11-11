@@ -25,21 +25,29 @@ MonoBehaviour:
         - name: tag-name
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
               s: Player
               o: {fileID: 0}
               v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         - name: actor-destination
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
               s: target-object
               o: {fileID: 0}
               v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         nodeTypeName: BehaviourTree.FindActorByTagNode
       firstChildIndex: 2
     - childCount: 0
@@ -48,21 +56,29 @@ MonoBehaviour:
         - name: actor-source
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
               s: target-object
               o: {fileID: 0}
               v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         - name: position-destination
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
               s: target-destination
               o: {fileID: 0}
               v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         nodeTypeName: BehaviourTree.GetActorPositionNode
       firstChildIndex: 3
     - childCount: 0
@@ -71,29 +87,41 @@ MonoBehaviour:
         - name: position-source
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
               s: target-destination
               o: {fileID: 0}
               v: {x: 0, y: 0}
-        - name: min-distance
+              a: []
+              e: 0
+            aType: 0
+        - name: stop-distance
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
               n: 2
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         - name: move-speed
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
               n: 10
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         nodeTypeName: BehaviourTree.SimpleMoveNode
       firstChildIndex: 4

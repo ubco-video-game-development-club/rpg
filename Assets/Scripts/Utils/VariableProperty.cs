@@ -152,7 +152,7 @@ public class VariableProperty
         }
         return result;
     }
-
+    
     public Type GetArrayType()
     {
         if (PropertyType != Type.Array) throw new InvalidOperationException("This property is not an array type.");

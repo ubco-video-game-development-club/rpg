@@ -22,33 +22,73 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
-        - name: source-array
+        - name: vector-array
           property:
-            propertyType: 2
+            propertyType: 5
+            objectType: 
             value:
               b: 0
               n: 0
-              s: TODO
+              s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
+              a:
+              - propertyType: 4
+                value:
+                  b: 0
+                  n: 0
+                  s: 
+                  o: {fileID: 0}
+                  v: {x: -3, y: -3}
+              - propertyType: 4
+                value:
+                  b: 0
+                  n: 0
+                  s: 
+                  o: {fileID: 0}
+                  v: {x: -5, y: -5}
+              - propertyType: 4
+                value:
+                  b: 0
+                  n: 0
+                  s: 
+                  o: {fileID: 0}
+                  v: {x: -3, y: -7}
+              - propertyType: 4
+                value:
+                  b: 0
+                  n: 0
+                  s: 
+                  o: {fileID: 0}
+                  v: {x: -1, y: -5}
+              e: 0
+            aType: 4
         - name: index-source
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
               s: patrol-index
               o: {fileID: 0}
               v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         - name: vector-destination
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
               s: patrol-vector
               o: {fileID: 0}
               v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         nodeTypeName: BehaviourTree.VectorIteratorNode
       firstChildIndex: 2
     - childCount: 0
@@ -57,30 +97,42 @@ MonoBehaviour:
         - name: position-source
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
               s: patrol-vector
               o: {fileID: 0}
               v: {x: 0, y: 0}
-        - name: min-distance
+              a: []
+              e: 0
+            aType: 0
+        - name: stop-distance
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
-              n: 0.1
+              n: 0.2
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         - name: move-speed
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
-              n: 2
+              n: 1.5
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         nodeTypeName: BehaviourTree.SimpleMoveNode
       firstChildIndex: 3
     - childCount: 0
@@ -89,20 +141,28 @@ MonoBehaviour:
         - name: index-source
           property:
             propertyType: 2
+            objectType: 
             value:
               b: 0
               n: 0
               s: patrol-index
               o: {fileID: 0}
               v: {x: 0, y: 0}
-        - name: max-index
+              a: []
+              e: 0
+            aType: 0
+        - name: array-length
           property:
             propertyType: 1
+            objectType: 
             value:
               b: 0
-              n: 3
+              n: 4
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         nodeTypeName: BehaviourTree.ArrayIncrementNode
       firstChildIndex: 4

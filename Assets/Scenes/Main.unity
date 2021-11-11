@@ -500,9 +500,9 @@ GameObject:
   - component: {fileID: 113309049}
   - component: {fileID: 113309048}
   - component: {fileID: 113309047}
-  - component: {fileID: 113309050}
   - component: {fileID: 113309046}
   - component: {fileID: 113309045}
+  - component: {fileID: 113309050}
   m_Layer: 8
   m_Name: TestNPCMover
   m_TagString: Untagged
@@ -549,7 +549,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &113309047
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -625,7 +625,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113309044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: -1.44, z: 0}
+  m_LocalPosition: {x: -5.66, y: -1.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1923,7 +1923,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608919353}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.89, y: -4.2, z: 0}
+  m_LocalPosition: {x: -5.41, y: -0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2863,7 +2863,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940472397}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.93, y: -4.22, z: 0}
+  m_LocalPosition: {x: -5.65, y: -3.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3385,7 +3385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1134476114
 MonoBehaviour:
   m_ObjectHideFlags: 0
