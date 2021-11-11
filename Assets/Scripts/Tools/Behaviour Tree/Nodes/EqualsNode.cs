@@ -5,7 +5,7 @@ using RPG;
 
 namespace BehaviourTree
 {
-    public class EqualsNode : IBehaviourTreeNode
+    public class IntEqualsNode : IBehaviourTreeNode
     {
         private const string PROP_SOURCE = "source-property";
         private const string PROP_NUMBER = "comparison-number";

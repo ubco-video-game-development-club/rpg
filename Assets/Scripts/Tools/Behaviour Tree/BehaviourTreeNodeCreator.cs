@@ -9,7 +9,7 @@ namespace BehaviourTree
         ExecuteAllNode,
         SuccessNode,
         NotNode,
-        EqualsNode,
+        IntEqualsNode,
         HasPropertyNode,
         RangeCheckNode,
         FindActorByTagNode,
@@ -44,8 +44,8 @@ namespace BehaviourTree
                     return new SuccessNode();
                 case BehaviourTreeNodeType.NotNode:
                     return new NotNode();
-                case BehaviourTreeNodeType.EqualsNode:
-                    return new EqualsNode();
+                case BehaviourTreeNodeType.IntEqualsNode:
+                    return new IntEqualsNode();
                 case BehaviourTreeNodeType.HasPropertyNode:
                     return new HasPropertyNode();
                 case BehaviourTreeNodeType.RangeCheckNode:
