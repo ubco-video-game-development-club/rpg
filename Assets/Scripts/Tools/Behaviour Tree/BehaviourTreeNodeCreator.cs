@@ -10,6 +10,7 @@ namespace BehaviourTree
         SuccessNode,
         NotNode,
         IntEqualsNode,
+        BoolEqualsNode,
         HasPropertyNode,
         RangeCheckNode,
         FindActorByTagNode,
@@ -17,6 +18,7 @@ namespace BehaviourTree
         GetActorPositionNode,
         GetRandomPositionNode,
         SimpleMoveNode,
+        IdleNode,
         SetActionTargetNode,
         InvokeActionNode,
         GetDialogueIndexNode,
@@ -24,6 +26,7 @@ namespace BehaviourTree
         ForceDialogueNode,
         VectorIteratorNode,
         ArrayIncrementNode,
+        SetBoolNode,
         GetMoveDirectionNode,
         GetVectorAxisNode
     }
@@ -46,6 +49,8 @@ namespace BehaviourTree
                     return new NotNode();
                 case BehaviourTreeNodeType.IntEqualsNode:
                     return new IntEqualsNode();
+                case BehaviourTreeNodeType.BoolEqualsNode:
+                    return new BoolEqualsNode();
                 case BehaviourTreeNodeType.HasPropertyNode:
                     return new HasPropertyNode();
                 case BehaviourTreeNodeType.RangeCheckNode:
@@ -60,6 +65,8 @@ namespace BehaviourTree
                     return new GetRandomPositionNode();
                 case BehaviourTreeNodeType.SimpleMoveNode:
                     return new SimpleMoveNode();
+                case BehaviourTreeNodeType.IdleNode:
+                    return new IdleNode();
                 case BehaviourTreeNodeType.SetActionTargetNode:
                     return new SetActionTargetNode();
                 case BehaviourTreeNodeType.InvokeActionNode:
@@ -74,6 +81,8 @@ namespace BehaviourTree
                     return new VectorIteratorNode();
                 case BehaviourTreeNodeType.ArrayIncrementNode:
                     return new ArrayIncrementNode();
+                case BehaviourTreeNodeType.SetBoolNode:
+                    return new SetBoolNode();
                 case BehaviourTreeNodeType.GetMoveDirectionNode:
                     return new GetMoveDirectionNode();
                 case BehaviourTreeNodeType.GetVectorAxisNode:

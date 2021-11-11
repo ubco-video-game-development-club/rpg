@@ -4,15 +4,15 @@ using UnityEngine;
 
 namespace BehaviourTree
 {
-    public class IntEqualsNode : IBehaviourTreeNode
+    public class BoolEqualsNode : IBehaviourTreeNode
     {
         private const string PROP_SOURCE = "source-property";
-        private const string PROP_NUMBER = "comparison-number";
+        private const string PROP_BOOL = "comparison-bool";
 
         public void Serialize(Behaviour behaviour)
         {
             behaviour.Properties.Add(PROP_SOURCE, new VariableProperty(VariableProperty.Type.String));
-            behaviour.Properties.Add(PROP_NUMBER, new VariableProperty(VariableProperty.Type.Number));
+            behaviour.Properties.Add(PROP_BOOL, new VariableProperty(VariableProperty.Type.Boolean));
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
@@ -20,9 +20,9 @@ namespace BehaviourTree
             Behaviour behaviour = self.Element;
 
             string source = behaviour.GetProperty(PROP_SOURCE).GetString();
-            int num1 = (int)obj.GetProperty(source);
-            int num2 = (int)behaviour.GetProperty(PROP_NUMBER).GetNumber();
-            if (num1 == num2) return NodeStatus.Success;
+            bool bool1 = (bool)obj.GetProperty(source);
+            bool bool2 = behaviour.GetProperty(PROP_BOOL).GetBoolean();
+            if (bool1 == bool2) return NodeStatus.Success;
 
             return NodeStatus.Failure;
         }

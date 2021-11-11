@@ -14,11 +14,124 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tree:
     serializedNodes:
-    - childCount: 3
+    - childCount: 1
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
       firstChildIndex: 1
+    - childCount: 2
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SelectorNode
+      firstChildIndex: 2
+    - childCount: 4
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 3
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-name
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: idle
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.HasPropertyNode
+      firstChildIndex: 4
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: source-property
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: idle
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: comparison-bool
+          property:
+            propertyType: 0
+            objectType: 
+            value:
+              b: 1
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.BoolEqualsNode
+      firstChildIndex: 5
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: idle-duration
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 3
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.IdleNode
+      firstChildIndex: 6
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: target-property
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: idle
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: bool-value
+          property:
+            propertyType: 0
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.SetBoolNode
+      firstChildIndex: 7
+    - childCount: 4
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 8
     - childCount: 0
       element:
         propertyInfo:
@@ -53,14 +166,7 @@ MonoBehaviour:
                   n: 0
                   s: 
                   o: {fileID: 0}
-                  v: {x: -3, y: -7}
-              - propertyType: 4
-                value:
-                  b: 0
-                  n: 0
-                  s: 
-                  o: {fileID: 0}
-                  v: {x: -1, y: -5}
+                  v: {x: -3, y: -5}
               e: 0
             aType: 4
         - name: index-source
@@ -90,7 +196,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.VectorIteratorNode
-      firstChildIndex: 2
+      firstChildIndex: 9
     - childCount: 0
       element:
         propertyInfo:
@@ -134,7 +240,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SimpleMoveNode
-      firstChildIndex: 3
+      firstChildIndex: 10
     - childCount: 0
       element:
         propertyInfo:
@@ -157,7 +263,7 @@ MonoBehaviour:
             objectType: 
             value:
               b: 0
-              n: 4
+              n: 3
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
@@ -165,4 +271,35 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.ArrayIncrementNode
-      firstChildIndex: 4
+      firstChildIndex: 11
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: target-property
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: idle
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: bool-value
+          property:
+            propertyType: 0
+            objectType: 
+            value:
+              b: 1
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.SetBoolNode
+      firstChildIndex: 12
