@@ -16,6 +16,7 @@ namespace RPG
         public static PopupSystem PopupSystem { get; private set; }
         public static QuestSystem QuestSystem {get; private set; }
         public static AlignmentSystem AlignmentSystem { get; private set; }
+        public static MusicSystem MusicSystem { get; private set; }
 
         public static Player Player { get; private set; }
         public static bool IsPlayerCreated { get => Player != null; }
@@ -39,6 +40,7 @@ namespace RPG
             PopupSystem = GetComponent<PopupSystem>();
             QuestSystem = GetComponent<QuestSystem>();
             AlignmentSystem = GetComponent<AlignmentSystem>();
+            MusicSystem = GetComponent<MusicSystem>();
         }
 
         public static void CreatePlayer() => instance.InstanceCreatePlayer();
