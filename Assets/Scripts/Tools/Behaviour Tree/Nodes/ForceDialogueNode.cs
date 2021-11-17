@@ -7,23 +7,19 @@ namespace BehaviourTree
 {
     public class ForceDialogueNode : IBehaviourTreeNode
     {
-
         public void Serialize(Behaviour behaviour) { }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
         {
-            Behaviour behaviour = self.Element;
-            NPC dialogue = obj.GetComponent<NPC>();
-            Player p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-            //Checks if the player or the QuestGiver(DialogueScript later) is null
-            if (dialogue != null && p != null)
+            if (obj.TryGetComponent<NPC>(out NPC npc))
             {
-                dialogue.Interact(p);
-                return NodeStatus.Success;
+                npc.Interact(GameManager.Player);
             }
-            return NodeStatus.Failure;
+            else
+            {
+                throw new MissingComponentException("Current agent does not have the required NPC component!");
+            }
+            return NodeStatus.Success;
         }
-
     }
-
 }

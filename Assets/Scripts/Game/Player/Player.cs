@@ -28,6 +28,8 @@ namespace RPG
 
         public ClassBaseStats ClassBaseStats { get; private set; }
 
+        public bool Enabled { get; private set; }
+
         private List<Action> availableAbilities;
         private AbilitySlot[] abilitySlots;
         private Dictionary<ItemSlot, Item> equipment;
@@ -67,8 +69,9 @@ namespace RPG
             }
             Equip(ItemSlot.Mainhand, defaultPrimaryWeapon);
             Equip(ItemSlot.Offhand, defaultSecondaryWeapon);
-
             actionData = new ActionData(LayerMask.GetMask("Enemy"));
+
+            Enabled = true;
         }
 
         void OnGUI()
@@ -130,6 +133,9 @@ namespace RPG
 
         protected override void Update()
         {
+            // Enabled check: skip updates while not enabled
+            if (!Enabled) return;
+
             // Handle movement inputs
             float inputH = Input.GetAxisRaw("Horizontal");
             float inputV = Input.GetAxisRaw("Vertical");
@@ -164,6 +170,17 @@ namespace RPG
                     HandleActionInput($"Ability{i + 1}", abilitySlots[i].ability);
                 }
             }
+        }
+
+        public void Enable()
+        {
+            Enabled = true;
+        }
+
+        public void Disable()
+        {
+            Enabled = false;
+            ClearInteractions();
         }
 
         public void ApplyClassBaseStats(ClassBaseStats classBaseStats)
@@ -277,18 +294,8 @@ namespace RPG
 
         private void UpdateInteractions()
         {
-            Interactable interactable;
-
-            // Clear current interactions
-            for (int i = 0; i < numInteractTargets; i++)
-            {
-                Collider2D target = interactTargets[i];
-                if (target != null && target.TryGetComponent<Interactable>(out interactable))
-                {
-                    interactable.SetTooltipActive(false);
-                }
-            }
-            targetInteractable = null;
+            // Clear interactions
+            ClearInteractions();
 
             // Check for nearby interactables
             numInteractTargets = Physics2D.OverlapCircleNonAlloc(transform.position, interactRadius, interactTargets, interactLayer);
@@ -305,11 +312,27 @@ namespace RPG
             }
 
             // Set the nearest interactable active
+            Interactable interactable;
             if (closestIdx >= 0 && interactTargets[closestIdx].TryGetComponent<Interactable>(out interactable))
             {
                 targetInteractable = interactable;
                 interactable.SetTooltipActive(true);
             }
+        }
+
+        private void ClearInteractions()
+        {
+            // Clear current interactions
+            Interactable interactable;
+            for (int i = 0; i < numInteractTargets; i++)
+            {
+                Collider2D target = interactTargets[i];
+                if (target != null && target.TryGetComponent<Interactable>(out interactable))
+                {
+                    interactable.SetTooltipActive(false);
+                }
+            }
+            targetInteractable = null;
         }
     }
 }

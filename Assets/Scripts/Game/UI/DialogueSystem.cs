@@ -18,6 +18,8 @@ namespace Dialogue
 
         public void BeginDialogue(NPC target, DialogueGraph graph)
         {
+            GameManager.Player.Disable();
+
             currentTarget = target;
             currentGraph = graph;
 
@@ -95,6 +97,7 @@ namespace Dialogue
             {
                 // We've reached the end of the tree
                 HUD.DialoguePanel.Hide();
+                GameManager.Player.Enable();
             }
             else
             {
