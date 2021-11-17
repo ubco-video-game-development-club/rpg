@@ -5,13 +5,12 @@ using RPG;
 
 namespace BehaviourTree
 {
-    [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
+    [RequireComponent(typeof(Rigidbody2D))]
     public class Agent : BehaviourObject
     {
         [SerializeField] private BehaviourTree behaviourTree;
 
         public Rigidbody2D Rigidbody2D { get; private set; }
-        public Animator Animator { get; private set; }
 
         private Tree<Behaviour>.Node root;
         private bool isEnabled;
@@ -21,7 +20,6 @@ namespace BehaviourTree
             base.Awake();
 
             Rigidbody2D = GetComponent<Rigidbody2D>();
-            Animator = GetComponent<Animator>();
 
             root = behaviourTree.Root;
             isEnabled = true;
