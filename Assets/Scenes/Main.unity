@@ -404,10 +404,12 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Talk
+  tooltip: {fileID: 0}
   characterName: Random4
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: 983069b3f6e25a446b7cc000264e1bb2, type: 2}
+  <ActiveIndex>k__BackingField: 0
 --- !u!58 &109492337
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -501,7 +503,6 @@ GameObject:
   - component: {fileID: 113309048}
   - component: {fileID: 113309047}
   - component: {fileID: 113309046}
-  - component: {fileID: 113309045}
   - component: {fileID: 113309050}
   m_Layer: 8
   m_Name: TestNPCMover
@@ -510,25 +511,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &113309045
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113309044}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &113309046
 Rigidbody2D:
   serializedVersion: 4
@@ -681,6 +663,7 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Talk
+  tooltip: {fileID: 0}
   characterName: Mum
   portrait: {fileID: 8835284309397123848, guid: 568b897490088f8439d263b261216ec0,
     type: 3}
@@ -691,6 +674,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9c5ab4e0982fac54ab0e05d0dca4093e, type: 2}
   - {fileID: 11400000, guid: 2133e95db09dbf34fbd7a3a458719899, type: 2}
   - {fileID: 11400000, guid: 12bee71ec794d8b4598dce7ff9fa751f, type: 2}
+  <ActiveIndex>k__BackingField: 0
 --- !u!58 &141597917
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1532,11 +1516,13 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Talk
+  tooltip: {fileID: 0}
   characterName: Goof
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: 1038a25bb80e70e4da7c513479466015, type: 2}
   - {fileID: 11400000, guid: 709ad8f986fdd3442bad33d63bed2752, type: 2}
+  <ActiveIndex>k__BackingField: 0
 --- !u!58 &511373795
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1588,12 +1574,14 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Talk
+  tooltip: {fileID: 0}
   characterName: Sneeko
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: 8c096da2b4b78d14492866a0ace564a7, type: 2}
   - {fileID: 11400000, guid: 7852df3d4fd29ae498cfed742fd1b8f7, type: 2}
   - {fileID: 11400000, guid: 2e067e40d2dbdc8499f8b6226f5fccf1, type: 2}
+  <ActiveIndex>k__BackingField: 0
 --- !u!58 &539150547
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1722,10 +1710,12 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Talk
+  tooltip: {fileID: 0}
   characterName: Random2
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: 19e302e7a2839af46ba37481d3432982, type: 2}
+  <ActiveIndex>k__BackingField: 0
 --- !u!58 &561039018
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1841,6 +1831,7 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Talk
+  tooltip: {fileID: 0}
   characterName: Jimmy
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
   dialogueGraphs:
@@ -1848,6 +1839,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ae69f4ad827a0414a91c5ae9bf3b5f7f, type: 2}
   - {fileID: 11400000, guid: 83b205d62cdb0974393721752ad9e152, type: 2}
   - {fileID: 11400000, guid: a7387a334354d6349a4477f872978b86, type: 2}
+  <ActiveIndex>k__BackingField: 0
 --- !u!58 &608919355
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2781,12 +2773,14 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Talk
+  tooltip: {fileID: 0}
   characterName: Waddlesworth
   portrait: {fileID: -3713467532807335336, guid: 0bbfe1fef35fa2243a811a7b497fb9e2,
     type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: e2d41534d805e214b87b7147251687f5, type: 2}
   - {fileID: 11400000, guid: 48f86ea51390adb459028fd4ce49c74d, type: 2}
+  <ActiveIndex>k__BackingField: 0
 --- !u!58 &940472399
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3088,10 +3082,12 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Talk
+  tooltip: {fileID: 0}
   characterName: Random3
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: fb7221204d8077242a86860ac28961e6, type: 2}
+  <ActiveIndex>k__BackingField: 0
 --- !u!58 &1047971989
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3219,11 +3215,13 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Talk
+  tooltip: {fileID: 0}
   characterName: QueenBee
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: b841a9376d1e11440948e5662caa909b, type: 2}
   - {fileID: 11400000, guid: 0f47a4bdeaa57fb4cbb71798ddb17b3c, type: 2}
+  <ActiveIndex>k__BackingField: 0
 --- !u!58 &1060987546
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3444,12 +3442,14 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Talk
+  tooltip: {fileID: 0}
   characterName: Jimmy
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: 8c096da2b4b78d14492866a0ace564a7, type: 2}
   - {fileID: 11400000, guid: 7852df3d4fd29ae498cfed742fd1b8f7, type: 2}
   - {fileID: 11400000, guid: 2e067e40d2dbdc8499f8b6226f5fccf1, type: 2}
+  <ActiveIndex>k__BackingField: 0
 --- !u!58 &1134476118
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4375,10 +4375,12 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Interact
+  tooltip: {fileID: 0}
   characterName: Picture
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: 9ff2ef79ee780e34397408cbe8755f16, type: 2}
+  <ActiveIndex>k__BackingField: 0
 --- !u!58 &1398485441
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4494,10 +4496,12 @@ MonoBehaviour:
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Talk
+  tooltip: {fileID: 0}
   characterName: Random1
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: 3e16ea0b8d9fdc04c8742fec90a182d6, type: 2}
+  <ActiveIndex>k__BackingField: 0
 --- !u!58 &1410663228
 CircleCollider2D:
   m_ObjectHideFlags: 0

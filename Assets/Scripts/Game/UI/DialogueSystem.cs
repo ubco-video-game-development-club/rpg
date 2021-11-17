@@ -12,11 +12,11 @@ namespace Dialogue
     public class DialogueSystem : MonoBehaviour
     {
         private YieldInstruction letterCooldown = new WaitForSeconds(0.05f);
-        private QuestGiver currentTarget;
+        private NPC currentTarget;
         private DialogueGraph currentGraph;
         private int currentNode = 0;
 
-        public void BeginDialogue(QuestGiver target, DialogueGraph graph)
+        public void BeginDialogue(NPC target, DialogueGraph graph)
         {
             currentTarget = target;
             currentGraph = graph;
@@ -59,10 +59,10 @@ namespace Dialogue
             // Apply any dialogue index overrides
             foreach (DialogueIndexOverride idxOverride in graphNode.dialogueIndexOverrides)
             {
-                QuestGiver target = currentTarget;
+                NPC target = currentTarget;
                 if (idxOverride.targetUniqueID != "")
                 {
-                    target = Entity.Find<QuestGiver>(idxOverride.targetUniqueID);
+                    target = Entity.Find<NPC>(idxOverride.targetUniqueID);
                 }
                 target.ActiveIndex = idxOverride.indexOverride;
             }

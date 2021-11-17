@@ -5,7 +5,7 @@ using Dialogue;
 
 namespace RPG
 {
-    public class QuestGiver : Interactable
+    public class NPC : Interactable
     {
         [SerializeField] private string characterName;
         public string CharacterName { get => characterName; }

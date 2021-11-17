@@ -31,7 +31,7 @@ namespace RPG
             gameObject.SetActive(false);
         }
 
-        public void SetTarget(QuestGiver target)
+        public void SetTarget(NPC target)
         {
             dialoguePortrait.sprite = target.Portrait;
             dialogueName.text = target.CharacterName;
