@@ -22,5 +22,17 @@ namespace RPG
             DialogueGraph graph = dialogueGraphs[ActiveIndex];
             GameManager.DialogueSystem.BeginDialogue(this, graph);
         }
+
+        // TODO: make enemy stuff based on factions!
+
+        public void SetEnemy(bool isEnemy)
+        {
+            gameObject.layer = isEnemy ? LayerMask.NameToLayer("Enemy") : LayerMask.NameToLayer("Interactable");
+        }
+
+        public bool IsEnemy()
+        {
+            return gameObject.layer == LayerMask.NameToLayer("Enemy");
+        }
     }
 }

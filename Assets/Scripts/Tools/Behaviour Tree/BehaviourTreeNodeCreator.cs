@@ -28,7 +28,8 @@ namespace BehaviourTree
         ArrayIncrementNode,
         SetBoolNode,
         GetMoveDirectionNode,
-        GetVectorAxisNode
+        GetVectorAxisNode,
+        IsEnemyNode,
     }
 
     public static class BehaviourTreeNodeCreator
@@ -87,6 +88,8 @@ namespace BehaviourTree
                     return new GetMoveDirectionNode();
                 case BehaviourTreeNodeType.GetVectorAxisNode:
                     return new GetVectorAxisNode();
+                case BehaviourTreeNodeType.IsEnemyNode:
+                    return new IsEnemyNode();
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return null;
