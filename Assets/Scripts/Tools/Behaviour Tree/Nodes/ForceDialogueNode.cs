@@ -11,8 +11,10 @@ namespace BehaviourTree
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
         {
+            Debug.Log("FORCING DIALOGUE");
             if (obj.TryGetComponent<NPC>(out NPC npc))
             {
+                Debug.Log("FORCED");
                 npc.Interact(GameManager.Player);
             }
             else

@@ -9,10 +9,12 @@ namespace BehaviourTree
         ExecuteAllNode,
         SuccessNode,
         NotNode,
+        IntLessThanNode,
         IntEqualsNode,
         BoolEqualsNode,
         HasPropertyNode,
         RangeCheckNode,
+        GetSelfNode,
         FindActorByTagNode,
         FindObjectByIdNode,
         GetActorPositionNode,
@@ -29,7 +31,9 @@ namespace BehaviourTree
         SetBoolNode,
         GetMoveDirectionNode,
         GetVectorAxisNode,
+        SetEnemyNode,
         IsEnemyNode,
+        GetEntityPropertyNode,
     }
 
     public static class BehaviourTreeNodeCreator
@@ -48,6 +52,8 @@ namespace BehaviourTree
                     return new SuccessNode();
                 case BehaviourTreeNodeType.NotNode:
                     return new NotNode();
+                case BehaviourTreeNodeType.IntLessThanNode:
+                    return new IntLessThanNode();
                 case BehaviourTreeNodeType.IntEqualsNode:
                     return new IntEqualsNode();
                 case BehaviourTreeNodeType.BoolEqualsNode:
@@ -56,6 +62,8 @@ namespace BehaviourTree
                     return new HasPropertyNode();
                 case BehaviourTreeNodeType.RangeCheckNode:
                     return new RangeCheckNode();
+                case BehaviourTreeNodeType.GetSelfNode:
+                    return new GetSelfNode();
                 case BehaviourTreeNodeType.FindActorByTagNode:
                     return new FindActorByTagNode();
                 case BehaviourTreeNodeType.FindObjectByIdNode:
@@ -88,8 +96,12 @@ namespace BehaviourTree
                     return new GetMoveDirectionNode();
                 case BehaviourTreeNodeType.GetVectorAxisNode:
                     return new GetVectorAxisNode();
+                case BehaviourTreeNodeType.SetEnemyNode:
+                    return new SetEnemyNode();
                 case BehaviourTreeNodeType.IsEnemyNode:
                     return new IsEnemyNode();
+                case BehaviourTreeNodeType.GetEntityPropertyNode:
+                    return new GetEntityPropertyNode();
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return null;

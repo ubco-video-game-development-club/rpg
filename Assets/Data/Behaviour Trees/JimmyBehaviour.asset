@@ -24,16 +24,47 @@ MonoBehaviour:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SelectorNode
       firstChildIndex: 2
-    - childCount: 4
+    - childCount: 5
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
       firstChildIndex: 3
     - childCount: 0
       element:
-        propertyInfo: []
-        nodeTypeName: BehaviourTree.IsEnemyNode
+        propertyInfo:
+        - name: object-destination
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: self
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.GetSelfNode
       firstChildIndex: 4
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: source-npc
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: self
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.IsEnemyNode
+      firstChildIndex: 5
     - childCount: 0
       element:
         propertyInfo:
@@ -64,7 +95,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.FindActorByTagNode
-      firstChildIndex: 5
+      firstChildIndex: 6
     - childCount: 0
       element:
         propertyInfo:
@@ -95,17 +126,135 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.GetActorPositionNode
-      firstChildIndex: 6
-    - childCount: 2
-      element:
-        propertyInfo: []
-        nodeTypeName: BehaviourTree.SelectorNode
       firstChildIndex: 7
     - childCount: 3
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
+        nodeTypeName: BehaviourTree.SelectorNode
       firstChildIndex: 8
+    - childCount: 4
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 9
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-name
+          property:
+            propertyType: 6
+            objectType: RPG.PropertyName, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+              PublicKeyToken=null
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 1
+            aType: 0
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: BehaviourTree.EntityPropertyReadType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: property-destination
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: health
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.GetEntityPropertyNode
+      firstChildIndex: 10
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: source-property
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: health
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: comparison-number
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 4
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.IntLessThanNode
+      firstChildIndex: 11
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: source-npc
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: self
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: is-enemy
+          property:
+            propertyType: 0
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.SetEnemyNode
+      firstChildIndex: 12
+    - childCount: 0
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.ForceDialogueNode
+      firstChildIndex: 13
+    - childCount: 3
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 14
     - childCount: 0
       element:
         propertyInfo:
@@ -136,7 +285,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.RangeCheckNode
-      firstChildIndex: 9
+      firstChildIndex: 15
     - childCount: 0
       element:
         propertyInfo:
@@ -154,7 +303,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SetActionTargetNode
-      firstChildIndex: 10
+      firstChildIndex: 16
     - childCount: 0
       element:
         propertyInfo:
@@ -172,12 +321,12 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.InvokeActionNode
-      firstChildIndex: 11
+      firstChildIndex: 17
     - childCount: 2
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 12
+      firstChildIndex: 18
     - childCount: 0
       element:
         propertyInfo:
@@ -208,7 +357,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.RangeCheckNode
-      firstChildIndex: 13
+      firstChildIndex: 19
     - childCount: 0
       element:
         propertyInfo:
@@ -252,12 +401,12 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SimpleMoveNode
-      firstChildIndex: 14
+      firstChildIndex: 20
     - childCount: 4
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 15
+      firstChildIndex: 21
     - childCount: 0
       element:
         propertyInfo:
@@ -275,7 +424,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.HasPropertyNode
-      firstChildIndex: 16
+      firstChildIndex: 22
     - childCount: 0
       element:
         propertyInfo:
@@ -306,7 +455,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.BoolEqualsNode
-      firstChildIndex: 17
+      firstChildIndex: 23
     - childCount: 0
       element:
         propertyInfo:
@@ -324,7 +473,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.IdleNode
-      firstChildIndex: 18
+      firstChildIndex: 24
     - childCount: 0
       element:
         propertyInfo:
@@ -355,12 +504,12 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SetBoolNode
-      firstChildIndex: 19
+      firstChildIndex: 25
     - childCount: 4
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 20
+      firstChildIndex: 26
     - childCount: 0
       element:
         propertyInfo:
@@ -418,7 +567,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.VectorIteratorNode
-      firstChildIndex: 21
+      firstChildIndex: 27
     - childCount: 0
       element:
         propertyInfo:
@@ -462,7 +611,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SimpleMoveNode
-      firstChildIndex: 22
+      firstChildIndex: 28
     - childCount: 0
       element:
         propertyInfo:
@@ -493,7 +642,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.ArrayIncrementNode
-      firstChildIndex: 23
+      firstChildIndex: 29
     - childCount: 0
       element:
         propertyInfo:
@@ -524,4 +673,4 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SetBoolNode
-      firstChildIndex: 24
+      firstChildIndex: 30
