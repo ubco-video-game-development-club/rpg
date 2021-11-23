@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialMaxHealth: 20
   idleAnimations: {fileID: 11400000, guid: ab2732c9ce2543244ae7f2afb3cdf3c2, type: 2}
-  moveAnimations: {fileID: 11400000, guid: c8e1499bd9535f747acacebd995f7220, type: 2}
+  moveAnimations: {fileID: 11400000, guid: 44c2dc2c6afcc5c419dd02aceaf7e73f, type: 2}
   hurtAnimations: {fileID: 11400000, guid: c8e1499bd9535f747acacebd995f7220, type: 2}
   moveSpeed: 3
   weaponAnimator2D: {fileID: 3675457435987046871}
