@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RPG
 {
-    public abstract class Interactable : Entity
+    public abstract class Interactable : MonoBehaviour
     {
         [SerializeField] private Tooltip tooltipPrefab;
         [SerializeField] [TextArea] private string interactHint;
