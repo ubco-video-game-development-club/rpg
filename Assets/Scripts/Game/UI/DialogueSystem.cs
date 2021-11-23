@@ -68,7 +68,7 @@ namespace Dialogue
                 NPC target = currentTarget;
                 if (idxOverride.targetUniqueID != "")
                 {
-                    target = Entity.Find<NPC>(idxOverride.targetUniqueID);
+                    target = UniqueID.Get<NPC>(idxOverride.targetUniqueID);
                 }
                 target.ActiveIndex = idxOverride.indexOverride;
             }
