@@ -77,7 +77,14 @@ namespace Dialogue
             if (graphNode.customBehaviour != null)
             {
                 Tree<BehaviourTree.Behaviour>.Node root = graphNode.customBehaviour.Root;
-                root.Element.Tick(root, HUD.DialoguePanel.GetComponent<BehaviourObject>());
+                if (currentTarget.TryGetComponent<BehaviourObject>(out BehaviourObject obj))
+                {
+                    root.Element.Tick(root, obj);
+                }
+                else
+                {
+                    Debug.LogError("Failed to run custom dialogue behaviour due to target NPC not having a BehaviourObject component!");
+                }
             }
 
             // Display transitionss
