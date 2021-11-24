@@ -26,6 +26,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -44,6 +45,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -57,6 +59,7 @@ MonoBehaviour:
           property:
             propertyType: 0
             objectType: 
+            forceReserialization: 0
             value:
               b: 1
               n: 0

@@ -26,6 +26,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -39,6 +40,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -57,6 +59,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -70,6 +73,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -98,6 +102,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 1.1
@@ -111,6 +116,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -129,6 +135,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -147,6 +154,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -170,6 +178,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 3
@@ -183,6 +192,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -201,6 +211,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -214,6 +225,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 1
@@ -227,6 +239,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 2
@@ -265,6 +278,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -283,6 +297,7 @@ MonoBehaviour:
           property:
             propertyType: 4
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -296,6 +311,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 3
@@ -309,6 +325,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -332,6 +349,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0.2
@@ -345,6 +363,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -363,6 +382,7 @@ MonoBehaviour:
           property:
             propertyType: 4
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -376,6 +396,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 3
@@ -389,6 +410,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -412,6 +434,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -425,6 +448,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0.1
@@ -438,6 +462,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0.8

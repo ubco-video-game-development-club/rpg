@@ -9,6 +9,7 @@ namespace BehaviourTree
         ExecuteAllNode,
         SuccessNode,
         NotNode,
+        CompareNode,
         IntLessThanNode,
         IntEqualsNode,
         BoolEqualsNode,
@@ -52,6 +53,8 @@ namespace BehaviourTree
                     return new SuccessNode();
                 case BehaviourTreeNodeType.NotNode:
                     return new NotNode();
+                case BehaviourTreeNodeType.CompareNode:
+                    return new CompareNode();
                 case BehaviourTreeNodeType.IntLessThanNode:
                     return new IntLessThanNode();
                 case BehaviourTreeNodeType.IntEqualsNode:

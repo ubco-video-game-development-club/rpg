@@ -21,27 +21,36 @@ public class VariableProperty
         private set => objectType = value.AssemblyQualifiedName;
     }
 
+    [SerializeField] private bool forceReserialization;
+    public bool ForceReserialization
+    {
+        get => forceReserialization;
+        private set => forceReserialization = value;
+    }
+
     [SerializeField] private Value value;
     [SerializeField] private Type aType;
 
-    public VariableProperty(Type type)
+    public VariableProperty(Type type, bool forceReserialization = false)
     {
         if (type == Type.Object) Debug.LogError("ERROR: Attempting to use Object-based VariableProperty constructor with no Object type! You must specify the Object type!");
         if (type == Type.Array) Debug.LogError("ERROR: Attempting to use Array-based VariableProperty constructor with no Array type! You must specify the Array type!");
         PropertyType = type;
         value = new Value();
+        ForceReserialization = forceReserialization;
     }
 
-    public VariableProperty(Type type, System.Type objectType)
+    public VariableProperty(Type type, System.Type objectType, bool forceReserialization = false)
     {
         if (type != Type.Object && type != Type.Enum) Debug.LogError("ERROR: Attempting to use Object/Enum-based VariableProperty constructor with non-Object/Enum type!");
         PropertyType = type;
         ObjectType = objectType;
         value = new Value();
         if (type == Type.Enum) Set(0);
+        ForceReserialization = forceReserialization;
     }
 
-    public VariableProperty(Type type, Type arrayType)
+    public VariableProperty(Type type, Type arrayType, bool forceReserialization = false)
     {
         if (type != Type.Array) Debug.LogError("ERROR: Attempting to use Array-based VariableProperty constructor with non-Array type!");
         if (arrayType == Type.Object) Debug.LogError("ERROR: Attempting to use Array-of-Objects-based VariableProperty constructor with no Object type! You must specify the Object type!");
@@ -49,9 +58,10 @@ public class VariableProperty
         PropertyType = Type.Array;
         aType = arrayType;
         value = new Value();
+        ForceReserialization = forceReserialization;
     }
 
-    public VariableProperty(Type type, Type arrayType, System.Type objectType)
+    public VariableProperty(Type type, Type arrayType, System.Type objectType, bool forceReserialization = false)
     {
         if (type != Type.Array) Debug.LogError("ERROR: Attempting to use Array-based VariableProperty constructor with non-Array type!");
         if (arrayType == Type.Array) Debug.LogError("ERROR: VariableProperty Array type cannot have nested Arrays!");
@@ -59,6 +69,7 @@ public class VariableProperty
         aType = arrayType;
         ObjectType = objectType;
         value = new Value();
+        ForceReserialization = forceReserialization;
     }
 
     public bool GetBoolean()
@@ -152,7 +163,7 @@ public class VariableProperty
         }
         return result;
     }
-    
+
     public Type GetArrayType()
     {
         if (PropertyType != Type.Array) throw new InvalidOperationException("This property is not an array type.");
