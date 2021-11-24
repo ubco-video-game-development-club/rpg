@@ -10,9 +10,6 @@ namespace BehaviourTree
         SuccessNode,
         NotNode,
         CompareNode,
-        IntLessThanNode,
-        IntEqualsNode,
-        BoolEqualsNode,
         HasPropertyNode,
         RangeCheckNode,
         GetSelfNode,
@@ -55,12 +52,6 @@ namespace BehaviourTree
                     return new NotNode();
                 case BehaviourTreeNodeType.CompareNode:
                     return new CompareNode();
-                case BehaviourTreeNodeType.IntLessThanNode:
-                    return new IntLessThanNode();
-                case BehaviourTreeNodeType.IntEqualsNode:
-                    return new IntEqualsNode();
-                case BehaviourTreeNodeType.BoolEqualsNode:
-                    return new BoolEqualsNode();
                 case BehaviourTreeNodeType.HasPropertyNode:
                     return new HasPropertyNode();
                 case BehaviourTreeNodeType.RangeCheckNode:
