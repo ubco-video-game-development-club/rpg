@@ -11,6 +11,7 @@ namespace BehaviourTree
         NotNode,
         CompareNode,
         HasPropertyNode,
+        SetPropertyNode,
         RangeCheckNode,
         GetSelfNode,
         FindActorByTagNode,
@@ -26,7 +27,6 @@ namespace BehaviourTree
         ForceDialogueNode,
         VectorIteratorNode,
         ArrayIncrementNode,
-        SetBoolNode,
         GetMoveDirectionNode,
         GetVectorAxisNode,
         SetEnemyNode,
@@ -54,6 +54,8 @@ namespace BehaviourTree
                     return new CompareNode();
                 case BehaviourTreeNodeType.HasPropertyNode:
                     return new HasPropertyNode();
+                case BehaviourTreeNodeType.SetPropertyNode:
+                    return new SetPropertyNode();
                 case BehaviourTreeNodeType.RangeCheckNode:
                     return new RangeCheckNode();
                 case BehaviourTreeNodeType.GetSelfNode:
@@ -84,8 +86,6 @@ namespace BehaviourTree
                     return new VectorIteratorNode();
                 case BehaviourTreeNodeType.ArrayIncrementNode:
                     return new ArrayIncrementNode();
-                case BehaviourTreeNodeType.SetBoolNode:
-                    return new SetBoolNode();
                 case BehaviourTreeNodeType.GetMoveDirectionNode:
                     return new GetMoveDirectionNode();
                 case BehaviourTreeNodeType.GetVectorAxisNode:

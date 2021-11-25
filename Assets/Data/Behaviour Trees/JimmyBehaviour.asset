@@ -563,6 +563,21 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: BehaviourTree.SetPropertyNode+ValueType, Assembly-CSharp,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+            forceReserialization: 1
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 2
+            aType: 0
         - name: target-property
           property:
             propertyType: 2
@@ -577,7 +592,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: bool-value
+        - name: property-value
           property:
             propertyType: 0
             objectType: 
@@ -591,7 +606,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.SetBoolNode
+        nodeTypeName: BehaviourTree.SetPropertyNode
       firstChildIndex: 25
     - childCount: 4
       element:
@@ -742,6 +757,21 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: BehaviourTree.SetPropertyNode+ValueType, Assembly-CSharp,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+            forceReserialization: 1
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 2
+            aType: 0
         - name: target-property
           property:
             propertyType: 2
@@ -756,7 +786,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: bool-value
+        - name: property-value
           property:
             propertyType: 0
             objectType: 
@@ -770,5 +800,5 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.SetBoolNode
+        nodeTypeName: BehaviourTree.SetPropertyNode
       firstChildIndex: 30
