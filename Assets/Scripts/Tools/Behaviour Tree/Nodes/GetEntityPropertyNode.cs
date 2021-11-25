@@ -5,8 +5,6 @@ using RPG;
 
 namespace BehaviourTree
 {
-    public enum EntityPropertyReadType { Int, Float, Bool, String } // TODO: replace with RPG.PropertyType (git gud)
-
     public class GetEntityPropertyNode : IBehaviourTreeNode
     {
         private const string PROP_NAME = "property-name";
@@ -16,7 +14,7 @@ namespace BehaviourTree
         public void Serialize(Behaviour behaviour)
         {
             behaviour.Properties.Add(PROP_NAME, new VariableProperty(VariableProperty.Type.Enum, typeof(RPG.PropertyName)));
-            behaviour.Properties.Add(PROP_TYPE, new VariableProperty(VariableProperty.Type.Enum, typeof(EntityPropertyReadType)));
+            behaviour.Properties.Add(PROP_TYPE, new VariableProperty(VariableProperty.Type.Enum, typeof(PropertyType)));
             behaviour.Properties.Add(PROP_DEST, new VariableProperty(VariableProperty.Type.String));
         }
 
@@ -24,52 +22,40 @@ namespace BehaviourTree
         {
             Behaviour behaviour = self.Element;
 
-            Debug.Log("CHECKING HEALTHHHHH");
-
             Entity entity = null;
             if (!obj.TryGetComponent<Entity>(out entity))
             {
-                Debug.LogError("Attempted to use GetEntityPropertyNode with no Entity component!");
                 return NodeStatus.Failure;
             }
 
             RPG.PropertyName propName = behaviour.GetProperty(PROP_NAME).GetEnum<RPG.PropertyName>();
-            Debug.Log(propName);
-            foreach (var p in entity.Properties)
-            {
-                Debug.Log(p.Key);
-                Debug.Log(p.Value);
-            }
             if (!entity.HasProperty(propName))
             {
-                Debug.Log("PROP NOT FOUND!!");
+                Debug.LogWarning("Warning: target entity " + entity.name + " does not have property " + propName);
                 return NodeStatus.Failure;
             }
 
-            EntityPropertyReadType readType = behaviour.GetProperty(PROP_TYPE).GetEnum<EntityPropertyReadType>();
+            PropertyType readType = behaviour.GetProperty(PROP_TYPE).GetEnum<PropertyType>();
             string propDest = behaviour.GetProperty(PROP_DEST).GetString();
             switch (readType)
             {
-                case EntityPropertyReadType.Int:
+                case PropertyType.Int:
                     int iVal = entity.GetProperty<int>(propName);
                     obj.SetProperty(propDest, iVal);
-                    Debug.Log("READING INT VALUE: " + iVal);
                     break;
-                case EntityPropertyReadType.Float:
+                case PropertyType.Float:
                     float fVal = entity.GetProperty<float>(propName);
                     obj.SetProperty(propDest, fVal);
                     break;
-                case EntityPropertyReadType.Bool:
+                case PropertyType.Bool:
                     bool bVal = entity.GetProperty<bool>(propName);
                     obj.SetProperty(propDest, bVal);
                     break;
-                case EntityPropertyReadType.String:
+                case PropertyType.String:
                     string sVal = entity.GetProperty<string>(propName);
                     obj.SetProperty(propDest, sVal);
                     break;
             }
-
-            Debug.Log("READ THAT SHIII: " + obj.GetProperty(propDest).ToString());
 
             return NodeStatus.Success;
         }

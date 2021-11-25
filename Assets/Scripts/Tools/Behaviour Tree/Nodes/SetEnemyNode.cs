@@ -21,8 +21,6 @@ namespace BehaviourTree
         {
             Behaviour behaviour = self.Element;
 
-            Debug.Log("SETTING ENEMY!");
-
             // Get NPC
             string npcSrc = behaviour.GetProperty(PROP_NPC_SRC).GetString();
             GameObject npc = obj.GetProperty(npcSrc) as GameObject;

@@ -164,8 +164,8 @@ MonoBehaviour:
         - name: property-type
           property:
             propertyType: 6
-            objectType: BehaviourTree.EntityPropertyReadType, Assembly-CSharp, Version=0.0.0.0,
-              Culture=neutral, PublicKeyToken=null
+            objectType: RPG.PropertyType, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+              PublicKeyToken=null
             forceReserialization: 0
             value:
               b: 0
