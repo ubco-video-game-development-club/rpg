@@ -72,3 +72,6 @@ crashlytics-build.properties
 .history
 .ionide
 
+# Rider
+.idea/
+
