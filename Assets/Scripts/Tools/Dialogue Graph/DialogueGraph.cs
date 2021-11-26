@@ -17,7 +17,7 @@ namespace Dialogue
 
         public List<DialogueGraphNode> nodes = new List<DialogueGraphNode>();
         public List<DialogueGraphTransition> transitions = new List<DialogueGraphTransition>();
-        [System.NonSerialized] public readonly DialogueGraphNode exitNode = new DialogueGraphNode("Exit", new Vector2(200, 0));
+        public DialogueGraphNode exitNode = new DialogueGraphNode("Exit", new Vector2(200, 0));
         [System.NonSerialized] public int selectedNode;
 
         public void Draw(Vector2 offset)
@@ -28,15 +28,19 @@ namespace Dialogue
 
         public void ProcessEvents(Event e)
         {
+            bool nodeMoving = false;
             for (int i = 0; i < nodes.Count; i++)
             {
                 if (nodes[i].ProcessEvents(e))
                 {
                     selectedNode = i;
+                    EditorUtility.SetDirty(this);
+                    nodeMoving = true;
+                    break;
                 }
             }
 
-            exitNode.ProcessEvents(e);
+            if(!nodeMoving && exitNode.ProcessEvents(e)) EditorUtility.SetDirty(this);
         }
 
         public void CreateNode(string name, Vector2 position)

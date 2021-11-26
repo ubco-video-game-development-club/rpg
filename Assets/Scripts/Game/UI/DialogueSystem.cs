@@ -5,31 +5,24 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 using RPG;
+using BehaviourTree;
 
 namespace Dialogue
 {
     public class DialogueSystem : MonoBehaviour
     {
-        [SerializeField] private GameObject dialogueUI;
-        [SerializeField] private Image dialoguePortrait;
-        [SerializeField] private TextMeshProUGUI dialogueName;
-        [SerializeField] private TextMeshProUGUI dialogueText;
-        [SerializeField] private Transform dialogueButtons;
-        [SerializeField] private GameObject buttonPrefab;
-
-        private List<GameObject> buttonPool = new List<GameObject>();
-        private int buttonPoolIndex = 0;
         private YieldInstruction letterCooldown = new WaitForSeconds(0.05f);
+        private QuestGiver currentTarget;
         private DialogueGraph currentGraph;
         private int currentNode = 0;
 
-        public void BeginDialogue(Sprite portrait, string name, DialogueGraph graph)
+        public void BeginDialogue(QuestGiver target, DialogueGraph graph)
         {
+            currentTarget = target;
             currentGraph = graph;
 
-            dialogueUI.SetActive(true);
-            dialoguePortrait.sprite = portrait;
-            dialogueName.text = name;
+            HUD.DialoguePanel.Show();
+            HUD.DialoguePanel.SetTarget(target);
 
             StartCoroutine(ShowDialogue(0));
         }
@@ -55,19 +48,7 @@ namespace Dialogue
             currentNode = node;
             DialogueGraphNode graphNode = currentGraph.nodes[node];
             string dialogue = graphNode.body;
-
-            foreach (GameObject go in buttonPool)
-            {
-                go.SetActive(false);
-            }
-            buttonPoolIndex = 0;
-
-            int index = 0;
-            while (index <= dialogue.Length)
-            {
-                dialogueText.text = dialogue.Substring(0, index++);
-                yield return letterCooldown;
-            }
+            HUD.DialoguePanel.PlayDialogue(dialogue);
 
             // Apply quest notes for this dialogue node after it finishes reading
             foreach (QuestNote note in graphNode.questNotes)
@@ -75,11 +56,29 @@ namespace Dialogue
                 GameManager.QuestSystem.AddNote(note);
             }
 
+            // Apply any dialogue index overrides
+            foreach (DialogueIndexOverride idxOverride in graphNode.dialogueIndexOverrides)
+            {
+                QuestGiver target = currentTarget;
+                if (idxOverride.targetUniqueID != "")
+                {
+                    target = Entity.Find<QuestGiver>(idxOverride.targetUniqueID);
+                }
+                target.ActiveIndex = idxOverride.indexOverride;
+            }
+
+            // Run custom dialogue behaviour
+            if (graphNode.customBehaviour != null)
+            {
+                Tree<BehaviourTree.Behaviour>.Node root = graphNode.customBehaviour.Root;
+                root.Element.Tick(root, HUD.DialoguePanel.GetComponent<BehaviourObject>());
+            }
+
             DialogueGraphTransition[] transitions = GetTransitionsFor(currentGraph, node);
             foreach (DialogueGraphTransition t in transitions)
             {
                 DialogueGraphNode to = t.to < 0 ? currentGraph.exitNode : currentGraph.nodes[t.to];
-                CreateButton(to.name);
+                HUD.DialoguePanel.CreateOption(to.name, (idx) => OnDialogueOptionClicked(idx));
                 yield return letterCooldown;
             }
         }
@@ -88,40 +87,21 @@ namespace Dialogue
         {
             DialogueGraphTransition[] transitions = GetTransitionsFor(currentGraph, currentNode);
             DialogueGraphTransition transition = transitions[index];
-            if (transition.to < 0) dialogueUI.SetActive(false);
-            else StartCoroutine(ShowDialogue(transition.to));
-        }
-
-        private void CreateButton(string name)
-        {
-            TextMeshProUGUI buttonText;
-            UnityEvent onButtonClicked;
-
-            int buttonIndex = buttonPoolIndex;
-            if (buttonPoolIndex >= buttonPool.Count)
+            if (transition.to < 0)
             {
-                RectTransform button = Instantiate(buttonPrefab, Vector2.zero, Quaternion.identity, dialogueButtons).GetComponent<RectTransform>();
-                button.anchoredPosition = Vector2.down * buttonPool.Count * 30;
-                onButtonClicked = button.GetComponent<Button>().onClick;
-                buttonText = button.GetChild(0).GetComponent<TextMeshProUGUI>();
-
-                buttonPool.Add(button.gameObject);
-                buttonPoolIndex++;
+                // We've reached the end of the tree
+                HUD.DialoguePanel.Hide();
             }
             else
             {
-                GameObject button = buttonPool[buttonPoolIndex++];
-                button.SetActive(true);
-                onButtonClicked = button.GetComponent<Button>().onClick;
-                buttonText = button.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-            }
+                // Apply alignment modifications
+                DialogueGraphNode graphNode = currentGraph.nodes[transition.to];
+                GameManager.AlignmentSystem.UpdateLeanings(graphNode.leaningsMod);
+                GameManager.AlignmentSystem.UpdateMorals(graphNode.moralsMod);
+                GameManager.AlignmentSystem.UpdateSexiness(graphNode.sexinessMod);
 
-            buttonText.SetText(name);
-            onButtonClicked.RemoveAllListeners();
-            onButtonClicked.AddListener(delegate
-            {
-                OnDialogueOptionClicked(buttonIndex);
-            });
+                StartCoroutine(ShowDialogue(transition.to));
+            }
         }
     }
 }

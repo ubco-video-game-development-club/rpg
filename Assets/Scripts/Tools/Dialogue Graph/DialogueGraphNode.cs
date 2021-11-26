@@ -13,7 +13,13 @@ namespace Dialogue
         public string name;
         public string body;
         public Vector2 position;
+        [Range(-1.0f, 1.0f)] public float moralsMod;
+        [Range(-1.0f, 1.0f)] public float leaningsMod;
+        [Range(-1.0f, 1.0f)] public float sexinessMod;
         public QuestNote[] questNotes;
+        [Tooltip("Overrides the currently active dialogue graph index for the target entity (using UniqueID).")]
+        public DialogueIndexOverride[] dialogueIndexOverrides;
+        public BehaviourTree.BehaviourTree customBehaviour;
 
         private Rect displayRect;
         private bool isSelected = false;
@@ -21,6 +27,7 @@ namespace Dialogue
         public DialogueGraphNode(string name, Vector2 position)
         {
             this.name = name;
+            this.position = position;
         }
 
         public void Draw(Vector2 offset)

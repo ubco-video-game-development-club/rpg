@@ -5,43 +5,27 @@ using RPG;
 
 namespace BehaviourTree
 {
-    public class Agent : MonoBehaviour
+    [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
+    public class Agent : BehaviourObject
     {
         [SerializeField] private BehaviourTree behaviourTree;
 
-        public Dictionary<string, object> Properties { get; private set; }
+        public Rigidbody2D Rigidbody2D { get; private set; }
+        public Animator Animator { get; private set; }
 
         private Tree<Behaviour>.Node root;
 
-        void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             root = behaviourTree.Root;
-            Properties = new Dictionary<string, object>();
+            Rigidbody2D = GetComponent<Rigidbody2D>();
+            Animator = GetComponent<Animator>();
         }
 
-        void Update()
+        protected void Update()
         {
             root.Element.Tick(root, this);
-        }
-
-        public void SetProperty(string name, object property)
-        {
-            Properties[name] = property;
-        }
-
-        public object GetProperty(string name)
-        {
-            return HasProperty(name) ? Properties[name] : null;
-        }
-
-        public bool HasProperty(string name)
-        {
-            return Properties.ContainsKey(name);
-        }
-
-        public void RemoveProperty(string name)
-        {
-            Properties.Remove(name);
         }
     }
 }

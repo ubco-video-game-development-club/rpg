@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: TestSword
   m_EditorClassIdentifier: 
   stats: []
-  slot: 0
+  pickupPrefab: {fileID: 2420630429955449555, guid: 8ab5eac886fe1384da12574acee0ad0d,
+    type: 3}
+  defaultSlot: 0
   attack: {fileID: 11400000, guid: 0f1c8123f2f239040beee491d0144220, type: 2}
+  animations:
+  - type: 0
+    avatarAnimation: {fileID: 11400000, guid: 6b2d400b29640cf46b111ac5fdad87c9, type: 2}
+    animation: {fileID: 11400000, guid: 6b2d400b29640cf46b111ac5fdad87c9, type: 2}

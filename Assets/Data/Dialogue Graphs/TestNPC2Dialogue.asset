@@ -15,10 +15,25 @@ MonoBehaviour:
   nodes:
   - name: Entry
     body: PSST. HEY. Here, take this note, and don't tell anyone I gave it to you!
-    position: {x: -13, y: -97}
+    position: {x: -16, y: -91}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
     questNotes:
     - {fileID: 11400000, guid: c8434d24329704b43aefe67bf40b8654, type: 2}
+    dialogueIndexOverrides:
+    - targetUniqueID: 
+      indexOverride: 1
   transitions:
   - name: Transition
     from: 0
     to: -1
+  exitNode:
+    name: Exit
+    body: 
+    position: {x: -18, y: 24}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+    dialogueIndexOverrides: []

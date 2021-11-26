@@ -4,24 +4,27 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DragWindow : MonoBehaviour, IDragHandler, IPointerClickHandler
+namespace RPG
 {
-    private RectTransform parent;
-    private Canvas canvas;
-
-    void Awake()
+    public class DragWindow : MonoBehaviour, IDragHandler, IPointerClickHandler
     {
-        parent = transform.parent.GetComponent<RectTransform>();
-        canvas = gameObject.GetComponentInParent<Canvas>();
-    }
+        private RectTransform parent;
+        private Canvas canvas;
 
-    public void OnDrag(PointerEventData e)
-    {
-        parent.anchoredPosition += e.delta / canvas.scaleFactor;
-    }
+        void Awake()
+        {
+            parent = transform.parent.GetComponent<RectTransform>();
+            canvas = gameObject.GetComponentInParent<Canvas>();
+        }
 
-    public void OnPointerClick(PointerEventData e)
-    {
-        parent.transform.SetAsLastSibling(); //This moves the window to the front (i.e. overtop other UI)
+        public void OnDrag(PointerEventData e)
+        {
+            parent.anchoredPosition += e.delta / canvas.scaleFactor;
+        }
+
+        public void OnPointerClick(PointerEventData e)
+        {
+            parent.transform.SetAsLastSibling(); //This moves the window to the front (i.e. overtop other UI)
+        }
     }
 }

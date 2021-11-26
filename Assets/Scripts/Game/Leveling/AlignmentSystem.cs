@@ -30,6 +30,10 @@ namespace RPG
         private void Awake()
         {
             OnAlignmentChanged = new UnityEvent<float, float, float>();
+        }
+
+        private void Start()
+        {
             GameManager.AddPlayerCreatedListener(OnPlayerCreated);
         }
 
