@@ -22,7 +22,8 @@ namespace BehaviourTree
         GetDialogueIndexNode,
         SetDialogueIndexNode,
         GetMoveDirectionNode,
-        GetVectorAxisNode
+        GetVectorAxisNode,
+        SubTreeNode,
     }
 
     public static class BehaviourTreeNodeCreator
@@ -69,6 +70,8 @@ namespace BehaviourTree
                     return new GetMoveDirectionNode();
                 case BehaviourTreeNodeType.GetVectorAxisNode:
                     return new GetVectorAxisNode();
+                case BehaviourTreeNodeType.SubTreeNode:
+                    return new SubTreeNode();
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return null;
