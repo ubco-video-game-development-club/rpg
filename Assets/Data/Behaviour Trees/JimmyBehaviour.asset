@@ -616,7 +616,22 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
-        - name: vector-array
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: BehaviourTree.ArrayIteratorNode+ValueType, Assembly-CSharp,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+            forceReserialization: 1
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 4
+            aType: 0
+        - name: value-array
           property:
             propertyType: 5
             objectType: 
@@ -658,7 +673,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: vector-destination
+        - name: value-destination
           property:
             propertyType: 2
             objectType: 
@@ -672,7 +687,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.VectorIteratorNode
+        nodeTypeName: BehaviourTree.ArrayIteratorNode
       firstChildIndex: 27
     - childCount: 0
       element:
