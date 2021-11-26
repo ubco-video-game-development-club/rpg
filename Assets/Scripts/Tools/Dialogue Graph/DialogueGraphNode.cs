@@ -11,6 +11,7 @@ namespace Dialogue
         private static readonly Vector2 nodeSize = new Vector2(200, 50);
 
         public string name;
+        public string displayName;
         public string body;
         public Vector2 position;
         [Range(-1.0f, 1.0f)] public float moralsMod;
@@ -28,14 +29,15 @@ namespace Dialogue
         {
             this.name = name;
             this.position = position;
+            displayName = null;
         }
 
         public void Draw(Vector2 offset)
         {
+            if(string.IsNullOrWhiteSpace(displayName)) displayName = EditorUtils.TrimStringToFit(name, nodeSize.x, GUI.skin.box);
+            
             Vector2 pos = position - nodeSize / 2.0f;
             displayRect = new Rect(pos + offset, nodeSize);
-
-            string displayName = EditorUtils.TrimStringToFit(name, displayRect.width, GUI.skin.box);
             GUI.Box(displayRect, displayName, GUI.skin.button);
         }
 

@@ -19,7 +19,7 @@ MonoBehaviour:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
       firstChildIndex: 1
-    - childCount: 0
+    - childCount: 1
       element:
         propertyInfo:
         - name: tag-name
@@ -50,361 +50,6 @@ MonoBehaviour:
             aType: 0
         nodeTypeName: BehaviourTree.FindActorByTagNode
       firstChildIndex: 2
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: actor-source
-          property:
-            propertyType: 2
-            objectType: 
-            value:
-              b: 0
-              n: 0
-              s: target-actor
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        - name: position-destination
-          property:
-            propertyType: 2
-            objectType: 
-            value:
-              b: 0
-              n: 0
-              s: target-position
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: BehaviourTree.GetActorPositionNode
-      firstChildIndex: 3
-    - childCount: 3
-      element:
-        propertyInfo: []
-        nodeTypeName: BehaviourTree.SelectorNode
-      firstChildIndex: 4
-    - childCount: 3
-      element:
-        propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 5
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: range
-          property:
-            propertyType: 1
-            objectType: 
-            value:
-              b: 0
-              n: 1.1
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        - name: position-source
-          property:
-            propertyType: 2
-            objectType: 
-            value:
-              b: 0
-              n: 0
-              s: target-position
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: BehaviourTree.RangeCheckNode
-      firstChildIndex: 6
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: target-source
-          property:
-            propertyType: 2
-            objectType: 
-            value:
-              b: 0
-              n: 0
-              s: target-position
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: BehaviourTree.SetActionTargetNode
-      firstChildIndex: 7
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: action-index
-          property:
-            propertyType: 1
-            objectType: 
-            value:
-              b: 0
-              n: 0
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: BehaviourTree.InvokeActionNode
-      firstChildIndex: 8
-    - childCount: 2
-      element:
-        propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 9
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: range
-          property:
-            propertyType: 1
-            objectType: 
-            value:
-              b: 0
-              n: 3
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        - name: position-source
-          property:
-            propertyType: 2
-            objectType: 
-            value:
-              b: 0
-              n: 0
-              s: target-position
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: BehaviourTree.RangeCheckNode
-      firstChildIndex: 10
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: position-source
-          property:
-            propertyType: 2
-            objectType: 
-            value:
-              b: 0
-              n: 0
-              s: target-position
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        - name: stop-distance
-          property:
-            propertyType: 1
-            objectType: 
-            value:
-              b: 0
-              n: 1
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        - name: move-speed
-          property:
-            propertyType: 1
-            objectType: 
-            value:
-              b: 0
-              n: 2
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: BehaviourTree.SimpleMoveNode
-      firstChildIndex: 11
-    - childCount: 2
-      element:
-        propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 12
-    - childCount: 3
-      element:
-        propertyInfo: []
-        nodeTypeName: BehaviourTree.SelectorNode
-      firstChildIndex: 13
-    - childCount: 2
-      element:
-        propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 14
-    - childCount: 1
-      element:
-        propertyInfo: []
-        nodeTypeName: BehaviourTree.NotNode
-      firstChildIndex: 15
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: property-name
-          property:
-            propertyType: 2
-            objectType: 
-            value:
-              b: 0
-              n: 0
-              s: random-position
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: BehaviourTree.HasPropertyNode
-      firstChildIndex: 16
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: origin-position
-          property:
-            propertyType: 4
-            objectType: 
-            value:
-              b: 0
-              n: 0
-              s: 
-              o: {fileID: 0}
-              v: {x: 4, y: 5}
-              a: []
-              e: 0
-            aType: 0
-        - name: max-distance
-          property:
-            propertyType: 1
-            objectType: 
-            value:
-              b: 0
-              n: 3
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        - name: position-destination
-          property:
-            propertyType: 2
-            objectType: 
-            value:
-              b: 0
-              n: 0
-              s: random-position
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: BehaviourTree.GetRandomPositionNode
-      firstChildIndex: 17
-    - childCount: 2
-      element:
-        propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 18
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: range
-          property:
-            propertyType: 1
-            objectType: 
-            value:
-              b: 0
-              n: 0.2
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        - name: position-source
-          property:
-            propertyType: 2
-            objectType: 
-            value:
-              b: 0
-              n: 0
-              s: random-position
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: BehaviourTree.RangeCheckNode
-      firstChildIndex: 19
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: origin-position
-          property:
-            propertyType: 4
-            objectType: 
-            value:
-              b: 0
-              n: 0
-              s: 
-              o: {fileID: 0}
-              v: {x: 4, y: 5}
-              a: []
-              e: 0
-            aType: 0
-        - name: max-distance
-          property:
-            propertyType: 1
-            objectType: 
-            value:
-              b: 0
-              n: 3
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        - name: position-destination
-          property:
-            propertyType: 2
-            objectType: 
-            value:
-              b: 0
-              n: 0
-              s: random-position
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: BehaviourTree.GetRandomPositionNode
-      firstChildIndex: 20
-    - childCount: 0
-      element:
-        propertyInfo: []
-        nodeTypeName: BehaviourTree.SuccessNode
-      firstChildIndex: 21
     - childCount: 0
       element:
         propertyInfo:
@@ -448,4 +93,359 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SimpleMoveNode
+      firstChildIndex: 3
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: actor-source
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: target-actor
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-destination
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: target-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.GetActorPositionNode
+      firstChildIndex: 4
+    - childCount: 3
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SelectorNode
+      firstChildIndex: 5
+    - childCount: 3
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 6
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: range
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 1.1
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-source
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: target-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.RangeCheckNode
+      firstChildIndex: 7
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: target-source
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: target-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.SetActionTargetNode
+      firstChildIndex: 8
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: action-index
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.InvokeActionNode
+      firstChildIndex: 9
+    - childCount: 2
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 10
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: range
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 3
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-source
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: target-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.RangeCheckNode
+      firstChildIndex: 11
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: position-source
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: target-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: stop-distance
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 1
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: move-speed
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 2
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.SimpleMoveNode
+      firstChildIndex: 12
+    - childCount: 1
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 13
+    - childCount: 3
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SelectorNode
+      firstChildIndex: 14
+    - childCount: 2
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 15
+    - childCount: 1
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.NotNode
+      firstChildIndex: 16
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-name
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: random-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.HasPropertyNode
+      firstChildIndex: 17
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: origin-position
+          property:
+            propertyType: 4
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 4, y: 5}
+              a: []
+              e: 0
+            aType: 0
+        - name: max-distance
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 3
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-destination
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: random-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.GetRandomPositionNode
+      firstChildIndex: 18
+    - childCount: 2
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 19
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: range
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 0.2
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-source
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: random-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.RangeCheckNode
+      firstChildIndex: 20
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: origin-position
+          property:
+            propertyType: 4
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 4, y: 5}
+              a: []
+              e: 0
+            aType: 0
+        - name: max-distance
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 3
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-destination
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: random-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.GetRandomPositionNode
+      firstChildIndex: 21
+    - childCount: 0
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SuccessNode
       firstChildIndex: 22
