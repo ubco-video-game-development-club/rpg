@@ -28,8 +28,6 @@ namespace RPG
 
         public ClassBaseStats ClassBaseStats { get; private set; }
 
-        public bool Enabled { get; private set; }
-
         private List<Action> availableAbilities;
         private AbilitySlot[] abilitySlots;
         private Dictionary<ItemSlot, Item> equipment;
@@ -39,15 +37,12 @@ namespace RPG
 
         private bool isGCDActive;
         private bool isAnimLocked;
-        private Vector3 prevFramePosition;
         private Collider2D[] interactTargets = new Collider2D[MAX_INTERACT_TARGETS];
         private int numInteractTargets = 0;
         private Interactable targetInteractable;
 
         private YieldInstruction animLockInstruction;
         private YieldInstruction globalCooldownInstruction;
-
-        private UnityEvent<Vector2> onPositionChanged = new UnityEvent<Vector2>();
 
         protected override void Awake()
         {
@@ -70,8 +65,6 @@ namespace RPG
             Equip(ItemSlot.Mainhand, defaultPrimaryWeapon);
             Equip(ItemSlot.Offhand, defaultSecondaryWeapon);
             actionData = new ActionData(LayerMask.GetMask("Enemy"));
-
-            Enabled = true;
         }
 
         void OnGUI()
@@ -133,18 +126,13 @@ namespace RPG
 
         protected override void Update()
         {
-            // Enabled check: skip updates while not enabled
-            if (!Enabled) return;
-
             // Handle movement inputs
             float inputH = Input.GetAxisRaw("Horizontal");
             float inputV = Input.GetAxisRaw("Vertical");
             Vector2 inputDir = new Vector2(inputH, inputV).normalized;
 
             // Update position
-            prevFramePosition = transform.position;
             rigidbody2D.velocity = inputDir * moveSpeed;
-            if (transform.position != prevFramePosition) onPositionChanged.Invoke(transform.position);
 
             // Run base Actor update
             base.Update();
@@ -172,14 +160,8 @@ namespace RPG
             }
         }
 
-        public void Enable()
+        protected void OnDisable()
         {
-            Enabled = true;
-        }
-
-        public void Disable()
-        {
-            Enabled = false;
             ClearInteractions();
         }
 
