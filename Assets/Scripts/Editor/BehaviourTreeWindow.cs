@@ -12,6 +12,10 @@ namespace BehaviourTree
         private Vector2 CentreOfWindow { get => this.position.size / 2.0f; }
         private BehaviourTree selectedTree = null;
         private Vector2 scrollPos = Vector2.zero;
+        private Tree<Behaviour>.Node? dragNode = null;
+        private Tree<Behaviour>.Node? dragParent = null;
+        private Tree<Behaviour>.Node? hoverNode = null;
+        private Vector2 mousePos;
 
         void OnEnable()
         {
@@ -29,8 +33,41 @@ namespace BehaviourTree
             GUILayout.Space(5);
             scrollPos = GUILayout.BeginScrollView(scrollPos);
             Tree<Behaviour>.Node root = selectedTree.Root;
+            hoverNode = null;
             ShowNode(null, root);
             GUILayout.EndScrollView();
+
+            mousePos = Event.current.mousePosition;
+            if (dragNode != null)
+            {
+                Tree<Behaviour>.Node node = dragNode.Value;
+                if (Event.current.type == EventType.MouseUp && Event.current.button == 0)
+                {
+                    if (hoverNode == null)
+                    {
+                        // Reset drag node
+                        dragParent?.AddChild(node);
+                        dragNode = null;
+                    }
+                    else
+                    {
+                        // Remove parent
+                        dragParent?.RemoveChild(dragNode.Value);
+
+                        // Add drag node to new parent
+                        hoverNode?.AddChild(dragNode.Value);
+
+                        dragNode = null;
+                    }
+                }
+                else
+                {
+                    Rect r = new Rect(mousePos, new Vector2(100, 25));
+                    GUI.Box(r, node.Element.Node.GetType().Name);
+                }
+
+                Repaint();
+            }
         }
 
         void OnSelectionChange()
@@ -42,9 +79,11 @@ namespace BehaviourTree
         {
             string name = node.Element.Node.GetType().Name;
             Rect layout = EditorGUILayout.BeginHorizontal();
-            layout.width -= 55;
+            layout.width -= 80;
 
             if (GUI.Button(layout, GUIContent.none, GUI.skin.box)) selectedTree.selectedNode = node.Element;
+
+            if (layout.Contains(mousePos)) hoverNode = node;
 
             if (selectedTree.selectedNode == node.Element)
             {
@@ -54,6 +93,13 @@ namespace BehaviourTree
 
             GUILayout.Space((indent + 1) * INDENT_MULTIPLIER);
             GUILayout.Label(name);
+
+            if (parent != null && dragNode == null && GUILayout.RepeatButton("*", GUILayout.Width(25)))
+            {
+                dragNode = node;
+                dragParent = parent;
+                dragParent?.RemoveChild(dragNode.Value);
+            }
 
             if (GUILayout.Button("+", GUILayout.Width(25))) AddChild(node);
 
