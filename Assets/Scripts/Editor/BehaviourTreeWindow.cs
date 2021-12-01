@@ -43,22 +43,24 @@ namespace BehaviourTree
                 Tree<Behaviour>.Node node = dragNode.Value;
                 if (Event.current.type == EventType.MouseUp && Event.current.button == 0)
                 {
-                    if(hoverNode == null)
+                    if (hoverNode == null)
                     {
                         // Reset drag node
                         dragParent?.AddChild(node);
                         dragNode = null;
-                    } else 
+                    }
+                    else
                     {
                         // Remove parent
                         dragParent?.RemoveChild(dragNode.Value);
-                        
+
                         // Add drag node to new parent
                         hoverNode?.AddChild(dragNode.Value);
 
                         dragNode = null;
-                    }                    
-                } else 
+                    }
+                }
+                else
                 {
                     Rect r = new Rect(mousePos, new Vector2(100, 25));
                     GUI.Box(r, node.Element.Node.GetType().Name);
@@ -81,7 +83,7 @@ namespace BehaviourTree
 
             if (GUI.Button(layout, GUIContent.none, GUI.skin.box)) selectedTree.selectedNode = node.Element;
 
-            if(layout.Contains(mousePos)) hoverNode = node;
+            if (layout.Contains(mousePos)) hoverNode = node;
 
             if (selectedTree.selectedNode == node.Element)
             {
@@ -92,7 +94,8 @@ namespace BehaviourTree
             GUILayout.Space((indent + 1) * INDENT_MULTIPLIER);
             GUILayout.Label(name);
 
-            if (parent != null && dragNode == null && GUILayout.RepeatButton("*", GUILayout.Width(25))) {
+            if (parent != null && dragNode == null && GUILayout.RepeatButton("*", GUILayout.Width(25)))
+            {
                 dragNode = node;
                 dragParent = parent;
                 dragParent?.RemoveChild(dragNode.Value);
