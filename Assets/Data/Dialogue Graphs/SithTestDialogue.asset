@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Entry
+    displayName: Entry
     body: I have brought peace, freedom, justice, and security to my new empire.
     position: {x: -647, y: -57}
     moralsMod: 0
@@ -24,6 +25,7 @@ MonoBehaviour:
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
   - name: Your new empire?
+    displayName: Your new empire?
     body: Don't make me kill you.
     position: {x: -497, y: -275}
     moralsMod: 0
@@ -33,6 +35,7 @@ MonoBehaviour:
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
   - name: Only a Sith deals in absolutes. I will do what I must.
+    displayName: Absolutes
     body: You will try.
     position: {x: 157, y: -211}
     moralsMod: 0
@@ -42,6 +45,7 @@ MonoBehaviour:
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
   - name: Good, good. Let the hate flow through you.
+    displayName: Hate
     body: Dewit!
     position: {x: -221, y: 117}
     moralsMod: 0
@@ -51,6 +55,7 @@ MonoBehaviour:
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
   - name: Anakin, my allegiance is to the Republic, to Democracy!
+    displayName: Allegiance
     body: If you are not with me, then you are my enemy.
     position: {x: -191.5, y: -307}
     moralsMod: 0
@@ -80,6 +85,7 @@ MonoBehaviour:
     to: 2
   exitNode:
     name: Exit
+    displayName: Exit
     body: 
     position: {x: 203, y: -8}
     moralsMod: 0
