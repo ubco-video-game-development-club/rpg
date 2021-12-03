@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace BehaviourTree
 {
-    // TODO: split into LoopIncrement and PingPongIncrement nodes?
     public class ArrayIncrementNode : IBehaviourTreeNode
     {
+        // TODO: implement Loop, PingPong, etc. increment wrap types?
         private const string PROP_INDEX_SRC = "index-source";
         private const string PROP_ARR_LEN = "array-length";
 
