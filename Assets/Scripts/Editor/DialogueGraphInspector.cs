@@ -88,7 +88,7 @@ namespace Dialogue
                 GUILayout.Label("Name: ");
                 displayName.stringValue = GUILayout.TextArea(displayName.stringValue);
                 GUILayout.EndHorizontal();
-                
+
                 SerializedProperty name = node.FindPropertyRelative("name");
                 GUILayout.Label("Option");
                 name.stringValue = GUILayout.TextArea(name.stringValue, GUILayout.Height(100));

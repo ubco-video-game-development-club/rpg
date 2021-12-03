@@ -34,8 +34,8 @@ namespace Dialogue
 
         public void Draw(Vector2 offset)
         {
-            if(string.IsNullOrWhiteSpace(displayName)) displayName = EditorUtils.TrimStringToFit(name, nodeSize.x, GUI.skin.box);
-            
+            if (string.IsNullOrWhiteSpace(displayName)) displayName = EditorUtils.TrimStringToFit(name, nodeSize.x, GUI.skin.box);
+
             Vector2 pos = position - nodeSize / 2.0f;
             displayRect = new Rect(pos + offset, nodeSize);
             GUI.Box(displayRect, displayName, GUI.skin.button);
