@@ -25,7 +25,6 @@ namespace BehaviourTree
         GetDialogueIndexNode,
         SetDialogueIndexNode,
         ForceDialogueNode,
-        VectorIteratorNode,
         ArrayIteratorNode,
         ArrayIncrementNode,
         GetMoveDirectionNode,
@@ -84,8 +83,6 @@ namespace BehaviourTree
                     return new SetDialogueIndexNode();
                 case BehaviourTreeNodeType.ForceDialogueNode:
                     return new ForceDialogueNode();
-                case BehaviourTreeNodeType.VectorIteratorNode:
-                    return new VectorIteratorNode();
                 case BehaviourTreeNodeType.ArrayIteratorNode:
                     return new ArrayIteratorNode();
                 case BehaviourTreeNodeType.ArrayIncrementNode:
