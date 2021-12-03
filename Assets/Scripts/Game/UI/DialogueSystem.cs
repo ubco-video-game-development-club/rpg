@@ -92,7 +92,7 @@ namespace Dialogue
                 }
             }
 
-            // Display transitionss
+            // Display transitions
             DialogueGraphTransition[] transitions = GetTransitionsFor(currentGraph, nodeIdx);
             foreach (DialogueGraphTransition t in transitions)
             {
