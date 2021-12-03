@@ -33,6 +33,7 @@ namespace BehaviourTree
         SetEnemyNode,
         IsEnemyNode,
         GetEntityPropertyNode,
+        SubTreeNode
     }
 
     public static class BehaviourTreeNodeCreator
@@ -99,6 +100,8 @@ namespace BehaviourTree
                     return new IsEnemyNode();
                 case BehaviourTreeNodeType.GetEntityPropertyNode:
                     return new GetEntityPropertyNode();
+                case BehaviourTreeNodeType.SubTreeNode:
+                    return new SubTreeNode();
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return null;

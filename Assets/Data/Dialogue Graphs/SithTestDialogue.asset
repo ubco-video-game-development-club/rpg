@@ -15,7 +15,7 @@ MonoBehaviour:
   nodes:
   - name: Entry
     body: I have brought peace, freedom, justice, and security to my new empire.
-    position: {x: -660, y: -64}
+    position: {x: -647, y: -57}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
@@ -25,7 +25,7 @@ MonoBehaviour:
     customBehaviour: {fileID: 0}
   - name: Your new empire?
     body: Don't make me kill you.
-    position: {x: -478, y: -246}
+    position: {x: -497, y: -275}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
@@ -34,7 +34,7 @@ MonoBehaviour:
     customBehaviour: {fileID: 0}
   - name: Only a Sith deals in absolutes. I will do what I must.
     body: You will try.
-    position: {x: 156, y: -210}
+    position: {x: 157, y: -211}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
     customBehaviour: {fileID: 0}
   - name: Good, good. Let the hate flow through you.
     body: Dewit!
-    position: {x: -221, y: 118}
+    position: {x: -221, y: 117}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
     customBehaviour: {fileID: 0}
   - name: Anakin, my allegiance is to the Republic, to Democracy!
     body: If you are not with me, then you are my enemy.
-    position: {x: -191.5, y: -304}
+    position: {x: -191.5, y: -307}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
   exitNode:
     name: Exit
     body: 
-    position: {x: -218, y: -175}
+    position: {x: 203, y: -8}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
