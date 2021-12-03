@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tree:
     serializedNodes:
-    - childCount: 3
+    - childCount: 4
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
@@ -92,11 +92,6 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.SimpleMoveNode
-      firstChildIndex: 3
-    - childCount: 0
-      element:
-        propertyInfo:
         - name: actor-source
           property:
             propertyType: 2
@@ -127,7 +122,33 @@ MonoBehaviour:
       firstChildIndex: 4
     - childCount: 3
       element:
-        propertyInfo: []
+        propertyInfo:
+        - name: actor-source
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: target-actor
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-destination
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: target-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         nodeTypeName: BehaviourTree.SelectorNode
       firstChildIndex: 5
     - childCount: 3
@@ -169,6 +190,32 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
+        - name: range
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 1.1
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-source
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: target-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         - name: target-source
           property:
             propertyType: 2
@@ -187,6 +234,19 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
+        - name: target-source
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         - name: action-index
           property:
             propertyType: 1
@@ -204,7 +264,20 @@ MonoBehaviour:
       firstChildIndex: 9
     - childCount: 2
       element:
-        propertyInfo: []
+        propertyInfo:
+        - name: action-index
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         nodeTypeName: BehaviourTree.SequenceNode
       firstChildIndex: 10
     - childCount: 0
@@ -239,6 +312,37 @@ MonoBehaviour:
         nodeTypeName: BehaviourTree.RangeCheckNode
       firstChildIndex: 11
     - childCount: 0
+      element:
+        propertyInfo:
+        - name: range
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 3
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-source
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: target-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.RangeCheckNode
+      firstChildIndex: 11
+    - childCount: 2
       element:
         propertyInfo:
         - name: position-source
@@ -280,11 +384,6 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.SimpleMoveNode
-      firstChildIndex: 12
-    - childCount: 1
-      element:
-        propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
       firstChildIndex: 13
     - childCount: 3
@@ -323,6 +422,19 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
+        - name: property-name
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: random-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         - name: origin-position
           property:
             propertyType: 4
@@ -366,7 +478,46 @@ MonoBehaviour:
       firstChildIndex: 18
     - childCount: 2
       element:
-        propertyInfo: []
+        propertyInfo:
+        - name: origin-position
+          property:
+            propertyType: 4
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 4, y: 5}
+              a: []
+              e: 0
+            aType: 0
+        - name: max-distance
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 3
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-destination
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: random-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         nodeTypeName: BehaviourTree.SequenceNode
       firstChildIndex: 19
     - childCount: 0
@@ -403,6 +554,32 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
+        - name: range
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 0.2
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-source
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: random-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         - name: origin-position
           property:
             propertyType: 4
@@ -446,6 +623,64 @@ MonoBehaviour:
       firstChildIndex: 21
     - childCount: 0
       element:
-        propertyInfo: []
+        propertyInfo:
+        - name: origin-position
+          property:
+            propertyType: 4
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 4, y: 5}
+              a: []
+              e: 0
+            aType: 0
+        - name: max-distance
+          property:
+            propertyType: 1
+            objectType: 
+            value:
+              b: 0
+              n: 3
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-destination
+          property:
+            propertyType: 2
+            objectType: 
+            value:
+              b: 0
+              n: 0
+              s: random-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         nodeTypeName: BehaviourTree.SuccessNode
       firstChildIndex: 22
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: subtree
+          property:
+            propertyType: 3
+            objectType: BehaviourTree.BehaviourTree, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 11400000, guid: 75e6ba3057cc6b04e9727d170650b9fe, type: 2}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.SubTreeNode
+      firstChildIndex: 23
