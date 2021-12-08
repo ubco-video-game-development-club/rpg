@@ -19,7 +19,7 @@ MonoBehaviour:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
       firstChildIndex: 1
-    - childCount: 0
+    - childCount: 1
       element:
         propertyInfo:
         - name: tag-name
@@ -123,7 +123,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.GetActorPositionNode
-      firstChildIndex: 3
+      firstChildIndex: 4
     - childCount: 3
       element:
         propertyInfo:
@@ -154,12 +154,12 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SelectorNode
-      firstChildIndex: 4
+      firstChildIndex: 5
     - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 5
+      firstChildIndex: 6
     - childCount: 0
       element:
         propertyInfo:
@@ -192,7 +192,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.RangeCheckNode
-      firstChildIndex: 6
+      firstChildIndex: 7
     - childCount: 0
       element:
         propertyInfo:
@@ -237,7 +237,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SetActionTargetNode
-      firstChildIndex: 7
+      firstChildIndex: 8
     - childCount: 0
       element:
         propertyInfo:
@@ -269,7 +269,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.InvokeActionNode
-      firstChildIndex: 8
+      firstChildIndex: 9
     - childCount: 2
       element:
         propertyInfo:
@@ -287,7 +287,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 9
+      firstChildIndex: 10
     - childCount: 0
       element:
         propertyInfo:
@@ -320,7 +320,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.RangeCheckNode
-      firstChildIndex: 10
+      firstChildIndex: 11
     - childCount: 0
       element:
         propertyInfo:
@@ -398,22 +398,22 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 12
+      firstChildIndex: 13
     - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SelectorNode
-      firstChildIndex: 13
+      firstChildIndex: 14
     - childCount: 2
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 14
+      firstChildIndex: 15
     - childCount: 1
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.NotNode
-      firstChildIndex: 15
+      firstChildIndex: 16
     - childCount: 0
       element:
         propertyInfo:
@@ -432,7 +432,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.HasPropertyNode
-      firstChildIndex: 16
+      firstChildIndex: 17
     - childCount: 0
       element:
         propertyInfo:
@@ -492,7 +492,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.GetRandomPositionNode
-      firstChildIndex: 17
+      firstChildIndex: 18
     - childCount: 2
       element:
         propertyInfo:
@@ -536,7 +536,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 18
+      firstChildIndex: 19
     - childCount: 0
       element:
         propertyInfo:
@@ -569,7 +569,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.RangeCheckNode
-      firstChildIndex: 19
+      firstChildIndex: 20
     - childCount: 0
       element:
         propertyInfo:
@@ -642,7 +642,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.GetRandomPositionNode
-      firstChildIndex: 20
+      firstChildIndex: 21
     - childCount: 0
       element:
         propertyInfo:
