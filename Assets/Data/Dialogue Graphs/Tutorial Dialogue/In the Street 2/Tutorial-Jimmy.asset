@@ -60,7 +60,7 @@ MonoBehaviour:
     dialogueIndexOverrides:
     - targetUniqueID: 
       indexOverride: 1
-    customBehaviour: {fileID: 0}
+    customBehaviour: {fileID: 11400000, guid: d69f03b258b57d142aedb2501fb2a531, type: 2}
   transitions:
   - name: Transition
     from: 0

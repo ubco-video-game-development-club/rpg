@@ -26,7 +26,7 @@ namespace BehaviourTree
 
             // Get and save the dialogue index in destination prop
             string indexDest = behaviour.GetProperty(PROP_DEST).GetString();
-            obj.SetProperty(indexDest, npc.GetComponent<QuestGiver>().ActiveIndex);
+            obj.SetProperty(indexDest, npc.GetComponent<NPC>().ActiveIndex);
 
             return NodeStatus.Success;
         }

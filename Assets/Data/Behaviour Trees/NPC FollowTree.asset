@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54fb5e73c80040247a00b01917c6e426, type: 3}
-  m_Name: SetupSneekoTree
+  m_Name: NPC FollowTree
   m_EditorClassIdentifier: 
   tree:
     serializedNodes:
-    - childCount: 4
+    - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
@@ -22,116 +22,91 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
-        - name: unique-id
+        - name: tag-name
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
-              s: Sneeko
+              s: Player
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
               e: 0
             aType: 0
-        - name: object-destination
+        - name: actor-destination
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
-              s: sneeko
+              s: target-object
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.FindObjectByIdNode
+        nodeTypeName: BehaviourTree.FindActorByTagNode
       firstChildIndex: 2
     - childCount: 0
       element:
         propertyInfo:
-        - name: npc-source
+        - name: actor-source
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
-              s: sneeko
+              s: target-object
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
               e: 0
             aType: 0
-        - name: index-destination
+        - name: position-destination
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
-              s: sneeko-idx
+              s: target-destination
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.GetDialogueIndexNode
+        nodeTypeName: BehaviourTree.GetActorPositionNode
       firstChildIndex: 3
     - childCount: 0
       element:
         propertyInfo:
-        - name: source-property
+        - name: position-source
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
-              s: sneeko-idx
+              s: target-destination
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
               e: 0
             aType: 0
-        - name: comparison-number
+        - name: stop-distance
           property:
             propertyType: 1
             objectType: 
-            value:
-              b: 0
-              n: 0
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: BehaviourTree.EqualsNode
-      firstChildIndex: 4
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: npc-source
-          property:
-            propertyType: 2
-            objectType: 
-            value:
-              b: 0
-              n: 0
-              s: sneeko
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        - name: dialogue-index
-          property:
-            propertyType: 1
-            objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 2
@@ -141,5 +116,19 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.SetDialogueIndexNode
-      firstChildIndex: 5
+        - name: move-speed
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 10
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.SimpleMoveNode
+      firstChildIndex: 4
