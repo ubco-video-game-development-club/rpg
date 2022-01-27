@@ -31,18 +31,18 @@ namespace RPG
             gameObject.SetActive(false);
         }
 
-        public void SetTarget(QuestGiver target)
+        public void SetTarget(NPC target)
         {
             dialoguePortrait.sprite = target.Portrait;
             dialogueName.text = target.CharacterName;
         }
 
-        public void PlayDialogue(string dialogue)
+        public void PlayDialogue(string dialogue, UnityAction onFinished)
         {
-            StartCoroutine(AnimateDialogue(dialogue));
+            StartCoroutine(AnimateDialogue(dialogue, onFinished));
         }
 
-        private IEnumerator AnimateDialogue(string dialogue)
+        private IEnumerator AnimateDialogue(string dialogue, UnityAction onFinished)
         {
             foreach (GameObject go in buttonPool)
             {
@@ -56,6 +56,8 @@ namespace RPG
                 dialogueText.text = dialogue.Substring(0, index++);
                 yield return letterCooldown;
             }
+
+            onFinished();
         }
 
         public void CreateOption(string name, UnityAction<int> listener)

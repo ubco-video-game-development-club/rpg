@@ -18,10 +18,23 @@ namespace RPG
             uniqueObjects.Add(uniqueID, gameObject);
         }
 
-        ///<summary>Low-level interface for getting objects by unique ID. You almost always want the Entity.Find() wrapper instead!</summary>
+        ///<summary>Low-level interface for getting objects by unique ID.</summary>
         public static GameObject Get(string id)
         {
-            return uniqueObjects.ContainsKey(id) ? uniqueObjects[id] : null;
+            GameObject obj = uniqueObjects.ContainsKey(id) ? uniqueObjects[id] : null;
+            if (obj == null)
+            {
+                Debug.LogWarning($"UniqueID.Get() failed to find Object with ID \"{id}\"; returning null.");
+                return null;
+            }
+            return obj;
+        }
+
+        ///<summary>Low-level generic interface for getting objects by unique ID.</summary>
+        public static T Get<T>(string id) where T : Object
+        {
+            GameObject obj = Get(id);
+            return obj != null ? obj.GetComponent<T>() : null;
         }
 
         private bool ValidateNotEmpty(string uniqueID)

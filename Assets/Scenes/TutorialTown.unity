@@ -684,7 +684,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 541681862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fba3685198575341bfedcdddb0b58fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 82d10099f0b38ec40b917b3fa80f253e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
@@ -1234,7 +1234,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 727577739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fba3685198575341bfedcdddb0b58fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 82d10099f0b38ec40b917b3fa80f253e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
@@ -1493,8 +1493,8 @@ GameObject:
   - component: {fileID: 996557717}
   - component: {fileID: 996557716}
   - component: {fileID: 996557712}
-  - component: {fileID: 996557718}
   - component: {fileID: 996557720}
+  - component: {fileID: 996557718}
   m_Layer: 8
   m_Name: Jimmy NPC
   m_TagString: Untagged
@@ -1511,15 +1511,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 996557711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fba3685198575341bfedcdddb0b58fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 82d10099f0b38ec40b917b3fa80f253e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
   interactHint: Talk
   characterName: Jimmy
-  portrait: {fileID: 9076241471376651639, guid: 93cb617996c05b6489970fc681f440ef,
-    type: 3}
+  portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: 5b4e3c749eebe4248b38084f7c56a999, type: 2}
   - {fileID: 11400000, guid: ae69f4ad827a0414a91c5ae9bf3b5f7f, type: 2}
@@ -1601,7 +1600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996557711}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.71, y: -0.72, z: 0}
+  m_LocalPosition: {x: -8, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1619,7 +1618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3841cfd75fe64b8498769758ea31c7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultAnimation: {fileID: 7400000, guid: 9e341e0589474734e85c03acab0bef7d, type: 2}
+  defaultAnimation: {fileID: 7400000, guid: f3d8518500d6a1f4db92b67fe4d88910, type: 2}
 --- !u!95 &996557717
 Animator:
   serializedVersion: 3
@@ -1648,13 +1647,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 996557711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff501692e9724c7439955e72bfce135c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7157c15a42769b0458c85c94a11a8d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialMaxHealth: 10
+  initialMaxHealth: 8
   idleAnimations: {fileID: 11400000, guid: 5efbdb18b6bca104e927472b7dd579d8, type: 2}
   moveAnimations: {fileID: 11400000, guid: 23f348e6b58f0704fb0c3669a6b7c8f6, type: 2}
   hurtAnimations: {fileID: 11400000, guid: 23f348e6b58f0704fb0c3669a6b7c8f6, type: 2}
+  actions:
+  - {fileID: 11400000, guid: cd54c1a41bfdb6745b6a33c7b765967e, type: 2}
 --- !u!50 &996557719
 Rigidbody2D:
   serializedVersion: 4
@@ -1668,7 +1669,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -1688,7 +1689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255646b43a4b22b4586a6b091e9ce397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: 75e6ba3057cc6b04e9727d170650b9fe, type: 2}
+  behaviourTree: {fileID: 11400000, guid: 8bd8b783c74999f44b82c57c7c59c5f6, type: 2}
 --- !u!1 &1169265892
 GameObject:
   m_ObjectHideFlags: 0

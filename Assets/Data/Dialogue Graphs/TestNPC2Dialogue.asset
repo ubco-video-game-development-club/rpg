@@ -24,6 +24,7 @@ MonoBehaviour:
     dialogueIndexOverrides:
     - targetUniqueID: 
       indexOverride: 1
+    customBehaviour: {fileID: 0}
   transitions:
   - name: Transition
     from: 0
@@ -37,3 +38,4 @@ MonoBehaviour:
     sexinessMod: 0
     questNotes: []
     dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
