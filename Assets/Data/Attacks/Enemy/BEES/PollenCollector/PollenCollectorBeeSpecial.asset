@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b7d777fadc3374498ff011888098cbd, type: 3}
-  m_Name: WarriorBeeRangedExample
+  m_Name: PollenCollectorBeeSpecial
   m_EditorClassIdentifier: 
   onHitEffects: []
   onKillEffects: []

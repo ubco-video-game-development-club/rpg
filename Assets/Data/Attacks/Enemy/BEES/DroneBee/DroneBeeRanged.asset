@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b7d777fadc3374498ff011888098cbd, type: 3}
+  m_Name: DroneBeeRanged
+  m_EditorClassIdentifier: 
+  onHitEffects: []
+  onKillEffects: []
+  useWeaponAnimation: 0
+  animationType: 0
+  animation: {fileID: 11400000, guid: 1fce7b2292cd9e545984412811fa1820, type: 2}
+  cooldown: 4
+  projectilePrefab: {fileID: 8946497274641407412, guid: cb32f970b4fca6941b67eea0a14bb0a4,
+    type: 3}
+  speed: 6
+  range: 0
+  damage: 0
