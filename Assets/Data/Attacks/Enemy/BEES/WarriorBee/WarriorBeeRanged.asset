@@ -17,9 +17,9 @@ MonoBehaviour:
   useWeaponAnimation: 0
   animationType: 0
   animation: {fileID: 11400000, guid: 1fce7b2292cd9e545984412811fa1820, type: 2}
-  cooldown: 4
-  projectilePrefab: {fileID: 8946497274641407412, guid: cb32f970b4fca6941b67eea0a14bb0a4,
+  cooldown: 7
+  projectilePrefab: {fileID: 6953938654840100606, guid: 4ee4722c07c5af344a5ec7c2d8496f85,
     type: 3}
-  speed: 6
-  range: 0
-  damage: 0
+  speed: 7
+  range: 5
+  damage: 4
