@@ -20,6 +20,12 @@ namespace RPG
         private List<GameObject> buttonPool = new List<GameObject>();
         private int buttonPoolIndex = 0;
         private YieldInstruction letterCooldown = new WaitForSeconds(0.05f);
+        private bool skipDialogue = false;
+
+        void Update() 
+        {
+            if(Input.GetButtonUp("SkipDialogue")) skipDialogue = true;
+        }
 
         public void Show()
         {
@@ -39,6 +45,7 @@ namespace RPG
 
         public void PlayDialogue(string dialogue, UnityAction onFinished)
         {
+            skipDialogue = false;
             StartCoroutine(AnimateDialogue(dialogue, onFinished));
         }
 
@@ -54,6 +61,11 @@ namespace RPG
             while (index <= dialogue.Length)
             {
                 dialogueText.text = dialogue.Substring(0, index++);
+                if(skipDialogue) {
+                    dialogueText.text = dialogue;
+                    break;
+                }
+
                 yield return letterCooldown;
             }
 
