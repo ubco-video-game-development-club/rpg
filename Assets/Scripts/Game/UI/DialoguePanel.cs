@@ -63,6 +63,7 @@ namespace RPG
                 dialogueText.text = dialogue.Substring(0, index++);
                 if(skipDialogue) {
                     dialogueText.text = dialogue;
+                    skipDialogue = false;
                     break;
                 }
 
