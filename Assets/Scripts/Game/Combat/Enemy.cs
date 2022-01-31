@@ -32,16 +32,18 @@ namespace RPG
             actionData.target = target;
         }
 
-        public void InvokeAction(int actionId)
+        public bool InvokeAction(int actionId)
         {
             Action action = actions[actionId];
-            if (action.Enabled)
+            bool success = action.Enabled;
+            if (success)
             {
                 StartCoroutine(ActionCooldown(action));
                 actionData.origin = transform.position;
                 action.Invoke(actionData);
                 AnimateAction(action);
             }
+            return success;
         }
 
         private IEnumerator ActionCooldown(Action action)

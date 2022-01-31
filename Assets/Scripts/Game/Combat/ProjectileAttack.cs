@@ -15,8 +15,7 @@ namespace RPG
         public override void Invoke(ActionData data)
         {
             // Calculate direction based on mouse position
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 attackDir = (mousePos - data.origin).normalized;
+            Vector2 attackDir = (data.target - data.origin).normalized;
 
             // Create projectile
             GameObject proj = Instantiate(projectilePrefab, data.origin, Quaternion.identity);
