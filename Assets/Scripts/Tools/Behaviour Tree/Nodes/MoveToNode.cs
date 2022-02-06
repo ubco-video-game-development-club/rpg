@@ -27,14 +27,11 @@ namespace BehaviourTree
             Behaviour behaviour = self.Element;
             Rigidbody2D rigidbody2D = ((Agent)obj).Rigidbody2D;
 
-            // Get the move type object
+            // Get the move type object + properties
             MoveType moveType = behaviour.GetProperty(PROP_MOVE_TYPE).GetObject() as MoveType;
-
-            // Get object properties
             Vector2 currPos = obj.transform.position;
 
             // Check if we've already started moving, otherwise start now
-            string targetPosSrc = behaviour.GetProperty(PROP_TARGET_POS_SRC).GetString();
             string isMovingDest = behaviour.GetProperty(PROP_IS_MOVING_DEST).GetString();
             if (!obj.HasProperty(isMovingDest)) obj.SetProperty(isMovingDest, false);
             bool isMoving = (bool)obj.GetProperty(isMovingDest);
@@ -45,6 +42,7 @@ namespace BehaviourTree
 
                 // Store target position
                 float stopOffset = (float)behaviour.Properties[PROP_STOP_OFFSET].GetNumber();
+                string targetPosSrc = behaviour.GetProperty(PROP_TARGET_POS_SRC).GetString();
                 Vector2 targetPos = (Vector2)obj.GetProperty(targetPosSrc);
                 Vector2 moveDir = (targetPos - currPos).normalized;
                 obj.SetProperty("targetpos" + self.GetHashCode(), targetPos + moveDir * stopOffset);
