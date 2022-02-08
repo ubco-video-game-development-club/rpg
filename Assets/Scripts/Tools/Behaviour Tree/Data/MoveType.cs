@@ -6,6 +6,8 @@ namespace BehaviourTree
 {
     public abstract class MoveType : ScriptableObject
     {
-        public abstract Vector2 UpdateMove(BehaviourObject obj, Vector2 startPos, Vector2 endPos, float speed);
+        public abstract void StartMove(Tree<Behaviour>.Node node, BehaviourObject obj);
+        public abstract bool UpdateMove(Tree<Behaviour>.Node node, BehaviourObject obj, Vector2 startPos, Vector2 endPos, float speed);
+        public abstract void EndMove(Tree<Behaviour>.Node node, BehaviourObject obj);
     }
 }

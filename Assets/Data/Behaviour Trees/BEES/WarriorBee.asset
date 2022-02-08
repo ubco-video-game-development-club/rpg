@@ -378,12 +378,26 @@ MonoBehaviour:
               b: 0
               n: 0
               s: 
-              o: {fileID: 11400000, guid: c1d32680b8dd2064a94de64e7b1cd25e, type: 2}
+              o: {fileID: 11400000, guid: cd1156ee9495a614fae314166e435a09, type: 2}
               v: {x: 0, y: 0}
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.MoveFollowNode
+        - name: is-moving-destination
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: is-moving
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.MoveToNode
       firstChildIndex: 18
     - childCount: 1
       element:

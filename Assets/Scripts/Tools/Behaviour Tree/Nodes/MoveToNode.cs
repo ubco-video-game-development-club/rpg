@@ -47,6 +47,9 @@ namespace BehaviourTree
                 Vector2 moveDir = (targetPos - currPos).normalized;
                 obj.SetProperty("targetpos" + self.GetHashCode(), targetPos + moveDir * stopOffset);
 
+                // Initialize move time
+                moveType.StartMove(self, obj);
+
                 // Set moving true
                 obj.SetProperty(isMovingDest, true);
             }
@@ -54,17 +57,18 @@ namespace BehaviourTree
             // Update the current movement towards the destination
             Vector2 cachedTargetPos = (Vector2)obj.GetProperty("targetpos" + self.GetHashCode());
             Vector2 diff = cachedTargetPos - currPos;
-            if (diff.sqrMagnitude > MathUtils.EPSILON)
+            float speed = (float)behaviour.Properties[PROP_MOVE_SPEED].GetNumber();
+            Vector2 startPos = (Vector2)obj.GetProperty("startpos" + self.GetHashCode());
+            bool moveFinished = moveType.UpdateMove(self, obj, startPos, cachedTargetPos, speed);
+
+            if (!moveFinished || diff.sqrMagnitude > MathUtils.EPSILON)
             {
-                // Apply the selected MoveType
-                float speed = (float)behaviour.Properties[PROP_MOVE_SPEED].GetNumber();
-                Vector2 startPos = (Vector2)obj.GetProperty("startpos" + self.GetHashCode());
-                rigidbody2D.velocity = moveType.UpdateMove(obj, startPos, cachedTargetPos, speed);
                 return NodeStatus.Running;
             }
 
             rigidbody2D.velocity = Vector2.zero;
             obj.SetProperty(isMovingDest, false);
+            moveType.EndMove(self, obj);
             return NodeStatus.Success;
         }
     }

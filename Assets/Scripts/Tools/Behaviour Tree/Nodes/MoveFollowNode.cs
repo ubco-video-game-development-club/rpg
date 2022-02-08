@@ -38,11 +38,11 @@ namespace BehaviourTree
 
             // Update the current movement towards the destination
             Vector2 diff = offsetPos - currPos;
-            if (diff.sqrMagnitude > MathUtils.EPSILON)
+            float speed = (float)behaviour.Properties[PROP_MOVE_SPEED].GetNumber();
+            bool moveFinished = moveType.UpdateMove(self, obj, currPos, offsetPos, speed);
+
+            if (!moveFinished || diff.sqrMagnitude > MathUtils.EPSILON)
             {
-                // Apply the selected MoveType
-                float speed = (float)behaviour.Properties[PROP_MOVE_SPEED].GetNumber();
-                rigidbody2D.velocity = moveType.UpdateMove(obj, currPos, offsetPos, speed);
                 return NodeStatus.Running;
             }
 
