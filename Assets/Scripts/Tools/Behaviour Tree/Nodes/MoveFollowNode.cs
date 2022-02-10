@@ -17,7 +17,7 @@ namespace BehaviourTree
             behaviour.Properties.Add(PROP_TARGET_POS_SRC, new VariableProperty(VariableProperty.Type.String));
             behaviour.Properties.Add(PROP_STOP_OFFSET, new VariableProperty(VariableProperty.Type.Number));
             behaviour.Properties.Add(PROP_MOVE_SPEED, new VariableProperty(VariableProperty.Type.Number));
-            behaviour.Properties.Add(PROP_MOVE_TYPE, new VariableProperty(VariableProperty.Type.Object, typeof(MoveType)));
+            behaviour.Properties.Add(PROP_MOVE_TYPE, new VariableProperty(VariableProperty.Type.Object, typeof(DynamicMoveType)));
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
@@ -26,7 +26,7 @@ namespace BehaviourTree
             Rigidbody2D rigidbody2D = ((Agent)obj).Rigidbody2D;
 
             // Get the move type object + properties
-            MoveType moveType = behaviour.GetProperty(PROP_MOVE_TYPE).GetObject() as MoveType;
+            DynamicMoveType moveType = behaviour.GetProperty(PROP_MOVE_TYPE).GetObject() as DynamicMoveType;
             Vector2 currPos = obj.transform.position;
 
             // Calculate offset target pos
