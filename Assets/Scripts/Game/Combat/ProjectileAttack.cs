@@ -7,10 +7,11 @@ namespace RPG
     [CreateAssetMenu(fileName = "New ProjectileAttack", menuName = "Actions/Projectile Attack", order = 52)]
     public class ProjectileAttack : Action
     {
-        [SerializeField] private GameObject projectilePrefab;
+        [SerializeField] private Projectile projectilePrefab;
         [SerializeField] private float speed;
         [SerializeField] private float range;
-        [SerializeField] private float damage;
+        [SerializeField] private int damage;
+        [SerializeField] private bool passThroughTargets;
 
         public override void Invoke(ActionData data)
         {
@@ -18,9 +19,15 @@ namespace RPG
             Vector2 attackDir = (data.target - data.origin).normalized;
 
             // Create projectile
-            GameObject proj = Instantiate(projectilePrefab, data.origin, Quaternion.identity);
-            Rigidbody2D rb2D = proj.GetComponent<Rigidbody2D>();
-            rb2D.velocity = attackDir * speed;
+            Projectile proj = Instantiate(projectilePrefab, data.origin, Quaternion.identity);
+            ProjectileData pData = new ProjectileData();
+            pData.hitMask = data.targetMask;
+            pData.speed = speed;
+            pData.direction = attackDir;
+            pData.range = range;
+            pData.damage = damage;
+            pData.dieOnCollide = !passThroughTargets;
+            proj.Fire(pData);
         }
     }
 }

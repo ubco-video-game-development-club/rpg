@@ -18,8 +18,9 @@ MonoBehaviour:
   animationType: 0
   animation: {fileID: 11400000, guid: 1fce7b2292cd9e545984412811fa1820, type: 2}
   cooldown: 15
-  projectilePrefab: {fileID: 6953938654840100606, guid: 2cd8eb7cfd7802f43a0677e91b1bcf0a,
+  projectilePrefab: {fileID: -3920855936842742880, guid: 2cd8eb7cfd7802f43a0677e91b1bcf0a,
     type: 3}
   speed: 5
-  range: 0
-  damage: 0
+  range: 6
+  damage: 8
+  passThroughTargets: 0
