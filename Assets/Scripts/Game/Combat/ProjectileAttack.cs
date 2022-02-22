@@ -15,7 +15,7 @@ namespace RPG
 
         public override void Invoke(ActionData data)
         {
-            // Calculate direction based on mouse position
+            // Calculate direction based on attack data
             Vector2 attackDir = (data.target - data.origin).normalized;
 
             // Create projectile
