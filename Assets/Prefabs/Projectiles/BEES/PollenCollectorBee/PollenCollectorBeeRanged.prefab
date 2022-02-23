@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6953938654840100605}
   - component: {fileID: 6953938654840100604}
   - component: {fileID: 6953938654840100607}
+  - component: {fileID: 359737515633013063}
   m_Layer: 0
   m_Name: PollenCollectorBeeRanged
   m_TagString: Untagged
@@ -122,3 +123,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &359737515633013063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953938654840100606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b7eee487b49d0a479035b265d9002df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitEffect: {fileID: 5765126054128593708, guid: 1a1724fe5e63e0e429974ff8190922fb,
+    type: 3}
