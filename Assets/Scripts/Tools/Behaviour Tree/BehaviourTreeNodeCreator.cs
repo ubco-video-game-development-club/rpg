@@ -19,6 +19,8 @@ namespace BehaviourTree
         GetActorPositionNode,
         GetRandomPositionNode,
         SimpleMoveNode,
+        MoveToNode,
+        MoveFollowNode,
         IdleNode,
         SetActionTargetNode,
         InvokeActionNode,
@@ -71,6 +73,10 @@ namespace BehaviourTree
                     return new GetRandomPositionNode();
                 case BehaviourTreeNodeType.SimpleMoveNode:
                     return new SimpleMoveNode();
+                case BehaviourTreeNodeType.MoveToNode:
+                    return new MoveToNode();
+                case BehaviourTreeNodeType.MoveFollowNode:
+                    return new MoveFollowNode();
                 case BehaviourTreeNodeType.IdleNode:
                     return new IdleNode();
                 case BehaviourTreeNodeType.SetActionTargetNode:

@@ -340,14 +340,14 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: stop-distance
+        - name: stop-offset
           property:
             propertyType: 1
             objectType: 
             forceReserialization: 0
             value:
               b: 0
-              n: 1
+              n: -1
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
@@ -368,7 +368,22 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.SimpleMoveNode
+        - name: move-type
+          property:
+            propertyType: 3
+            objectType: BehaviourTree.DynamicMoveType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 11400000, guid: b7e7c68f50806be4595e4865bfba8462, type: 2}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.MoveFollowNode
       firstChildIndex: 18
     - childCount: 1
       element:
