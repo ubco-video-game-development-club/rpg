@@ -2657,7 +2657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &831336012
 Transform:
   m_ObjectHideFlags: 0
@@ -2684,7 +2684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255646b43a4b22b4586a6b091e9ce397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: 3110ebdb17c5bf44bb148fb8e96bb0e3, type: 2}
+  behaviourTree: {fileID: 11400000, guid: eafb700300203e6429abf2cb7ac05740, type: 2}
 --- !u!114 &831336014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3347,7 +3347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1031796356
 Transform:
   m_ObjectHideFlags: 0
@@ -3374,7 +3374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255646b43a4b22b4586a6b091e9ce397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: 9a93854590915bd41bb50ac60a669196, type: 2}
+  behaviourTree: {fileID: 11400000, guid: 33e8671ee09b0b846806d1eba9c1dc77, type: 2}
 --- !u!114 &1031796358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3393,7 +3393,6 @@ MonoBehaviour:
   hurtAnimations: {fileID: 11400000, guid: 1fce7b2292cd9e545984412811fa1820, type: 2}
   actions:
   - {fileID: 11400000, guid: 1314d535da2b1154184c0bbd8edf2575, type: 2}
-  - {fileID: 11400000, guid: e3d9af4c7108bed43b9e78d70341aeee, type: 2}
   - {fileID: 11400000, guid: 2dfe2925c87d6df42bb63fa5c57bfe26, type: 2}
 --- !u!114 &1031796359
 MonoBehaviour:
@@ -5191,7 +5190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1820026671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7542,7 +7541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255646b43a4b22b4586a6b091e9ce397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: 3110ebdb17c5bf44bb148fb8e96bb0e3, type: 2}
+  behaviourTree: {fileID: 11400000, guid: 912c97a79526d554aaf82df005f577e6, type: 2}
 --- !u!1 &2082100410
 GameObject:
   m_ObjectHideFlags: 0
