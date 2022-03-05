@@ -128,7 +128,7 @@ MonoBehaviour:
             aType: 0
         nodeTypeName: BehaviourTree.RangeCheckNode
       firstChildIndex: 6
-    - childCount: 3
+    - childCount: 4
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SelectorNode
@@ -148,7 +148,7 @@ MonoBehaviour:
             forceReserialization: 0
             value:
               b: 0
-              n: 1.5
+              n: 1
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
@@ -200,7 +200,7 @@ MonoBehaviour:
             forceReserialization: 0
             value:
               b: 0
-              n: 0
+              n: 2
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
@@ -209,16 +209,92 @@ MonoBehaviour:
             aType: 0
         nodeTypeName: BehaviourTree.InvokeActionNode
       firstChildIndex: 11
-    - childCount: 4
+    - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
       firstChildIndex: 12
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: range
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 1.5
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-source
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: player-pos
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.RangeCheckNode
+      firstChildIndex: 13
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: target-source
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: player-pos
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.SetActionTargetNode
+      firstChildIndex: 14
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: action-index
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.InvokeActionNode
+      firstChildIndex: 15
+    - childCount: 4
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 16
     - childCount: 1
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.NotNode
-      firstChildIndex: 13
+      firstChildIndex: 17
     - childCount: 0
       element:
         propertyInfo:
@@ -251,7 +327,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.RangeCheckNode
-      firstChildIndex: 14
+      firstChildIndex: 18
     - childCount: 0
       element:
         propertyInfo:
@@ -284,7 +360,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.RangeCheckNode
-      firstChildIndex: 15
+      firstChildIndex: 19
     - childCount: 0
       element:
         propertyInfo:
@@ -303,7 +379,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SetActionTargetNode
-      firstChildIndex: 16
+      firstChildIndex: 20
     - childCount: 0
       element:
         propertyInfo:
@@ -322,7 +398,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.InvokeActionNode
-      firstChildIndex: 17
+      firstChildIndex: 21
     - childCount: 0
       element:
         propertyInfo:
@@ -384,12 +460,12 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.MoveFollowNode
-      firstChildIndex: 18
+      firstChildIndex: 22
     - childCount: 1
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 19
+      firstChildIndex: 23
     - childCount: 0
       element:
         propertyInfo:
@@ -408,4 +484,4 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.IdleNode
-      firstChildIndex: 20
+      firstChildIndex: 24
