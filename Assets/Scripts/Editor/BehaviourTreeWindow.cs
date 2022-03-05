@@ -83,7 +83,7 @@ namespace BehaviourTree
 
             if (GUI.Button(layout, GUIContent.none, GUI.skin.box)) selectedTree.selectedNode = node.Element;
 
-            if (layout.Contains(mousePos)) hoverNode = node;
+            if (layout.Contains(mousePos + scrollPos)) hoverNode = node;
 
             if (selectedTree.selectedNode == node.Element)
             {
