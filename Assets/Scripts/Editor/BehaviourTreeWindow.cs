@@ -79,17 +79,17 @@ namespace BehaviourTree
         {
             string name = node.Element.Node.GetType().Name;
             Rect layout = EditorGUILayout.BeginHorizontal();
-            layout.width -= 80;
+            layout.width -= 85;
+
+            if (selectedTree.selectedNode == node.Element)
+            {
+                Rect highlightBox = new Rect(layout.x - 2, layout.y - 2, layout.width + 4, layout.height + 4);
+                EditorUtils.DrawBox(highlightBox, EditorUtils.HIGHLIGHTED_COLOR);
+            }
 
             if (GUI.Button(layout, GUIContent.none, GUI.skin.box)) selectedTree.selectedNode = node.Element;
 
             if (layout.Contains(mousePos + scrollPos)) hoverNode = node;
-
-            if (selectedTree.selectedNode == node.Element)
-            {
-                layout.width = 2;
-                EditorUtils.DrawBox(layout, EditorUtils.HIGHLIGHTED_COLOR);
-            }
 
             GUILayout.Space((indent + 1) * INDENT_MULTIPLIER);
             GUILayout.Label(name);
