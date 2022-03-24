@@ -64,7 +64,7 @@ MonoBehaviour:
     dialogueIndexOverrides:
     - targetUniqueID: 
       indexOverride: 1
-    customBehaviour: {fileID: 11400000, guid: 64a6070144d65fb4a86a0493bb5d72a7, type: 2}
+    customBehaviour: {fileID: 11400000, guid: 3e6bff16d48bace4ca5896521841a0f6, type: 2}
   - name: Errrrr, never mind. See ya later.
     body: Alright. Later!
     position: {x: 338, y: -49}

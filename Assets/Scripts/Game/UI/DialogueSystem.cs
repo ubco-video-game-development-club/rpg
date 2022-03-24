@@ -12,27 +12,34 @@ namespace Dialogue
     public class DialogueSystem : MonoBehaviour
     {
         private YieldInstruction letterCooldown = new WaitForSeconds(0.05f);
-        private QuestGiver currentTarget;
+        private NPC currentTarget;
         private DialogueGraph currentGraph;
-        private int currentNode = 0;
+        private int currentNodeIdx = 0;
 
-        public void BeginDialogue(QuestGiver target, DialogueGraph graph)
+        public void BeginDialogue(NPC target, DialogueGraph graph)
         {
+            // Disable actions of interacting entities
+            GameManager.Player.enabled = false;
+            if (target.TryGetComponent(out BehaviourObject obj))
+            {
+                obj.enabled = false;
+            }
+
             currentTarget = target;
             currentGraph = graph;
 
             HUD.DialoguePanel.Show();
             HUD.DialoguePanel.SetTarget(target);
 
-            StartCoroutine(ShowDialogue(0));
+            ShowDialogue(0);
         }
 
-        private DialogueGraphTransition[] GetTransitionsFor(DialogueGraph graph, int node)
+        private DialogueGraphTransition[] GetTransitionsFor(DialogueGraph graph, int nodeIdx)
         {
             LinkedList<DialogueGraphTransition> transitionsList = new LinkedList<DialogueGraphTransition>();
             foreach (DialogueGraphTransition t in graph.transitions)
             {
-                if (t.from == node)
+                if (t.from == nodeIdx)
                 {
                     transitionsList.AddLast(t);
                 }
@@ -43,12 +50,16 @@ namespace Dialogue
             return transitions;
         }
 
-        private IEnumerator ShowDialogue(int node)
+        private void ShowDialogue(int nodeIdx)
         {
-            currentNode = node;
-            DialogueGraphNode graphNode = currentGraph.nodes[node];
+            currentNodeIdx = nodeIdx;
+            HUD.DialoguePanel.PlayDialogue(currentGraph.nodes[nodeIdx].body, () => OnDialogueNodeFinished(nodeIdx));
+        }
+
+        private void OnDialogueNodeFinished(int nodeIdx)
+        {
+            DialogueGraphNode graphNode = currentGraph.nodes[nodeIdx];
             string dialogue = graphNode.body;
-            HUD.DialoguePanel.PlayDialogue(dialogue);
 
             // Apply quest notes for this dialogue node after it finishes reading
             foreach (QuestNote note in graphNode.questNotes)
@@ -59,10 +70,10 @@ namespace Dialogue
             // Apply any dialogue index overrides
             foreach (DialogueIndexOverride idxOverride in graphNode.dialogueIndexOverrides)
             {
-                QuestGiver target = currentTarget;
+                NPC target = currentTarget;
                 if (idxOverride.targetUniqueID != "")
                 {
-                    target = Entity.Find<QuestGiver>(idxOverride.targetUniqueID);
+                    target = UniqueID.Get<NPC>(idxOverride.targetUniqueID);
                 }
                 target.ActiveIndex = idxOverride.indexOverride;
             }
@@ -71,26 +82,38 @@ namespace Dialogue
             if (graphNode.customBehaviour != null)
             {
                 Tree<BehaviourTree.Behaviour>.Node root = graphNode.customBehaviour.Root;
-                root.Element.Tick(root, HUD.DialoguePanel.GetComponent<BehaviourObject>());
+                if (currentTarget.TryGetComponent<BehaviourObject>(out BehaviourObject obj))
+                {
+                    root.Element.Tick(root, obj);
+                }
+                else
+                {
+                    Debug.LogError("Failed to run custom dialogue behaviour due to target NPC not having a BehaviourObject component!");
+                }
             }
 
-            DialogueGraphTransition[] transitions = GetTransitionsFor(currentGraph, node);
+            // Display transitions
+            DialogueGraphTransition[] transitions = GetTransitionsFor(currentGraph, nodeIdx);
             foreach (DialogueGraphTransition t in transitions)
             {
                 DialogueGraphNode to = t.to < 0 ? currentGraph.exitNode : currentGraph.nodes[t.to];
                 HUD.DialoguePanel.CreateOption(to.name, (idx) => OnDialogueOptionClicked(idx));
-                yield return letterCooldown;
             }
         }
 
         private void OnDialogueOptionClicked(int index)
         {
-            DialogueGraphTransition[] transitions = GetTransitionsFor(currentGraph, currentNode);
+            DialogueGraphTransition[] transitions = GetTransitionsFor(currentGraph, currentNodeIdx);
             DialogueGraphTransition transition = transitions[index];
             if (transition.to < 0)
             {
                 // We've reached the end of the tree
                 HUD.DialoguePanel.Hide();
+                GameManager.Player.enabled = true;
+                if (currentTarget.TryGetComponent(out BehaviourObject obj))
+                {
+                    obj.enabled = true;
+                }
             }
             else
             {
@@ -100,7 +123,8 @@ namespace Dialogue
                 GameManager.AlignmentSystem.UpdateMorals(graphNode.moralsMod);
                 GameManager.AlignmentSystem.UpdateSexiness(graphNode.sexinessMod);
 
-                StartCoroutine(ShowDialogue(transition.to));
+                // Show the next dialogue node
+                ShowDialogue(transition.to);
             }
         }
     }

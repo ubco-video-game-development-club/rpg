@@ -17,11 +17,9 @@ namespace BehaviourTree
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
         {
             Behaviour behaviour = self.Element;
-
             int idx = (int)behaviour.Properties[PROP_ACTION_IDX].GetNumber();
-            obj.GetComponent<Enemy>().InvokeAction(idx);
-
-            return NodeStatus.Success;
+            bool success = obj.GetComponent<Enemy>().InvokeAction(idx);
+            return success ? NodeStatus.Success : NodeStatus.Failure;
         }
     }
 }

@@ -38,10 +38,14 @@ namespace RPG
         private UnityEvent onDeath = new UnityEvent();
         public UnityEvent OnDeath { get => onDeath; }
 
+        private UnityEvent<Vector2> onPositionChanged = new UnityEvent<Vector2>();
+        public UnityEvent<Vector2> OnPositionChanged { get => onPositionChanged; }
+
         protected ActionData actionData;
         protected Vector2Int facingDirection;
         protected new Rigidbody2D rigidbody2D;
         protected Animator2D animator2D;
+        private Vector3 prevFramePosition;
 
         protected virtual void Awake()
         {
@@ -59,6 +63,9 @@ namespace RPG
 
         protected virtual void Update()
         {
+            // Update position info
+            if (transform.position != prevFramePosition) onPositionChanged.Invoke(transform.position);
+
             // Animate movement
             if (GetMoveDirection() != Vector2Int.zero)
             {
@@ -68,6 +75,8 @@ namespace RPG
             {
                 AnimateIdle();
             }
+
+            prevFramePosition = transform.position;
         }
 
         public virtual void TakeDamage(int damage)

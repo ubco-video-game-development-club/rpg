@@ -79,9 +79,20 @@ namespace Dialogue
 
         private void DrawNode(SerializedProperty node)
         {
-            SerializedProperty name = node.FindPropertyRelative("name");
-            GUILayout.Label("Option");
-            name.stringValue = GUILayout.TextArea(name.stringValue, GUILayout.Height(100));
+            // Don't show "option" text on entry node
+            if (graph.selectedNode > 0)
+            {
+                SerializedProperty displayName = node.FindPropertyRelative("displayName");
+                GUILayout.Space(15);
+                GUILayout.BeginHorizontal();
+                GUILayout.Label("Name: ");
+                displayName.stringValue = GUILayout.TextArea(displayName.stringValue);
+                GUILayout.EndHorizontal();
+
+                SerializedProperty name = node.FindPropertyRelative("name");
+                GUILayout.Label("Option");
+                name.stringValue = GUILayout.TextArea(name.stringValue, GUILayout.Height(100));
+            }
 
             GUILayout.Space(10);
 

@@ -37,15 +37,12 @@ namespace RPG
 
         private bool isGCDActive;
         private bool isAnimLocked;
-        private Vector3 prevFramePosition;
         private Collider2D[] interactTargets = new Collider2D[MAX_INTERACT_TARGETS];
         private int numInteractTargets = 0;
         private Interactable targetInteractable;
 
         private YieldInstruction animLockInstruction;
         private YieldInstruction globalCooldownInstruction;
-
-        private UnityEvent<Vector2> onPositionChanged = new UnityEvent<Vector2>();
 
         protected override void Awake()
         {
@@ -67,7 +64,6 @@ namespace RPG
             }
             Equip(ItemSlot.Mainhand, defaultPrimaryWeapon);
             Equip(ItemSlot.Offhand, defaultSecondaryWeapon);
-
             actionData = new ActionData(LayerMask.GetMask("Enemy"));
         }
 
@@ -136,9 +132,7 @@ namespace RPG
             Vector2 inputDir = new Vector2(inputH, inputV).normalized;
 
             // Update position
-            prevFramePosition = transform.position;
             rigidbody2D.velocity = inputDir * moveSpeed;
-            if (transform.position != prevFramePosition) onPositionChanged.Invoke(transform.position);
 
             // Run base Actor update
             base.Update();
@@ -164,6 +158,11 @@ namespace RPG
                     HandleActionInput($"Ability{i + 1}", abilitySlots[i].ability);
                 }
             }
+        }
+
+        protected void OnDisable()
+        {
+            ClearInteractions();
         }
 
         public void ApplyClassBaseStats(ClassBaseStats classBaseStats)
@@ -277,18 +276,8 @@ namespace RPG
 
         private void UpdateInteractions()
         {
-            Interactable interactable;
-
-            // Clear current interactions
-            for (int i = 0; i < numInteractTargets; i++)
-            {
-                Collider2D target = interactTargets[i];
-                if (target != null && target.TryGetComponent<Interactable>(out interactable))
-                {
-                    interactable.SetTooltipActive(false);
-                }
-            }
-            targetInteractable = null;
+            // Clear interactions
+            ClearInteractions();
 
             // Check for nearby interactables
             numInteractTargets = Physics2D.OverlapCircleNonAlloc(transform.position, interactRadius, interactTargets, interactLayer);
@@ -305,11 +294,27 @@ namespace RPG
             }
 
             // Set the nearest interactable active
+            Interactable interactable;
             if (closestIdx >= 0 && interactTargets[closestIdx].TryGetComponent<Interactable>(out interactable))
             {
                 targetInteractable = interactable;
                 interactable.SetTooltipActive(true);
             }
+        }
+
+        private void ClearInteractions()
+        {
+            // Clear current interactions
+            Interactable interactable;
+            for (int i = 0; i < numInteractTargets; i++)
+            {
+                Collider2D target = interactTargets[i];
+                if (target != null && target.TryGetComponent<Interactable>(out interactable))
+                {
+                    interactable.SetTooltipActive(false);
+                }
+            }
+            targetInteractable = null;
         }
     }
 }

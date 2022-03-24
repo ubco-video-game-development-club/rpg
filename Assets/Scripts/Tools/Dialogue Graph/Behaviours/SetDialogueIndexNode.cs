@@ -26,7 +26,7 @@ namespace BehaviourTree
 
             // Set the dialogue index
             int index = (int)behaviour.GetProperty(PROP_INDEX).GetNumber();
-            npc.GetComponent<QuestGiver>().ActiveIndex = index;
+            npc.GetComponent<NPC>().ActiveIndex = index;
 
             return NodeStatus.Success;
         }

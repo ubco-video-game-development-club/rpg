@@ -9,20 +9,32 @@ namespace BehaviourTree
         ExecuteAllNode,
         SuccessNode,
         NotNode,
-        EqualsNode,
+        CompareNode,
         HasPropertyNode,
+        SetPropertyNode,
         RangeCheckNode,
+        GetSelfNode,
         FindActorByTagNode,
         FindObjectByIdNode,
         GetActorPositionNode,
         GetRandomPositionNode,
         SimpleMoveNode,
+        MoveToNode,
+        MoveFollowNode,
+        IdleNode,
         SetActionTargetNode,
         InvokeActionNode,
         GetDialogueIndexNode,
         SetDialogueIndexNode,
+        ForceDialogueNode,
+        ArrayIteratorNode,
+        ArrayIncrementNode,
         GetMoveDirectionNode,
-        GetVectorAxisNode
+        GetVectorAxisNode,
+        SetEnemyNode,
+        IsEnemyNode,
+        GetEntityPropertyNode,
+        SubTreeNode
     }
 
     public static class BehaviourTreeNodeCreator
@@ -41,12 +53,16 @@ namespace BehaviourTree
                     return new SuccessNode();
                 case BehaviourTreeNodeType.NotNode:
                     return new NotNode();
-                case BehaviourTreeNodeType.EqualsNode:
-                    return new EqualsNode();
+                case BehaviourTreeNodeType.CompareNode:
+                    return new CompareNode();
                 case BehaviourTreeNodeType.HasPropertyNode:
                     return new HasPropertyNode();
+                case BehaviourTreeNodeType.SetPropertyNode:
+                    return new SetPropertyNode();
                 case BehaviourTreeNodeType.RangeCheckNode:
                     return new RangeCheckNode();
+                case BehaviourTreeNodeType.GetSelfNode:
+                    return new GetSelfNode();
                 case BehaviourTreeNodeType.FindActorByTagNode:
                     return new FindActorByTagNode();
                 case BehaviourTreeNodeType.FindObjectByIdNode:
@@ -57,6 +73,12 @@ namespace BehaviourTree
                     return new GetRandomPositionNode();
                 case BehaviourTreeNodeType.SimpleMoveNode:
                     return new SimpleMoveNode();
+                case BehaviourTreeNodeType.MoveToNode:
+                    return new MoveToNode();
+                case BehaviourTreeNodeType.MoveFollowNode:
+                    return new MoveFollowNode();
+                case BehaviourTreeNodeType.IdleNode:
+                    return new IdleNode();
                 case BehaviourTreeNodeType.SetActionTargetNode:
                     return new SetActionTargetNode();
                 case BehaviourTreeNodeType.InvokeActionNode:
@@ -65,10 +87,24 @@ namespace BehaviourTree
                     return new GetDialogueIndexNode();
                 case BehaviourTreeNodeType.SetDialogueIndexNode:
                     return new SetDialogueIndexNode();
+                case BehaviourTreeNodeType.ForceDialogueNode:
+                    return new ForceDialogueNode();
+                case BehaviourTreeNodeType.ArrayIteratorNode:
+                    return new ArrayIteratorNode();
+                case BehaviourTreeNodeType.ArrayIncrementNode:
+                    return new ArrayIncrementNode();
                 case BehaviourTreeNodeType.GetMoveDirectionNode:
                     return new GetMoveDirectionNode();
                 case BehaviourTreeNodeType.GetVectorAxisNode:
                     return new GetVectorAxisNode();
+                case BehaviourTreeNodeType.SetEnemyNode:
+                    return new SetEnemyNode();
+                case BehaviourTreeNodeType.IsEnemyNode:
+                    return new IsEnemyNode();
+                case BehaviourTreeNodeType.GetEntityPropertyNode:
+                    return new GetEntityPropertyNode();
+                case BehaviourTreeNodeType.SubTreeNode:
+                    return new SubTreeNode();
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return null;

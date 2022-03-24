@@ -12,30 +12,6 @@ namespace RPG
 
         private Dictionary<PropertyName, UnityEventBase> propertyChangedEvents = new Dictionary<PropertyName, UnityEventBase>();
 
-        ///<summary>Returns the Entity matching the given unique id. The desired Entity must have a corresponding UniqueID component.</summary>
-        public static Entity Find(string id)
-        {
-            GameObject obj = UniqueID.Get(id);
-            if (obj == null)
-            {
-                Debug.LogWarning($"Entity.Find() failed to find Entity with ID \"{id}\"; returning null.");
-                return null;
-            }
-            return obj.GetComponent<Entity>();
-        }
-
-        ///<summary>Returns the Entity matching the given unique id. The desired Entity must have a corresponding UniqueID component.</summary>
-        public static T Find<T>(string id) where T : Entity
-        {
-            GameObject obj = UniqueID.Get(id);
-            if (obj == null)
-            {
-                Debug.LogWarning($"Entity.Find() failed to find Entity with ID \"{id}\"; returning null.");
-                return null;
-            }
-            return obj.GetComponent<T>();
-        }
-
         public bool HasProperty(PropertyName name)
         {
             return properties.HasProperty(name);

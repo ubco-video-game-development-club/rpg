@@ -20,6 +20,12 @@ namespace RPG
         private List<GameObject> buttonPool = new List<GameObject>();
         private int buttonPoolIndex = 0;
         private YieldInstruction letterCooldown = new WaitForSeconds(0.05f);
+        private bool skipDialogue = false;
+
+        void Update() 
+        {
+            if(Input.GetButtonUp("SkipDialogue")) skipDialogue = true;
+        }
 
         public void Show()
         {
@@ -31,18 +37,19 @@ namespace RPG
             gameObject.SetActive(false);
         }
 
-        public void SetTarget(QuestGiver target)
+        public void SetTarget(NPC target)
         {
             dialoguePortrait.sprite = target.Portrait;
             dialogueName.text = target.CharacterName;
         }
 
-        public void PlayDialogue(string dialogue)
+        public void PlayDialogue(string dialogue, UnityAction onFinished)
         {
-            StartCoroutine(AnimateDialogue(dialogue));
+            skipDialogue = false;
+            StartCoroutine(AnimateDialogue(dialogue, onFinished));
         }
 
-        private IEnumerator AnimateDialogue(string dialogue)
+        private IEnumerator AnimateDialogue(string dialogue, UnityAction onFinished)
         {
             foreach (GameObject go in buttonPool)
             {
@@ -54,8 +61,16 @@ namespace RPG
             while (index <= dialogue.Length)
             {
                 dialogueText.text = dialogue.Substring(0, index++);
+                if(skipDialogue) {
+                    dialogueText.text = dialogue;
+                    skipDialogue = false;
+                    break;
+                }
+
                 yield return letterCooldown;
             }
+
+            onFinished();
         }
 
         public void CreateOption(string name, UnityAction<int> listener)

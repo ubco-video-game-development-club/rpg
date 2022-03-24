@@ -13,9 +13,8 @@ namespace RPG
 
         public override void Invoke(ActionData data)
         {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Instantiate(visualPrefab, mousePos, Quaternion.identity);
-            Collider2D[] hits = Physics2D.OverlapCircleAll(mousePos, radius, data.targetMask);
+            Instantiate(visualPrefab, data.target, Quaternion.identity);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(data.target, radius, data.targetMask);
             foreach (Collider2D hit in hits)
             {
                 if (hit.TryGetComponent<Actor>(out Actor target))

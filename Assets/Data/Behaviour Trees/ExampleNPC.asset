@@ -1,0 +1,396 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fb5e73c80040247a00b01917c6e426, type: 3}
+  m_Name: ExampleNPC
+  m_EditorClassIdentifier: 
+  tree:
+    serializedNodes:
+    - childCount: 1
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 1
+    - childCount: 2
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SelectorNode
+      firstChildIndex: 2
+    - childCount: 4
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 3
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-name
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: idle
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.HasPropertyNode
+      firstChildIndex: 4
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: BehaviourTree.CompareNode+CompareType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            forceReserialization: 1
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 2
+            aType: 0
+        - name: operator
+          property:
+            propertyType: 6
+            objectType: BehaviourTree.CompareNode+OperatorType, Assembly-CSharp,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: source-property
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: idle
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: comparator
+          property:
+            propertyType: 0
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 1
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.CompareNode
+      firstChildIndex: 5
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: idle-duration
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 3
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.IdleNode
+      firstChildIndex: 6
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: BehaviourTree.SetPropertyNode+ValueType, Assembly-CSharp,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+            forceReserialization: 1
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 2
+            aType: 0
+        - name: target-property
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: idle
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: property-value
+          property:
+            propertyType: 0
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.SetPropertyNode
+      firstChildIndex: 7
+    - childCount: 4
+      element:
+        propertyInfo: []
+        nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 8
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: BehaviourTree.ArrayIteratorNode+ValueType, Assembly-CSharp,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+            forceReserialization: 1
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 4
+            aType: 0
+        - name: value-array
+          property:
+            propertyType: 5
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a:
+              - propertyType: 4
+                value:
+                  b: 0
+                  n: 0
+                  s: 
+                  o: {fileID: 0}
+                  v: {x: -3, y: -3}
+              - propertyType: 4
+                value:
+                  b: 0
+                  n: 0
+                  s: 
+                  o: {fileID: 0}
+                  v: {x: -5, y: -5}
+              - propertyType: 4
+                value:
+                  b: 0
+                  n: 0
+                  s: 
+                  o: {fileID: 0}
+                  v: {x: -3, y: -5}
+              e: 0
+            aType: 4
+        - name: index-source
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: patrol-idx
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: value-destination
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: patrol-pos
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.ArrayIteratorNode
+      firstChildIndex: 9
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: position-source
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: patrol-pos
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: stop-distance
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0.2
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: move-speed
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 1.5
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.SimpleMoveNode
+      firstChildIndex: 10
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: index-source
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: patrol-idx
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: array-length
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 3
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.ArrayIncrementNode
+      firstChildIndex: 11
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: BehaviourTree.SetPropertyNode+ValueType, Assembly-CSharp,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+            forceReserialization: 1
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 2
+            aType: 0
+        - name: target-property
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: idle
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: property-value
+          property:
+            propertyType: 0
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 1
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.SetPropertyNode
+      firstChildIndex: 12
