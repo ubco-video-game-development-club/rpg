@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a69acb03430977f418a2083c0b4c73f9, type: 3}
-  m_Name: PlayerMove
+  m_Name: TestMove
   m_EditorClassIdentifier: 
   bottom: {fileID: 7400000, guid: 1da28aaa94d0b6b4b97a14742946486f, type: 2}
   bottomLeft: {fileID: 7400000, guid: 2520fb8e1af07fc45bb86099189a198c, type: 2}
