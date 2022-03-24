@@ -8,12 +8,14 @@ namespace BehaviourTree
     {
         private enum ValueType { Int, Double, Bool, String, Vector }
 
+        private const string PROP_BEHAVIOUR_OBJ_SRC = "behaviour-object-source";
         private const string PROP_TYPE = "property-type";
         private const string PROP_TARGET = "target-property";
         private const string PROP_VALUE = "property-value";
 
         public void Serialize(Behaviour behaviour)
         {
+            behaviour.SetProperty(PROP_BEHAVIOUR_OBJ_SRC, new VariableProperty(VariableProperty.Type.String));
             if (!behaviour.Properties.ContainsKey(PROP_TYPE))
             {
                 behaviour.SetProperty(PROP_TYPE, new VariableProperty(VariableProperty.Type.Enum, typeof(ValueType), true));
@@ -27,29 +29,36 @@ namespace BehaviourTree
         {
             Behaviour behaviour = self.Element;
 
-            string target = behaviour.GetProperty(PROP_TARGET).GetString();
+            BehaviourObject bObj = obj;
+            string bObjSrc = behaviour.GetProperty(PROP_BEHAVIOUR_OBJ_SRC).GetString();
+            if (obj.HasProperty(bObjSrc))
+            {
+                bObj = (Agent)obj.GetProperty(bObjSrc);
+            }
+
+            string targetProp = behaviour.GetProperty(PROP_TARGET).GetString();
             ValueType valueType = behaviour.GetProperty(PROP_TYPE).GetEnum<ValueType>();
             switch (valueType)
             {
                 case ValueType.Int:
                     int iVal = (int)behaviour.GetProperty(PROP_VALUE).GetNumber();
-                    obj.SetProperty(target, iVal);
+                    bObj.SetProperty(targetProp, iVal);
                     break;
                 case ValueType.Double:
                     double dVal = behaviour.GetProperty(PROP_VALUE).GetNumber();
-                    obj.SetProperty(target, dVal);
+                    bObj.SetProperty(targetProp, dVal);
                     break;
                 case ValueType.Bool:
                     bool bVal = behaviour.GetProperty(PROP_VALUE).GetBoolean();
-                    obj.SetProperty(target, bVal);
+                    bObj.SetProperty(targetProp, bVal);
                     break;
                 case ValueType.String:
                     string sVal = behaviour.GetProperty(PROP_VALUE).GetString();
-                    obj.SetProperty(target, sVal);
+                    bObj.SetProperty(targetProp, sVal);
                     break;
                 case ValueType.Vector:
                     Vector2 vVal = behaviour.GetProperty(PROP_VALUE).GetVector();
-                    obj.SetProperty(target, vVal);
+                    bObj.SetProperty(targetProp, vVal);
                     break;
             }
 

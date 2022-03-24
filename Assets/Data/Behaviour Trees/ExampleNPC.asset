@@ -133,6 +133,20 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
+        - name: behaviour-object-source
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         - name: property-type
           property:
             propertyType: 6
@@ -349,6 +363,20 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
+        - name: behaviour-object-source
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         - name: property-type
           property:
             propertyType: 6
