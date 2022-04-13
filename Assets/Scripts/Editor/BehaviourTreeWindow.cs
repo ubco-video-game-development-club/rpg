@@ -8,7 +8,9 @@ namespace BehaviourTree
 {
     public class BehaviourTreeWindow : EditorWindow
     {
-        private const float INDENT_MULTIPLIER = 10.0f;
+        private const float INDENT_MULTIPLIER = 20.0f;
+        private const float LINE_GAP = 2.0f;
+
         private Vector2 CentreOfWindow { get => this.position.size / 2.0f; }
         private BehaviourTree selectedTree = null;
         private Vector2 scrollPos = Vector2.zero;
@@ -16,6 +18,7 @@ namespace BehaviourTree
         private Tree<Behaviour>.Node? dragParent = null;
         private Tree<Behaviour>.Node? hoverNode = null;
         private Vector2 mousePos;
+        private HashSet<Tree<Behaviour>.Node> collapsedNodes = new HashSet<Tree<Behaviour>.Node>();
 
         void OnEnable()
         {
@@ -37,11 +40,21 @@ namespace BehaviourTree
             ShowNode(null, root);
             GUILayout.EndScrollView();
 
-            mousePos = Event.current.mousePosition;
+            ProcessEvents(Event.current);
+        }
+
+        void OnSelectionChange()
+        {
+            UpdateSelectedTree();
+        }
+
+        private void ProcessEvents(Event e)
+        {
+            mousePos = e.mousePosition;
             if (dragNode != null)
             {
                 Tree<Behaviour>.Node node = dragNode.Value;
-                if (Event.current.type == EventType.MouseUp && Event.current.button == 0)
+                if (e.type == EventType.MouseUp && e.button == 0)
                 {
                     if (hoverNode == null)
                     {
@@ -68,30 +81,54 @@ namespace BehaviourTree
 
                 Repaint();
             }
-        }
 
-        void OnSelectionChange()
-        {
-            UpdateSelectedTree();
+            if (e.type == EventType.MouseDown && e.button == 0)
+            {
+                selectedTree.selectedNode = null;
+                EditorUtility.SetDirty(selectedTree);
+                Repaint();
+            }
         }
 
         private void ShowNode(Tree<Behaviour>.Node? parent, Tree<Behaviour>.Node node, int indent = 0)
         {
             string name = node.Element.Node.GetType().Name;
+
             Rect layout = EditorGUILayout.BeginHorizontal();
-            layout.width -= 85;
+
+            float spacing = (indent + 1) * INDENT_MULTIPLIER;
+            GUILayout.Space(spacing);
+
+            bool isCollapsed = collapsedNodes.Contains(node);
+            if (GUILayout.Button(isCollapsed ? "+" : "-", GUILayout.Width(25)))
+            {
+                isCollapsed = !isCollapsed;
+                if (isCollapsed)
+                {
+                    collapsedNodes.Add(node);
+                }
+                else
+                {
+                    collapsedNodes.Remove(node);
+                }
+            }
+
+            layout.x += spacing + 29;
+            layout.width -= spacing + 114;
 
             if (selectedTree.selectedNode == node.Element)
             {
-                Rect highlightBox = new Rect(layout.x - 2, layout.y - 2, layout.width + 4, layout.height + 4);
-                EditorUtils.DrawBox(highlightBox, EditorUtils.HIGHLIGHTED_COLOR);
+                EditorUtils.DrawBox(layout, EditorUtils.HIGHLIGHTED_COLOR);
             }
 
-            if (GUI.Button(layout, GUIContent.none, GUI.skin.box)) selectedTree.selectedNode = node.Element;
+            if (GUI.Button(layout, GUIContent.none, GUI.skin.box))
+            {
+                selectedTree.selectedNode = node.Element;
+                EditorUtility.SetDirty(selectedTree);
+            }
 
             if (layout.Contains(mousePos + scrollPos)) hoverNode = node;
 
-            GUILayout.Space((indent + 1) * INDENT_MULTIPLIER);
             GUILayout.Label(name);
 
             if (parent != null && dragNode == null && GUILayout.RepeatButton("*", GUILayout.Width(25)))
@@ -106,6 +143,10 @@ namespace BehaviourTree
             if (parent != null && GUILayout.Button("-", GUILayout.Width(25))) parent?.RemoveChild(node);
 
             EditorGUILayout.EndHorizontal();
+
+            GUILayout.Space(LINE_GAP);
+
+            if (isCollapsed) return;
 
             for (int i = 0; i < node.ChildCount; i++)
             {
@@ -146,7 +187,6 @@ namespace BehaviourTree
                 {
                     selectedTree.tree = new Tree<Behaviour>(new Behaviour(new SequenceNode()));
                 }
-                selectedTree.selectedNode = selectedTree.Root.Element;
             }
             else selectedTree = null;
 
