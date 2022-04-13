@@ -129,7 +129,7 @@ namespace RPG
             // Handle movement inputs
             float inputH = Input.GetAxisRaw("Horizontal");
             float inputV = Input.GetAxisRaw("Vertical");
-            Vector2 inputDir = new Vector2(inputH, inputV).normalized;
+            Vector2 inputDir = new Vector2(inputH, inputV * 0.5f).normalized;
 
             // Update position
             rigidbody2D.velocity = inputDir * moveSpeed;

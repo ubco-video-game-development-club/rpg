@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69acb03430977f418a2083c0b4c73f9, type: 3}
+  m_Name: PlayerStill
+  m_EditorClassIdentifier: 
+  bottom: {fileID: 7400000, guid: 6a3882676cb80dd4d9853cc8550958c6, type: 2}
+  bottomLeft: {fileID: 7400000, guid: 2d31968a026295d4daa2c1df3dc0319c, type: 2}
+  bottomRight: {fileID: 7400000, guid: 6a3882676cb80dd4d9853cc8550958c6, type: 2}
+  left: {fileID: 7400000, guid: 2d31968a026295d4daa2c1df3dc0319c, type: 2}
+  right: {fileID: 7400000, guid: 6a3882676cb80dd4d9853cc8550958c6, type: 2}
+  top: {fileID: 7400000, guid: 85b8d1f0ae88cf44c8641d7084fd2bff, type: 2}
+  topLeft: {fileID: 7400000, guid: c1ff74785bca88f4cafccf637f9ac339, type: 2}
+  topRight: {fileID: 7400000, guid: 85b8d1f0ae88cf44c8641d7084fd2bff, type: 2}
