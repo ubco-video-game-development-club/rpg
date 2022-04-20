@@ -58,74 +58,86 @@ namespace BehaviourTree
             }
 
             GUILayout.BeginHorizontal();
+
+            property.Instanced = GUILayout.Toggle(property.Instanced, "", GUILayout.Width(20));
+
+            GUI.enabled = !property.Instanced;
             GUILayout.Label(name);
 
-            switch (property.PropertyType)
+            if (property.Instanced)
             {
-                case VariableProperty.Type.Boolean:
-                    bool bPrev = property.GetBoolean();
-                    bool bNew = GUILayout.Toggle(bPrev, GUIContent.none);
-                    property.Set(bNew);
-                    if (property.ForceReserialization && bPrev != bNew)
-                    {
-                        selected.Node.Serialize(selected);
-                        return true;
-                    }
-                    break;
-                case VariableProperty.Type.Number:
-                    double nPrev = property.GetNumber();
-                    double nNew = EditorGUILayout.DoubleField(nPrev);
-                    property.Set(nNew);
-                    if (property.ForceReserialization && nPrev != nNew)
-                    {
-                        selected.Node.Serialize(selected);
-                        return true;
-                    }
-                    break;
-                case VariableProperty.Type.String:
-                    string sPrev = property.GetString();
-                    string sNew = GUILayout.TextField(sPrev);
-                    property.Set(sNew);
-                    if (property.ForceReserialization && sPrev != sNew)
-                    {
-                        selected.Node.Serialize(selected);
-                        return true;
-                    }
-                    break;
-                case VariableProperty.Type.Object:
-                    Object oPrev = property.GetObject();
-                    Object oNew = EditorGUILayout.ObjectField(oPrev, property.ObjectType, true);
-                    property.Set(oNew);
-                    if (property.ForceReserialization && oPrev != oNew)
-                    {
-                        selected.Node.Serialize(selected);
-                        return true;
-                    }
-                    break;
-                case VariableProperty.Type.Vector:
-                    Vector2 vPrev = property.GetVector();
-                    Vector2 vNew = EditorGUILayout.Vector2Field("", vPrev);
-                    property.Set(vNew);
-                    if (property.ForceReserialization && vPrev != vNew)
-                    {
-                        selected.Node.Serialize(selected);
-                        return true;
-                    }
-                    break;
-                case VariableProperty.Type.Enum:
-                    int ePrev = property.GetEnum();
-                    System.Enum eVal = (System.Enum)System.Enum.ToObject(property.ObjectType, ePrev);
-                    string sResult = EditorGUILayout.EnumPopup(eVal).ToString();
-                    int eNew = (int)System.Enum.Parse(property.ObjectType, sResult);
-                    property.Set(eNew);
-                    if (property.ForceReserialization && ePrev != eNew)
-                    {
-                        selected.Node.Serialize(selected);
-                        return true;
-                    }
-                    break;
+                GUILayout.Label("[Instanced]");
+            }
+            else
+            {
+                switch (property.PropertyType)
+                {
+                    case VariableProperty.Type.Boolean:
+                        bool bPrev = property.GetBoolean();
+                        bool bNew = GUILayout.Toggle(bPrev, GUIContent.none);
+                        property.Set(bNew);
+                        if (property.ForceReserialization && bPrev != bNew)
+                        {
+                            selected.Node.Serialize(selected);
+                            return true;
+                        }
+                        break;
+                    case VariableProperty.Type.Number:
+                        double nPrev = property.GetNumber();
+                        double nNew = EditorGUILayout.DoubleField(nPrev);
+                        property.Set(nNew);
+                        if (property.ForceReserialization && nPrev != nNew)
+                        {
+                            selected.Node.Serialize(selected);
+                            return true;
+                        }
+                        break;
+                    case VariableProperty.Type.String:
+                        string sPrev = property.GetString();
+                        string sNew = GUILayout.TextField(sPrev);
+                        property.Set(sNew);
+                        if (property.ForceReserialization && sPrev != sNew)
+                        {
+                            selected.Node.Serialize(selected);
+                            return true;
+                        }
+                        break;
+                    case VariableProperty.Type.Object:
+                        Object oPrev = property.GetObject();
+                        Object oNew = EditorGUILayout.ObjectField(oPrev, property.ObjectType, true);
+                        property.Set(oNew);
+                        if (property.ForceReserialization && oPrev != oNew)
+                        {
+                            selected.Node.Serialize(selected);
+                            return true;
+                        }
+                        break;
+                    case VariableProperty.Type.Vector:
+                        Vector2 vPrev = property.GetVector();
+                        Vector2 vNew = EditorGUILayout.Vector2Field("", vPrev);
+                        property.Set(vNew);
+                        if (property.ForceReserialization && vPrev != vNew)
+                        {
+                            selected.Node.Serialize(selected);
+                            return true;
+                        }
+                        break;
+                    case VariableProperty.Type.Enum:
+                        int ePrev = property.GetEnum();
+                        System.Enum eVal = (System.Enum)System.Enum.ToObject(property.ObjectType, ePrev);
+                        string sResult = EditorGUILayout.EnumPopup(eVal).ToString();
+                        int eNew = (int)System.Enum.Parse(property.ObjectType, sResult);
+                        property.Set(eNew);
+                        if (property.ForceReserialization && ePrev != eNew)
+                        {
+                            selected.Node.Serialize(selected);
+                            return true;
+                        }
+                        break;
+                }
             }
 
+            GUI.enabled = true;
             GUILayout.EndHorizontal();
 
             return false;

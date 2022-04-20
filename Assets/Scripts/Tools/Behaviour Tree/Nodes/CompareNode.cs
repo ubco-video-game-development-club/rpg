@@ -18,7 +18,9 @@ namespace BehaviourTree
         {
             if (!behaviour.Properties.ContainsKey(PROP_TYPE))
             {
-                behaviour.SetProperty(PROP_TYPE, new VariableProperty(VariableProperty.Type.Enum, typeof(CompareType), true));
+                VariableProperty propTypeVar = new VariableProperty(VariableProperty.Type.Enum, typeof(CompareType));
+                propTypeVar.ForceReserialization = true;
+                behaviour.SetProperty(PROP_TYPE, propTypeVar);
             }
             CompareType comparatorType = behaviour.GetProperty(PROP_TYPE).GetEnum<CompareType>();
             behaviour.SetProperty(PROP_OPERATOR, new VariableProperty(VariableProperty.Type.Enum, typeof(OperatorType)));

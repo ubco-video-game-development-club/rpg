@@ -16,7 +16,9 @@ namespace BehaviourTree
         {
             if (!behaviour.Properties.ContainsKey(PROP_TYPE))
             {
-                behaviour.SetProperty(PROP_TYPE, new VariableProperty(VariableProperty.Type.Enum, typeof(ValueType), true));
+                VariableProperty propTypeVar = new VariableProperty(VariableProperty.Type.Enum, typeof(ValueType));
+                propTypeVar.ForceReserialization = true;
+                behaviour.SetProperty(PROP_TYPE, propTypeVar);
             }
             ValueType valueType = behaviour.GetProperty(PROP_TYPE).GetEnum<ValueType>();
             behaviour.SetProperty(PROP_TARGET, new VariableProperty(VariableProperty.Type.String));

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fb5e73c80040247a00b01917c6e426, type: 3}
   m_Name: PollenCollectorBee
   m_EditorClassIdentifier: 
+  test: 0
   tree:
     serializedNodes:
     - childCount: 1
@@ -37,6 +38,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -51,6 +53,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -70,6 +73,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -84,6 +88,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -103,6 +108,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 5
@@ -117,6 +123,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -151,6 +158,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 4
@@ -165,6 +173,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -184,6 +193,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 5
@@ -198,6 +208,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -217,6 +228,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -236,6 +248,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 2
@@ -260,6 +273,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 1.5
@@ -274,6 +288,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -293,6 +308,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -312,6 +328,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -341,6 +358,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 5
@@ -355,6 +373,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -374,6 +393,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 6
@@ -388,6 +408,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -407,6 +428,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -426,6 +448,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 1
@@ -445,6 +468,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -459,6 +483,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: -1
@@ -473,6 +498,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 1.25
@@ -488,6 +514,7 @@ MonoBehaviour:
             objectType: BehaviourTree.MoveType, Assembly-CSharp, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -502,6 +529,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -526,6 +554,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            instanced: 0
             value:
               b: 0
               n: 1

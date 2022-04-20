@@ -9,6 +9,11 @@ namespace BehaviourTree
     public class Agent : BehaviourObject
     {
         [SerializeField] private BehaviourTree behaviourTree;
+        public BehaviourTree BehaviourTree
+        {
+            get => behaviourTree;
+            set => behaviourTree = value;
+        }
 
         public Rigidbody2D Rigidbody2D { get; private set; }
 
