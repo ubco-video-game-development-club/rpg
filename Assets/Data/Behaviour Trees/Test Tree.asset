@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tree:
     serializedNodes:
-    - childCount: 4
+    - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
@@ -59,6 +59,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -72,6 +73,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0.1
@@ -85,6 +87,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0.8
@@ -123,7 +126,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.GetActorPositionNode
-      firstChildIndex: 4
+      firstChildIndex: 3
     - childCount: 3
       element:
         propertyInfo:
@@ -131,6 +134,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -144,6 +148,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -154,11 +159,44 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SelectorNode
-      firstChildIndex: 5
+      firstChildIndex: 4
     - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
+      firstChildIndex: 5
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: range
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 1.1
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-source
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            value:
+              b: 0
+              n: 0
+              s: target-position
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: BehaviourTree.RangeCheckNode
       firstChildIndex: 6
     - childCount: 0
       element:
@@ -191,37 +229,6 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.RangeCheckNode
-      firstChildIndex: 7
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: range
-          property:
-            propertyType: 1
-            objectType: 
-            value:
-              b: 0
-              n: 1.1
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        - name: position-source
-          property:
-            propertyType: 2
-            objectType: 
-            value:
-              b: 0
-              n: 0
-              s: target-position
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
         - name: target-source
           property:
             propertyType: 2
@@ -237,7 +244,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SetActionTargetNode
-      firstChildIndex: 8
+      firstChildIndex: 7
     - childCount: 0
       element:
         propertyInfo:
@@ -245,6 +252,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -269,7 +277,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.InvokeActionNode
-      firstChildIndex: 9
+      firstChildIndex: 8
     - childCount: 2
       element:
         propertyInfo:
@@ -277,6 +285,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -287,7 +296,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 10
+      firstChildIndex: 9
     - childCount: 0
       element:
         propertyInfo:
@@ -320,7 +329,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.RangeCheckNode
-      firstChildIndex: 11
+      firstChildIndex: 10
     - childCount: 0
       element:
         propertyInfo:
@@ -328,6 +337,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 3
@@ -341,6 +351,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -398,22 +409,22 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 13
+      firstChildIndex: 12
     - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SelectorNode
-      firstChildIndex: 14
+      firstChildIndex: 13
     - childCount: 2
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 15
+      firstChildIndex: 14
     - childCount: 1
       element:
         propertyInfo: []
         nodeTypeName: BehaviourTree.NotNode
-      firstChildIndex: 16
+      firstChildIndex: 15
     - childCount: 0
       element:
         propertyInfo:
@@ -432,7 +443,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.HasPropertyNode
-      firstChildIndex: 17
+      firstChildIndex: 16
     - childCount: 0
       element:
         propertyInfo:
@@ -440,6 +451,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -492,7 +504,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.GetRandomPositionNode
-      firstChildIndex: 18
+      firstChildIndex: 17
     - childCount: 2
       element:
         propertyInfo:
@@ -500,6 +512,7 @@ MonoBehaviour:
           property:
             propertyType: 4
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -513,6 +526,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 3
@@ -526,6 +540,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -536,7 +551,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.SequenceNode
-      firstChildIndex: 19
+      firstChildIndex: 18
     - childCount: 0
       element:
         propertyInfo:
@@ -569,7 +584,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.RangeCheckNode
-      firstChildIndex: 20
+      firstChildIndex: 19
     - childCount: 0
       element:
         propertyInfo:
@@ -577,6 +592,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0.2
@@ -590,6 +606,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -642,7 +659,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: BehaviourTree.GetRandomPositionNode
-      firstChildIndex: 21
+      firstChildIndex: 20
     - childCount: 0
       element:
         propertyInfo:
@@ -650,6 +667,7 @@ MonoBehaviour:
           property:
             propertyType: 4
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -663,6 +681,7 @@ MonoBehaviour:
           property:
             propertyType: 1
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 3
@@ -676,6 +695,7 @@ MonoBehaviour:
           property:
             propertyType: 2
             objectType: 
+            forceReserialization: 0
             value:
               b: 0
               n: 0
@@ -742,6 +762,7 @@ MonoBehaviour:
             propertyType: 3
             objectType: BehaviourTree.BehaviourTree, Assembly-CSharp, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
+            forceReserialization: 0
             value:
               b: 0
               n: 0

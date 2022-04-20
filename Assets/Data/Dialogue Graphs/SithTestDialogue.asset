@@ -27,7 +27,7 @@ MonoBehaviour:
   - name: Your new empire?
     displayName: Your new empire?
     body: Don't make me kill you.
-    position: {x: -497, y: -275}
+    position: {x: -500, y: -274}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   - name: Good, good. Let the hate flow through you.
     displayName: Hate
     body: Dewit!
-    position: {x: -221, y: 117}
+    position: {x: -221, y: 116}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
@@ -57,7 +57,7 @@ MonoBehaviour:
   - name: Anakin, my allegiance is to the Republic, to Democracy!
     displayName: Allegiance
     body: If you are not with me, then you are my enemy.
-    position: {x: -191.5, y: -307}
+    position: {x: -191.5, y: -308}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
