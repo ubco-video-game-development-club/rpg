@@ -13,78 +13,53 @@ namespace BehaviourTree
             SerializedObject owner = property.serializedObject;
             owner.Update();
 
-            // TODO: add interface for any type that has a behaviour tree field; have Get/SetBehaviourTree() or something
-            Agent agent = owner.targetObject as Agent;
-            List<(string, VariableProperty)> instancedProps = GetInstancedProps(agent.BehaviourTree);
-
             EditorGUI.BeginProperty(position, label, property);
 
             Rect propRect = new Rect(position.x, position.y, position.width, 20);
             EditorGUI.PropertyField(propRect, property);
 
-            Rect backgroundRect = new Rect(position.x + 50, position.y + 24, position.width - 100, instancedProps.Count * 20 + 23);
-            EditorGUI.DrawRect(backgroundRect, EditorUtils.BORDER_COLOR);
-
-            Rect fieldsRect = new Rect(position.x + 60, position.y + 20, position.width - 120, 20);
-            EditorGUI.DropShadowLabel(fieldsRect, "Instance Properties");
-
-            // TODO: ~~~~~ VERY IMPORTANT ~~~~~
-            // This currently works perfectly to update the original tree itself...
-            // However, we need it to be updated on the Agent, not the tree.
-            // This should be a matter of storing a separate list of properties on the Agent (again, see the interface idea above)
-            // The list should be generated from the tree as it currently is, but the values should be serialized on the agent
-            fieldsRect.y += 4;
             bool changed = false;
-            foreach ((string, VariableProperty) prop in instancedProps)
+            IBehaviourInstance behaviourInstance = owner.targetObject as IBehaviourInstance;
+            BehaviourTree behaviourTree = behaviourInstance.GetBehaviourTree();
+            if (behaviourTree != null)
             {
-                fieldsRect.y += 20;
-                changed = DrawProperty(fieldsRect, prop.Item1, prop.Item2);
+                changed = behaviourTree.RefreshInstance(behaviourInstance);
+                BehaviourInstanceProperty[] instanceProperties = behaviourInstance.GetInstanceProperties();
+
+                Rect backgroundRect = new Rect(position.x + 50, position.y + 24, position.width - 100, instanceProperties.Length * 20 + 23);
+                EditorGUI.DrawRect(backgroundRect, EditorUtils.BORDER_COLOR);
+
+                Rect fieldsRect = new Rect(position.x + 60, position.y + 20, position.width - 120, 20);
+                EditorGUI.DropShadowLabel(fieldsRect, "Instance Properties");
+
+                fieldsRect.y += 4;
+                foreach (BehaviourInstanceProperty instanceProperty in instanceProperties)
+                {
+                    fieldsRect.y += 20;
+                    if (DrawInstanceProperty(fieldsRect, instanceProperty))
+                    {
+                        changed = true;
+                    }
+                }
             }
 
             EditorGUI.EndProperty();
 
             owner.ApplyModifiedProperties();
-            if (changed) EditorUtility.SetDirty(agent);
+            if (changed) EditorUtility.SetDirty(owner.targetObject);
         }
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            // TODO: add interface for any type that has a behaviour tree field; have Get/SetBehaviourTree() or something
-            Agent agent = property.serializedObject.targetObject as Agent;
-            List<(string, VariableProperty)> instancedProps = GetInstancedProps(agent.BehaviourTree);
-            return base.GetPropertyHeight(property, label) + instancedProps.Count * 20 + 24;
+            IBehaviourInstance behaviourInstance = property.serializedObject.targetObject as IBehaviourInstance;
+            int instancePropsHeight = behaviourInstance.GetInstanceProperties().Length * 20 + 24;
+            return base.GetPropertyHeight(property, label) + (behaviourInstance.GetBehaviourTree() != null ? instancePropsHeight : 0);
         }
 
-        private List<(string, VariableProperty)> GetInstancedProps(BehaviourTree behaviourTree)
+        private bool DrawInstanceProperty(Rect position, BehaviourInstanceProperty instanceProperty)
         {
-            List<(string, VariableProperty)> instancedProps = new List<(string, VariableProperty)>();
-            Queue<Tree<Behaviour>.Node> nodes = new Queue<Tree<Behaviour>.Node>();
-            nodes.Enqueue(behaviourTree.Root);
-            while (nodes.Count > 0)
-            {
-                Tree<Behaviour>.Node node = nodes.Dequeue();
-
-                foreach (string propName in node.Element.Properties.Keys)
-                {
-                    VariableProperty nodeProp = node.Element.GetProperty(propName);
-                    if (nodeProp.Instanced)
-                    {
-                        instancedProps.Add((propName, nodeProp));
-                    }
-                }
-
-                for (int i = 0; i < node.ChildCount; i++)
-                {
-                    nodes.Enqueue(node.GetChild(i));
-                }
-            }
-            return instancedProps;
-        }
-
-        private bool DrawProperty(Rect position, string label, VariableProperty property)
-        {
-            // TODO: rather than property.Set() here, we want to save/read the value from the Agent's list.
-            Rect contentRect = EditorGUI.PrefixLabel(position, new GUIContent(label));
+            Rect contentRect = EditorGUI.PrefixLabel(position, new GUIContent(instanceProperty.name));
+            VariableProperty property = instanceProperty.value;
             switch (property.PropertyType)
             {
                 case VariableProperty.Type.Boolean:
