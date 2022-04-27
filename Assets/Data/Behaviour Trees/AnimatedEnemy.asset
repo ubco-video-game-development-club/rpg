@@ -127,7 +127,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
-            instanced: 0
+            instanced: 1
             value:
               b: 0
               n: 1.2
@@ -142,7 +142,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
-            instanced: 0
+            instanced: 1
             value:
               b: 0
               n: 2

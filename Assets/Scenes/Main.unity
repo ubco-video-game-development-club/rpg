@@ -5158,7 +5158,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourTree: {fileID: 11400000, guid: 75e6ba3057cc6b04e9727d170650b9fe, type: 2}
-  instanceProperties: []
+  instanceProperties:
+  - name: stop-distance
+    value:
+      propertyType: 1
+      objectType: 
+      forceReserialization: 0
+      instanced: 1
+      value:
+        b: 0
+        n: 1.2
+        s: 
+        o: {fileID: 0}
+        v: {x: 0, y: 0}
+        a: []
+        e: 0
+      aType: 0
+  - name: move-speed
+    value:
+      propertyType: 1
+      objectType: 
+      forceReserialization: 0
+      instanced: 1
+      value:
+        b: 0
+        n: 2
+        s: 
+        o: {fileID: 0}
+        v: {x: 0, y: 0}
+        a: []
+        e: 0
+      aType: 0
 --- !u!114 &1817463535
 MonoBehaviour:
   m_ObjectHideFlags: 0

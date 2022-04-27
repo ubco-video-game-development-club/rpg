@@ -42,6 +42,11 @@ namespace BehaviourTree
                     }
                 }
             }
+            else
+            {
+                changed = behaviourInstance.GetInstanceProperties().Length > 0;
+                behaviourInstance.SetInstanceProperties(new BehaviourInstanceProperty[0]);
+            }
 
             EditorGUI.EndProperty();
 
