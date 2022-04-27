@@ -4,7 +4,7 @@ using System.Reflection;
 using UnityEngine;
 using UnityEditor;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     public class BehaviourTreeWindow : EditorWindow
     {

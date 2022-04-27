@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     [CustomEditor(typeof(BehaviourTree))]
     public class BehaviourTreeInspector : Editor

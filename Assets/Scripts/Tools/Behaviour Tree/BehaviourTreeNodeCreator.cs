@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     public enum BehaviourTreeNodeType
     {

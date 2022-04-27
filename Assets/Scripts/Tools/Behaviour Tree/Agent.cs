@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class Agent : BehaviourObject, IBehaviourInstance
     {
         [SerializeField] private BehaviourTree behaviourTree;
-
         [SerializeField][HideInInspector] private BehaviourInstanceProperty[] instanceProperties;
 
         private Tree<Behaviour>.Node root;

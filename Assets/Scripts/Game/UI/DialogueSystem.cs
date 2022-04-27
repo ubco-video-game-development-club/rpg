@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 using RPG;
-using BehaviourTree;
+using Behaviours;
 
 namespace Dialogue
 {
@@ -81,7 +81,7 @@ namespace Dialogue
             // Run custom dialogue behaviour
             if (graphNode.customBehaviour != null)
             {
-                Tree<BehaviourTree.Behaviour>.Node root = graphNode.customBehaviour.Root;
+                Tree<Behaviours.Behaviour>.Node root = graphNode.customBehaviour.Root;
                 if (currentTarget.TryGetComponent<BehaviourObject>(out BehaviourObject obj))
                 {
                     root.Element.Tick(root, obj);

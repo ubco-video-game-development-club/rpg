@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace BehaviourTree
+namespace Behaviours
 {
     public class BehaviourObject : MonoBehaviour
     {

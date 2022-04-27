@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     public class InvokeActionNode : IBehaviourTreeNode
     {
