@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     [CreateAssetMenu(fileName = "Behaviour Tree", menuName = "Behaviour Tree", order = 66)]
     public class BehaviourTree : ScriptableObject
@@ -10,6 +10,52 @@ namespace BehaviourTree
         public Tree<Behaviour> tree;
         public Tree<Behaviour>.Node Root { get => tree.Root; }
         [System.NonSerialized] public Behaviour selectedNode;
+
+        public bool RefreshInstance(IBehaviourInstance instance)
+        {
+            // Gather the list of instanced props from the tree
+            List<BehaviourInstanceProperty> treeProps = new List<BehaviourInstanceProperty>();
+            Queue<Tree<Behaviour>.Node> nodes = new Queue<Tree<Behaviour>.Node>();
+            nodes.Enqueue(Root);
+            while (nodes.Count > 0)
+            {
+                Tree<Behaviour>.Node node = nodes.Dequeue();
+
+                foreach (string propName in node.Element.Properties.Keys)
+                {
+                    VariableProperty nodeProp = node.Element.GetProperty(instance, propName);
+                    if (nodeProp.Instanced)
+                    {
+                        treeProps.Add(new BehaviourInstanceProperty(propName, nodeProp));
+                    }
+                }
+
+                for (int i = 0; i < node.ChildCount; i++)
+                {
+                    nodes.Enqueue(node.GetChild(i));
+                }
+            }
+
+            // Refresh the properties on the instance
+            bool changed = instance.GetInstanceProperties().Length > treeProps.Count;
+            BehaviourInstanceProperty[] newProps = new BehaviourInstanceProperty[treeProps.Count];
+            for (int i = 0; i < newProps.Length; i++)
+            {
+                BehaviourInstanceProperty treeProp = treeProps[i];
+                BehaviourInstanceProperty currProp = instance.GetInstanceProperty(treeProp.name);
+
+                newProps[i] = new BehaviourInstanceProperty(treeProp.name, treeProp.value);
+                if (currProp != null)
+                {
+                    newProps[i].value = currProp.value;
+                    continue;
+                }
+
+                changed = true;
+            }
+            instance.SetInstanceProperties(newProps);
+            return changed;
+        }
     }
 
     public enum NodeStatus
@@ -41,12 +87,20 @@ namespace BehaviourTree
             properties[name] = property;
         }
 
-        public VariableProperty GetProperty(string name)
+        public VariableProperty GetProperty(IBehaviourInstance instance, string name)
         {
+            if (instance != null)
+            {
+                BehaviourInstanceProperty instanceProp = instance.GetInstanceProperty(name);
+                if (instanceProp != null)
+                {
+                    return instanceProp.value;
+                }
+            }
             return properties.ContainsKey(name) ? properties[name] : null;
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj) => node.Tick(self, obj);
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance) => node.Tick(self, obj, instance);
 
         public void OnBeforeSerialize()
         {

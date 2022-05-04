@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     public class GetDialogueIndexNode : IBehaviourTreeNode
     {
@@ -16,16 +16,16 @@ namespace BehaviourTree
             behaviour.Properties.Add(PROP_DEST, new VariableProperty(VariableProperty.Type.String));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
 
             // Get the target NPC (or self if empty)
-            string npcSrc = behaviour.GetProperty(PROP_NPC_SRC).GetString();
+            string npcSrc = behaviour.GetProperty(instance, PROP_NPC_SRC).GetString();
             GameObject npc = npcSrc == "" ? obj.gameObject : (GameObject)obj.GetProperty(npcSrc);
 
             // Get and save the dialogue index in destination prop
-            string indexDest = behaviour.GetProperty(PROP_DEST).GetString();
+            string indexDest = behaviour.GetProperty(instance, PROP_DEST).GetString();
             obj.SetProperty(indexDest, npc.GetComponent<NPC>().ActiveIndex);
 
             return NodeStatus.Success;

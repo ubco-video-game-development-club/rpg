@@ -17,7 +17,7 @@ MonoBehaviour:
     - childCount: 3
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
+        nodeTypeName: Behaviours.SequenceNode
       firstChildIndex: 1
     - childCount: 0
       element:
@@ -50,7 +50,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.FindActorByTagNode
+        nodeTypeName: Behaviours.FindActorByTagNode
       firstChildIndex: 2
     - childCount: 0
       element:
@@ -83,7 +83,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.GetActorPositionNode
+        nodeTypeName: Behaviours.GetActorPositionNode
       firstChildIndex: 3
     - childCount: 0
       element:
@@ -130,5 +130,5 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.SimpleMoveNode
+        nodeTypeName: Behaviours.SimpleMoveNode
       firstChildIndex: 4

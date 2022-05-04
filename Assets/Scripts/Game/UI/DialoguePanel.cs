@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 using RPG;
-using BehaviourTree;
+using Behaviours;
 
 namespace RPG
 {

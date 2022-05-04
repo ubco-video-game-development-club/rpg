@@ -17,7 +17,7 @@ MonoBehaviour:
     - childCount: 4
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
+        nodeTypeName: Behaviours.SequenceNode
       firstChildIndex: 1
     - childCount: 0
       element:
@@ -50,7 +50,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.FindObjectByIdNode
+        nodeTypeName: Behaviours.FindObjectByIdNode
       firstChildIndex: 2
     - childCount: 0
       element:
@@ -83,7 +83,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.GetDialogueIndexNode
+        nodeTypeName: Behaviours.GetDialogueIndexNode
       firstChildIndex: 3
     - childCount: 0
       element:
@@ -91,7 +91,7 @@ MonoBehaviour:
         - name: property-type
           property:
             propertyType: 6
-            objectType: BehaviourTree.CompareNode+CompareType, Assembly-CSharp, Version=0.0.0.0,
+            objectType: Behaviours.CompareNode+CompareType, Assembly-CSharp, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
             forceReserialization: 1
             value:
@@ -106,7 +106,7 @@ MonoBehaviour:
         - name: operator
           property:
             propertyType: 6
-            objectType: BehaviourTree.CompareNode+OperatorType, Assembly-CSharp,
+            objectType: Behaviours.CompareNode+OperatorType, Assembly-CSharp,
               Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
             forceReserialization: 0
             value:
@@ -146,7 +146,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.CompareNode
+        nodeTypeName: Behaviours.CompareNode
       firstChildIndex: 4
     - childCount: 0
       element:
@@ -179,5 +179,5 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.SetDialogueIndexNode
+        nodeTypeName: Behaviours.SetDialogueIndexNode
       firstChildIndex: 5

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     [CreateAssetMenu(fileName = "NoisyMoveType", menuName = "Move Types/Noisy", order = 65)]
     public class NoisyMoveType : DynamicMoveType

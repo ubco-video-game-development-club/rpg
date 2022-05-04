@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class Agent : BehaviourObject
+    public class Agent : BehaviourObject, IBehaviourInstance
     {
         [SerializeField] private BehaviourTree behaviourTree;
-
-        public Rigidbody2D Rigidbody2D { get; private set; }
+        [SerializeField][HideInInspector] private BehaviourInstanceProperty[] instanceProperties;
 
         private Tree<Behaviour>.Node root;
+
+        public Rigidbody2D Rigidbody2D { get; private set; }
 
         protected override void Awake()
         {
@@ -23,7 +24,34 @@ namespace BehaviourTree
 
         protected void Update()
         {
-            root.Element.Tick(root, this);
+            root.Element.Tick(root, this, this);
+        }
+
+        public BehaviourTree GetBehaviourTree()
+        {
+            return behaviourTree;
+        }
+
+        public BehaviourInstanceProperty GetInstanceProperty(string name)
+        {
+            foreach (BehaviourInstanceProperty instanceProperty in instanceProperties)
+            {
+                if (instanceProperty.name == name)
+                {
+                    return instanceProperty;
+                }
+            }
+            return null;
+        }
+
+        public BehaviourInstanceProperty[] GetInstanceProperties()
+        {
+            return instanceProperties;
+        }
+
+        public void SetInstanceProperties(BehaviourInstanceProperty[] props)
+        {
+            instanceProperties = props;
         }
     }
 }

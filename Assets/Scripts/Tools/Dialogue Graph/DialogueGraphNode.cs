@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RPG;
+using Behaviours;
 
 namespace Dialogue
 {
     [System.Serializable]
-    public class DialogueGraphNode
+    public class DialogueGraphNode : IBehaviourInstance
     {
         private static readonly Vector2 nodeSize = new Vector2(200, 50);
 
@@ -20,7 +21,9 @@ namespace Dialogue
         public QuestNote[] questNotes;
         [Tooltip("Overrides the currently active dialogue graph index for the target entity (using UniqueID).")]
         public DialogueIndexOverride[] dialogueIndexOverrides;
-        public BehaviourTree.BehaviourTree customBehaviour;
+
+        public BehaviourTree customBehaviour;
+        [SerializeField][HideInInspector] private BehaviourInstanceProperty[] behaviourProperties;
 
         private Rect displayRect;
         private bool isSelected = false;
@@ -74,5 +77,32 @@ namespace Dialogue
         }
 
         public bool Contains(Vector2 position) => displayRect.Contains(position);
+
+        public BehaviourTree GetBehaviourTree()
+        {
+            return customBehaviour;
+        }
+
+        public BehaviourInstanceProperty GetInstanceProperty(string name)
+        {
+            foreach (BehaviourInstanceProperty instanceProperty in behaviourProperties)
+            {
+                if (instanceProperty.name == name)
+                {
+                    return instanceProperty;
+                }
+            }
+            return null;
+        }
+
+        public BehaviourInstanceProperty[] GetInstanceProperties()
+        {
+            return behaviourProperties;
+        }
+
+        public void SetInstanceProperties(BehaviourInstanceProperty[] props)
+        {
+            behaviourProperties = props;
+        }
     }
 }

@@ -17,7 +17,7 @@ MonoBehaviour:
     - childCount: 2
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
+        nodeTypeName: Behaviours.SequenceNode
       firstChildIndex: 1
     - childCount: 0
       element:
@@ -36,7 +36,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.GetSelfNode
+        nodeTypeName: Behaviours.GetSelfNode
       firstChildIndex: 2
     - childCount: 0
       element:
@@ -69,5 +69,5 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.SetEnemyNode
+        nodeTypeName: Behaviours.SetEnemyNode
       firstChildIndex: 3

@@ -645,6 +645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourTree: {fileID: 11400000, guid: de69ac2176667774d94e83467a58ecce, type: 2}
+  instanceProperties: []
 --- !u!114 &113309051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2685,6 +2686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourTree: {fileID: 11400000, guid: eafb700300203e6429abf2cb7ac05740, type: 2}
+  instanceProperties: []
 --- !u!114 &831336014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3375,6 +3377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourTree: {fileID: 11400000, guid: 33e8671ee09b0b846806d1eba9c1dc77, type: 2}
+  instanceProperties: []
 --- !u!114 &1031796358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5155,6 +5158,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourTree: {fileID: 11400000, guid: 75e6ba3057cc6b04e9727d170650b9fe, type: 2}
+  instanceProperties:
+  - name: stop-distance
+    value:
+      propertyType: 1
+      objectType: 
+      forceReserialization: 0
+      instanced: 1
+      value:
+        b: 0
+        n: 1.2
+        s: 
+        o: {fileID: 0}
+        v: {x: 0, y: 0}
+        a: []
+        e: 0
+      aType: 0
+  - name: move-speed
+    value:
+      propertyType: 1
+      objectType: 
+      forceReserialization: 0
+      instanced: 1
+      value:
+        b: 0
+        n: 0.7
+        s: 
+        o: {fileID: 0}
+        v: {x: 0, y: 0}
+        a: []
+        e: 0
+      aType: 0
 --- !u!114 &1817463535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5204,6 +5238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourTree: {fileID: 11400000, guid: bd3e48cf399b9434faf455f3a30d9805, type: 2}
+  instanceProperties: []
 --- !u!114 &1820026672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7542,6 +7577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourTree: {fileID: 11400000, guid: 912c97a79526d554aaf82df005f577e6, type: 2}
+  instanceProperties: []
 --- !u!1 &2082100410
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     public class RangeCheckNode : IBehaviourTreeNode
     {
@@ -15,12 +15,12 @@ namespace BehaviourTree
             behaviour.Properties.Add(PROP_POSITION_SRC, new VariableProperty(VariableProperty.Type.String));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
 
             // Get the source position
-            string src = behaviour.GetProperty(PROP_POSITION_SRC).GetString();
+            string src = behaviour.GetProperty(instance, PROP_POSITION_SRC).GetString();
             if (obj.HasProperty(src))
             {
                 // Get the distance between source and this agent
@@ -28,7 +28,7 @@ namespace BehaviourTree
                 float dist = Vector2.Distance(srcPosition, obj.transform.position);
 
                 // Check whether we're in the specified range
-                float range = (float)behaviour.GetProperty(PROP_RANGE).GetNumber();
+                float range = (float)behaviour.GetProperty(instance, PROP_RANGE).GetNumber();
                 if (dist <= range)
                 {
                     return NodeStatus.Success;

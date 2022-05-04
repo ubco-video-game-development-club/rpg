@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     public class GetEntityPropertyNode : IBehaviourTreeNode
     {
@@ -18,7 +18,7 @@ namespace BehaviourTree
             behaviour.Properties.Add(PROP_DEST, new VariableProperty(VariableProperty.Type.String));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
 
@@ -28,15 +28,15 @@ namespace BehaviourTree
                 return NodeStatus.Failure;
             }
 
-            RPG.PropertyName propName = behaviour.GetProperty(PROP_NAME).GetEnum<RPG.PropertyName>();
+            RPG.PropertyName propName = behaviour.GetProperty(instance, PROP_NAME).GetEnum<RPG.PropertyName>();
             if (!entity.HasProperty(propName))
             {
                 Debug.LogWarning("Warning: target entity " + entity.name + " does not have property " + propName);
                 return NodeStatus.Failure;
             }
 
-            PropertyType readType = behaviour.GetProperty(PROP_TYPE).GetEnum<PropertyType>();
-            string propDest = behaviour.GetProperty(PROP_DEST).GetString();
+            PropertyType readType = behaviour.GetProperty(instance, PROP_TYPE).GetEnum<PropertyType>();
+            string propDest = behaviour.GetProperty(instance, PROP_DEST).GetString();
             switch (readType)
             {
                 case PropertyType.Int:
