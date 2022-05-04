@@ -16,16 +16,16 @@ namespace Behaviours
             behaviour.Properties.Add(PROP_INDEX, new VariableProperty(VariableProperty.Type.Number));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
 
             // Get the target NPC (or self if empty)
-            string npcSrc = behaviour.GetProperty(PROP_NPC_SRC).GetString();
+            string npcSrc = behaviour.GetProperty(instance, PROP_NPC_SRC).GetString();
             GameObject npc = npcSrc == "" ? obj.gameObject : (GameObject)obj.GetProperty(npcSrc);
 
             // Set the dialogue index
-            int index = (int)behaviour.GetProperty(PROP_INDEX).GetNumber();
+            int index = (int)behaviour.GetProperty(instance, PROP_INDEX).GetNumber();
             npc.GetComponent<NPC>().ActiveIndex = index;
 
             return NodeStatus.Success;

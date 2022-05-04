@@ -17,22 +17,22 @@ namespace Behaviours
             behaviour.Properties.Add(PROP_MOVE_SPEED, new VariableProperty(VariableProperty.Type.Number));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
             Rigidbody2D rigidbody2D = ((Agent)obj).Rigidbody2D;
 
-            string src = behaviour.Properties[PROP_POSITION_SRC].GetString();
+            string src = behaviour.GetProperty(instance, PROP_POSITION_SRC).GetString();
             if (obj.HasProperty(src))
             {
                 Vector2 targetPosition = (Vector2)obj.GetProperty(src);
                 Vector2 currentPosition = obj.transform.position;
                 Vector2 d = targetPosition - currentPosition;
 
-                float stopDist = (float)behaviour.Properties[PROP_STOP_DISTANCE].GetNumber();
+                float stopDist = (float)behaviour.GetProperty(instance, PROP_STOP_DISTANCE).GetNumber();
                 if (d.sqrMagnitude > stopDist * stopDist)
                 {
-                    float speed = (float)behaviour.Properties[PROP_MOVE_SPEED].GetNumber();
+                    float speed = (float)behaviour.GetProperty(instance, PROP_MOVE_SPEED).GetNumber();
                     rigidbody2D.velocity = d.normalized * speed;
                     return NodeStatus.Running;
                 }

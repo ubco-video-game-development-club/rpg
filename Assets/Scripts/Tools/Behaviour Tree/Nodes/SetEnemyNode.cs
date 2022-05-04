@@ -17,16 +17,16 @@ namespace Behaviours
             behaviour.Properties.Add(PROP_IS_ENEMY, new VariableProperty(VariableProperty.Type.Boolean));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
 
             // Get NPC
-            string npcSrc = behaviour.GetProperty(PROP_NPC_SRC).GetString();
+            string npcSrc = behaviour.GetProperty(instance, PROP_NPC_SRC).GetString();
             GameObject npc = obj.GetProperty(npcSrc) as GameObject;
 
             // Set enemy status
-            bool isEnemy = behaviour.GetProperty(PROP_IS_ENEMY).GetBoolean();
+            bool isEnemy = behaviour.GetProperty(instance, PROP_IS_ENEMY).GetBoolean();
             npc.GetComponent<NPC>().SetEnemy(isEnemy);
 
             return NodeStatus.Success;

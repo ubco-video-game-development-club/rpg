@@ -5182,7 +5182,7 @@ MonoBehaviour:
       instanced: 1
       value:
         b: 0
-        n: 2
+        n: 0.7
         s: 
         o: {fileID: 0}
         v: {x: 0, y: 0}

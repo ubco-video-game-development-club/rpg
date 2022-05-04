@@ -15,14 +15,14 @@ namespace Behaviours
             behaviour.Properties.Add(PROP_POSITION_DEST, new VariableProperty(VariableProperty.Type.String));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
 
-            string src = behaviour.Properties[PROP_ACTOR_SRC].GetString();
+            string src = behaviour.GetProperty(instance, PROP_ACTOR_SRC).GetString();
             if (obj.HasProperty(src))
             {
-                string dest = behaviour.Properties[PROP_POSITION_DEST].GetString();
+                string dest = behaviour.GetProperty(instance, PROP_POSITION_DEST).GetString();
                 GameObject actor = obj.GetProperty(src) as GameObject;
                 Vector2 position = actor.transform.position;
                 obj.SetProperty(dest, position);

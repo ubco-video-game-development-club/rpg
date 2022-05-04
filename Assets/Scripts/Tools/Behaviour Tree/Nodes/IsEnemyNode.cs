@@ -15,10 +15,10 @@ namespace Behaviours
             behaviour.Properties.Add(PROP_NPC_SRC, new VariableProperty(VariableProperty.Type.String));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
-            string npcSrc = behaviour.GetProperty(PROP_NPC_SRC).GetString();
+            string npcSrc = behaviour.GetProperty(instance, PROP_NPC_SRC).GetString();
             GameObject npc = obj.GetProperty(npcSrc) as GameObject;
             return npc.GetComponent<NPC>().IsEnemy() ? NodeStatus.Success : NodeStatus.Failure;
         }

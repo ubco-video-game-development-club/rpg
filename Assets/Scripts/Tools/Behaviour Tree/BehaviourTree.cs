@@ -23,7 +23,7 @@ namespace Behaviours
 
                 foreach (string propName in node.Element.Properties.Keys)
                 {
-                    VariableProperty nodeProp = node.Element.GetProperty(propName);
+                    VariableProperty nodeProp = node.Element.GetProperty(instance, propName);
                     if (nodeProp.Instanced)
                     {
                         treeProps.Add(new BehaviourInstanceProperty(propName, nodeProp));
@@ -87,12 +87,20 @@ namespace Behaviours
             properties[name] = property;
         }
 
-        public VariableProperty GetProperty(string name)
+        public VariableProperty GetProperty(IBehaviourInstance instance, string name)
         {
+            if (instance != null)
+            {
+                BehaviourInstanceProperty instanceProp = instance.GetInstanceProperty(name);
+                if (instanceProp != null)
+                {
+                    return instanceProp.value;
+                }
+            }
             return properties.ContainsKey(name) ? properties[name] : null;
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj) => node.Tick(self, obj);
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance) => node.Tick(self, obj, instance);
 
         public void OnBeforeSerialize()
         {

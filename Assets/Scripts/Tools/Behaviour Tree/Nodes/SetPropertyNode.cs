@@ -20,37 +20,37 @@ namespace Behaviours
                 propTypeVar.ForceReserialization = true;
                 behaviour.SetProperty(PROP_TYPE, propTypeVar);
             }
-            ValueType valueType = behaviour.GetProperty(PROP_TYPE).GetEnum<ValueType>();
+            ValueType valueType = behaviour.GetProperty(null, PROP_TYPE).GetEnum<ValueType>();
             behaviour.SetProperty(PROP_TARGET, new VariableProperty(VariableProperty.Type.String));
             behaviour.SetProperty(PROP_VALUE, new VariableProperty(ToPropertyType(valueType)));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
 
-            string target = behaviour.GetProperty(PROP_TARGET).GetString();
-            ValueType valueType = behaviour.GetProperty(PROP_TYPE).GetEnum<ValueType>();
+            string target = behaviour.GetProperty(instance, PROP_TARGET).GetString();
+            ValueType valueType = behaviour.GetProperty(instance, PROP_TYPE).GetEnum<ValueType>();
             switch (valueType)
             {
                 case ValueType.Int:
-                    int iVal = (int)behaviour.GetProperty(PROP_VALUE).GetNumber();
+                    int iVal = (int)behaviour.GetProperty(instance, PROP_VALUE).GetNumber();
                     obj.SetProperty(target, iVal);
                     break;
                 case ValueType.Double:
-                    double dVal = behaviour.GetProperty(PROP_VALUE).GetNumber();
+                    double dVal = behaviour.GetProperty(instance, PROP_VALUE).GetNumber();
                     obj.SetProperty(target, dVal);
                     break;
                 case ValueType.Bool:
-                    bool bVal = behaviour.GetProperty(PROP_VALUE).GetBoolean();
+                    bool bVal = behaviour.GetProperty(instance, PROP_VALUE).GetBoolean();
                     obj.SetProperty(target, bVal);
                     break;
                 case ValueType.String:
-                    string sVal = behaviour.GetProperty(PROP_VALUE).GetString();
+                    string sVal = behaviour.GetProperty(instance, PROP_VALUE).GetString();
                     obj.SetProperty(target, sVal);
                     break;
                 case ValueType.Vector:
-                    Vector2 vVal = behaviour.GetProperty(PROP_VALUE).GetVector();
+                    Vector2 vVal = behaviour.GetProperty(instance, PROP_VALUE).GetVector();
                     obj.SetProperty(target, vVal);
                     break;
             }

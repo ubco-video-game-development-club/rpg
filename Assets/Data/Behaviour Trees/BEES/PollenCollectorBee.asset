@@ -18,17 +18,17 @@ MonoBehaviour:
     - childCount: 1
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
+        nodeTypeName: Behaviours.SequenceNode
       firstChildIndex: 1
     - childCount: 2
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.SelectorNode
+        nodeTypeName: Behaviours.SelectorNode
       firstChildIndex: 2
     - childCount: 4
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
+        nodeTypeName: Behaviours.SequenceNode
       firstChildIndex: 3
     - childCount: 0
       element:
@@ -63,7 +63,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.FindActorByTagNode
+        nodeTypeName: Behaviours.FindActorByTagNode
       firstChildIndex: 4
     - childCount: 0
       element:
@@ -98,7 +98,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.GetActorPositionNode
+        nodeTypeName: Behaviours.GetActorPositionNode
       firstChildIndex: 5
     - childCount: 0
       element:
@@ -133,22 +133,22 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.RangeCheckNode
+        nodeTypeName: Behaviours.RangeCheckNode
       firstChildIndex: 6
     - childCount: 4
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.SelectorNode
+        nodeTypeName: Behaviours.SelectorNode
       firstChildIndex: 7
     - childCount: 4
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
+        nodeTypeName: Behaviours.SequenceNode
       firstChildIndex: 8
     - childCount: 1
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.NotNode
+        nodeTypeName: Behaviours.NotNode
       firstChildIndex: 9
     - childCount: 0
       element:
@@ -183,7 +183,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.RangeCheckNode
+        nodeTypeName: Behaviours.RangeCheckNode
       firstChildIndex: 10
     - childCount: 0
       element:
@@ -218,7 +218,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.RangeCheckNode
+        nodeTypeName: Behaviours.RangeCheckNode
       firstChildIndex: 11
     - childCount: 0
       element:
@@ -238,7 +238,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.SetActionTargetNode
+        nodeTypeName: Behaviours.SetActionTargetNode
       firstChildIndex: 12
     - childCount: 0
       element:
@@ -258,12 +258,12 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.InvokeActionNode
+        nodeTypeName: Behaviours.InvokeActionNode
       firstChildIndex: 13
     - childCount: 3
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
+        nodeTypeName: Behaviours.SequenceNode
       firstChildIndex: 14
     - childCount: 0
       element:
@@ -298,7 +298,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.RangeCheckNode
+        nodeTypeName: Behaviours.RangeCheckNode
       firstChildIndex: 15
     - childCount: 0
       element:
@@ -318,7 +318,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.SetActionTargetNode
+        nodeTypeName: Behaviours.SetActionTargetNode
       firstChildIndex: 16
     - childCount: 0
       element:
@@ -338,17 +338,17 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.InvokeActionNode
+        nodeTypeName: Behaviours.InvokeActionNode
       firstChildIndex: 17
     - childCount: 4
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
+        nodeTypeName: Behaviours.SequenceNode
       firstChildIndex: 18
     - childCount: 1
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.NotNode
+        nodeTypeName: Behaviours.NotNode
       firstChildIndex: 19
     - childCount: 0
       element:
@@ -383,7 +383,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.RangeCheckNode
+        nodeTypeName: Behaviours.RangeCheckNode
       firstChildIndex: 20
     - childCount: 0
       element:
@@ -418,7 +418,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.RangeCheckNode
+        nodeTypeName: Behaviours.RangeCheckNode
       firstChildIndex: 21
     - childCount: 0
       element:
@@ -438,7 +438,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.SetActionTargetNode
+        nodeTypeName: Behaviours.SetActionTargetNode
       firstChildIndex: 22
     - childCount: 0
       element:
@@ -458,7 +458,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.InvokeActionNode
+        nodeTypeName: Behaviours.InvokeActionNode
       firstChildIndex: 23
     - childCount: 0
       element:
@@ -511,7 +511,7 @@ MonoBehaviour:
         - name: move-type
           property:
             propertyType: 3
-            objectType: BehaviourTree.MoveType, Assembly-CSharp, Version=0.0.0.0,
+            objectType: Behaviours.MoveType, Assembly-CSharp, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
             forceReserialization: 0
             instanced: 0
@@ -539,12 +539,12 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.MoveToNode
+        nodeTypeName: Behaviours.MoveToNode
       firstChildIndex: 24
     - childCount: 1
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
+        nodeTypeName: Behaviours.SequenceNode
       firstChildIndex: 25
     - childCount: 0
       element:
@@ -564,5 +564,5 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.IdleNode
+        nodeTypeName: Behaviours.IdleNode
       firstChildIndex: 26

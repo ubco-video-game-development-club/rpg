@@ -84,7 +84,7 @@ namespace Dialogue
                 Tree<Behaviours.Behaviour>.Node root = graphNode.customBehaviour.Root;
                 if (currentTarget.TryGetComponent<BehaviourObject>(out BehaviourObject obj))
                 {
-                    root.Element.Tick(root, obj);
+                    root.Element.Tick(root, obj, graphNode);
                 }
                 else
                 {

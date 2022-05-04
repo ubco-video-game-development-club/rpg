@@ -8,7 +8,7 @@ namespace Behaviours
     {
         public void Serialize(Behaviour behaviour) { }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             return NodeStatus.Success;
         }

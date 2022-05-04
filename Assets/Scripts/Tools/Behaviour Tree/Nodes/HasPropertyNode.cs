@@ -13,11 +13,11 @@ namespace Behaviours
             behaviour.Properties.Add(PROP_NAME, new VariableProperty(VariableProperty.Type.String));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
 
-            string src = behaviour.GetProperty(PROP_NAME).GetString();
+            string src = behaviour.GetProperty(instance, PROP_NAME).GetString();
             if (obj.HasProperty(src))
             {
                 return NodeStatus.Success;

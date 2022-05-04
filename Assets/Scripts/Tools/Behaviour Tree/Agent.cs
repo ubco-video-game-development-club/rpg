@@ -24,7 +24,7 @@ namespace Behaviours
 
         protected void Update()
         {
-            root.Element.Tick(root, this);
+            root.Element.Tick(root, this, this);
         }
 
         public BehaviourTree GetBehaviourTree()

@@ -19,19 +19,19 @@ namespace Behaviours
             behaviour.Properties.Add(PROP_AXIS_DEST, new VariableProperty(VariableProperty.Type.String));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
 
-            string vecSrc = behaviour.GetProperty(PROP_VECTOR_SRC).GetString();
+            string vecSrc = behaviour.GetProperty(instance, PROP_VECTOR_SRC).GetString();
             Vector2 vec = (Vector2)obj.GetProperty(vecSrc);
 
             float axis = 0;
-            VectorAxis axisName = behaviour.GetProperty(PROP_AXIS_NAME).GetEnum<VectorAxis>();
+            VectorAxis axisName = behaviour.GetProperty(instance, PROP_AXIS_NAME).GetEnum<VectorAxis>();
             if (axisName == VectorAxis.X) axis = vec.x;
             if (axisName == VectorAxis.Y) axis = vec.y;
 
-            string dest = behaviour.GetProperty(PROP_AXIS_DEST).GetString();
+            string dest = behaviour.GetProperty(instance, PROP_AXIS_DEST).GetString();
             obj.SetProperty(dest, (double)axis);
 
             return NodeStatus.Success;

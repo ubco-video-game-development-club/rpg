@@ -16,12 +16,12 @@ namespace Behaviours
             behaviour.Properties.Add(PROP_OBJECT_DEST, new VariableProperty(VariableProperty.Type.String));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
 
             // Find object by unique ID
-            string id = behaviour.GetProperty(PROP_UNIQUE_ID).GetString();
+            string id = behaviour.GetProperty(instance, PROP_UNIQUE_ID).GetString();
             GameObject target = UniqueID.Get(id);
             if (target == null)
             {
@@ -30,7 +30,7 @@ namespace Behaviours
             }
 
             // Save target object to destination property
-            string dest = behaviour.GetProperty(PROP_OBJECT_DEST).GetString();
+            string dest = behaviour.GetProperty(instance, PROP_OBJECT_DEST).GetString();
             obj.SetProperty(dest, target);
             return NodeStatus.Success;
         }

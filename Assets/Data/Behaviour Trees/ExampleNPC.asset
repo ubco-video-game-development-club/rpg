@@ -17,17 +17,17 @@ MonoBehaviour:
     - childCount: 1
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
+        nodeTypeName: Behaviours.SequenceNode
       firstChildIndex: 1
     - childCount: 2
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.SelectorNode
+        nodeTypeName: Behaviours.SelectorNode
       firstChildIndex: 2
     - childCount: 4
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
+        nodeTypeName: Behaviours.SequenceNode
       firstChildIndex: 3
     - childCount: 0
       element:
@@ -46,7 +46,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.HasPropertyNode
+        nodeTypeName: Behaviours.HasPropertyNode
       firstChildIndex: 4
     - childCount: 0
       element:
@@ -54,7 +54,7 @@ MonoBehaviour:
         - name: property-type
           property:
             propertyType: 6
-            objectType: BehaviourTree.CompareNode+CompareType, Assembly-CSharp, Version=0.0.0.0,
+            objectType: Behaviours.CompareNode+CompareType, Assembly-CSharp, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
             forceReserialization: 1
             value:
@@ -69,7 +69,7 @@ MonoBehaviour:
         - name: operator
           property:
             propertyType: 6
-            objectType: BehaviourTree.CompareNode+OperatorType, Assembly-CSharp,
+            objectType: Behaviours.CompareNode+OperatorType, Assembly-CSharp,
               Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
             forceReserialization: 0
             value:
@@ -109,7 +109,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.CompareNode
+        nodeTypeName: Behaviours.CompareNode
       firstChildIndex: 5
     - childCount: 0
       element:
@@ -128,7 +128,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.IdleNode
+        nodeTypeName: Behaviours.IdleNode
       firstChildIndex: 6
     - childCount: 0
       element:
@@ -150,7 +150,7 @@ MonoBehaviour:
         - name: property-type
           property:
             propertyType: 6
-            objectType: BehaviourTree.SetPropertyNode+ValueType, Assembly-CSharp,
+            objectType: Behaviours.SetPropertyNode+ValueType, Assembly-CSharp,
               Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
             forceReserialization: 1
             value:
@@ -190,12 +190,12 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.SetPropertyNode
+        nodeTypeName: Behaviours.SetPropertyNode
       firstChildIndex: 7
     - childCount: 4
       element:
         propertyInfo: []
-        nodeTypeName: BehaviourTree.SequenceNode
+        nodeTypeName: Behaviours.SequenceNode
       firstChildIndex: 8
     - childCount: 0
       element:
@@ -203,7 +203,7 @@ MonoBehaviour:
         - name: property-type
           property:
             propertyType: 6
-            objectType: BehaviourTree.ArrayIteratorNode+ValueType, Assembly-CSharp,
+            objectType: Behaviours.ArrayIteratorNode+ValueType, Assembly-CSharp,
               Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
             forceReserialization: 1
             value:
@@ -278,7 +278,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.ArrayIteratorNode
+        nodeTypeName: Behaviours.ArrayIteratorNode
       firstChildIndex: 9
     - childCount: 0
       element:
@@ -325,7 +325,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.SimpleMoveNode
+        nodeTypeName: Behaviours.SimpleMoveNode
       firstChildIndex: 10
     - childCount: 0
       element:
@@ -358,7 +358,7 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.ArrayIncrementNode
+        nodeTypeName: Behaviours.ArrayIncrementNode
       firstChildIndex: 11
     - childCount: 0
       element:
@@ -380,7 +380,7 @@ MonoBehaviour:
         - name: property-type
           property:
             propertyType: 6
-            objectType: BehaviourTree.SetPropertyNode+ValueType, Assembly-CSharp,
+            objectType: Behaviours.SetPropertyNode+ValueType, Assembly-CSharp,
               Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
             forceReserialization: 1
             value:
@@ -420,5 +420,5 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: BehaviourTree.SetPropertyNode
+        nodeTypeName: Behaviours.SetPropertyNode
       firstChildIndex: 12
