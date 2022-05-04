@@ -2,19 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using Dialogue;
 
 namespace Behaviours
 {
     [CustomPropertyDrawer(typeof(BehaviourTree))]
     public class BehaviourTreeDrawer : PropertyDrawer
     {
-        /// ~~~  TODO  ~~~
-        /// behaviour nodes need to be able to read the instance properties from their behaviour instance
-        /// do we pass these in as a second reference to the Tick() method? this is pretty decent
-        /// another issue... the serializedObject may not reference the IBehaviourInstance directly (see dialogue...)
-        /// does this remove the usefulness of IBehaviourInstance entirely? are we better off making it entirely case-based?
-        /// or do we still need IBehaviourInstance for handling behaviour node logic anyway?
-
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             SerializedObject owner = property.serializedObject;
@@ -26,7 +20,7 @@ namespace Behaviours
             EditorGUI.PropertyField(propRect, property);
 
             bool changed = false;
-            IBehaviourInstance behaviourInstance = owner.targetObject as IBehaviourInstance;
+            IBehaviourInstance behaviourInstance = GetInstance(owner);
             BehaviourTree behaviourTree = behaviourInstance.GetBehaviourTree();
             if (behaviourTree != null)
             {
@@ -63,7 +57,7 @@ namespace Behaviours
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            IBehaviourInstance behaviourInstance = property.serializedObject.targetObject as IBehaviourInstance;
+            IBehaviourInstance behaviourInstance = GetInstance(property.serializedObject);
             int instancePropsHeight = behaviourInstance.GetBehaviourTree() != null ? behaviourInstance.GetInstanceProperties().Length * 20 + 24 : 0;
             return base.GetPropertyHeight(property, label) + instancePropsHeight;
         }
@@ -108,6 +102,21 @@ namespace Behaviours
                     return ePrev != eNew;
             }
             return false;
+        }
+
+        private IBehaviourInstance GetInstance(SerializedObject selected)
+        {
+            System.Type selectedType = selected.targetObject.GetType();
+            if (selectedType == typeof(Agent))
+            {
+                return (IBehaviourInstance)selected.targetObject;
+            }
+            else if (selectedType == typeof(DialogueGraph))
+            {
+                DialogueGraph graph = (DialogueGraph)selected.targetObject;
+                return (IBehaviourInstance)graph.nodes[graph.selectedNode];
+            }
+            return null;
         }
     }
 }
