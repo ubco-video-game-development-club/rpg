@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     public class SetActionTargetNode : IBehaviourTreeNode
     {
@@ -14,11 +14,11 @@ namespace BehaviourTree
             behaviour.Properties.Add(PROP_TARGET_SRC, new VariableProperty(VariableProperty.Type.String));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
 
-            string src = behaviour.Properties[PROP_TARGET_SRC].GetString();
+            string src = behaviour.GetProperty(instance, PROP_TARGET_SRC).GetString();
             Vector2 target = (Vector2)obj.GetProperty(src);
             obj.GetComponent<Enemy>().SetActionTarget(target);
 

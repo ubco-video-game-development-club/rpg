@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     public class SubTreeNode : IBehaviourTreeNode
     {
@@ -13,10 +13,11 @@ namespace BehaviourTree
             behaviour.Properties.Add(PROP_SUBTREE, new VariableProperty(VariableProperty.Type.Object, typeof(BehaviourTree)));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
-            BehaviourTree subtree = (BehaviourTree)self.Element.GetProperty(PROP_SUBTREE).GetObject();
-            NodeStatus status = subtree.Root.Element.Tick(self, obj);
+            Behaviour behaviour = self.Element;
+            BehaviourTree subtree = (BehaviourTree)behaviour.GetProperty(instance, PROP_SUBTREE).GetObject();
+            NodeStatus status = subtree.Root.Element.Tick(self, obj, instance);
             return status;
         }
     }

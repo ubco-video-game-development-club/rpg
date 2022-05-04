@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     public class InvokeActionNode : IBehaviourTreeNode
     {
@@ -14,10 +14,10 @@ namespace BehaviourTree
             behaviour.Properties.Add(PROP_ACTION_IDX, new VariableProperty(VariableProperty.Type.Number));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
-            int idx = (int)behaviour.Properties[PROP_ACTION_IDX].GetNumber();
+            int idx = (int)behaviour.GetProperty(instance, PROP_ACTION_IDX).GetNumber();
             bool success = obj.GetComponent<Enemy>().InvokeAction(idx);
             return success ? NodeStatus.Success : NodeStatus.Failure;
         }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     [CreateAssetMenu(fileName = "InterpolateMoveType", menuName = "Move Types/Interpolate", order = 65)]
     public class InterpolateMoveType : MoveType

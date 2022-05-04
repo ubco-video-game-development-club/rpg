@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     [CreateAssetMenu(fileName = "LinearMoveType", menuName = "Move Types/Linear", order = 65)]
     public class LinearMoveType : DynamicMoveType

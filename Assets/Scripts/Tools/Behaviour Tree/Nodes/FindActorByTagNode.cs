@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BehaviourTree 
+namespace Behaviours 
 {
     public class FindActorByTagNode : IBehaviourTreeNode
     {
@@ -15,15 +15,15 @@ namespace BehaviourTree
             behaviour.Properties.Add(PROP_ACTOR_DEST, new VariableProperty(VariableProperty.Type.String));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
             
-            string tag = behaviour.Properties[PROP_TAG_NAME].GetString();
+            string tag = behaviour.GetProperty(instance, PROP_TAG_NAME).GetString();
             GameObject actor = GameObject.FindWithTag(tag);
             if(actor == null) return NodeStatus.Failure;
             
-            string destination = behaviour.Properties[PROP_ACTOR_DEST].GetString();
+            string destination = behaviour.GetProperty(instance, PROP_ACTOR_DEST).GetString();
             obj.SetProperty(destination, actor);
             return NodeStatus.Success;
         }

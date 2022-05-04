@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     public class GetSelfNode : IBehaviourTreeNode
     {
@@ -14,10 +14,10 @@ namespace BehaviourTree
             behaviour.Properties.Add(PROP_OBJECT_DEST, new VariableProperty(VariableProperty.Type.String));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
-            string dest = behaviour.GetProperty(PROP_OBJECT_DEST).GetString();
+            string dest = behaviour.GetProperty(instance, PROP_OBJECT_DEST).GetString();
             obj.SetProperty(dest, obj.gameObject);
             return NodeStatus.Success;
         }

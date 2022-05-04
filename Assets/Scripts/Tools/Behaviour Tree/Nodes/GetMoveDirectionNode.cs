@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     public class GetMoveDirectionNode : IBehaviourTreeNode
     {
@@ -13,13 +13,13 @@ namespace BehaviourTree
             behaviour.Properties.Add(PROP_DIRECTION_DEST, new VariableProperty(VariableProperty.Type.String));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
             Rigidbody2D rigidbody2D = ((Agent)obj).Rigidbody2D;
 
             Vector2 dir = rigidbody2D.velocity.normalized;
-            string dest = behaviour.GetProperty(PROP_DIRECTION_DEST).GetString();
+            string dest = behaviour.GetProperty(instance, PROP_DIRECTION_DEST).GetString();
             obj.SetProperty(dest, dir);
             
             return NodeStatus.Success;

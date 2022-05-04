@@ -2,32 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BehaviourObject : MonoBehaviour
+
+namespace Behaviours
 {
-    public Dictionary<string, object> Properties { get; private set; }
-
-    protected virtual void Awake()
+    public class BehaviourObject : MonoBehaviour
     {
-        Properties = new Dictionary<string, object>();
-    }
+        public Dictionary<string, object> Properties { get; private set; }
 
-    public void SetProperty(string name, object property)
-    {
-        Properties[name] = property;
-    }
+        protected virtual void Awake()
+        {
+            Properties = new Dictionary<string, object>();
+        }
 
-    public object GetProperty(string name)
-    {
-        return HasProperty(name) ? Properties[name] : null;
-    }
+        public void SetProperty(string name, object property)
+        {
+            Properties[name] = property;
+        }
 
-    public bool HasProperty(string name)
-    {
-        return Properties.ContainsKey(name);
-    }
+        public object GetProperty(string name)
+        {
+            return HasProperty(name) ? Properties[name] : null;
+        }
 
-    public void RemoveProperty(string name)
-    {
-        Properties.Remove(name);
+        public bool HasProperty(string name)
+        {
+            return Properties.ContainsKey(name);
+        }
+
+        public void RemoveProperty(string name)
+        {
+            Properties.Remove(name);
+        }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BehaviourTree
+namespace Behaviours
 {
     public class CompareNode : IBehaviourTreeNode
     {
@@ -18,48 +18,50 @@ namespace BehaviourTree
         {
             if (!behaviour.Properties.ContainsKey(PROP_TYPE))
             {
-                behaviour.SetProperty(PROP_TYPE, new VariableProperty(VariableProperty.Type.Enum, typeof(CompareType), true));
+                VariableProperty propTypeVar = new VariableProperty(VariableProperty.Type.Enum, typeof(CompareType));
+                propTypeVar.ForceReserialization = true;
+                behaviour.SetProperty(PROP_TYPE, propTypeVar);
             }
-            CompareType comparatorType = behaviour.GetProperty(PROP_TYPE).GetEnum<CompareType>();
+            CompareType comparatorType = behaviour.GetProperty(null, PROP_TYPE).GetEnum<CompareType>();
             behaviour.SetProperty(PROP_OPERATOR, new VariableProperty(VariableProperty.Type.Enum, typeof(OperatorType)));
             behaviour.SetProperty(PROP_SOURCE, new VariableProperty(VariableProperty.Type.String));
             behaviour.SetProperty(PROP_COMPARATOR, new VariableProperty(ToPropertyType(comparatorType)));
         }
 
-        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj)
+        public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
 
-            string source = behaviour.GetProperty(PROP_SOURCE).GetString();
-            CompareType compareType = behaviour.GetProperty(PROP_TYPE).GetEnum<CompareType>();
-            OperatorType operatorType = behaviour.GetProperty(PROP_OPERATOR).GetEnum<OperatorType>();
+            string source = behaviour.GetProperty(instance, PROP_SOURCE).GetString();
+            CompareType compareType = behaviour.GetProperty(instance, PROP_TYPE).GetEnum<CompareType>();
+            OperatorType operatorType = behaviour.GetProperty(instance, PROP_OPERATOR).GetEnum<OperatorType>();
 
             bool success = false;
             switch (compareType)
             {
                 case CompareType.Int:
                     int i1 = (int)obj.GetProperty(source);
-                    int i2 = (int)behaviour.GetProperty(PROP_COMPARATOR).GetNumber();
+                    int i2 = (int)behaviour.GetProperty(instance, PROP_COMPARATOR).GetNumber();
                     success = Compare<int>(i1, i2, operatorType);
                     break;
                 case CompareType.Double:
                     double d1 = (double)obj.GetProperty(source);
-                    double d2 = behaviour.GetProperty(PROP_COMPARATOR).GetNumber();
+                    double d2 = behaviour.GetProperty(instance, PROP_COMPARATOR).GetNumber();
                     success = Compare<double>(d1, d2, operatorType);
                     break;
                 case CompareType.Bool:
                     bool b1 = (bool)obj.GetProperty(source);
-                    bool b2 = behaviour.GetProperty(PROP_COMPARATOR).GetBoolean();
+                    bool b2 = behaviour.GetProperty(instance, PROP_COMPARATOR).GetBoolean();
                     success = Compare<bool>(b1, b2, operatorType);
                     break;
                 case CompareType.String:
                     string s1 = (string)obj.GetProperty(source);
-                    string s2 = behaviour.GetProperty(PROP_COMPARATOR).GetString();
+                    string s2 = behaviour.GetProperty(instance, PROP_COMPARATOR).GetString();
                     success = Compare<string>(s1, s2, operatorType);
                     break;
                 case CompareType.Vector:
                     Vector2 v1 = (Vector2)obj.GetProperty(source);
-                    Vector2 v2 = behaviour.GetProperty(PROP_COMPARATOR).GetVector();
+                    Vector2 v2 = behaviour.GetProperty(instance, PROP_COMPARATOR).GetVector();
                     success = Compare<float>(v1.sqrMagnitude, v2.sqrMagnitude, operatorType);
                     break;
             }
