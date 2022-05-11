@@ -19,7 +19,7 @@ namespace Behaviours
         public override bool UpdateMove(Tree<Behaviour>.Node node, BehaviourObject obj, Vector2 startPos, Vector2 endPos, float speed)
         {
             Rigidbody2D rigidbody2D = ((Agent)obj).Rigidbody2D;
-            Vector2 moveDir = (endPos - startPos).normalized;
+            Vector2 moveDir = (endPos - rigidbody2D.position).normalized;
             Vector2 noiseDir = Vector2.Perpendicular(moveDir);
             float noiseVal = Mathf.PerlinNoise(Time.time * noiseScale + PERLIN_OFFSET_X, PERLIN_OFFSET_Y) * 2 - 1;
             float noiseSpeed = speed * noiseFactor * noiseVal;

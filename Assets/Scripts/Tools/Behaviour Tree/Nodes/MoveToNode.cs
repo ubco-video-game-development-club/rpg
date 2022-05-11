@@ -61,7 +61,7 @@ namespace Behaviours
             Vector2 startPos = (Vector2)obj.GetProperty("startpos" + self.GetHashCode());
             bool moveFinished = moveType.UpdateMove(self, obj, startPos, cachedTargetPos, speed);
 
-            if (!moveFinished || diff.sqrMagnitude > MathUtils.EPSILON)
+            if (!moveFinished || diff.sqrMagnitude > MathUtils.STOP_EPSILON)
             {
                 return NodeStatus.Running;
             }

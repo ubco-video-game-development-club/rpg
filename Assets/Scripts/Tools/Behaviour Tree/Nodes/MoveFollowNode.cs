@@ -41,7 +41,7 @@ namespace Behaviours
             float speed = (float)behaviour.GetProperty(instance, PROP_MOVE_SPEED).GetNumber();
             bool moveFinished = moveType.UpdateMove(self, obj, currPos, offsetPos, speed);
 
-            if (!moveFinished || diff.sqrMagnitude > MathUtils.EPSILON)
+            if (!moveFinished || diff.sqrMagnitude > MathUtils.STOP_EPSILON)
             {
                 return NodeStatus.Running;
             }
