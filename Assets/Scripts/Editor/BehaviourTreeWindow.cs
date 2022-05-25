@@ -13,11 +13,15 @@ namespace Behaviours
 
         private Vector2 CentreOfWindow { get => this.position.size / 2.0f; }
         private BehaviourTree selectedTree = null;
-        private Vector2 scrollPos = Vector2.zero;
+        private Vector2 treeScrollPos = Vector2.zero;
+        private Vector2 listScrollPos = Vector2.zero;
         private Tree<Behaviour>.Node? dragNode = null;
         private Tree<Behaviour>.Node? dragParent = null;
         private Tree<Behaviour>.Node? hoverNode = null;
+        private Tree<Behaviour>.Node? hoverParent = null;
+        private BehaviourTreeNodeType? dragOption = null;
         private Vector2 mousePos;
+        private BehaviourTreeNodeType[] nodeOptions;
         private HashSet<Tree<Behaviour>.Node> collapsedNodes = new HashSet<Tree<Behaviour>.Node>();
 
         void OnEnable()
@@ -33,12 +37,20 @@ namespace Behaviours
                 return;
             }
 
+            GUILayout.BeginHorizontal();
+
             GUILayout.Space(5);
-            scrollPos = GUILayout.BeginScrollView(scrollPos);
+            treeScrollPos = GUILayout.BeginScrollView(treeScrollPos);
             Tree<Behaviour>.Node root = selectedTree.Root;
             hoverNode = null;
             ShowNode(null, root);
             GUILayout.EndScrollView();
+
+            listScrollPos = GUILayout.BeginScrollView(listScrollPos, GUILayout.Width(200f));
+            ShowOptions();
+            GUILayout.EndScrollView();
+
+            GUILayout.EndHorizontal();
 
             ProcessEvents(Event.current);
         }
@@ -51,6 +63,7 @@ namespace Behaviours
         private void ProcessEvents(Event e)
         {
             mousePos = e.mousePosition;
+
             if (dragNode != null)
             {
                 Tree<Behaviour>.Node node = dragNode.Value;
@@ -75,8 +88,27 @@ namespace Behaviours
                 }
                 else
                 {
-                    Rect r = new Rect(mousePos, new Vector2(100, 25));
+                    Vector2 boxSize = new Vector2(GetTextSize(node.Element.Node.GetType().Name).x + 20, 20);
+                    Rect r = new Rect(mousePos, boxSize);
                     GUI.Box(r, node.Element.Node.GetType().Name);
+                }
+
+                Repaint();
+            }
+
+            if (dragOption != null)
+            {
+                if (e.type == EventType.MouseUp && e.button == 0)
+                {
+                    Tree<Behaviour>.Node parent = hoverNode.HasValue ? hoverNode.Value : selectedTree.Root;
+                    AddChild(parent, dragOption.Value);
+                    dragOption = null;
+                }
+                else
+                {
+                    Vector2 boxSize = new Vector2(GetTextSize(dragOption.ToString()).x + 20, 20);
+                    Rect r = new Rect(mousePos, boxSize);
+                    GUI.Box(r, dragOption.ToString());
                 }
 
                 Repaint();
@@ -87,6 +119,11 @@ namespace Behaviours
                 selectedTree.selectedNode = null;
                 EditorUtility.SetDirty(selectedTree);
                 Repaint();
+            }
+
+            if (e.type == EventType.Used && e.button == 1)
+            {
+                ShowNodeMenu();
             }
         }
 
@@ -114,7 +151,7 @@ namespace Behaviours
             }
 
             layout.x += spacing + 29;
-            layout.width -= spacing + 114;
+            layout.width -= spacing + 58;
 
             if (selectedTree.selectedNode == node.Element)
             {
@@ -127,7 +164,11 @@ namespace Behaviours
                 EditorUtility.SetDirty(selectedTree);
             }
 
-            if (layout.Contains(mousePos + scrollPos)) hoverNode = node;
+            if (layout.Contains(mousePos + treeScrollPos))
+            {
+                hoverNode = node;
+                hoverParent = parent;
+            }
 
             GUILayout.Label(name);
 
@@ -137,10 +178,6 @@ namespace Behaviours
                 dragParent = parent;
                 dragParent?.RemoveChild(dragNode.Value);
             }
-
-            if (GUILayout.Button("+", GUILayout.Width(25))) AddChild(node);
-
-            if (parent != null && GUILayout.Button("-", GUILayout.Width(25))) parent?.RemoveChild(node);
 
             EditorGUILayout.EndHorizontal();
 
@@ -155,26 +192,42 @@ namespace Behaviours
             }
         }
 
-        private void AddChild(Tree<Behaviour>.Node parent)
+        private void ShowOptions()
         {
-            GenericMenu menu = new GenericMenu();
-            BehaviourTreeNodeType[] nodeTypes = (BehaviourTreeNodeType[])System.Enum.GetValues(typeof(BehaviourTreeNodeType));
-            foreach (BehaviourTreeNodeType type in nodeTypes)
+            if (dragOption.HasValue)
             {
-                menu.AddItem(
-                    new GUIContent(type.ToString()),
-                    false,
-                    () =>
-                    {
-                        IBehaviourTreeNode node = BehaviourTreeNodeCreator.Create(type);
-                        Behaviour bNode = new Behaviour(node);
-                        node.Serialize(bNode);
-                        parent.AddChild(new Tree<Behaviour>.Node(bNode));
-                        EditorUtility.SetDirty(selectedTree);
-                    }
-                );
+                GUI.enabled = false;
             }
 
+            foreach (BehaviourTreeNodeType type in nodeOptions)
+            {
+                if (GUILayout.RepeatButton(type.ToString()))
+                {
+                    dragOption = type;
+                }
+            }
+
+            GUI.enabled = true;
+        }
+
+        private void AddChild(Tree<Behaviour>.Node parent, BehaviourTreeNodeType type)
+        {
+            IBehaviourTreeNode node = BehaviourTreeNodeCreator.Create(type);
+            Behaviour bNode = new Behaviour(node);
+            node.Serialize(bNode);
+            parent.AddChild(new Tree<Behaviour>.Node(bNode));
+            EditorUtility.SetDirty(selectedTree);
+        }
+
+        private void ShowNodeMenu()
+        {
+            if (!hoverNode.HasValue)
+            {
+                return;
+            }
+
+            GenericMenu menu = new GenericMenu();
+            menu.AddItem(new GUIContent("Delete"), false, () => { hoverParent?.RemoveChild(hoverNode.Value); });
             menu.ShowAsContext();
         }
 
@@ -190,18 +243,24 @@ namespace Behaviours
             }
             else selectedTree = null;
 
+            nodeOptions = (BehaviourTreeNodeType[])System.Enum.GetValues(typeof(BehaviourTreeNodeType));
+
             Repaint();
         }
 
         private void ShowMessage(string message)
         {
             Vector2 position = CentreOfWindow;
-
-            GUIContent content = new GUIContent(message);
-            Vector2 size = GUI.skin.label.CalcSize(content);
+            Vector2 size = GetTextSize(message);
 
             position.x -= size.x / 2.0f; //Centre the text
             GUI.Label(new Rect(position, size), message);
+        }
+
+        private Vector2 GetTextSize(string text)
+        {
+            GUIContent content = new GUIContent(text);
+            return GUI.skin.label.CalcSize(content);
         }
 
         [MenuItem("Window/Behaviour Tree")]
