@@ -21,6 +21,7 @@ namespace Behaviours
         private Tree<Behaviour>.Node? hoverParent = null;
         private BehaviourTreeNodeType? dragOption = null;
         private Vector2 mousePos;
+        private BehaviourTreeNodeCategory[] nodeCategories;
         private BehaviourTreeNodeType[] nodeOptions;
         private HashSet<Tree<Behaviour>.Node> collapsedNodes = new HashSet<Tree<Behaviour>.Node>();
 
@@ -37,18 +38,44 @@ namespace Behaviours
                 return;
             }
 
+            GUILayout.Box(selectedTree.name, GUILayout.ExpandWidth(true));
+
+            GUI.color = EditorUtils.LINE_COLOR;
+            GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(2));
+            GUI.color = Color.white;
+
             GUILayout.BeginHorizontal();
 
-            GUILayout.Space(5);
+            GUILayout.Space(4);
+
+            EditorGUILayout.BeginVertical();
+            GUILayout.Box("Behaviour Tree", GUILayout.ExpandWidth(true));
+
             treeScrollPos = GUILayout.BeginScrollView(treeScrollPos);
             Tree<Behaviour>.Node root = selectedTree.Root;
             hoverNode = null;
             ShowNode(null, root);
             GUILayout.EndScrollView();
 
-            listScrollPos = GUILayout.BeginScrollView(listScrollPos, GUILayout.Width(200f));
+            EditorGUILayout.EndVertical();
+
+            // GUILayout.Space(10);
+
+            GUI.color = EditorUtils.LINE_COLOR;
+            GUILayout.Box("", GUILayout.Width(2), GUILayout.ExpandHeight(true));
+            GUI.color = Color.white;
+
+            EditorGUILayout.BeginVertical(GUILayout.Width(200));
+            GUILayout.Space(4);
+            GUILayout.Box("Node Options", GUILayout.ExpandWidth(true));
+
+            listScrollPos = GUILayout.BeginScrollView(listScrollPos);
             ShowOptions();
             GUILayout.EndScrollView();
+
+            EditorGUILayout.EndVertical();
+
+            GUILayout.Space(4);
 
             GUILayout.EndHorizontal();
 
@@ -133,7 +160,7 @@ namespace Behaviours
 
             Rect layout = EditorGUILayout.BeginHorizontal();
 
-            float spacing = (indent + 1) * INDENT_MULTIPLIER;
+            float spacing = indent * INDENT_MULTIPLIER + 2;
             GUILayout.Space(spacing);
 
             bool isCollapsed = collapsedNodes.Contains(node);
@@ -199,12 +226,24 @@ namespace Behaviours
                 GUI.enabled = false;
             }
 
-            foreach (BehaviourTreeNodeType type in nodeOptions)
+            foreach (BehaviourTreeNodeCategory category in nodeCategories)
             {
-                if (GUILayout.RepeatButton(type.ToString()))
+                GUILayout.Box(category.ToString(), GUILayout.ExpandWidth(true));
+
+                foreach (BehaviourTreeNodeType type in nodeOptions)
                 {
-                    dragOption = type;
+                    if (BehaviourTreeNodeCreator.GetCategory(type) != category)
+                    {
+                        continue;
+                    }
+
+                    if (GUILayout.RepeatButton(type.ToString()))
+                    {
+                        dragOption = type;
+                    }
                 }
+
+                GUILayout.Space(10);
             }
 
             GUI.enabled = true;
@@ -243,6 +282,7 @@ namespace Behaviours
             }
             else selectedTree = null;
 
+            nodeCategories = (BehaviourTreeNodeCategory[])System.Enum.GetValues(typeof(BehaviourTreeNodeCategory));
             nodeOptions = (BehaviourTreeNodeType[])System.Enum.GetValues(typeof(BehaviourTreeNodeType));
 
             Repaint();

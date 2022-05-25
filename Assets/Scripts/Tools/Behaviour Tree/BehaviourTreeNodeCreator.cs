@@ -37,6 +37,17 @@ namespace Behaviours
         SubTreeNode
     }
 
+    public enum BehaviourTreeNodeCategory
+    {
+        Basic,
+        Logic,
+        Find,
+        Property,
+        Movement,
+        Combat,
+        Dialogue
+    }
+
     public static class BehaviourTreeNodeCreator
     {
         public static IBehaviourTreeNode Create(BehaviourTreeNodeType type)
@@ -108,6 +119,54 @@ namespace Behaviours
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return null;
+            }
+        }
+
+        public static BehaviourTreeNodeCategory GetCategory(BehaviourTreeNodeType type)
+        {
+            switch (type)
+            {
+                case BehaviourTreeNodeType.SelectorNode:
+                case BehaviourTreeNodeType.SequenceNode:
+                case BehaviourTreeNodeType.ExecuteAllNode:
+                case BehaviourTreeNodeType.SubTreeNode:
+                    return BehaviourTreeNodeCategory.Basic;
+                case BehaviourTreeNodeType.SuccessNode:
+                case BehaviourTreeNodeType.NotNode:
+                case BehaviourTreeNodeType.CompareNode:
+                case BehaviourTreeNodeType.RangeCheckNode:
+                    return BehaviourTreeNodeCategory.Logic;
+                case BehaviourTreeNodeType.HasPropertyNode:
+                case BehaviourTreeNodeType.SetPropertyNode:
+                case BehaviourTreeNodeType.ArrayIteratorNode:
+                case BehaviourTreeNodeType.ArrayIncrementNode:
+                case BehaviourTreeNodeType.GetEntityPropertyNode:
+                    return BehaviourTreeNodeCategory.Property;
+                case BehaviourTreeNodeType.GetSelfNode:
+                case BehaviourTreeNodeType.FindActorByTagNode:
+                case BehaviourTreeNodeType.FindObjectByIdNode:
+                    return BehaviourTreeNodeCategory.Find;
+                case BehaviourTreeNodeType.GetActorPositionNode:
+                case BehaviourTreeNodeType.GetRandomPositionNode:
+                case BehaviourTreeNodeType.SimpleMoveNode:
+                case BehaviourTreeNodeType.MoveToNode:
+                case BehaviourTreeNodeType.MoveFollowNode:
+                case BehaviourTreeNodeType.IdleNode:
+                case BehaviourTreeNodeType.GetMoveDirectionNode:
+                case BehaviourTreeNodeType.GetVectorAxisNode:
+                    return BehaviourTreeNodeCategory.Movement;
+                case BehaviourTreeNodeType.SetActionTargetNode:
+                case BehaviourTreeNodeType.InvokeActionNode:
+                case BehaviourTreeNodeType.SetEnemyNode:
+                case BehaviourTreeNodeType.IsEnemyNode:
+                    return BehaviourTreeNodeCategory.Combat;
+                case BehaviourTreeNodeType.GetDialogueIndexNode:
+                case BehaviourTreeNodeType.SetDialogueIndexNode:
+                case BehaviourTreeNodeType.ForceDialogueNode:
+                    return BehaviourTreeNodeCategory.Dialogue;
+                default:
+                    Debug.LogError($"Unimplemented node type: {type}");
+                    return BehaviourTreeNodeCategory.Basic;
             }
         }
     }
