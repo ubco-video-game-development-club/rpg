@@ -5,6 +5,7 @@ namespace RPG
     public static class MathUtils
     {
         public const float EPSILON = 0.01f;
+        public const float STOP_EPSILON = 0.1f;
 
         public static int Sign(float x)
         {

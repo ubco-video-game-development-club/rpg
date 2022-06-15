@@ -10,7 +10,7 @@ namespace Behaviours
         public override bool UpdateMove(Tree<Behaviour>.Node node, BehaviourObject obj, Vector2 startPos, Vector2 endPos, float speed)
         {
             Rigidbody2D rigidbody2D = ((Agent)obj).Rigidbody2D;
-            Vector2 moveDir = (endPos - startPos).normalized;
+            Vector2 moveDir = (endPos - rigidbody2D.position).normalized;
             rigidbody2D.velocity = moveDir * speed;
             return true;
         }
