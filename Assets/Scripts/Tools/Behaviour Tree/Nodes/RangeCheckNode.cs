@@ -6,13 +6,13 @@ namespace Behaviours
 {
     public class RangeCheckNode : IBehaviourTreeNode
     {
+        private const string PROP_POSITION_INPUT = "position-input";
         private const string PROP_RANGE = "range";
-        private const string PROP_POSITION_SRC = "position-source";
 
         public void Serialize(Behaviour behaviour)
         {
-            behaviour.Properties.Add(PROP_RANGE, new VariableProperty(VariableProperty.Type.Number));
-            behaviour.Properties.Add(PROP_POSITION_SRC, new VariableProperty(VariableProperty.Type.String));
+            behaviour.AddInputProperty(PROP_POSITION_INPUT);
+            behaviour.AddProperty(PROP_RANGE, new VariableProperty(VariableProperty.Type.Number));
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
@@ -20,7 +20,7 @@ namespace Behaviours
             Behaviour behaviour = self.Element;
 
             // Get the source position
-            string src = behaviour.GetProperty(instance, PROP_POSITION_SRC).GetString();
+            string src = behaviour.GetProperty(instance, PROP_POSITION_INPUT).GetString();
             if (obj.HasProperty(src))
             {
                 // Get the distance between source and this agent

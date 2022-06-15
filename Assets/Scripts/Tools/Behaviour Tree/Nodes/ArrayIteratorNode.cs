@@ -8,23 +8,25 @@ namespace Behaviours
     {
         private enum ValueType { Int, Double, Bool, String, Vector }
 
+        private const string PROP_INDEX_INPUT = "index-input";
         private const string PROP_TYPE = "property-type";
         private const string PROP_ARRAY = "value-array";
-        private const string PROP_INDEX_SRC = "index-source";
-        private const string PROP_VALUE_DEST = "value-destination";
+        private const string PROP_VALUE_OUTPUT = "value-output";
 
         public void Serialize(Behaviour behaviour)
         {
-            if (!behaviour.Properties.ContainsKey(PROP_TYPE))
+            behaviour.AddInputProperty(PROP_INDEX_INPUT);
+
+            if (!behaviour.HasProperty(PROP_TYPE))
             {
                 VariableProperty propTypeVar = new VariableProperty(VariableProperty.Type.Enum, typeof(ValueType));
                 propTypeVar.ForceReserialization = true;
-                behaviour.SetProperty(PROP_TYPE, propTypeVar);
+                behaviour.AddProperty(PROP_TYPE, propTypeVar);
             }
             ValueType valueType = behaviour.GetProperty(null, PROP_TYPE).GetEnum<ValueType>();
-            behaviour.SetProperty(PROP_ARRAY, new VariableProperty(VariableProperty.Type.Array, ToPropertyType(valueType)));
-            behaviour.SetProperty(PROP_INDEX_SRC, new VariableProperty(VariableProperty.Type.String));
-            behaviour.SetProperty(PROP_VALUE_DEST, new VariableProperty(VariableProperty.Type.String));
+            behaviour.AddProperty(PROP_ARRAY, new VariableProperty(VariableProperty.Type.Array, ToPropertyType(valueType)));
+
+            behaviour.AddOutputProperty(PROP_VALUE_OUTPUT);
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
@@ -33,7 +35,7 @@ namespace Behaviours
 
             // read the current index from the agent (or set to zero if not exists)
             int index = 0;
-            string indexSrc = behaviour.GetProperty(instance, PROP_INDEX_SRC).GetString();
+            string indexSrc = behaviour.GetProperty(instance, PROP_INDEX_INPUT).GetString();
             if (obj.HasProperty(indexSrc))
             {
                 index = (int)obj.GetProperty(indexSrc);
@@ -63,7 +65,7 @@ namespace Behaviours
             }
 
             // store the resulting value on the agent
-            string valueDest = behaviour.GetProperty(instance, PROP_VALUE_DEST).GetString();
+            string valueDest = behaviour.GetProperty(instance, PROP_VALUE_OUTPUT).GetString();
             obj.SetProperty(valueDest, val);
 
             return NodeStatus.Success;

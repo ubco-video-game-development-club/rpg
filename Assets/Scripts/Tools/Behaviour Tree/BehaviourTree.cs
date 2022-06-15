@@ -82,9 +82,26 @@ namespace Behaviours
             this.node = node;
         }
 
-        public void SetProperty(string name, VariableProperty property)
+        public void AddInputProperty(string name) => AddDisplayProperty(name, VariableProperty.Display.Input);
+
+        public void AddOutputProperty(string name) => AddDisplayProperty(name, VariableProperty.Display.Output);
+
+        private void AddDisplayProperty(string name, VariableProperty.Display displayType)
+        {
+            VariableProperty prop = new VariableProperty(VariableProperty.Type.String);
+            prop.DisplayType = displayType;
+            prop.Set(name);
+            AddProperty(name, prop);
+        }
+
+        public void AddProperty(string name, VariableProperty property)
         {
             properties[name] = property;
+        }
+
+        public bool HasProperty(string name)
+        {
+            return properties.ContainsKey(name);
         }
 
         public VariableProperty GetProperty(IBehaviourInstance instance, string name)

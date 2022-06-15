@@ -28,6 +28,13 @@ public class VariableProperty
         set => forceReserialization = value;
     }
 
+    [SerializeField] private Display displayType;
+    public Display DisplayType
+    {
+        get => displayType;
+        set => displayType = value;
+    }
+
     [SerializeField] private bool instanced;
     public bool Instanced
     {
@@ -228,6 +235,13 @@ public class VariableProperty
         Vector,
         Array,
         Enum
+    }
+
+    public enum Display
+    {
+        Standard,
+        Input,
+        Output
     }
 
     [System.Serializable]

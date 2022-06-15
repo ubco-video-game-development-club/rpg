@@ -36,12 +36,58 @@ namespace Behaviours
 
             ClearArrayData();
 
-            string name = node.Node.GetType().Name;
-            GUILayout.Label(name);
+            bool hasInput = false;
             foreach (string propertyName in node.Properties.Keys)
             {
-                bool reserializing = DisplayProperty(propertyName, node.Properties[propertyName]);
-                if (reserializing) break;
+                VariableProperty prop = node.Properties[propertyName];
+                if (prop.DisplayType == VariableProperty.Display.Input)
+                {
+                    if (!hasInput)
+                    {
+                        GUILayout.Space(8);
+                        EditorGUILayout.LabelField("Input Properties", EditorStyles.boldLabel);
+                        hasInput = true;
+                    }
+
+                    bool reserializing = DisplayProperty(propertyName, prop);
+                    if (reserializing) break;
+                }
+            }
+
+            bool hasStandard = false;
+            foreach (string propertyName in node.Properties.Keys)
+            {
+                VariableProperty prop = node.Properties[propertyName];
+                if (prop.DisplayType == VariableProperty.Display.Standard)
+                {
+                    if (!hasStandard)
+                    {
+                        GUILayout.Space(8);
+                        EditorGUILayout.LabelField("Standard Properties", EditorStyles.boldLabel);
+                        hasStandard = true;
+                    }
+
+                    bool reserializing = DisplayProperty(propertyName, prop);
+                    if (reserializing) break;
+                }
+            }
+
+            bool hasOutput = false;
+            foreach (string propertyName in node.Properties.Keys)
+            {
+                VariableProperty prop = node.Properties[propertyName];
+                if (prop.DisplayType == VariableProperty.Display.Output)
+                {
+                    if (!hasOutput)
+                    {
+                        GUILayout.Space(8);
+                        EditorGUILayout.LabelField("Output Properties", EditorStyles.boldLabel);
+                        hasOutput = true;
+                    }
+
+                    bool reserializing = DisplayProperty(propertyName, prop);
+                    if (reserializing) break;
+                }
             }
 
             serializedObject.ApplyModifiedProperties();

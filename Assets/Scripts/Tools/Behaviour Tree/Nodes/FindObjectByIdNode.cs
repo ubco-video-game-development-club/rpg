@@ -8,12 +8,12 @@ namespace Behaviours
     public class FindObjectByIdNode : IBehaviourTreeNode
     {
         private const string PROP_UNIQUE_ID = "unique-id";
-        private const string PROP_OBJECT_DEST = "object-destination";
+        private const string PROP_OBJECT_OUTPUT = "object-output";
 
         public void Serialize(Behaviour behaviour)
         {
-            behaviour.Properties.Add(PROP_UNIQUE_ID, new VariableProperty(VariableProperty.Type.String));
-            behaviour.Properties.Add(PROP_OBJECT_DEST, new VariableProperty(VariableProperty.Type.String));
+            behaviour.AddProperty(PROP_UNIQUE_ID, new VariableProperty(VariableProperty.Type.String));
+            behaviour.AddOutputProperty(PROP_OBJECT_OUTPUT);
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
@@ -30,7 +30,7 @@ namespace Behaviours
             }
 
             // Save target object to destination property
-            string dest = behaviour.GetProperty(instance, PROP_OBJECT_DEST).GetString();
+            string dest = behaviour.GetProperty(instance, PROP_OBJECT_OUTPUT).GetString();
             obj.SetProperty(dest, target);
             return NodeStatus.Success;
         }

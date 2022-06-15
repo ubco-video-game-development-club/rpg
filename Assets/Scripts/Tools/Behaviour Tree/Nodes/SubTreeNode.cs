@@ -10,7 +10,7 @@ namespace Behaviours
         
         public void Serialize(Behaviour behaviour)
         {
-            behaviour.Properties.Add(PROP_SUBTREE, new VariableProperty(VariableProperty.Type.Object, typeof(BehaviourTree)));
+            behaviour.AddProperty(PROP_SUBTREE, new VariableProperty(VariableProperty.Type.Object, typeof(BehaviourTree)));
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
