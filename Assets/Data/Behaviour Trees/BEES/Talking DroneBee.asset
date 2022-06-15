@@ -1,0 +1,225 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fb5e73c80040247a00b01917c6e426, type: 3}
+  m_Name: Talking DroneBee
+  m_EditorClassIdentifier: 
+  tree:
+    serializedNodes:
+    - childCount: 1
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SequenceNode
+      firstChildIndex: 1
+    - childCount: 2
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SelectorNode
+      firstChildIndex: 2
+    - childCount: 0
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SequenceNode
+      firstChildIndex: 3
+    - childCount: 2
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SelectorNode
+      firstChildIndex: 4
+    - childCount: 4
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SequenceNode
+      firstChildIndex: 5
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-name
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.HasPropertyNode
+      firstChildIndex: 6
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: Behaviours.CompareNode+CompareType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            forceReserialization: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: operator
+          property:
+            propertyType: 6
+            objectType: Behaviours.CompareNode+OperatorType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            forceReserialization: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: source-property
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: comparator
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.CompareNode
+      firstChildIndex: 7
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: idle-duration
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.IdleNode
+      firstChildIndex: 8
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: Behaviours.SetPropertyNode+ValueType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            forceReserialization: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: target-property
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: property-value
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.SetPropertyNode
+      firstChildIndex: 9
+    - childCount: 1
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SequenceNode
+      firstChildIndex: 10
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: subtree
+          property:
+            propertyType: 3
+            objectType: Behaviours.BehaviourTree, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            forceReserialization: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 11400000, guid: 69c4a50662ad3b14e87e09fe13084093, type: 2}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.SubTreeNode
+      firstChildIndex: 11
