@@ -191,6 +191,8 @@ namespace Behaviours
                 EditorUtility.SetDirty(selectedTree);
             }
 
+            layout.y += 64;
+
             if (layout.Contains(mousePos + treeScrollPos))
             {
                 hoverNode = node;
