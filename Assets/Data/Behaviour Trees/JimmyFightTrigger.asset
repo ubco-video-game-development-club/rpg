@@ -22,12 +22,12 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
-        - name: object-destination
+        - name: object-output
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
-            displayType: 0
+            displayType: 2
             instanced: 0
             value:
               b: 0
