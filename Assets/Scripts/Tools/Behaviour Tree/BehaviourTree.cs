@@ -90,7 +90,7 @@ namespace Behaviours
         {
             VariableProperty prop = new VariableProperty(VariableProperty.Type.String);
             prop.DisplayType = displayType;
-            prop.Set(name);
+            prop.Set(name.Substring(0, name.LastIndexOf("-")));
             AddProperty(name, prop);
         }
 
