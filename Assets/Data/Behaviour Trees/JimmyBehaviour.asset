@@ -37,6 +37,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -57,6 +58,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -77,6 +79,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -92,6 +95,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -112,6 +116,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -127,6 +132,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -158,6 +164,7 @@ MonoBehaviour:
             objectType: RPG.PropertyName, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
               PublicKeyToken=null
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -174,6 +181,7 @@ MonoBehaviour:
             objectType: RPG.PropertyType, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
               PublicKeyToken=null
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -189,6 +197,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -210,6 +219,7 @@ MonoBehaviour:
             objectType: Behaviours.CompareNode+CompareType, Assembly-CSharp, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
             forceReserialization: 1
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -223,9 +233,10 @@ MonoBehaviour:
         - name: operator
           property:
             propertyType: 6
-            objectType: Behaviours.CompareNode+OperatorType, Assembly-CSharp,
-              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+            objectType: Behaviours.CompareNode+OperatorType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -241,6 +252,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -256,6 +268,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -276,6 +289,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -291,6 +305,7 @@ MonoBehaviour:
             propertyType: 0
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -311,6 +326,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -336,6 +352,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -351,6 +368,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -371,6 +389,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -391,6 +410,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -416,6 +436,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -431,6 +452,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -451,6 +473,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -466,6 +489,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -481,6 +505,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -506,6 +531,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -527,6 +553,7 @@ MonoBehaviour:
             objectType: Behaviours.CompareNode+CompareType, Assembly-CSharp, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
             forceReserialization: 1
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -540,9 +567,10 @@ MonoBehaviour:
         - name: operator
           property:
             propertyType: 6
-            objectType: Behaviours.CompareNode+OperatorType, Assembly-CSharp,
-              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+            objectType: Behaviours.CompareNode+OperatorType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
             forceReserialization: 0
+            displayType: 0
             instanced: 1
             value:
               b: 0
@@ -558,6 +586,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -573,6 +602,7 @@ MonoBehaviour:
             propertyType: 0
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 1
@@ -593,6 +623,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -613,6 +644,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -626,9 +658,10 @@ MonoBehaviour:
         - name: property-type
           property:
             propertyType: 6
-            objectType: Behaviours.SetPropertyNode+ValueType, Assembly-CSharp,
-              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+            objectType: Behaviours.SetPropertyNode+ValueType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
             forceReserialization: 1
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -644,6 +677,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -659,6 +693,7 @@ MonoBehaviour:
             propertyType: 0
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -685,6 +720,7 @@ MonoBehaviour:
             objectType: Behaviours.ArrayIteratorNode+ValueType, Assembly-CSharp,
               Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
             forceReserialization: 1
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -700,6 +736,7 @@ MonoBehaviour:
             propertyType: 5
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -729,6 +766,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -744,6 +782,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -764,6 +803,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -779,6 +819,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -794,6 +835,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -814,6 +856,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -829,6 +872,7 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -849,6 +893,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -862,9 +907,10 @@ MonoBehaviour:
         - name: property-type
           property:
             propertyType: 6
-            objectType: Behaviours.SetPropertyNode+ValueType, Assembly-CSharp,
-              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+            objectType: Behaviours.SetPropertyNode+ValueType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
             forceReserialization: 1
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -880,6 +926,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -895,6 +942,7 @@ MonoBehaviour:
             propertyType: 0
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 1

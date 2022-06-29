@@ -27,6 +27,8 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -41,6 +43,8 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -60,6 +64,8 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -74,6 +80,8 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -93,6 +101,8 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -107,6 +117,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 2
@@ -121,6 +133,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 10
