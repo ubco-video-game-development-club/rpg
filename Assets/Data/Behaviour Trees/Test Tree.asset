@@ -27,6 +27,8 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -36,11 +38,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: actor-destination
+        - name: actor-output
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 2
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -55,11 +59,13 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
-        - name: position-source
+        - name: position-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 1
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -74,6 +80,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0.1
@@ -88,6 +96,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0.8
@@ -97,11 +107,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: actor-source
+        - name: actor-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 1
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -111,11 +123,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: position-destination
+        - name: position-output
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 2
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -130,11 +144,13 @@ MonoBehaviour:
     - childCount: 3
       element:
         propertyInfo:
-        - name: actor-source
+        - name: actor-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 1
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -144,11 +160,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: position-destination
+        - name: position-output
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 2
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -173,6 +191,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 1.1
@@ -182,11 +202,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: position-source
+        - name: position-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 1
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -206,6 +228,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 1.1
@@ -215,11 +239,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: position-source
+        - name: position-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 1
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -229,11 +255,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: target-source
+        - name: target-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 1
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -248,11 +276,13 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
-        - name: target-source
+        - name: target-input
           property:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 1
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -267,6 +297,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -286,6 +318,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -305,6 +339,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 3
@@ -314,11 +350,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: position-source
+        - name: position-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 1
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -338,6 +376,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 3
@@ -347,11 +387,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: position-source
+        - name: position-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 1
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -366,11 +408,13 @@ MonoBehaviour:
     - childCount: 2
       element:
         propertyInfo:
-        - name: position-source
+        - name: position-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 1
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -385,6 +429,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 1
@@ -399,6 +445,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 2
@@ -433,6 +481,8 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -452,6 +502,8 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -466,6 +518,8 @@ MonoBehaviour:
             propertyType: 4
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -480,6 +534,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 3
@@ -489,11 +545,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: position-destination
+        - name: position-output
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 2
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -513,6 +571,8 @@ MonoBehaviour:
             propertyType: 4
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -527,6 +587,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 3
@@ -536,11 +598,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: position-destination
+        - name: position-output
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 2
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -560,6 +624,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0.2
@@ -569,11 +635,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: position-source
+        - name: position-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 1
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -593,6 +661,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0.2
@@ -602,11 +672,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: position-source
+        - name: position-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 1
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -621,6 +693,8 @@ MonoBehaviour:
             propertyType: 4
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -635,6 +709,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 3
@@ -644,11 +720,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: position-destination
+        - name: position-output
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 2
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -668,6 +746,8 @@ MonoBehaviour:
             propertyType: 4
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -682,6 +762,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 3
@@ -691,11 +773,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: position-destination
+        - name: position-output
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 2
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -710,11 +794,13 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
-        - name: position-source
+        - name: position-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 1
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -729,6 +815,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0.1
@@ -743,6 +831,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0.8
@@ -763,6 +853,8 @@ MonoBehaviour:
             objectType: Behaviours.BehaviourTree, Assembly-CSharp, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0

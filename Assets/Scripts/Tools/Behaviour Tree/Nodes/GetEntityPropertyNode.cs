@@ -9,13 +9,13 @@ namespace Behaviours
     {
         private const string PROP_NAME = "property-name";
         private const string PROP_TYPE = "property-type";
-        private const string PROP_DEST = "property-destination";
+        private const string PROP_OUTPUT = "property-output";
 
         public void Serialize(Behaviour behaviour)
         {
-            behaviour.Properties.Add(PROP_NAME, new VariableProperty(VariableProperty.Type.Enum, typeof(RPG.PropertyName)));
-            behaviour.Properties.Add(PROP_TYPE, new VariableProperty(VariableProperty.Type.Enum, typeof(PropertyType)));
-            behaviour.Properties.Add(PROP_DEST, new VariableProperty(VariableProperty.Type.String));
+            behaviour.AddProperty(PROP_NAME, new VariableProperty(VariableProperty.Type.Enum, typeof(RPG.PropertyName)));
+            behaviour.AddProperty(PROP_TYPE, new VariableProperty(VariableProperty.Type.Enum, typeof(PropertyType)));
+            behaviour.AddOutputProperty(PROP_OUTPUT);
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
@@ -36,7 +36,7 @@ namespace Behaviours
             }
 
             PropertyType readType = behaviour.GetProperty(instance, PROP_TYPE).GetEnum<PropertyType>();
-            string propDest = behaviour.GetProperty(instance, PROP_DEST).GetString();
+            string propDest = behaviour.GetProperty(instance, PROP_OUTPUT).GetString();
             switch (readType)
             {
                 case PropertyType.Int:

@@ -8,17 +8,17 @@ namespace Behaviours
     // TODO: turn this into HasFactionNode later!
     public class IsEnemyNode : IBehaviourTreeNode
     {
-        private const string PROP_NPC_SRC = "source-npc";
+        private const string PROP_NPC_INPUT = "npc-input";
 
         public void Serialize(Behaviour behaviour)
         {
-            behaviour.Properties.Add(PROP_NPC_SRC, new VariableProperty(VariableProperty.Type.String));
+            behaviour.AddInputProperty(PROP_NPC_INPUT);
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
-            string npcSrc = behaviour.GetProperty(instance, PROP_NPC_SRC).GetString();
+            string npcSrc = behaviour.GetProperty(instance, PROP_NPC_INPUT).GetString();
             GameObject npc = obj.GetProperty(npcSrc) as GameObject;
             return npc.GetComponent<NPC>().IsEnemy() ? NodeStatus.Success : NodeStatus.Failure;
         }

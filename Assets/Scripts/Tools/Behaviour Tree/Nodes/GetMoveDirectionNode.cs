@@ -6,11 +6,11 @@ namespace Behaviours
 {
     public class GetMoveDirectionNode : IBehaviourTreeNode
     {
-        private const string PROP_DIRECTION_DEST = "direction-destination";
+        private const string PROP_DIRECTION_OUTPUT = "direction-output";
 
         public void Serialize(Behaviour behaviour)
         {
-            behaviour.Properties.Add(PROP_DIRECTION_DEST, new VariableProperty(VariableProperty.Type.String));
+            behaviour.AddOutputProperty(PROP_DIRECTION_OUTPUT);
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
@@ -19,7 +19,7 @@ namespace Behaviours
             Rigidbody2D rigidbody2D = ((Agent)obj).Rigidbody2D;
 
             Vector2 dir = rigidbody2D.velocity.normalized;
-            string dest = behaviour.GetProperty(instance, PROP_DIRECTION_DEST).GetString();
+            string dest = behaviour.GetProperty(instance, PROP_DIRECTION_OUTPUT).GetString();
             obj.SetProperty(dest, dir);
             
             return NodeStatus.Success;
