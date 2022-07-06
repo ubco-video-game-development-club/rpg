@@ -18,7 +18,7 @@ MonoBehaviour:
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      firstChildIndex: 1
+      nodeIndex: 1
     - childCount: 1
       element:
         propertyInfo:
@@ -55,7 +55,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.FindActorByTagNode
-      firstChildIndex: 2
+      nodeIndex: 2
     - childCount: 0
       element:
         propertyInfo:
@@ -140,7 +140,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.GetActorPositionNode
-      firstChildIndex: 3
+      nodeIndex: 3
     - childCount: 3
       element:
         propertyInfo:
@@ -177,12 +177,12 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SelectorNode
-      firstChildIndex: 4
+      nodeIndex: 4
     - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      firstChildIndex: 5
+      nodeIndex: 5
     - childCount: 0
       element:
         propertyInfo:
@@ -219,7 +219,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.RangeCheckNode
-      firstChildIndex: 6
+      nodeIndex: 6
     - childCount: 0
       element:
         propertyInfo:
@@ -272,7 +272,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SetActionTargetNode
-      firstChildIndex: 7
+      nodeIndex: 7
     - childCount: 0
       element:
         propertyInfo:
@@ -309,7 +309,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.InvokeActionNode
-      firstChildIndex: 8
+      nodeIndex: 8
     - childCount: 2
       element:
         propertyInfo:
@@ -330,7 +330,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SequenceNode
-      firstChildIndex: 9
+      nodeIndex: 9
     - childCount: 0
       element:
         propertyInfo:
@@ -367,7 +367,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.RangeCheckNode
-      firstChildIndex: 10
+      nodeIndex: 10
     - childCount: 0
       element:
         propertyInfo:
@@ -404,7 +404,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.RangeCheckNode
-      firstChildIndex: 11
+      nodeIndex: 11
     - childCount: 2
       element:
         propertyInfo:
@@ -457,22 +457,22 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SequenceNode
-      firstChildIndex: 12
+      nodeIndex: 12
     - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SelectorNode
-      firstChildIndex: 13
+      nodeIndex: 13
     - childCount: 2
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      firstChildIndex: 14
+      nodeIndex: 14
     - childCount: 1
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.NotNode
-      firstChildIndex: 15
+      nodeIndex: 15
     - childCount: 0
       element:
         propertyInfo:
@@ -493,7 +493,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.HasPropertyNode
-      firstChildIndex: 16
+      nodeIndex: 16
     - childCount: 0
       element:
         propertyInfo:
@@ -562,7 +562,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.GetRandomPositionNode
-      firstChildIndex: 17
+      nodeIndex: 17
     - childCount: 2
       element:
         propertyInfo:
@@ -615,7 +615,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SequenceNode
-      firstChildIndex: 18
+      nodeIndex: 18
     - childCount: 0
       element:
         propertyInfo:
@@ -652,7 +652,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.RangeCheckNode
-      firstChildIndex: 19
+      nodeIndex: 19
     - childCount: 0
       element:
         propertyInfo:
@@ -737,7 +737,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.GetRandomPositionNode
-      firstChildIndex: 20
+      nodeIndex: 20
     - childCount: 0
       element:
         propertyInfo:
@@ -790,7 +790,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SuccessNode
-      firstChildIndex: 21
+      nodeIndex: 21
     - childCount: 0
       element:
         propertyInfo:
@@ -843,7 +843,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SimpleMoveNode
-      firstChildIndex: 22
+      nodeIndex: 22
     - childCount: 0
       element:
         propertyInfo:
@@ -865,4 +865,4 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SubTreeNode
-      firstChildIndex: 23
+      nodeIndex: 23
