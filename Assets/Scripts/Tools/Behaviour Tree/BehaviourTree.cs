@@ -26,6 +26,7 @@ namespace Behaviours
                     VariableProperty nodeProp = node.Element.GetProperty(instance, propName);
                     if (nodeProp.Instanced)
                     {
+                        Debug.Log(nodeProp.GetHashCode());
                         treeProps.Add(new BehaviourInstanceProperty(propName, nodeProp));
                     }
                 }
