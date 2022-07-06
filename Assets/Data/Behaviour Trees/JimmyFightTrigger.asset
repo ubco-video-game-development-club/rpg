@@ -18,7 +18,7 @@ MonoBehaviour:
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      firstChildIndex: 1
+      nodeIndex: 1
     - childCount: 0
       element:
         propertyInfo:
@@ -39,7 +39,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.GetSelfNode
-      firstChildIndex: 2
+      nodeIndex: 2
     - childCount: 0
       element:
         propertyInfo:
@@ -76,4 +76,4 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SetEnemyNode
-      firstChildIndex: 3
+      nodeIndex: 3

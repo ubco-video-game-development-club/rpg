@@ -83,11 +83,11 @@ namespace Dialogue
             return customBehaviour;
         }
 
-        public BehaviourInstanceProperty GetInstanceProperty(string name)
+        public BehaviourInstanceProperty GetInstanceProperty(string uniqueID)
         {
             foreach (BehaviourInstanceProperty instanceProperty in behaviourProperties)
             {
-                if (instanceProperty.name == name)
+                if (instanceProperty.UniqueID == uniqueID)
                 {
                     return instanceProperty;
                 }
