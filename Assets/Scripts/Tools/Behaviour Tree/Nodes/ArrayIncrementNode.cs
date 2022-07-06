@@ -7,13 +7,13 @@ namespace Behaviours
     public class ArrayIncrementNode : IBehaviourTreeNode
     {
         // TODO: implement Loop, PingPong, etc. increment wrap types?
-        private const string PROP_INDEX_SRC = "index-source";
+        private const string PROP_INDEX_SRC = "index-input";
         private const string PROP_ARR_LEN = "array-length";
 
         public void Serialize(Behaviour behaviour)
         {
-            behaviour.Properties.Add(PROP_INDEX_SRC, new VariableProperty(VariableProperty.Type.String));
-            behaviour.Properties.Add(PROP_ARR_LEN, new VariableProperty(VariableProperty.Type.Number));
+            behaviour.AddInputProperty(PROP_INDEX_SRC);
+            behaviour.AddProperty(PROP_ARR_LEN, new VariableProperty(VariableProperty.Type.Number));
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)

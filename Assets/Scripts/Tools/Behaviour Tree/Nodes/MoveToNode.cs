@@ -7,19 +7,19 @@ namespace Behaviours
 {
     public class MoveToNode : IBehaviourTreeNode
     {
-        private const string PROP_TARGET_POS_SRC = "position-source";
+        private const string PROP_POSITION_INPUT = "position-input";
         private const string PROP_STOP_OFFSET = "stop-offset";
         private const string PROP_MOVE_SPEED = "move-speed";
         private const string PROP_MOVE_TYPE = "move-type";
-        private const string PROP_IS_MOVING_DEST = "is-moving-destination";
+        private const string PROP_IS_MOVING_OUTPUT = "is-moving-output";
 
         public void Serialize(Behaviour behaviour)
         {
-            behaviour.Properties.Add(PROP_TARGET_POS_SRC, new VariableProperty(VariableProperty.Type.String));
-            behaviour.Properties.Add(PROP_STOP_OFFSET, new VariableProperty(VariableProperty.Type.Number));
-            behaviour.Properties.Add(PROP_MOVE_SPEED, new VariableProperty(VariableProperty.Type.Number));
-            behaviour.Properties.Add(PROP_MOVE_TYPE, new VariableProperty(VariableProperty.Type.Object, typeof(MoveType)));
-            behaviour.Properties.Add(PROP_IS_MOVING_DEST, new VariableProperty(VariableProperty.Type.String));
+            behaviour.AddInputProperty(PROP_POSITION_INPUT);
+            behaviour.AddProperty(PROP_STOP_OFFSET, new VariableProperty(VariableProperty.Type.Number));
+            behaviour.AddProperty(PROP_MOVE_SPEED, new VariableProperty(VariableProperty.Type.Number));
+            behaviour.AddProperty(PROP_MOVE_TYPE, new VariableProperty(VariableProperty.Type.Object, typeof(MoveType)));
+            behaviour.AddOutputProperty(PROP_IS_MOVING_OUTPUT);
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
@@ -32,7 +32,7 @@ namespace Behaviours
             Vector2 currPos = obj.transform.position;
 
             // Check if we've already started moving, otherwise start now
-            string isMovingDest = behaviour.GetProperty(instance, PROP_IS_MOVING_DEST).GetString();
+            string isMovingDest = behaviour.GetProperty(instance, PROP_IS_MOVING_OUTPUT).GetString();
             if (!obj.HasProperty(isMovingDest)) obj.SetProperty(isMovingDest, false);
             bool isMoving = (bool)obj.GetProperty(isMovingDest);
             if (!isMoving)
@@ -42,7 +42,7 @@ namespace Behaviours
 
                 // Store target position
                 float stopOffset = (float)behaviour.GetProperty(instance, PROP_STOP_OFFSET).GetNumber();
-                string targetPosSrc = behaviour.GetProperty(instance, PROP_TARGET_POS_SRC).GetString();
+                string targetPosSrc = behaviour.GetProperty(instance, PROP_POSITION_INPUT).GetString();
                 Vector2 targetPos = (Vector2)obj.GetProperty(targetPosSrc);
                 Vector2 moveDir = (targetPos - currPos).normalized;
                 obj.SetProperty("targetpos" + self.GetHashCode(), targetPos + moveDir * stopOffset);

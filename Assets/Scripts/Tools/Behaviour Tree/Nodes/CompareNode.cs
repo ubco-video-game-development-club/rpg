@@ -9,30 +9,31 @@ namespace Behaviours
         private enum CompareType { Int, Double, Bool, String, Vector }
         private enum OperatorType { Equals, LessThan, GreaterThan }
 
+        private const string PROP_INPUT = "property-input";
         private const string PROP_TYPE = "property-type";
         private const string PROP_OPERATOR = "operator";
-        private const string PROP_SOURCE = "source-property";
         private const string PROP_COMPARATOR = "comparator";
 
         public void Serialize(Behaviour behaviour)
         {
-            if (!behaviour.Properties.ContainsKey(PROP_TYPE))
+            behaviour.AddInputProperty(PROP_INPUT);
+
+            if (!behaviour.HasProperty(PROP_TYPE))
             {
                 VariableProperty propTypeVar = new VariableProperty(VariableProperty.Type.Enum, typeof(CompareType));
                 propTypeVar.ForceReserialization = true;
-                behaviour.SetProperty(PROP_TYPE, propTypeVar);
+                behaviour.AddProperty(PROP_TYPE, propTypeVar);
             }
             CompareType comparatorType = behaviour.GetProperty(null, PROP_TYPE).GetEnum<CompareType>();
-            behaviour.SetProperty(PROP_OPERATOR, new VariableProperty(VariableProperty.Type.Enum, typeof(OperatorType)));
-            behaviour.SetProperty(PROP_SOURCE, new VariableProperty(VariableProperty.Type.String));
-            behaviour.SetProperty(PROP_COMPARATOR, new VariableProperty(ToPropertyType(comparatorType)));
+            behaviour.AddProperty(PROP_OPERATOR, new VariableProperty(VariableProperty.Type.Enum, typeof(OperatorType)));
+            behaviour.AddProperty(PROP_COMPARATOR, new VariableProperty(ToPropertyType(comparatorType)));
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
 
-            string source = behaviour.GetProperty(instance, PROP_SOURCE).GetString();
+            string source = behaviour.GetProperty(instance, PROP_INPUT).GetString();
             CompareType compareType = behaviour.GetProperty(instance, PROP_TYPE).GetEnum<CompareType>();
             OperatorType operatorType = behaviour.GetProperty(instance, PROP_OPERATOR).GetEnum<OperatorType>();
 

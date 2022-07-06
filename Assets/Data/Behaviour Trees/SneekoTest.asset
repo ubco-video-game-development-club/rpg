@@ -27,6 +27,8 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -36,11 +38,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: object-destination
+        - name: object-output
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 2
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -55,11 +59,13 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
-        - name: npc-source
+        - name: npc-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 1
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -69,11 +75,13 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: index-destination
+        - name: index-output
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 2
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -94,6 +102,8 @@ MonoBehaviour:
             objectType: Behaviours.CompareNode+CompareType, Assembly-CSharp, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
             forceReserialization: 1
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -106,9 +116,11 @@ MonoBehaviour:
         - name: operator
           property:
             propertyType: 6
-            objectType: Behaviours.CompareNode+OperatorType, Assembly-CSharp,
-              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+            objectType: Behaviours.CompareNode+OperatorType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -123,6 +135,8 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -137,6 +151,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -151,11 +167,13 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
-        - name: npc-source
+        - name: npc-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 1
+            instanced: 0
             value:
               b: 0
               n: 0
@@ -170,6 +188,8 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
+            instanced: 0
             value:
               b: 0
               n: 2

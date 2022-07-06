@@ -6,15 +6,15 @@ namespace Behaviours
 {
     public class SimpleMoveNode : IBehaviourTreeNode
     {
-        private const string PROP_POSITION_SRC = "position-source";
+        private const string PROP_POSITION_INPUT = "position-input";
         private const string PROP_STOP_DISTANCE = "stop-distance";
         private const string PROP_MOVE_SPEED = "move-speed";
 
         public void Serialize(Behaviour behaviour)
         {
-            behaviour.Properties.Add(PROP_POSITION_SRC, new VariableProperty(VariableProperty.Type.String));
-            behaviour.Properties.Add(PROP_STOP_DISTANCE, new VariableProperty(VariableProperty.Type.Number));
-            behaviour.Properties.Add(PROP_MOVE_SPEED, new VariableProperty(VariableProperty.Type.Number));
+            behaviour.AddInputProperty(PROP_POSITION_INPUT);
+            behaviour.AddProperty(PROP_STOP_DISTANCE, new VariableProperty(VariableProperty.Type.Number));
+            behaviour.AddProperty(PROP_MOVE_SPEED, new VariableProperty(VariableProperty.Type.Number));
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
@@ -22,7 +22,7 @@ namespace Behaviours
             Behaviour behaviour = self.Element;
             Rigidbody2D rigidbody2D = ((Agent)obj).Rigidbody2D;
 
-            string src = behaviour.GetProperty(instance, PROP_POSITION_SRC).GetString();
+            string src = behaviour.GetProperty(instance, PROP_POSITION_INPUT).GetString();
             if (obj.HasProperty(src))
             {
                 Vector2 targetPosition = (Vector2)obj.GetProperty(src);

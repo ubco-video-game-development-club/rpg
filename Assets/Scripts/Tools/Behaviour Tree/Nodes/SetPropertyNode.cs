@@ -14,15 +14,15 @@ namespace Behaviours
 
         public void Serialize(Behaviour behaviour)
         {
-            if (!behaviour.Properties.ContainsKey(PROP_TYPE))
+            if (!behaviour.HasProperty(PROP_TYPE))
             {
                 VariableProperty propTypeVar = new VariableProperty(VariableProperty.Type.Enum, typeof(ValueType));
                 propTypeVar.ForceReserialization = true;
-                behaviour.SetProperty(PROP_TYPE, propTypeVar);
+                behaviour.AddProperty(PROP_TYPE, propTypeVar);
             }
             ValueType valueType = behaviour.GetProperty(null, PROP_TYPE).GetEnum<ValueType>();
-            behaviour.SetProperty(PROP_TARGET, new VariableProperty(VariableProperty.Type.String));
-            behaviour.SetProperty(PROP_VALUE, new VariableProperty(ToPropertyType(valueType)));
+            behaviour.AddProperty(PROP_TARGET, new VariableProperty(VariableProperty.Type.String));
+            behaviour.AddProperty(PROP_VALUE, new VariableProperty(ToPropertyType(valueType)));
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)

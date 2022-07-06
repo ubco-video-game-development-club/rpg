@@ -11,7 +11,7 @@ namespace Behaviours
 
         public void Serialize(Behaviour behaviour)
         {
-            behaviour.Properties.Add(PROP_ACTION_IDX, new VariableProperty(VariableProperty.Type.Number));
+            behaviour.AddProperty(PROP_ACTION_IDX, new VariableProperty(VariableProperty.Type.Number));
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)

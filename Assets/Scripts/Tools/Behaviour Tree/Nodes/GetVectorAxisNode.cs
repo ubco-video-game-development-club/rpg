@@ -8,22 +8,22 @@ namespace Behaviours
 
     public class GetVectorAxisNode : IBehaviourTreeNode
     {
-        private const string PROP_VECTOR_SRC = "vector-source";
+        private const string PROP_VECTOR_INPUT = "vector-input";
         private const string PROP_AXIS_NAME = "axis-name";
-        private const string PROP_AXIS_DEST = "axis-destination";
+        private const string PROP_AXIS_OUTPUT = "axis-output";
 
         public void Serialize(Behaviour behaviour)
         {
-            behaviour.Properties.Add(PROP_VECTOR_SRC, new VariableProperty(VariableProperty.Type.String));
-            behaviour.Properties.Add(PROP_AXIS_NAME, new VariableProperty(VariableProperty.Type.Enum, typeof(VectorAxis)));
-            behaviour.Properties.Add(PROP_AXIS_DEST, new VariableProperty(VariableProperty.Type.String));
+            behaviour.AddInputProperty(PROP_VECTOR_INPUT);
+            behaviour.AddProperty(PROP_AXIS_NAME, new VariableProperty(VariableProperty.Type.Enum, typeof(VectorAxis)));
+            behaviour.AddOutputProperty(PROP_AXIS_OUTPUT);
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
             Behaviour behaviour = self.Element;
 
-            string vecSrc = behaviour.GetProperty(instance, PROP_VECTOR_SRC).GetString();
+            string vecSrc = behaviour.GetProperty(instance, PROP_VECTOR_INPUT).GetString();
             Vector2 vec = (Vector2)obj.GetProperty(vecSrc);
 
             float axis = 0;
@@ -31,7 +31,7 @@ namespace Behaviours
             if (axisName == VectorAxis.X) axis = vec.x;
             if (axisName == VectorAxis.Y) axis = vec.y;
 
-            string dest = behaviour.GetProperty(instance, PROP_AXIS_DEST).GetString();
+            string dest = behaviour.GetProperty(instance, PROP_AXIS_OUTPUT).GetString();
             obj.SetProperty(dest, (double)axis);
 
             return NodeStatus.Success;

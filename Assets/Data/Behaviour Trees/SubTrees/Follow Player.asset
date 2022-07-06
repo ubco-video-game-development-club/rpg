@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54fb5e73c80040247a00b01917c6e426, type: 3}
-  m_Name: Follow Player
+  m_Name: NPC FollowTree
   m_EditorClassIdentifier: 
   tree:
     serializedNodes:
@@ -27,6 +27,7 @@ MonoBehaviour:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
@@ -37,11 +38,12 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: actor-destination
+        - name: actor-output
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 2
             instanced: 0
             value:
               b: 0
@@ -57,11 +59,12 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
-        - name: actor-source
+        - name: actor-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 1
             instanced: 0
             value:
               b: 0
@@ -72,16 +75,17 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: position-destination
+        - name: position-output
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 2
             instanced: 0
             value:
               b: 0
               n: 0
-              s: target-destination
+              s: target-output
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
@@ -92,16 +96,17 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
-        - name: position-source
+        - name: position-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
+            displayType: 1
             instanced: 0
             value:
               b: 0
               n: 0
-              s: target-destination
+              s: target-output
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
@@ -112,10 +117,11 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
-              n: 1.25
+              n: 2
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
@@ -127,10 +133,11 @@ MonoBehaviour:
             propertyType: 1
             objectType: 
             forceReserialization: 0
+            displayType: 0
             instanced: 0
             value:
               b: 0
-              n: 2
+              n: 10
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
