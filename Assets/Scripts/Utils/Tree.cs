@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Tree<T> : ISerializationCallbackReceiver
+public class Tree<T> : ISerializationCallbackReceiver where T : ITreeNodeElement 
 {
     public Node Root { get => root; }
 
@@ -63,6 +63,7 @@ public class Tree<T> : ISerializationCallbackReceiver
         public Node(T element, int nodeIndex = 0)
         {
             this.element = element;
+            this.element.SetNodeIndex(nodeIndex);
             children = new List<Node>();
             this.nodeIndex = nodeIndex;
         }

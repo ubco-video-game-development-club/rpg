@@ -32,11 +32,11 @@ namespace Behaviours
             return behaviourTree;
         }
 
-        public BehaviourInstanceProperty GetInstanceProperty(string name)
+        public BehaviourInstanceProperty GetInstanceProperty(string uniqueID)
         {
             foreach (BehaviourInstanceProperty instanceProperty in instanceProperties)
             {
-                if (instanceProperty.name == name)
+                if (instanceProperty.UniqueID == uniqueID)
                 {
                     return instanceProperty;
                 }

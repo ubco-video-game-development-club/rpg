@@ -64,7 +64,8 @@ namespace Behaviours
 
         private bool DrawInstanceProperty(Rect position, BehaviourInstanceProperty instanceProperty)
         {
-            Rect contentRect = EditorGUI.PrefixLabel(position, new GUIContent(instanceProperty.name));
+            string displayName = instanceProperty.name + " (" + instanceProperty.nodeName + ")";
+            Rect contentRect = EditorGUI.PrefixLabel(position, new GUIContent(displayName));
             VariableProperty property = instanceProperty.value;
             switch (property.PropertyType)
             {

@@ -23,11 +23,12 @@ namespace Behaviours
 
                 foreach (string propName in node.Element.Properties.Keys)
                 {
-                    VariableProperty nodeProp = node.Element.GetProperty(instance, propName);
+                    VariableProperty nodeProp = node.Element.GetProperty(null, propName);
                     if (nodeProp.Instanced)
                     {
-                        Debug.Log(nodeProp.GetHashCode());
-                        treeProps.Add(new BehaviourInstanceProperty(propName, nodeProp));
+                        string rawNodeName = node.Element.Node.ToString();
+                        string nodeName = rawNodeName.Substring(rawNodeName.IndexOf(".") + 1);
+                        treeProps.Add(new BehaviourInstanceProperty(propName, node.NodeIndex, nodeName, nodeProp));
                     }
                 }
 
@@ -43,9 +44,9 @@ namespace Behaviours
             for (int i = 0; i < newProps.Length; i++)
             {
                 BehaviourInstanceProperty treeProp = treeProps[i];
-                BehaviourInstanceProperty currProp = instance.GetInstanceProperty(treeProp.name);
+                BehaviourInstanceProperty currProp = instance.GetInstanceProperty(treeProp.UniqueID);
 
-                newProps[i] = new BehaviourInstanceProperty(treeProp.name, treeProp.value);
+                newProps[i] = new BehaviourInstanceProperty(treeProp.name, treeProp.index, treeProp.nodeName, treeProp.value);
                 if (currProp != null)
                 {
                     newProps[i].value = currProp.value;
@@ -67,10 +68,12 @@ namespace Behaviours
     }
 
     [System.Serializable]
-    public class Behaviour : ISerializationCallbackReceiver
+    public class Behaviour : ITreeNodeElement, ISerializationCallbackReceiver
     {
         [SerializeField] private PropertyInfo[] propertyInfo;
         [SerializeField] private string nodeTypeName;
+
+        public int NodeIndex { get; private set; }
 
         public Dictionary<string, VariableProperty> Properties { get => properties; }
         private Dictionary<string, VariableProperty> properties = new Dictionary<string, VariableProperty>();
@@ -109,7 +112,7 @@ namespace Behaviours
         {
             if (instance != null)
             {
-                BehaviourInstanceProperty instanceProp = instance.GetInstanceProperty(name);
+                BehaviourInstanceProperty instanceProp = instance.GetInstanceProperty(name + NodeIndex);
                 if (instanceProp != null)
                 {
                     return instanceProp.value;
@@ -119,6 +122,11 @@ namespace Behaviours
         }
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance) => node.Tick(self, obj, instance);
+
+        public void SetNodeIndex(int nodeIndex)
+        {
+            NodeIndex = nodeIndex;
+        }
 
         public void OnBeforeSerialize()
         {

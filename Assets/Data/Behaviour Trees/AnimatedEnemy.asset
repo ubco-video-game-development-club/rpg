@@ -133,7 +133,7 @@ MonoBehaviour:
             objectType: 
             forceReserialization: 0
             displayType: 0
-            instanced: 1
+            instanced: 0
             value:
               b: 0
               n: 1.2
@@ -149,7 +149,7 @@ MonoBehaviour:
             objectType: 
             forceReserialization: 0
             displayType: 0
-            instanced: 1
+            instanced: 0
             value:
               b: 0
               n: 2
