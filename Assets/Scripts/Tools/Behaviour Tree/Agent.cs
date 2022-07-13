@@ -9,7 +9,7 @@ namespace Behaviours
     public class Agent : BehaviourObject, IBehaviourInstance
     {
         [SerializeField] private BehaviourTree behaviourTree;
-        [SerializeField][HideInInspector] private BehaviourInstanceProperty[] instanceProperties;
+        [SerializeField][HideInInspector] private BehaviourInstanceProperty[] instanceProperties = new BehaviourInstanceProperty[0];
 
         private Tree<Behaviour>.Node root;
 

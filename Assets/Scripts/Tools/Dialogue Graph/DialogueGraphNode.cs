@@ -23,7 +23,7 @@ namespace Dialogue
         public DialogueIndexOverride[] dialogueIndexOverrides;
 
         public BehaviourTree customBehaviour;
-        [SerializeField][HideInInspector] private BehaviourInstanceProperty[] behaviourProperties;
+        [SerializeField][HideInInspector] private BehaviourInstanceProperty[] behaviourProperties = new BehaviourInstanceProperty[0];
 
         private Rect displayRect;
         private bool isSelected = false;
