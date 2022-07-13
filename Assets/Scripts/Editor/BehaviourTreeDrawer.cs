@@ -12,7 +12,6 @@ namespace Behaviours
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             SerializedObject owner = property.serializedObject;
-            owner.Update();
 
             EditorGUI.BeginProperty(position, label, property);
 
