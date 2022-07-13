@@ -18,7 +18,7 @@ MonoBehaviour:
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      firstChildIndex: 1
+      nodeIndex: 1
     - childCount: 0
       element:
         propertyInfo:
@@ -55,7 +55,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.FindActorByTagNode
-      firstChildIndex: 2
+      nodeIndex: 2
     - childCount: 0
       element:
         propertyInfo:
@@ -92,7 +92,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.GetActorPositionNode
-      firstChildIndex: 3
+      nodeIndex: 3
     - childCount: 0
       element:
         propertyInfo:
@@ -145,4 +145,4 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SimpleMoveNode
-      firstChildIndex: 4
+      nodeIndex: 4

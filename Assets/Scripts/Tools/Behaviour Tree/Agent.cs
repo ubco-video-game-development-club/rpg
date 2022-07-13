@@ -9,7 +9,7 @@ namespace Behaviours
     public class Agent : BehaviourObject, IBehaviourInstance
     {
         [SerializeField] private BehaviourTree behaviourTree;
-        [SerializeField][HideInInspector] private BehaviourInstanceProperty[] instanceProperties;
+        [SerializeField][HideInInspector] private BehaviourInstanceProperty[] instanceProperties = new BehaviourInstanceProperty[0];
 
         private Tree<Behaviour>.Node root;
 
@@ -32,11 +32,11 @@ namespace Behaviours
             return behaviourTree;
         }
 
-        public BehaviourInstanceProperty GetInstanceProperty(string name)
+        public BehaviourInstanceProperty GetInstanceProperty(string uniqueID)
         {
             foreach (BehaviourInstanceProperty instanceProperty in instanceProperties)
             {
-                if (instanceProperty.name == name)
+                if (instanceProperty.UniqueID == uniqueID)
                 {
                     return instanceProperty;
                 }

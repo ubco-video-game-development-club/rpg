@@ -23,7 +23,7 @@ namespace Dialogue
         public DialogueIndexOverride[] dialogueIndexOverrides;
 
         public BehaviourTree customBehaviour;
-        [SerializeField][HideInInspector] private BehaviourInstanceProperty[] behaviourProperties;
+        [SerializeField][HideInInspector] private BehaviourInstanceProperty[] behaviourProperties = new BehaviourInstanceProperty[0];
 
         private Rect displayRect;
         private bool isSelected = false;
@@ -83,11 +83,11 @@ namespace Dialogue
             return customBehaviour;
         }
 
-        public BehaviourInstanceProperty GetInstanceProperty(string name)
+        public BehaviourInstanceProperty GetInstanceProperty(string uniqueID)
         {
             foreach (BehaviourInstanceProperty instanceProperty in behaviourProperties)
             {
-                if (instanceProperty.name == name)
+                if (instanceProperty.UniqueID == uniqueID)
                 {
                     return instanceProperty;
                 }

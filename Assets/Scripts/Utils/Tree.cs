@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Tree<T> : ISerializationCallbackReceiver
+public class Tree<T> : ISerializationCallbackReceiver where T : ITreeNodeElement 
 {
     public Node Root { get => root; }
 
@@ -41,7 +41,7 @@ public class Tree<T> : ISerializationCallbackReceiver
     private int DeserializeNode(int index, out Node node)
     {
         SerializableNode snode = serializedNodes[index];
-        node = new Node(snode.element);
+        node = new Node(snode.element, snode.nodeIndex);
         for (int i = 0; i < snode.childCount; i++)
         {
             index = DeserializeNode(++index, out Node n);
@@ -54,14 +54,18 @@ public class Tree<T> : ISerializationCallbackReceiver
     {
         public int ChildCount { get => children == null ? 0 : children.Count; }
         public T Element { get => element; }
+        public int NodeIndex { get => nodeIndex; }
 
         private T element;
         private List<Node> children;
+        private int nodeIndex;
 
-        public Node(T element)
+        public Node(T element, int nodeIndex = 0)
         {
             this.element = element;
+            this.element.SetNodeIndex(nodeIndex);
             children = new List<Node>();
+            this.nodeIndex = nodeIndex;
         }
 
         public void AddChild(Node child) => children.Add(child);
@@ -74,13 +78,13 @@ public class Tree<T> : ISerializationCallbackReceiver
     {
         public int childCount;
         public T element;
-        public int firstChildIndex;
+        public int nodeIndex;
 
-        public SerializableNode(int childCount, T element, int firstChildIndex)
+        public SerializableNode(int childCount, T element, int nodeIndex)
         {
             this.childCount = childCount;
             this.element = element;
-            this.firstChildIndex = firstChildIndex;
+            this.nodeIndex = nodeIndex;
         }
     }
 }

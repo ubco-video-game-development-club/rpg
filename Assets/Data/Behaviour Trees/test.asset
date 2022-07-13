@@ -18,22 +18,22 @@ MonoBehaviour:
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      firstChildIndex: 1
+      nodeIndex: 1
     - childCount: 2
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.ExecuteAllNode
-      firstChildIndex: 2
+      nodeIndex: 2
     - childCount: 2
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      firstChildIndex: 3
+      nodeIndex: 3
     - childCount: 1
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.NotNode
-      firstChildIndex: 4
+      nodeIndex: 4
     - childCount: 0
       element:
         propertyInfo:
@@ -54,7 +54,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.HasPropertyNode
-      firstChildIndex: 5
+      nodeIndex: 5
     - childCount: 0
       element:
         propertyInfo:
@@ -107,7 +107,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.GetRandomPositionNode
-      firstChildIndex: 6
+      nodeIndex: 6
     - childCount: 0
       element:
         propertyInfo:
@@ -133,7 +133,7 @@ MonoBehaviour:
             objectType: 
             forceReserialization: 0
             displayType: 0
-            instanced: 1
+            instanced: 0
             value:
               b: 0
               n: 1.2
@@ -149,7 +149,7 @@ MonoBehaviour:
             objectType: 
             forceReserialization: 0
             displayType: 0
-            instanced: 1
+            instanced: 0
             value:
               b: 0
               n: 2
@@ -160,4 +160,4 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SimpleMoveNode
-      firstChildIndex: 7
+      nodeIndex: 7
