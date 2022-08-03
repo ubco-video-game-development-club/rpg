@@ -43,12 +43,12 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
-        - name: source-npc
+        - name: npc-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
-            displayType: 0
+            displayType: 1
             instanced: 0
             value:
               b: 0
