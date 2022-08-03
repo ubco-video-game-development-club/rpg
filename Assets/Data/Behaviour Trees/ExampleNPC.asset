@@ -53,6 +53,22 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
+        - name: property-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: idle
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         - name: property-type
           property:
             propertyType: 6
@@ -82,22 +98,6 @@ MonoBehaviour:
               b: 0
               n: 0
               s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        - name: source-property
-          property:
-            propertyType: 2
-            objectType: 
-            forceReserialization: 0
-            displayType: 0
-            instanced: 0
-            value:
-              b: 0
-              n: 0
-              s: idle
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
