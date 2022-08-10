@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadSceneButton : MonoBehaviour
+namespace RPG
 {
-    [SerializeField] private string sceneName = "Main";
-
-    public void LoadScene()
+    public class LoadSceneButton : MonoBehaviour
     {
-        SceneManager.LoadScene(sceneName);
+        [SerializeField] private string sceneName = "Main";
+
+        public void LoadScene()
+        {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }

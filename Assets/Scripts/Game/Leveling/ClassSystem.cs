@@ -17,7 +17,6 @@ namespace RPG
         public void SelectClass(ClassTree classTree)
         {
             selectedClass = classTree;
-            GameManager.CreatePlayer();
         }
 
         public LevelingState GetLevelUpType(int level)
