@@ -7,9 +7,16 @@ namespace RPG
 {
     public class ClassSystem : MonoBehaviour
     {
+        [SerializeField] private ClassTree defaultClass;
+
         private ClassTree selectedClass;
 
-        void Start()
+        private void Awake()
+        {
+            SelectClass(defaultClass);
+        }
+
+        private void Start()
         {
             GameManager.AddPlayerCreatedListener(OnPlayerCreated);
         }
