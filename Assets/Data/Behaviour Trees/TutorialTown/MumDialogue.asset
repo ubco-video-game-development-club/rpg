@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tree:
     serializedNodes:
-    - childCount: 2
+    - childCount: 1
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
@@ -24,8 +24,3 @@ MonoBehaviour:
         propertyInfo: []
         nodeTypeName: Behaviours.SpawnPlayerNode
       nodeIndex: 2
-    - childCount: 0
-      element:
-        propertyInfo: []
-        nodeTypeName: Behaviours.ForceDialogueNode
-      nodeIndex: 3

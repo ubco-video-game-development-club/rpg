@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showTime: 0
-  hideTime: 2
+  hideTime: 3
 --- !u!1 &1489505480
 GameObject:
   m_ObjectHideFlags: 0
