@@ -34,7 +34,6 @@ namespace RPG
         {
             if (!GameManager.IsPlayerCreated)
             {
-                HUD.BlackScreen.SetVisible(true);
                 GameManager.AddPlayerCreatedListener(OnPlayerCreated);
             }
         }
