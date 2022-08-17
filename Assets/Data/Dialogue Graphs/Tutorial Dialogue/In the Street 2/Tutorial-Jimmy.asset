@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Speak to Lil Jimmy
+    displayName: Speak to Lil Jimmy
     body: Hey there *Protagonist* How's it going?
     position: {x: -82, y: -171}
     moralsMod: 0
@@ -24,7 +25,9 @@ MonoBehaviour:
     - targetUniqueID: 
       indexOverride: 1
     customBehaviour: {fileID: 0}
+    behaviourProperties: []
   - name: ->
+    displayName: ->
     body: Check out this new shirt I got pretty sweet huh?
     position: {x: 207, y: -167}
     moralsMod: 0
@@ -33,9 +36,11 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
+    behaviourProperties: []
   - name: " ~Persuade~ Those are pretty nice. Where did you get them? I would love
       a new shirt like that. But, I\u2019m afraid I don't have enough allowance for
       one.\r"
+    displayName: ~Persuade~ Those are pretty nic...
     body: "Oh well you know what that, here. You can have it actually. It\u2019s
       not really my style anyway.\r"
     position: {x: 17, y: -81}
@@ -49,8 +54,10 @@ MonoBehaviour:
     - targetUniqueID: Mum
       indexOverride: 3
     customBehaviour: {fileID: 0}
+    behaviourProperties: []
   - name: "~Intimidate~ I\u2019m pretty sure Id look better in those than you. Hand
       them over before you feel the wrath of my quackers, tappers and also flappers."
+    displayName: "~Intimidate~ I\u2019m pretty sure Id loo..."
     body: "Sounds like you\u2019re looking for a fight. Let\u2019s do it then."
     position: {x: 250, y: -75}
     moralsMod: 0
@@ -61,6 +68,7 @@ MonoBehaviour:
     - targetUniqueID: 
       indexOverride: 1
     customBehaviour: {fileID: 11400000, guid: d69f03b258b57d142aedb2501fb2a531, type: 2}
+    behaviourProperties: []
   transitions:
   - name: Transition
     from: 0
@@ -79,6 +87,7 @@ MonoBehaviour:
     to: 3
   exitNode:
     name: Exit
+    displayName: Exit
     body: 
     position: {x: 108, y: 5}
     moralsMod: 0
@@ -87,3 +96,4 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
+    behaviourProperties: []
