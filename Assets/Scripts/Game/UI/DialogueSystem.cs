@@ -19,7 +19,11 @@ namespace Dialogue
         public void BeginDialogue(NPC target, DialogueGraph graph)
         {
             // Disable actions of interacting entities
-            GameManager.Player.enabled = false;
+            if (GameManager.IsPlayerCreated)
+            {
+                GameManager.Player.enabled = false;
+            }
+
             if (target.TryGetComponent(out BehaviourObject obj))
             {
                 obj.enabled = false;
@@ -28,7 +32,7 @@ namespace Dialogue
             currentTarget = target;
             currentGraph = graph;
 
-            HUD.DialoguePanel.Show();
+            HUD.DialoguePanel.SetVisible(true);
             HUD.DialoguePanel.SetTarget(target);
 
             ShowDialogue(0);
@@ -108,8 +112,13 @@ namespace Dialogue
             if (transition.to < 0)
             {
                 // We've reached the end of the tree
-                HUD.DialoguePanel.Hide();
-                GameManager.Player.enabled = true;
+                HUD.DialoguePanel.SetVisible(false);
+
+                if (GameManager.IsPlayerCreated)
+                {
+                    GameManager.Player.enabled = true;
+                }
+
                 if (currentTarget.TryGetComponent(out BehaviourObject obj))
                 {
                     obj.enabled = true;

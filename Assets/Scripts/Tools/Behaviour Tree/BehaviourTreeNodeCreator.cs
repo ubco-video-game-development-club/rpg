@@ -34,7 +34,8 @@ namespace Behaviours
         SetEnemyNode,
         IsEnemyNode,
         GetEntityPropertyNode,
-        SubTreeNode
+        SubTreeNode,
+        SpawnPlayerNode
     }
 
     public enum BehaviourTreeNodeCategory
@@ -45,7 +46,8 @@ namespace Behaviours
         Property,
         Movement,
         Combat,
-        Dialogue
+        Dialogue,
+        Player
     }
 
     public static class BehaviourTreeNodeCreator
@@ -116,6 +118,8 @@ namespace Behaviours
                     return new GetEntityPropertyNode();
                 case BehaviourTreeNodeType.SubTreeNode:
                     return new SubTreeNode();
+                case BehaviourTreeNodeType.SpawnPlayerNode:
+                    return new SpawnPlayerNode();
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return null;
@@ -164,6 +168,8 @@ namespace Behaviours
                 case BehaviourTreeNodeType.SetDialogueIndexNode:
                 case BehaviourTreeNodeType.ForceDialogueNode:
                     return BehaviourTreeNodeCategory.Dialogue;
+                case BehaviourTreeNodeType.SpawnPlayerNode:
+                    return BehaviourTreeNodeCategory.Player;
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return BehaviourTreeNodeCategory.Basic;

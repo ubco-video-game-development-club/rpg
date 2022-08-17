@@ -14,7 +14,7 @@ namespace RPG
         public static LevelingSystem LevelingSystem { get; private set; }
         public static DialogueSystem DialogueSystem { get; private set; }
         public static PopupSystem PopupSystem { get; private set; }
-        public static QuestSystem QuestSystem {get; private set; }
+        public static QuestSystem QuestSystem { get; private set; }
         public static AlignmentSystem AlignmentSystem { get; private set; }
         public static MusicSystem MusicSystem { get; private set; }
 
@@ -32,6 +32,8 @@ namespace RPG
                 Destroy(gameObject);
                 return;
             }
+
+            DontDestroyOnLoad(gameObject);
             instance = this;
 
             ClassSystem = GetComponent<ClassSystem>();

@@ -37,14 +37,6 @@ namespace RPG
             GameManager.AddPlayerCreatedListener(OnPlayerCreated);
         }
 
-        private void Update()
-        {
-            if(Input.GetKeyDown(KeyCode.Space) && OnAlignmentChanged != null)
-            {
-                TestAddPoints();
-            }
-        }
-
         private void OnPlayerCreated()
         {
             Morals = 0;
@@ -54,29 +46,35 @@ namespace RPG
 
         public void UpdateMorals(float points)
         {
-            Debug.Log("Update Morals " + points);
+            if (!GameManager.IsPlayerCreated)
+            {
+                return;
+            }
+
             Morals += points;
             OnAlignmentChanged.Invoke(Morals, Leanings, Sexiness);
         }
 
         public void UpdateLeanings(float points)
         {
-            Debug.Log("Update Leanings " + points);
+            if (!GameManager.IsPlayerCreated)
+            {
+                return;
+            }
+
             Leanings += points;
             OnAlignmentChanged.Invoke(Morals, Leanings, Sexiness);
         }
 
         public void UpdateSexiness(float points)
         {
-            Debug.Log("Update Sexiness " + points);
+            if (!GameManager.IsPlayerCreated)
+            {
+                return;
+            }
+
             Sexiness += points;
             OnAlignmentChanged.Invoke(Morals, Leanings, Sexiness);
-        }
-
-        public void TestAddPoints()
-        {
-            UpdateMorals(.1f);
-            UpdateLeanings(.1f);
         }
     }
 }

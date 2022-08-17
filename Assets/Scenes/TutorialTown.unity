@@ -983,10 +983,12 @@ GameObject:
   - component: {fileID: 541681869}
   - component: {fileID: 541681868}
   - component: {fileID: 541681867}
+  - component: {fileID: 541681871}
   - component: {fileID: 541681866}
   - component: {fileID: 541681865}
   - component: {fileID: 541681864}
   - component: {fileID: 541681863}
+  - component: {fileID: 541681870}
   m_Layer: 8
   m_Name: Mum NPC
   m_TagString: Untagged
@@ -1146,6 +1148,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &541681870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541681862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255646b43a4b22b4586a6b091e9ce397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviourTree: {fileID: 11400000, guid: 7c71120338ed5de4ebf00b34dc58fd56, type: 2}
+  instanceProperties: []
+--- !u!50 &541681871
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541681862}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &546781981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11863,11 +11900,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1594993686445272995, guid: d935c8bab1c94f34e87afb5182e447d3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1594993686445272999, guid: d935c8bab1c94f34e87afb5182e447d3,
         type: 3}
       propertyPath: m_Pivot.x
@@ -11978,21 +12010,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 79974794}
-    - target: {fileID: 1594993686958849015, guid: d935c8bab1c94f34e87afb5182e447d3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectClass
-      objectReference: {fileID: 0}
     - target: {fileID: 1594993687602174244, guid: d935c8bab1c94f34e87afb5182e447d3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 79974794}
-    - target: {fileID: 1594993687602174244, guid: d935c8bab1c94f34e87afb5182e447d3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectClass
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
 --- !u!1001 &1434961905
