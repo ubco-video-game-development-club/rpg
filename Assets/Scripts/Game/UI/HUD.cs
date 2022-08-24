@@ -28,10 +28,7 @@ namespace RPG
                 return;
             }
             instance = this;
-        }
 
-        private void Start()
-        {
             if (!GameManager.IsPlayerCreated)
             {
                 GameManager.AddPlayerCreatedListener(OnPlayerCreated);
