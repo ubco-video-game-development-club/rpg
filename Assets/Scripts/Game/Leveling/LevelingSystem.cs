@@ -64,7 +64,7 @@ namespace RPG
         private LevelingState levelingState = LevelingState.Inactive;
         private LevelUpOption[] skillOptions;
 
-        void Start()
+        void Awake()
         {
             GameManager.AddPlayerCreatedListener(OnPlayerCreated);
         }

@@ -11,7 +11,7 @@ namespace RPG
         private Transform target;
         private Vector2 currVelocity;
 
-        private void Start()
+        private void Awake()
         {
             GameManager.AddPlayerCreatedListener(OnPlayerCreated);
         }

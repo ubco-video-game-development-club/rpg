@@ -14,10 +14,6 @@ namespace RPG
         private void Awake()
         {
             SelectClass(defaultClass);
-        }
-
-        private void Start()
-        {
             GameManager.AddPlayerCreatedListener(OnPlayerCreated);
         }
 
