@@ -24,11 +24,48 @@ MonoBehaviour:
         propertyInfo: []
         nodeTypeName: Behaviours.SelectorNode
       nodeIndex: 2
-    - childCount: 4
+    - childCount: 5
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
       nodeIndex: 3
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: level-property-name
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isFighting
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: behaviour-property-output
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 2
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isFighting
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.GetLevelPropertyNode
+      nodeIndex: 4
     - childCount: 0
       element:
         propertyInfo:
@@ -49,7 +86,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.GetSelfNode
-      nodeIndex: 4
+      nodeIndex: 5
     - childCount: 0
       element:
         propertyInfo:
@@ -86,7 +123,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.FindActorByTagNode
-      nodeIndex: 5
+      nodeIndex: 6
     - childCount: 0
       element:
         propertyInfo:
@@ -123,22 +160,22 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.GetActorPositionNode
-      nodeIndex: 6
+      nodeIndex: 7
     - childCount: 4
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SelectorNode
-      nodeIndex: 7
+      nodeIndex: 8
     - childCount: 7
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 8
+      nodeIndex: 9
     - childCount: 1
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.NotNode
-      nodeIndex: 9
+      nodeIndex: 10
     - childCount: 0
       element:
         propertyInfo:
@@ -159,7 +196,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.HasPropertyNode
-      nodeIndex: 10
+      nodeIndex: 11
     - childCount: 0
       element:
         propertyInfo:
@@ -196,7 +233,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.RangeCheckNode
-      nodeIndex: 11
+      nodeIndex: 12
     - childCount: 0
       element:
         propertyInfo:
@@ -249,12 +286,12 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SimpleMoveNode
-      nodeIndex: 12
+      nodeIndex: 13
     - childCount: 0
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.ForceDialogueNode
-      nodeIndex: 13
+      nodeIndex: 14
     - childCount: 0
       element:
         propertyInfo:
@@ -308,7 +345,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SetPropertyNode
-      nodeIndex: 14
+      nodeIndex: 15
     - childCount: 0
       element:
         propertyInfo:
@@ -345,7 +382,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SetEnemyNode
-      nodeIndex: 15
+      nodeIndex: 16
     - childCount: 0
       element:
         propertyInfo:
@@ -382,17 +419,17 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SetEnemyGroupNode
-      nodeIndex: 16
-    - childCount: 4
+      nodeIndex: 17
+    - childCount: 5
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 17
+      nodeIndex: 18
     - childCount: 1
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.NotNode
-      nodeIndex: 18
+      nodeIndex: 19
     - childCount: 0
       element:
         propertyInfo:
@@ -413,7 +450,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.HasPropertyNode
-      nodeIndex: 19
+      nodeIndex: 20
     - childCount: 0
       element:
         propertyInfo:
@@ -468,7 +505,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.GetEntityPropertyNode
-      nodeIndex: 20
+      nodeIndex: 21
     - childCount: 0
       element:
         propertyInfo:
@@ -539,7 +576,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.CompareNode
-      nodeIndex: 21
+      nodeIndex: 22
     - childCount: 0
       element:
         propertyInfo:
@@ -593,12 +630,49 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SetPropertyNode
-      nodeIndex: 22
+      nodeIndex: 23
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: behaviour-property-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isFighting
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: level-property-name
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isFighting
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.SetLevelPropertyNode
+      nodeIndex: 24
     - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 23
+      nodeIndex: 25
     - childCount: 0
       element:
         propertyInfo:
@@ -619,7 +693,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.HasPropertyNode
-      nodeIndex: 24
+      nodeIndex: 26
     - childCount: 0
       element:
         propertyInfo:
@@ -672,17 +746,17 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SimpleMoveNode
-      nodeIndex: 25
+      nodeIndex: 27
     - childCount: 2
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SelectorNode
-      nodeIndex: 26
+      nodeIndex: 28
     - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 27
+      nodeIndex: 29
     - childCount: 0
       element:
         propertyInfo:
@@ -719,7 +793,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.RangeCheckNode
-      nodeIndex: 28
+      nodeIndex: 30
     - childCount: 0
       element:
         propertyInfo:
@@ -740,7 +814,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SetActionTargetNode
-      nodeIndex: 29
+      nodeIndex: 31
     - childCount: 0
       element:
         propertyInfo:
@@ -761,12 +835,12 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.InvokeActionNode
-      nodeIndex: 30
+      nodeIndex: 32
     - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 31
+      nodeIndex: 33
     - childCount: 0
       element:
         propertyInfo:
@@ -803,7 +877,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.RangeCheckNode
-      nodeIndex: 32
+      nodeIndex: 34
     - childCount: 0
       element:
         propertyInfo:
@@ -824,7 +898,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SetActionTargetNode
-      nodeIndex: 33
+      nodeIndex: 35
     - childCount: 0
       element:
         propertyInfo:
@@ -845,17 +919,17 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.InvokeActionNode
-      nodeIndex: 34
+      nodeIndex: 36
     - childCount: 4
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 35
+      nodeIndex: 37
     - childCount: 1
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.NotNode
-      nodeIndex: 36
+      nodeIndex: 38
     - childCount: 0
       element:
         propertyInfo:
@@ -876,7 +950,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.HasPropertyNode
-      nodeIndex: 37
+      nodeIndex: 39
     - childCount: 0
       element:
         propertyInfo:
@@ -967,7 +1041,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.ArrayIteratorNode
-      nodeIndex: 38
+      nodeIndex: 40
     - childCount: 0
       element:
         propertyInfo:
@@ -1020,7 +1094,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SimpleMoveNode
-      nodeIndex: 39
+      nodeIndex: 41
     - childCount: 0
       element:
         propertyInfo:
@@ -1057,4 +1131,4 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.ArrayIncrementNode
-      nodeIndex: 40
+      nodeIndex: 42
