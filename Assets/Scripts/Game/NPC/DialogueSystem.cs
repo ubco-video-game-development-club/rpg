@@ -19,7 +19,11 @@ namespace Dialogue
         public void BeginDialogue(NPC target, DialogueGraph graph)
         {
             // Disable actions of interacting entities
-            GameManager.Player.enabled = false;
+            if (GameManager.IsPlayerCreated)
+            {
+                GameManager.Player.enabled = false;
+            }
+
             if (target.TryGetComponent(out BehaviourObject obj))
             {
                 obj.enabled = false;
@@ -28,7 +32,7 @@ namespace Dialogue
             currentTarget = target;
             currentGraph = graph;
 
-            HUD.DialoguePanel.Show();
+            HUD.DialoguePanel.SetVisible(true);
             HUD.DialoguePanel.SetTarget(target);
 
             ShowDialogue(0);
@@ -78,20 +82,6 @@ namespace Dialogue
                 target.ActiveIndex = idxOverride.indexOverride;
             }
 
-            // Run custom dialogue behaviour
-            if (graphNode.customBehaviour != null)
-            {
-                Tree<Behaviours.Behaviour>.Node root = graphNode.customBehaviour.Root;
-                if (currentTarget.TryGetComponent<BehaviourObject>(out BehaviourObject obj))
-                {
-                    root.Element.Tick(root, obj, graphNode);
-                }
-                else
-                {
-                    Debug.LogError("Failed to run custom dialogue behaviour due to target NPC not having a BehaviourObject component!");
-                }
-            }
-
             // Display transitions
             DialogueGraphTransition[] transitions = GetTransitionsFor(currentGraph, nodeIdx);
             foreach (DialogueGraphTransition t in transitions)
@@ -105,11 +95,33 @@ namespace Dialogue
         {
             DialogueGraphTransition[] transitions = GetTransitionsFor(currentGraph, currentNodeIdx);
             DialogueGraphTransition transition = transitions[index];
+
+            // Run custom dialogue behaviour for prev node upon clicking any option
+            DialogueGraphNode prevGraphNode = currentGraph.nodes[transition.from];
+            if (prevGraphNode.customBehaviour != null)
+            {
+                Tree<Behaviours.Behaviour>.Node root = prevGraphNode.customBehaviour.Root;
+                if (currentTarget.TryGetComponent<BehaviourObject>(out BehaviourObject obj))
+                {
+                    root.Element.Tick(root, obj, prevGraphNode);
+                }
+                else
+                {
+                    Debug.LogError("Failed to run custom dialogue behaviour due to target NPC not having a BehaviourObject component!");
+                }
+            }
+
+            // Apply the selected transition
             if (transition.to < 0)
             {
                 // We've reached the end of the tree
-                HUD.DialoguePanel.Hide();
-                GameManager.Player.enabled = true;
+                HUD.DialoguePanel.SetVisible(false);
+
+                if (GameManager.IsPlayerCreated)
+                {
+                    GameManager.Player.enabled = true;
+                }
+
                 if (currentTarget.TryGetComponent(out BehaviourObject obj))
                 {
                     obj.enabled = true;

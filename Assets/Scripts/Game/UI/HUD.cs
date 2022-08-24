@@ -14,10 +14,13 @@ namespace RPG
         [SerializeField] private RectTransform popupParent;
         public static RectTransform PopupParent { get => instance.popupParent; }
 
-        [SerializeField] private DialoguePanel dialoguePanel;
-        public static DialoguePanel DialoguePanel { get => instance.dialoguePanel; }
+        [SerializeField] private Menu blackScreen;
+        public static Menu BlackScreen { get => instance.blackScreen; }
 
-        void Awake()
+        [SerializeField] private DialogueMenu dialoguePanel;
+        public static DialogueMenu DialoguePanel { get => instance.dialoguePanel; }
+
+        private void Awake()
         {
             if (instance != null)
             {
@@ -25,6 +28,19 @@ namespace RPG
                 return;
             }
             instance = this;
+        }
+
+        private void Start()
+        {
+            if (!GameManager.IsPlayerCreated)
+            {
+                GameManager.AddPlayerCreatedListener(OnPlayerCreated);
+            }
+        }
+
+        private void OnPlayerCreated()
+        {
+            HUD.BlackScreen.SetVisible(false);
         }
     }
 }

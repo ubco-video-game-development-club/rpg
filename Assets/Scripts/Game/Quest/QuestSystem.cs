@@ -15,6 +15,11 @@ namespace RPG
 
         void OnGUI()
         {
+            if (Journal.Count == 0)
+            {
+                return;
+            }
+
             Rect layoutRect = new Rect(0, Screen.height / 2.0f, 200.0f, Screen.height / 2.0f);
             GUILayout.BeginArea(layoutRect);
             GUILayout.Label("Quest Notes");

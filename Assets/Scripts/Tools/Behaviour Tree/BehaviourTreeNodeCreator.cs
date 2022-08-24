@@ -35,7 +35,10 @@ namespace Behaviours
         SetEnemyGroupNode,
         IsEnemyNode,
         GetEntityPropertyNode,
-        SubTreeNode
+        SubTreeNode,
+        SpawnPlayerNode,
+        GetLevelPropertyNode,
+        SetLevelPropertyNode,
     }
 
     public enum BehaviourTreeNodeCategory
@@ -46,7 +49,8 @@ namespace Behaviours
         Property,
         Movement,
         Combat,
-        Dialogue
+        Dialogue,
+        Player
     }
 
     public static class BehaviourTreeNodeCreator
@@ -119,6 +123,12 @@ namespace Behaviours
                     return new GetEntityPropertyNode();
                 case BehaviourTreeNodeType.SubTreeNode:
                     return new SubTreeNode();
+                case BehaviourTreeNodeType.SpawnPlayerNode:
+                    return new SpawnPlayerNode();
+                case BehaviourTreeNodeType.GetLevelPropertyNode:
+                    return new GetLevelPropertyNode();
+                case BehaviourTreeNodeType.SetLevelPropertyNode:
+                    return new SetLevelPropertyNode();
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return null;
@@ -144,6 +154,8 @@ namespace Behaviours
                 case BehaviourTreeNodeType.ArrayIteratorNode:
                 case BehaviourTreeNodeType.ArrayIncrementNode:
                 case BehaviourTreeNodeType.GetEntityPropertyNode:
+                case BehaviourTreeNodeType.GetLevelPropertyNode:
+                case BehaviourTreeNodeType.SetLevelPropertyNode:
                     return BehaviourTreeNodeCategory.Property;
                 case BehaviourTreeNodeType.GetSelfNode:
                 case BehaviourTreeNodeType.FindActorByTagNode:
@@ -168,6 +180,8 @@ namespace Behaviours
                 case BehaviourTreeNodeType.SetDialogueIndexNode:
                 case BehaviourTreeNodeType.ForceDialogueNode:
                     return BehaviourTreeNodeCategory.Dialogue;
+                case BehaviourTreeNodeType.SpawnPlayerNode:
+                    return BehaviourTreeNodeCategory.Player;
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return BehaviourTreeNodeCategory.Basic;

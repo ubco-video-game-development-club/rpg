@@ -9,7 +9,7 @@ using Behaviours;
 
 namespace RPG
 {
-    public class DialoguePanel : MonoBehaviour
+    public class DialogueMenu : Menu
     {
         [SerializeField] private Image dialoguePortrait;
         [SerializeField] private TextMeshProUGUI dialogueName;
@@ -22,19 +22,9 @@ namespace RPG
         private YieldInstruction letterCooldown = new WaitForSeconds(0.05f);
         private bool skipDialogue = false;
 
-        void Update() 
+        void Update()
         {
-            if(Input.GetButtonUp("SkipDialogue")) skipDialogue = true;
-        }
-
-        public void Show()
-        {
-            gameObject.SetActive(true);
-        }
-
-        public void Hide()
-        {
-            gameObject.SetActive(false);
+            if (Input.GetButtonUp("SkipDialogue")) skipDialogue = true;
         }
 
         public void SetTarget(NPC target)
@@ -61,7 +51,8 @@ namespace RPG
             while (index <= dialogue.Length)
             {
                 dialogueText.text = dialogue.Substring(0, index++);
-                if(skipDialogue) {
+                if (skipDialogue)
+                {
                     dialogueText.text = dialogue;
                     skipDialogue = false;
                     break;
