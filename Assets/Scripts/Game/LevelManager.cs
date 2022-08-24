@@ -9,6 +9,9 @@ namespace RPG
     {
         private static LevelManager instance;
 
+        [SerializeField] private bool isStartLevel = false;
+        public static bool IsStartLevel { get => instance.isStartLevel; }
+
         protected override void Awake()
         {
             base.Awake();
@@ -18,6 +21,7 @@ namespace RPG
                 Destroy(gameObject);
                 return;
             }
+            instance = this;
         }
 
         public static object GetLevelProperty(string name)

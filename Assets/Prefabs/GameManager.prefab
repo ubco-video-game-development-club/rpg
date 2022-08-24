@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5389251662664734669, guid: a5f9d520796bad44fa7ee40761fe922e,
     type: 3}
+  startLevel: MainMenu
 --- !u!114 &3399411770004483276
 MonoBehaviour:
   m_ObjectHideFlags: 0

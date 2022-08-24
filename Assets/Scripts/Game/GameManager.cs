@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using Dialogue;
 
 namespace RPG
@@ -25,7 +26,7 @@ namespace RPG
 
         private UnityEvent onPlayerCreated = new UnityEvent();
 
-        void Awake()
+        private void Awake()
         {
             if (instance != null)
             {
@@ -43,6 +44,14 @@ namespace RPG
             QuestSystem = GetComponent<QuestSystem>();
             AlignmentSystem = GetComponent<AlignmentSystem>();
             MusicSystem = GetComponent<MusicSystem>();
+        }
+
+        private void Start()
+        {
+            if (!LevelManager.IsStartLevel)
+            {
+                CreatePlayer();
+            }
         }
 
         public static void CreatePlayer() => instance.InstanceCreatePlayer();
