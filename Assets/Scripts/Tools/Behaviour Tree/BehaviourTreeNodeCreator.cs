@@ -35,7 +35,9 @@ namespace Behaviours
         IsEnemyNode,
         GetEntityPropertyNode,
         SubTreeNode,
-        SpawnPlayerNode
+        SpawnPlayerNode,
+        GetLevelPropertyNode,
+        SetLevelPropertyNode,
     }
 
     public enum BehaviourTreeNodeCategory
@@ -120,6 +122,10 @@ namespace Behaviours
                     return new SubTreeNode();
                 case BehaviourTreeNodeType.SpawnPlayerNode:
                     return new SpawnPlayerNode();
+                case BehaviourTreeNodeType.GetLevelPropertyNode:
+                    return new GetLevelPropertyNode();
+                case BehaviourTreeNodeType.SetLevelPropertyNode:
+                    return new SetLevelPropertyNode();
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return null;
@@ -145,6 +151,8 @@ namespace Behaviours
                 case BehaviourTreeNodeType.ArrayIteratorNode:
                 case BehaviourTreeNodeType.ArrayIncrementNode:
                 case BehaviourTreeNodeType.GetEntityPropertyNode:
+                case BehaviourTreeNodeType.GetLevelPropertyNode:
+                case BehaviourTreeNodeType.SetLevelPropertyNode:
                     return BehaviourTreeNodeCategory.Property;
                 case BehaviourTreeNodeType.GetSelfNode:
                 case BehaviourTreeNodeType.FindActorByTagNode:
