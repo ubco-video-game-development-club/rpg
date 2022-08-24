@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Speak to Mum
+    displayName: Speak to Mum
     body: Oh goodie! You got it!
     position: {x: -75, y: -169}
     moralsMod: 0
@@ -22,7 +23,9 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
+    behaviourProperties: []
   - name: ->
+    displayName: ->
     body: "I hope those bees didn\u2019t cause you too much trouble. They\u2019re
       so entitled sometimes."
     position: {x: -69, y: -99}
@@ -32,7 +35,9 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
+    behaviourProperties: []
   - name: ->
+    displayName: ->
     body: "Anyways, let\u2019s get to the fun stuff down the street! I know this
       sunflower is gonna be a big hit! "
     position: {x: -73, y: -32}
@@ -42,7 +47,9 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
+    behaviourProperties: []
   - name: ->
+    displayName: ->
     body: Birds sure do love seeds.
     position: {x: -72, y: 58}
     moralsMod: 0
@@ -51,6 +58,7 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
+    behaviourProperties: []
   transitions:
   - name: Transition
     from: 0
@@ -66,6 +74,7 @@ MonoBehaviour:
     to: -1
   exitNode:
     name: Exit
+    displayName: Exit
     body: 
     position: {x: -90, y: 131}
     moralsMod: 0
@@ -74,3 +83,4 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
+    behaviourProperties: []

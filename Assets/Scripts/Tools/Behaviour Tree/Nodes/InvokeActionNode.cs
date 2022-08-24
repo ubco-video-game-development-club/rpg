@@ -16,6 +16,7 @@ namespace Behaviours
 
         public NodeStatus Tick(Tree<Behaviour>.Node self, BehaviourObject obj, IBehaviourInstance instance)
         {
+            Debug.Log("action invoked");
             Behaviour behaviour = self.Element;
             int idx = (int)behaviour.GetProperty(instance, PROP_ACTION_IDX).GetNumber();
             bool success = obj.GetComponent<Enemy>().InvokeAction(idx);

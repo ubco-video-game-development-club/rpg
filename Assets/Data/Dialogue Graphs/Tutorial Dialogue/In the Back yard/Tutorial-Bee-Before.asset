@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Approach Queen Bee
+    displayName: Approach Queen Bee
     body: "What do you think you\u2019re doing back here? Causing a ruckus and what
       not!"
     position: {x: -75, y: -169}
@@ -25,7 +26,9 @@ MonoBehaviour:
     - targetUniqueID: 
       indexOverride: 1
     customBehaviour: {fileID: 0}
+    behaviourProperties: []
   - name: ->
+    displayName: ->
     body: "If you even think of touching that sunflower you got another thing coming
       pal. We found it and we\u2019re taking it!"
     position: {x: -69, y: -99}
@@ -35,7 +38,9 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
+    behaviourProperties: []
   - name: ->
+    displayName: ->
     body: 'We like it so much we might even post up shop here!
 
 '
@@ -46,7 +51,9 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
+    behaviourProperties: []
   - name: ->
+    displayName: ->
     body: "So if you want it, come and get it. Just know... There\u2019s no way you\u2019re
       getting it."
     position: {x: -72, y: 52}
@@ -56,6 +63,7 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
+    behaviourProperties: []
   transitions:
   - name: Transition
     from: 0
@@ -71,6 +79,7 @@ MonoBehaviour:
     to: -1
   exitNode:
     name: Exit
+    displayName: Exit
     body: 
     position: {x: -90, y: 131}
     moralsMod: 0
@@ -79,3 +88,4 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
+    behaviourProperties: []

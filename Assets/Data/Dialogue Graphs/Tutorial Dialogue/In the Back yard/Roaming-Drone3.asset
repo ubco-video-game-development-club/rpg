@@ -10,20 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1ac0479ced6a50409cc854a5b89a582, type: 3}
-  m_Name: Tutorial-Bee-after
+  m_Name: Roaming-Drone3
   m_EditorClassIdentifier: 
   nodes:
-  - name: Speak to Queen Bee
-    displayName: Speak to Queen Bee
-    body: " I may have underestimated you duck. But, don\u2019t worry. I\u2019ve
-      got a good few hundred kids back home at the hive and they\u2019ll be back
-      to get you. Just you wait\u2026\r\n"
-    position: {x: -75, y: -169}
+  - name: Entry
+    displayName: Entry
+    body: Y'know sometimes I think the pollen we collect isn't even used. I think
+      the Queen gets us to harvest it just to keep us compliant.
+    position: {x: -200, y: 0}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
-    questNotes:
-    - {fileID: 11400000, guid: fd6bea3234c831b4d883f8ba9833019d, type: 2}
+    questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
     behaviourProperties: []
@@ -35,7 +33,7 @@ MonoBehaviour:
     name: Exit
     displayName: Exit
     body: 
-    position: {x: -71, y: -51}
+    position: {x: 200, y: 0}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
