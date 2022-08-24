@@ -32,6 +32,7 @@ namespace Behaviours
         GetMoveDirectionNode,
         GetVectorAxisNode,
         SetEnemyNode,
+        SetEnemyGroupNode,
         IsEnemyNode,
         GetEntityPropertyNode,
         SubTreeNode,
@@ -114,6 +115,8 @@ namespace Behaviours
                     return new GetVectorAxisNode();
                 case BehaviourTreeNodeType.SetEnemyNode:
                     return new SetEnemyNode();
+                case BehaviourTreeNodeType.SetEnemyGroupNode:
+                    return new SetEnemyGroupNode();
                 case BehaviourTreeNodeType.IsEnemyNode:
                     return new IsEnemyNode();
                 case BehaviourTreeNodeType.GetEntityPropertyNode:
@@ -170,6 +173,7 @@ namespace Behaviours
                 case BehaviourTreeNodeType.SetActionTargetNode:
                 case BehaviourTreeNodeType.InvokeActionNode:
                 case BehaviourTreeNodeType.SetEnemyNode:
+                case BehaviourTreeNodeType.SetEnemyGroupNode:
                 case BehaviourTreeNodeType.IsEnemyNode:
                     return BehaviourTreeNodeCategory.Combat;
                 case BehaviourTreeNodeType.GetDialogueIndexNode:
