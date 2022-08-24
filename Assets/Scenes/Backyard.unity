@@ -701,7 +701,7 @@ PrefabInstance:
     - target: {fileID: 2096590143981113986, guid: e15788a2f48554048a903c75b506dd26,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: BEES
       objectReference: {fileID: 0}
     - target: {fileID: 2096590143981113988, guid: e15788a2f48554048a903c75b506dd26,
         type: 3}
@@ -966,7 +966,7 @@ PrefabInstance:
     - target: {fileID: 320136540237851053, guid: 19a6839c81a1c1c4296433882c3b26ea,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: BEES
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 320136540237851060, guid: 19a6839c81a1c1c4296433882c3b26ea, type: 3}
@@ -1053,7 +1053,7 @@ PrefabInstance:
     - target: {fileID: 2096590143981113986, guid: e15788a2f48554048a903c75b506dd26,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: BEES
       objectReference: {fileID: 0}
     - target: {fileID: 2096590143981113988, guid: e15788a2f48554048a903c75b506dd26,
         type: 3}
@@ -1318,7 +1318,7 @@ PrefabInstance:
     - target: {fileID: 320136540237851053, guid: 19a6839c81a1c1c4296433882c3b26ea,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: BEES
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 320136540237851060, guid: 19a6839c81a1c1c4296433882c3b26ea, type: 3}
@@ -8254,7 +8254,7 @@ PrefabInstance:
     - target: {fileID: 2096590143981113986, guid: e15788a2f48554048a903c75b506dd26,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: BEES
       objectReference: {fileID: 0}
     - target: {fileID: 2096590143981113988, guid: e15788a2f48554048a903c75b506dd26,
         type: 3}
