@@ -17,6 +17,9 @@ namespace RPG
         [SerializeField] private Menu blackScreen;
         public static Menu BlackScreen { get => instance.blackScreen; }
 
+        [SerializeField] private Menu hudMenu;
+        public static Menu HudMenu { get => instance.hudMenu; }
+
         [SerializeField] private DialogueMenu dialoguePanel;
         public static DialogueMenu DialoguePanel { get => instance.dialoguePanel; }
 
@@ -35,6 +38,7 @@ namespace RPG
         private void OnPlayerCreated()
         {
             HUD.BlackScreen.SetVisible(false);
+            HUD.HudMenu.SetVisible(true);
         }
     }
 }

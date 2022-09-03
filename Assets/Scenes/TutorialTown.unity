@@ -11895,18 +11895,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 216887218, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
-      propertyPath: commaDelay
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 216887218, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
-      propertyPath: letterDelay
-      value: 0.025
-      objectReference: {fileID: 0}
-    - target: {fileID: 216887218, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
-      propertyPath: periodDelay
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 1594993686445272995, guid: d935c8bab1c94f34e87afb5182e447d3,
         type: 3}
       propertyPath: m_Name

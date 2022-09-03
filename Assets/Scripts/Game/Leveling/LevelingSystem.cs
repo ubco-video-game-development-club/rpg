@@ -155,6 +155,16 @@ namespace RPG
             levelingState = LevelingState.Inactive;
         }
 
+        public int GetPotentialLevel()
+        {
+            return Level + LevelUps;
+        }
+
+        public int GetRequiredXP()
+        {
+            return ToXP(Level + 1);
+        }
+
         private void ApplyLevelUp(EntityProperty[] selectedLevelUpBonuses)
         {
             LevelUps--;
