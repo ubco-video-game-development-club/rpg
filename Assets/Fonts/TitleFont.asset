@@ -57,11 +57,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: aAhaWow SDF
+  m_Name: TitleFont
   m_EditorClassIdentifier: 
-  hashCode: 617509495
+  hashCode: 94782995
   material: {fileID: 6408090358201374805}
-  materialHashCode: 1578143351
+  materialHashCode: -1300178989
   m_Version: 1.1.0
   m_SourceFontFileGUID: 22337598714954841b9b71852e2da3ef
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 22337598714954841b9b71852e2da3ef,
@@ -173,6 +173,20 @@ MonoBehaviour:
       m_Height: 72
     m_Scale: 1
     m_AtlasIndex: 0
+  - m_Index: 20
+    m_Metrics:
+      m_Width: 32.78125
+      m_Height: 70.484375
+      m_HorizontalBearingX: 0.171875
+      m_HorizontalBearingY: 67.671875
+      m_HorizontalAdvance: 36.734375
+    m_GlyphRect:
+      m_X: 287
+      m_Y: 899
+      m_Width: 33
+      m_Height: 71
+    m_Scale: 1
+    m_AtlasIndex: 0
   - m_Index: 21
     m_Metrics:
       m_Width: 44.640625
@@ -227,6 +241,34 @@ MonoBehaviour:
       m_Y: 557
       m_Width: 51
       m_Height: 69
+    m_Scale: 1
+    m_AtlasIndex: 0
+  - m_Index: 26
+    m_Metrics:
+      m_Width: 41.140625
+      m_Height: 67.671875
+      m_HorizontalBearingX: 0.875
+      m_HorizontalBearingY: 64.859375
+      m_HorizontalAdvance: 42.625
+    m_GlyphRect:
+      m_X: 339
+      m_Y: 899
+      m_Width: 43
+      m_Height: 68
+    m_Scale: 1
+    m_AtlasIndex: 0
+  - m_Index: 27
+    m_Metrics:
+      m_Width: 48.34375
+      m_Height: 69.4375
+      m_HorizontalBearingX: 2.109375
+      m_HorizontalBearingY: 65.125
+      m_HorizontalAdvance: 51.234375
+    m_GlyphRect:
+      m_X: 287
+      m_Y: 809
+      m_Width: 49
+      m_Height: 71
     m_Scale: 1
     m_AtlasIndex: 0
   - m_Index: 33
@@ -845,48 +887,6 @@ MonoBehaviour:
       m_Height: 68
     m_Scale: 1
     m_AtlasIndex: 0
-  - m_Index: 27
-    m_Metrics:
-      m_Width: 48.34375
-      m_Height: 69.4375
-      m_HorizontalBearingX: 2.109375
-      m_HorizontalBearingY: 65.125
-      m_HorizontalAdvance: 51.234375
-    m_GlyphRect:
-      m_X: 287
-      m_Y: 809
-      m_Width: 49
-      m_Height: 71
-    m_Scale: 1
-    m_AtlasIndex: 0
-  - m_Index: 20
-    m_Metrics:
-      m_Width: 32.78125
-      m_Height: 70.484375
-      m_HorizontalBearingX: 0.171875
-      m_HorizontalBearingY: 67.671875
-      m_HorizontalAdvance: 36.734375
-    m_GlyphRect:
-      m_X: 287
-      m_Y: 899
-      m_Width: 33
-      m_Height: 71
-    m_Scale: 1
-    m_AtlasIndex: 0
-  - m_Index: 26
-    m_Metrics:
-      m_Width: 41.140625
-      m_Height: 67.671875
-      m_HorizontalBearingX: 0.875
-      m_HorizontalBearingY: 64.859375
-      m_HorizontalAdvance: 42.625
-    m_GlyphRect:
-      m_X: 339
-      m_Y: 899
-      m_Width: 43
-      m_Height: 68
-    m_Scale: 1
-    m_AtlasIndex: 0
   m_CharacterTable:
   - m_ElementType: 1
     m_Unicode: 32
@@ -913,6 +913,10 @@ MonoBehaviour:
     m_GlyphIndex: 19
     m_Scale: 1
   - m_ElementType: 1
+    m_Unicode: 49
+    m_GlyphIndex: 20
+    m_Scale: 1
+  - m_ElementType: 1
     m_Unicode: 50
     m_GlyphIndex: 21
     m_Scale: 1
@@ -927,6 +931,14 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 53
     m_GlyphIndex: 24
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 55
+    m_GlyphIndex: 26
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 56
+    m_GlyphIndex: 27
     m_Scale: 1
   - m_ElementType: 1
     m_Unicode: 62
@@ -1103,18 +1115,6 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 121
     m_GlyphIndex: 92
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 56
-    m_GlyphIndex: 27
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 49
-    m_GlyphIndex: 20
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 55
-    m_GlyphIndex: 26
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: -7660348258499131411}
@@ -1570,6 +1570,36 @@ MonoBehaviour:
     kerningPairs: []
   m_FontFeatureTable:
     m_GlyphPairAdjustmentRecords:
+    - m_FirstAdjustmentRecord:
+        m_GlyphIndex: 26
+        m_GlyphValueRecord:
+          m_XPlacement: 0
+          m_YPlacement: 0
+          m_XAdvance: -0.265625
+          m_YAdvance: 0
+      m_SecondAdjustmentRecord:
+        m_GlyphIndex: 19
+        m_GlyphValueRecord:
+          m_XPlacement: 0
+          m_YPlacement: 0
+          m_XAdvance: 0
+          m_YAdvance: 0
+      m_FeatureLookupFlags: 0
+    - m_FirstAdjustmentRecord:
+        m_GlyphIndex: 26
+        m_GlyphValueRecord:
+          m_XPlacement: 0
+          m_YPlacement: 0
+          m_XAdvance: -0.53125
+          m_YAdvance: 0
+      m_SecondAdjustmentRecord:
+        m_GlyphIndex: 23
+        m_GlyphValueRecord:
+          m_XPlacement: 0
+          m_YPlacement: 0
+          m_XAdvance: 0
+          m_YAdvance: 0
+      m_FeatureLookupFlags: 0
     - m_FirstAdjustmentRecord:
         m_GlyphIndex: 39
         m_GlyphValueRecord:
@@ -3685,36 +3715,6 @@ MonoBehaviour:
           m_XAdvance: 0
           m_YAdvance: 0
       m_FeatureLookupFlags: 0
-    - m_FirstAdjustmentRecord:
-        m_GlyphIndex: 26
-        m_GlyphValueRecord:
-          m_XPlacement: 0
-          m_YPlacement: 0
-          m_XAdvance: -0.265625
-          m_YAdvance: 0
-      m_SecondAdjustmentRecord:
-        m_GlyphIndex: 19
-        m_GlyphValueRecord:
-          m_XPlacement: 0
-          m_YPlacement: 0
-          m_XAdvance: 0
-          m_YAdvance: 0
-      m_FeatureLookupFlags: 0
-    - m_FirstAdjustmentRecord:
-        m_GlyphIndex: 26
-        m_GlyphValueRecord:
-          m_XPlacement: 0
-          m_YPlacement: 0
-          m_XAdvance: -0.53125
-          m_YAdvance: 0
-      m_SecondAdjustmentRecord:
-        m_GlyphIndex: 23
-        m_GlyphValueRecord:
-          m_XPlacement: 0
-          m_YPlacement: 0
-          m_XAdvance: 0
-          m_YAdvance: 0
-      m_FeatureLookupFlags: 0
   fallbackFontAssets: []
   m_FallbackFontAssetTable: []
   m_CreationSettings:
@@ -3827,7 +3827,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.25
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9

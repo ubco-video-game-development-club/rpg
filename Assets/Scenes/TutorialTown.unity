@@ -11993,10 +11993,26 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 952864476ae19b546b931fa2c540dbf1,
         type: 2}
     - target: {fileID: 77760302, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 77760302, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 77760302, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 77760302, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 6408090358201374805, guid: 952864476ae19b546b931fa2c540dbf1,
         type: 2}
+    - target: {fileID: 77760302, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 234117890, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
       propertyPath: m_Alpha
       value: 1
