@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Speak to Mr.Waddlesworth
+    displayName: Speak to Mr.Waddlesworth
     body: "Hello! Your Mum let me know you would be coming by to grab her package
       for her.\r"
     position: {x: -75, y: -169}
@@ -23,7 +24,9 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
-  - name: ->
+    behaviourProperties: []
+  - name: 
+    displayName: 
     body: "I have unfortunate news however. Last night there was a break in and somebody
       has taken the package your Mum ordered\u2026"
     position: {x: 200, y: -162}
@@ -33,7 +36,9 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
-  - name: ->
+    behaviourProperties: []
+  - name: 
+    displayName: 
     body: I would have just told you to let your Mum know I am sorry. And, that I
       will get her a reimbursement for her stolen package soon.
     position: {x: 194, y: -98}
@@ -43,7 +48,9 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
-  - name: ->
+    behaviourProperties: []
+  - name: 
+    displayName: 
     body: "However\u2026 I do have a sneaking suspicion as to who may have taken
       it."
     position: {x: 193, y: -30}
@@ -53,7 +60,9 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
-  - name: ->
+    behaviourProperties: []
+  - name: 
+    displayName: 
     body: "I\u2019m not sure if you are supposed to know this or not. But, the package
       your Mum ordered had in it, some new clothes for you."
     position: {x: 198, y: 29}
@@ -63,17 +72,21 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
-  - name: ->
+    behaviourProperties: []
+  - name: 
+    displayName: 
     body: And this morning, I happened to see Lil Jimmy Beakington wearing  a sweater
       uncannily similar to the one your Mum had ordered.
-    position: {x: 194, y: 98}
+    position: {x: 195, y: 98}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
-  - name: ->
+    behaviourProperties: []
+  - name: 
+    displayName: 
     body: "Now I\u2019m not saying you should go \u201CConfront Jimmy\u201D or \u201CCause
       a scene.\u201D However, I am saying I do love drama."
     position: {x: -107, y: -94}
@@ -83,7 +96,9 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
-  - name: ->
+    behaviourProperties: []
+  - name: 
+    displayName: 
     body: "Anyways, the bottom line is this. You can go home and let your Mum know
       she will be reimbursed in due time. Or, you can go be \u201Ccivil\u201D *wink*
       and \"talk it out\" with Jimmy. *wink*"
@@ -99,7 +114,9 @@ MonoBehaviour:
     - targetUniqueID: 
       indexOverride: 1
     customBehaviour: {fileID: 0}
+    behaviourProperties: []
   - name: I think I will go talk to Jimmy.
+    displayName: I think I will go talk to Jimmy.
     body: "Well regardless of what you do I can\u2019t have you leave empty handed.
       Not on Recipe Day! You are free to take a slingshot or this neat little sword
       that came in the other day. "
@@ -110,7 +127,9 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
+    behaviourProperties: []
   - name: I will head home and let my Mum know what happened.
+    displayName: I will head home and let my Mum...
     body: "Well regardless of what you do I can\u2019t have you leave empty handed.
       Not on Recipe Day! You are free to take a slingshot or this neat little sword
       that came in the other day. "
@@ -121,7 +140,9 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
-  - name: ->
+    behaviourProperties: []
+  - name: 
+    displayName: 
     body: Whether you use them or not is up to you. *wink*
     position: {x: -134, y: 118}
     moralsMod: 0
@@ -130,6 +151,7 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
+    behaviourProperties: []
   transitions:
   - name: Transition
     from: 0
@@ -169,6 +191,7 @@ MonoBehaviour:
     to: -1
   exitNode:
     name: Exit
+    displayName: Exit
     body: 
     position: {x: -362, y: 164}
     moralsMod: 0
@@ -177,3 +200,4 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
+    behaviourProperties: []

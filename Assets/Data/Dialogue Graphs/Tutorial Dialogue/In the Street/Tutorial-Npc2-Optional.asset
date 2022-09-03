@@ -25,6 +25,7 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
+    behaviourProperties: []
   transitions:
   - name: Transition
     from: 0
@@ -39,3 +40,4 @@ MonoBehaviour:
     questNotes: []
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
+    behaviourProperties: []

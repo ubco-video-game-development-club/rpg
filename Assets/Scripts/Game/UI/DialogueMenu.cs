@@ -16,6 +16,7 @@ namespace RPG
         [SerializeField] private TextMeshProUGUI dialogueText;
         [SerializeField] private Transform dialogueButtons;
         [SerializeField] private GameObject buttonPrefab;
+        [SerializeField] private string defaultOption = "[...]";
 
         private List<GameObject> buttonPool = new List<GameObject>();
         private int buttonPoolIndex = 0;
@@ -88,7 +89,7 @@ namespace RPG
                 buttonText = button.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
             }
 
-            buttonText.SetText(name);
+            buttonText.SetText(name.Length > 0 ? name : defaultOption);
             onButtonClicked.RemoveAllListeners();
             onButtonClicked.AddListener(() => listener(buttonIndex));
         }

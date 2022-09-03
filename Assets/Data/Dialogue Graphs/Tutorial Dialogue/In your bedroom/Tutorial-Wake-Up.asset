@@ -24,8 +24,8 @@ MonoBehaviour:
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
     behaviourProperties: []
-  - name: ->
-    displayName: ->
+  - name: 
+    displayName:
     body: "Seriously, get up. It\u2019s like 3 pm and you said you would run errands
       for me today."
     position: {x: -21, y: -2}
@@ -36,11 +36,11 @@ MonoBehaviour:
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
     behaviourProperties: []
-  - name: ->
-    displayName: ->
+  - name: 
+    displayName:
     body: "You need to get to Mr.Waddleswoth\u2019s shop before it closes up. So
       you better get there soon!"
-    position: {x: -26, y: 98}
+    position: {x: -25, y: 97}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
