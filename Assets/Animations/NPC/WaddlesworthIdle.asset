@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a43995d22fea24785b15ce77c68343, type: 3}
+  m_Name: WaddlesworthIdle
+  m_EditorClassIdentifier: 
+  frameRate: 6
+  lockFrames: 0
+  frames:
+  - {fileID: -3713467532807335336, guid: 0bbfe1fef35fa2243a811a7b497fb9e2, type: 3}
+  - {fileID: 6949406698492277013, guid: 0bbfe1fef35fa2243a811a7b497fb9e2, type: 3}
+  - {fileID: -4960744196928338057, guid: 0bbfe1fef35fa2243a811a7b497fb9e2, type: 3}
+  - {fileID: 5381881019373061238, guid: 0bbfe1fef35fa2243a811a7b497fb9e2, type: 3}
+  - {fileID: -1703114865075901663, guid: 0bbfe1fef35fa2243a811a7b497fb9e2, type: 3}
+  - {fileID: 6122975771143527513, guid: 0bbfe1fef35fa2243a811a7b497fb9e2, type: 3}

@@ -16,9 +16,9 @@ namespace RPG
         private const float DIRECTION_LOOK_THRESHOLD = 0.45f;
 
         [SerializeField] private int initialMaxHealth;
-        [SerializeField] private AnimationSet8D idleAnimations;
-        [SerializeField] private AnimationSet8D moveAnimations;
-        [SerializeField] private AnimationSet8D hurtAnimations;
+        [SerializeField] private Animation2D idleAnimation;
+        [SerializeField] private Animation2D moveAnimation;
+        [SerializeField] private Animation2D hurtAnimation;
 
         public int MaxHealth
         {
@@ -45,6 +45,7 @@ namespace RPG
         protected Vector2Int facingDirection;
         protected new Rigidbody2D rigidbody2D;
         protected Animator2D animator2D;
+        protected SpriteRenderer spriteRenderer;
         private Vector3 prevFramePosition;
 
         protected virtual void Awake()
@@ -52,6 +53,7 @@ namespace RPG
             // Initialize components
             rigidbody2D = GetComponent<Rigidbody2D>();
             animator2D = GetComponent<Animator2D>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
 
             // Setup events
             AddPropertyChangedListener<int>(PropertyName.MaxHealth, (maxHealth) => Health = maxHealth);
@@ -76,6 +78,9 @@ namespace RPG
                 AnimateIdle();
             }
 
+            // Update sprite flip direction
+            spriteRenderer.flipX = facingDirection.x < 0;
+
             prevFramePosition = transform.position;
         }
 
@@ -95,24 +100,24 @@ namespace RPG
 
         protected virtual void AnimateIdle()
         {
-            animator2D.PlayAnimation(idleAnimations.Get(facingDirection), true);
+            animator2D.Play(idleAnimation, true);
         }
 
         protected virtual void AnimateMove()
         {
             facingDirection = GetMoveDirection();
-            animator2D.PlayAnimation(moveAnimations.Get(facingDirection), true);
+            animator2D.Play(moveAnimation, true);
         }
 
         protected virtual void AnimateHurt()
         {
-            animator2D.PlayAnimation(hurtAnimations.Get(facingDirection), false);
+            animator2D.Play(hurtAnimation, false);
         }
 
         protected virtual void AnimateAction(Action action)
         {
             facingDirection = GetActionDirection();
-            animator2D.PlayAnimation(action.Animation.Get(facingDirection), false);
+            animator2D.Play(action.Animation, false);
         }
 
         protected Vector2Int GetMoveDirection()
