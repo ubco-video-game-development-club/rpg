@@ -25,6 +25,7 @@ namespace RPG
         [SerializeField] private Weapon defaultSecondaryWeapon;
         [SerializeField] private float interactRadius;
         [SerializeField] private LayerMask interactLayer;
+        [SerializeField] private bool showDebugUI = false;
 
         public ClassBaseStats ClassBaseStats { get; private set; }
 
@@ -69,6 +70,11 @@ namespace RPG
 
         void OnGUI()
         {
+            if (!showDebugUI)
+            {
+                return;
+            }
+
             GUILayout.BeginArea(new Rect(Screen.width - 160, 10, 150, Screen.height - 230));
             GUILayout.Label("Player Properties");
             foreach (KeyValuePair<PropertyName, dynamic> prop in Properties)
