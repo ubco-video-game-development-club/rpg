@@ -83,44 +83,44 @@ namespace RPG
         {
             if (!GameManager.IsPlayerCreated) return;
 
-            GUILayout.BeginArea(new Rect(10, 10, 150, Screen.height / 2 - 15));
-            GUILayout.Label($"XP: {XP}");
-            GUILayout.Label($"Level: {Level}");
-            GUILayout.Label($"Available Level Ups: {LevelUps}");
-            if (LevelUps > 0)
-            {
-                if (levelingState != LevelingState.Inactive) GUI.enabled = false;
-                if (GUILayout.Button("Level Up")) levelingState = LevelingState.QFT;
-                GUI.enabled = true;
-            }
-            GUILayout.EndArea();
+            // GUILayout.BeginArea(new Rect(10, 10, 150, Screen.height / 2 - 15));
+            // GUILayout.Label($"XP: {XP}");
+            // GUILayout.Label($"Level: {Level}");
+            // GUILayout.Label($"Available Level Ups: {LevelUps}");
+            // if (LevelUps > 0)
+            // {
+            //     if (levelingState != LevelingState.Inactive) GUI.enabled = false;
+            //     if (GUILayout.Button("Level Up")) levelingState = LevelingState.QFT;
+            //     GUI.enabled = true;
+            // }
+            // GUILayout.EndArea();
 
-            if (levelingState == LevelingState.QFT)
-            {
-                GUILayout.BeginArea(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 150, 150, 300));
-                GUILayout.Label("Select a levelup option!");
-                GUILayout.Space(10);
-                if (GUILayout.Button("Level Up Quackers!")) LevelUpQuackers();
-                GUILayout.Space(10);
-                if (GUILayout.Button("Level Up Flappers!")) LevelUpFlappers();
-                GUILayout.Space(10);
-                if (GUILayout.Button("Level Up Tappers!")) LevelUpTappers();
-                GUILayout.EndArea();
-            }
+            // if (levelingState == LevelingState.QFT)
+            // {
+            //     GUILayout.BeginArea(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 150, 150, 300));
+            //     GUILayout.Label("Select a levelup option!");
+            //     GUILayout.Space(10);
+            //     if (GUILayout.Button("Level Up Quackers!")) LevelUpQuackers();
+            //     GUILayout.Space(10);
+            //     if (GUILayout.Button("Level Up Flappers!")) LevelUpFlappers();
+            //     GUILayout.Space(10);
+            //     if (GUILayout.Button("Level Up Tappers!")) LevelUpTappers();
+            //     GUILayout.EndArea();
+            // }
 
-            if (levelingState == LevelingState.Skills)
-            {
-                GUILayout.BeginArea(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 150, 150, 300));
-                GUILayout.Label("Select one of the following skills!");
-                GUILayout.Space(10);
-                foreach (LevelUpOption option in skillOptions)
-                {
-                    if (GUILayout.Button(option.Title)) SelectSkill(option);
-                    GUILayout.Label(option.Description);
-                    GUILayout.Space(10);
-                }
-                GUILayout.EndArea();
-            }
+            // if (levelingState == LevelingState.Skills)
+            // {
+            //     GUILayout.BeginArea(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 150, 150, 300));
+            //     GUILayout.Label("Select one of the following skills!");
+            //     GUILayout.Space(10);
+            //     foreach (LevelUpOption option in skillOptions)
+            //     {
+            //         if (GUILayout.Button(option.Title)) SelectSkill(option);
+            //         GUILayout.Label(option.Description);
+            //         GUILayout.Space(10);
+            //     }
+            //     GUILayout.EndArea();
+            // }
         }
 
         public void AddXP(int amount)
