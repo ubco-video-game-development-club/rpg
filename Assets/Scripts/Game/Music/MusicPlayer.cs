@@ -7,6 +7,7 @@ public class MusicPlayer : MonoBehaviour
     private static MusicPlayer instance;
 
     [SerializeField] private AudioClip zoneTrack;
+    [SerializeField] private bool playMusic = true;
 
     private AudioSource audioSource;
 
@@ -26,7 +27,7 @@ public class MusicPlayer : MonoBehaviour
 
     private void InstancePlayZoneTrack()
     {
-        if (zoneTrack != null)
+        if (zoneTrack != null && playMusic)
         {
             audioSource.clip = zoneTrack;
             audioSource.Play();
