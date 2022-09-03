@@ -231,14 +231,14 @@ namespace RPG
         protected override void AnimateAction(Action action)
         {
             facingDirection = GetActionDirection();
-            AnimationSet8D avatarAnim = action.Animation;
+            Animation2D avatarAnim = action.Animation;
             if (action.UseWeaponAnimation)
             {
                 WeaponAnimation weaponAnim = PrimaryWeapon.GetAnimation(action.AnimationType);
                 avatarAnim = weaponAnim.AvatarAnimation;
-                weaponAnimator2D.PlayAnimation(weaponAnim.Animation.Get(facingDirection), false, true);
+                weaponAnimator2D.Play(weaponAnim.Animation, false, true);
             }
-            animator2D.PlayAnimation(avatarAnim.Get(facingDirection), false);
+            animator2D.Play(avatarAnim, false);
         }
 
         private void HandleActionInput(string button, Action action)

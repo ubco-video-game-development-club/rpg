@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65fe40d9c1506a14b9dbc1fb3d47d7ee, type: 3}
-  m_Name: Impale
+  m_Name: JimmyMelee
   m_EditorClassIdentifier: 
   onHitEffects: []
   onKillEffects: []
-  useWeaponAnimation: 1
+  useWeaponAnimation: 0
   animationType: 0
-  animation: {fileID: 11400000, guid: d6c6c34abd45a7f43859757929f23b28, type: 2}
-  cooldown: 6
-  damage: 4
-  reach: 2
-  arcAngle: 30
+  animation: {fileID: 11400000, guid: 72f8ba3391021de45ab454fd8ef89ac2, type: 2}
+  cooldown: 1
+  damage: 3
+  reach: 0.8
+  arcAngle: 60

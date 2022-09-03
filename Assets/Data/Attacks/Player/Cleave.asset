@@ -16,10 +16,7 @@ MonoBehaviour:
   onKillEffects: []
   useWeaponAnimation: 1
   animationType: 0
-  animation:
-    type: 0
-    avatarAnimation: {fileID: 11400000, guid: 6b2d400b29640cf46b111ac5fdad87c9, type: 2}
-    weaponAnimation: {fileID: 11400000, guid: 6b2d400b29640cf46b111ac5fdad87c9, type: 2}
+  animation: {fileID: 11400000, guid: d6c6c34abd45a7f43859757929f23b28, type: 2}
   cooldown: 1.5
   damage: 2
   reach: 1.5
