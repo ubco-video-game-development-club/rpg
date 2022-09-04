@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fb5e73c80040247a00b01917c6e426, type: 3}
+  m_Name: Follow Player
+  m_EditorClassIdentifier: 
+  tree:
+    serializedNodes:
+    - childCount: 3
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SequenceNode
+      nodeIndex: 1
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: tag-name
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: Player
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: actor-output
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: target-object
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.FindActorByTagNode
+      nodeIndex: 2
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: actor-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: target-object
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-output
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: target-output
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.GetActorPositionNode
+      nodeIndex: 3
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: position-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: target-output
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: stop-distance
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 2
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: move-speed
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 10
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.SimpleMoveNode
+      nodeIndex: 4
