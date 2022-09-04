@@ -12013,6 +12013,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 216887218, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
+      propertyPath: buttonSpacing
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 234117890, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
       propertyPath: m_Alpha
       value: 1
@@ -12149,6 +12153,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -8582091651058838027, guid: d515fb3ded77c9a48a82096a4bbfd636,
         type: 2}
+    - target: {fileID: 1594993686604947230, guid: d935c8bab1c94f34e87afb5182e447d3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594993686604947230, guid: d935c8bab1c94f34e87afb5182e447d3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 1594993686958849015, guid: d935c8bab1c94f34e87afb5182e447d3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

@@ -20,6 +20,7 @@ namespace RPG
         [SerializeField] private float letterDelay = 0.05f;
         [SerializeField] private float commaDelay = 0.2f;
         [SerializeField] private float periodDelay = 0.5f;
+        [SerializeField] private float buttonSpacing = 5f;
 
         private List<GameObject> buttonPool = new List<GameObject>();
         private int buttonPoolIndex = 0;
@@ -97,29 +98,28 @@ namespace RPG
 
         public void CreateOption(string name, UnityAction<int> listener)
         {
-            TextMeshProUGUI buttonText;
-            UnityEvent onButtonClicked;
+            GameObject button;
 
             int buttonIndex = buttonPoolIndex;
             if (buttonPoolIndex >= buttonPool.Count)
             {
-                RectTransform button = Instantiate(buttonPrefab, Vector2.zero, Quaternion.identity, dialogueButtons).GetComponent<RectTransform>();
-                button.anchoredPosition = Vector2.down * buttonPool.Count * 30;
-                onButtonClicked = button.GetComponent<Button>().onClick;
-                buttonText = button.GetChild(0).GetComponent<TextMeshProUGUI>();
-
-                buttonPool.Add(button.gameObject);
+                button = Instantiate(buttonPrefab, Vector2.zero, Quaternion.identity, dialogueButtons);
+                buttonPool.Add(button);
                 buttonPoolIndex++;
             }
             else
             {
-                GameObject button = buttonPool[buttonPoolIndex++];
+                button = buttonPool[buttonPoolIndex++];
                 button.SetActive(true);
-                onButtonClicked = button.GetComponent<Button>().onClick;
-                buttonText = button.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
             }
 
-            buttonText.SetText(name.Length > 0 ? name : defaultOption);
+            TextMeshProUGUI buttonText = button.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            buttonText.SetText(" > " + (name.Length > 0 ? name : defaultOption));
+            buttonText.ForceMeshUpdate();
+
+            button.GetComponent<RectTransform>().anchoredPosition = Vector2.down * (buttonPool.Count - 1) * (buttonText.bounds.size.y + buttonSpacing);
+
+            UnityEvent onButtonClicked = button.GetComponent<Button>().onClick;
             onButtonClicked.RemoveAllListeners();
             onButtonClicked.AddListener(() => listener(buttonIndex));
         }
