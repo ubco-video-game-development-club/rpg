@@ -113,11 +113,20 @@ namespace RPG
                 button.SetActive(true);
             }
 
+            int activeButtonCount = 0;
+            foreach (GameObject activeButton in buttonPool)
+            {
+                if (activeButton.activeInHierarchy)
+                {
+                    activeButtonCount++;
+                }
+            }
+
             TextMeshProUGUI buttonText = button.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
             buttonText.SetText(" > " + (name.Length > 0 ? name : defaultOption));
             buttonText.ForceMeshUpdate();
 
-            button.GetComponent<RectTransform>().anchoredPosition = Vector2.down * (buttonPool.Count - 1) * (buttonText.bounds.size.y + buttonSpacing);
+            button.GetComponent<RectTransform>().anchoredPosition = Vector2.down * (activeButtonCount - 1) * (buttonText.bounds.size.y + buttonSpacing);
 
             UnityEvent onButtonClicked = button.GetComponent<Button>().onClick;
             onButtonClicked.RemoveAllListeners();
