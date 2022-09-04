@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace RPG
 {
@@ -8,35 +9,15 @@ namespace RPG
     {
         public HashSet<Quest> Journal { get; private set; }
 
+        private UnityEvent<Quest> onQuestAdded = new UnityEvent<Quest>();
+        public UnityEvent<Quest> OnQuestAdded { get => onQuestAdded; }
+
+        private UnityEvent<QuestNote> onQuestNoteAdded = new UnityEvent<QuestNote>();
+        public UnityEvent<QuestNote> OnQuestNoteAdded { get => onQuestNoteAdded; }
+
         void Awake()
         {
             Journal = new HashSet<Quest>();
-        }
-
-        void OnGUI()
-        {
-            if (Journal.Count == 0)
-            {
-                return;
-            }
-
-            Rect layoutRect = new Rect(0, Screen.height / 2.0f, 200.0f, Screen.height / 2.0f);
-            GUILayout.BeginArea(layoutRect);
-            GUILayout.Label("Quest Notes");
-            foreach (Quest quest in Journal)
-            {
-                GUILayout.Label(quest.Title);
-                GUILayout.BeginHorizontal();
-                GUILayout.Space(20);
-                GUILayout.BeginVertical();
-                foreach (QuestNote note in quest.Notes)
-                {
-                    GUILayout.Label("- " + note.Desc);
-                }
-                GUILayout.EndVertical();
-                GUILayout.EndHorizontal();
-            }
-            GUILayout.EndArea();
         }
 
         public void AddNote(QuestNote note)
@@ -44,6 +25,7 @@ namespace RPG
             Quest quest = note.Quest;
             AddQuest(quest);
             quest.AddNote(note);
+            onQuestNoteAdded.Invoke(note);
         }
 
         public void AddQuest(Quest quest)
@@ -52,6 +34,7 @@ namespace RPG
             {
                 Journal.Add(quest);
                 quest.Initialize();
+                onQuestAdded.Invoke(quest);
             }
         }
     }

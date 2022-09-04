@@ -16,13 +16,28 @@ namespace RPG
         [SerializeField] private TextMeshProUGUI dialogueText;
         [SerializeField] private Transform dialogueButtons;
         [SerializeField] private GameObject buttonPrefab;
+        [SerializeField] private string defaultOption = "[...]";
+        [SerializeField] private float letterDelay = 0.05f;
+        [SerializeField] private float commaDelay = 0.2f;
+        [SerializeField] private float periodDelay = 0.5f;
+        [SerializeField] private float buttonSpacing = 5f;
 
         private List<GameObject> buttonPool = new List<GameObject>();
         private int buttonPoolIndex = 0;
-        private YieldInstruction letterCooldown = new WaitForSeconds(0.05f);
+        private WaitForSeconds letterWait;
+        private WaitForSeconds commaWait;
+        private WaitForSeconds periodWait;
         private bool skipDialogue = false;
 
-        void Update()
+        protected override void Awake()
+        {
+            base.Awake();
+            letterWait = new WaitForSeconds(letterDelay);
+            commaWait = new WaitForSeconds(commaDelay);
+            periodWait = new WaitForSeconds(periodDelay);
+        }
+
+        private void Update()
         {
             if (Input.GetButtonUp("SkipDialogue")) skipDialogue = true;
         }
@@ -48,47 +63,72 @@ namespace RPG
             buttonPoolIndex = 0;
 
             int index = 0;
-            while (index <= dialogue.Length)
+            while (index < dialogue.Length)
             {
-                dialogueText.text = dialogue.Substring(0, index++);
                 if (skipDialogue)
                 {
-                    dialogueText.text = dialogue;
-                    skipDialogue = false;
                     break;
                 }
 
-                yield return letterCooldown;
+                dialogueText.text = dialogue.Substring(0, index + 1);
+
+                WaitForSeconds currWait = letterWait;
+                string currLetter = dialogue.Substring(index, 1);
+                string nextLetter = index + 1 < dialogue.Length ? dialogue.Substring(index + 1, 1) : "";
+
+                if (currLetter == "," || currLetter == "-")
+                {
+                    currWait = commaWait;
+                }
+                else if ((currLetter == "." || currLetter == "!" || currLetter == "?") && nextLetter == " ")
+                {
+                    currWait = periodWait;
+                }
+
+                yield return currWait;
+
+                index++;
             }
+
+            dialogueText.text = dialogue;
+            skipDialogue = false;
 
             onFinished();
         }
 
         public void CreateOption(string name, UnityAction<int> listener)
         {
-            TextMeshProUGUI buttonText;
-            UnityEvent onButtonClicked;
+            GameObject button;
 
             int buttonIndex = buttonPoolIndex;
             if (buttonPoolIndex >= buttonPool.Count)
             {
-                RectTransform button = Instantiate(buttonPrefab, Vector2.zero, Quaternion.identity, dialogueButtons).GetComponent<RectTransform>();
-                button.anchoredPosition = Vector2.down * buttonPool.Count * 30;
-                onButtonClicked = button.GetComponent<Button>().onClick;
-                buttonText = button.GetChild(0).GetComponent<TextMeshProUGUI>();
-
-                buttonPool.Add(button.gameObject);
+                button = Instantiate(buttonPrefab, Vector2.zero, Quaternion.identity, dialogueButtons);
+                buttonPool.Add(button);
                 buttonPoolIndex++;
             }
             else
             {
-                GameObject button = buttonPool[buttonPoolIndex++];
+                button = buttonPool[buttonPoolIndex++];
                 button.SetActive(true);
-                onButtonClicked = button.GetComponent<Button>().onClick;
-                buttonText = button.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
             }
 
-            buttonText.SetText(name);
+            int activeButtonCount = 0;
+            foreach (GameObject activeButton in buttonPool)
+            {
+                if (activeButton.activeInHierarchy)
+                {
+                    activeButtonCount++;
+                }
+            }
+
+            TextMeshProUGUI buttonText = button.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            buttonText.SetText(" > " + (name.Length > 0 ? name : defaultOption));
+            buttonText.ForceMeshUpdate();
+
+            button.GetComponent<RectTransform>().anchoredPosition = Vector2.down * (activeButtonCount - 1) * (buttonText.bounds.size.y + buttonSpacing);
+
+            UnityEvent onButtonClicked = button.GetComponent<Button>().onClick;
             onButtonClicked.RemoveAllListeners();
             onButtonClicked.AddListener(() => listener(buttonIndex));
         }

@@ -60,7 +60,7 @@ namespace RPG
 
         private void InstanceCreatePlayer()
         {
-            Player = Instantiate(playerPrefab);
+            Player = Instantiate(playerPrefab, LevelManager.DefaultSpawnPoint.position, Quaternion.identity);
             onPlayerCreated.Invoke();
         }
 

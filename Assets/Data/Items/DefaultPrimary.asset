@@ -18,5 +18,5 @@ MonoBehaviour:
   attack: {fileID: 11400000, guid: 4d1447551f2358e4daa2b17559943383, type: 2}
   animations:
   - type: 0
-    avatarAnimation: {fileID: 11400000, guid: 6b2d400b29640cf46b111ac5fdad87c9, type: 2}
-    animation: {fileID: 11400000, guid: 6b2d400b29640cf46b111ac5fdad87c9, type: 2}
+    avatarAnimation: {fileID: 11400000, guid: d6c6c34abd45a7f43859757929f23b28, type: 2}
+    animation: {fileID: 11400000, guid: d6c6c34abd45a7f43859757929f23b28, type: 2}

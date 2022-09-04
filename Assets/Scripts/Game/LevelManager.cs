@@ -12,6 +12,9 @@ namespace RPG
         [SerializeField] private bool isStartLevel = false;
         public static bool IsStartLevel { get => instance.isStartLevel; }
 
+        [SerializeField] private Transform defaultSpawnPoint;
+        public static Transform DefaultSpawnPoint { get => instance.defaultSpawnPoint; }
+
         protected override void Awake()
         {
             base.Awake();

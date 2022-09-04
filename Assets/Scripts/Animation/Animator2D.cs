@@ -1,48 +1,78 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-namespace RPG.Animation
+public class Animator2D : MonoBehaviour
 {
-    [RequireComponent(typeof(Animator))]
-    public class Animator2D : MonoBehaviour
+    public Rigidbody2D Rigidbody2D { get; private set; }
+
+    private bool isLocked;
+    private Animation2D prev;
+    private UnityAction triggerListener;
+
+    private Coroutine framesTimer;
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake()
     {
-        [SerializeField] private AnimationClip defaultAnimation;
+        Rigidbody2D = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
-        private AnimatorOverrideController controller;
-        private bool isLocked;
-        private AnimationClip prev;
+    public void AwaitTrigger(UnityAction listener)
+    {
+        triggerListener = listener;
+    }
 
-        private void Awake()
+    public void Play(Animation2D animation, bool looping, bool reset = false)
+    {
+        if (isLocked && looping) return;
+        if (prev == animation && looping) return;
+
+        if (!looping)
         {
-            Animator animator = GetComponent<Animator>();
-            controller = new AnimatorOverrideController(animator.runtimeAnimatorController);
-            animator.runtimeAnimatorController = controller;
-            if (defaultAnimation != null) PlayAnimation(defaultAnimation, true);
+            StartCoroutine(LockAnimation(animation, reset));
+        }
+        else
+        {
+            prev = animation;
         }
 
-        public void PlayAnimation(AnimationClip animation, bool looping, bool reset = false)
-        {
-            if (isLocked && looping) return;
+        PlayFrames(animation, looping);
+    }
 
-            if (!looping)
+    private void PlayFrames(Animation2D animation, bool looping)
+    {
+        if (framesTimer != null) StopCoroutine(framesTimer);
+        framesTimer = StartCoroutine(PlayFramesTimer(animation, looping));
+    }
+
+    private IEnumerator PlayFramesTimer(Animation2D animation, bool looping)
+    {
+        if (animation.FrameRate == 0 || animation.Frames.Length == 0)
+        {
+            Debug.LogError("ERROR: Animation either has no frames or 0 frame rate!");
+            yield break;
+        }
+
+        WaitForSeconds frameDelay = new WaitForSeconds(1f / animation.FrameRate);
+        while (true)
+        {
+            for (int i = 0; i < animation.Frames.Length; i++)
             {
-                StartCoroutine(LockAnimation(animation, reset));
+                spriteRenderer.sprite = animation.Frames[i];
+                yield return frameDelay;
             }
-            else
-            {
-                prev = animation;
-            }
-            
-            controller["Main"] = animation;
+            if (!looping) break;
         }
+    }
 
-        private IEnumerator LockAnimation(AnimationClip animation, bool reset)
-        {
-            isLocked = true;
-            yield return new WaitForSeconds(animation.length);
-            if (reset) controller["Main"] = prev;
-            isLocked = false;
-        }
+    private IEnumerator LockAnimation(Animation2D animation, bool reset)
+    {
+        isLocked = true;
+        yield return new WaitForSeconds(animation.Duration);
+        if (reset) PlayFrames(prev, true);
+        isLocked = false;
     }
 }

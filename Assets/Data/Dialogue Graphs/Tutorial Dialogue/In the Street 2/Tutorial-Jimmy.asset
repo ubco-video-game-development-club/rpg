@@ -26,8 +26,8 @@ MonoBehaviour:
       indexOverride: 1
     customBehaviour: {fileID: 0}
     behaviourProperties: []
-  - name: ->
-    displayName: ->
+  - name:
+    displayName:
     body: Check out this new shirt I got pretty sweet huh?
     position: {x: 207, y: -167}
     moralsMod: 0

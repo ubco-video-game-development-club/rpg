@@ -20,8 +20,8 @@ namespace RPG
         [SerializeField] private AnimationType animationType;
         public AnimationType AnimationType { get => animationType; }
 
-        [SerializeField] private AnimationSet8D animation;
-        public AnimationSet8D Animation { get => animation; }
+        [SerializeField] private Animation2D animation;
+        public Animation2D Animation { get => animation; }
 
         [SerializeField] private float cooldown = 1f;
         public float Cooldown { get => cooldown; }

@@ -11,7 +11,7 @@ public class Menu : MonoBehaviour
     private Coroutine transitionFade;
     private CanvasGroup canvasGroup;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
     }

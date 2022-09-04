@@ -25,6 +25,7 @@ namespace RPG
         [SerializeField] private Weapon defaultSecondaryWeapon;
         [SerializeField] private float interactRadius;
         [SerializeField] private LayerMask interactLayer;
+        [SerializeField] private bool showDebugUI = false;
 
         public ClassBaseStats ClassBaseStats { get; private set; }
 
@@ -40,6 +41,7 @@ namespace RPG
         private Collider2D[] interactTargets = new Collider2D[MAX_INTERACT_TARGETS];
         private int numInteractTargets = 0;
         private Interactable targetInteractable;
+        private Transform activeSpawnPoint;
 
         private YieldInstruction animLockInstruction;
         private YieldInstruction globalCooldownInstruction;
@@ -47,6 +49,8 @@ namespace RPG
         protected override void Awake()
         {
             base.Awake();
+
+            DontDestroyOnLoad(gameObject);
 
             animLockInstruction = new WaitForSeconds(ANIM_LOCK_DURATION);
             globalCooldownInstruction = new WaitForSeconds(GLOBAL_COOLDOWN);
@@ -69,6 +73,11 @@ namespace RPG
 
         void OnGUI()
         {
+            if (!showDebugUI)
+            {
+                return;
+            }
+
             GUILayout.BeginArea(new Rect(Screen.width - 160, 10, 150, Screen.height - 230));
             GUILayout.Label("Player Properties");
             foreach (KeyValuePair<PropertyName, dynamic> prop in Properties)
@@ -213,6 +222,11 @@ namespace RPG
             }
         }
 
+        public void SetSpawnPoint(Transform spawnPoint)
+        {
+            activeSpawnPoint = spawnPoint;
+        }
+
         protected override void AnimateMove()
         {
             if (!isAnimLocked)
@@ -225,14 +239,14 @@ namespace RPG
         protected override void AnimateAction(Action action)
         {
             facingDirection = GetActionDirection();
-            AnimationSet8D avatarAnim = action.Animation;
+            Animation2D avatarAnim = action.Animation;
             if (action.UseWeaponAnimation)
             {
                 WeaponAnimation weaponAnim = PrimaryWeapon.GetAnimation(action.AnimationType);
                 avatarAnim = weaponAnim.AvatarAnimation;
-                weaponAnimator2D.PlayAnimation(weaponAnim.Animation.Get(facingDirection), false, true);
+                weaponAnimator2D.Play(weaponAnim.Animation, false, true);
             }
-            animator2D.PlayAnimation(avatarAnim.Get(facingDirection), false);
+            animator2D.Play(avatarAnim, false);
         }
 
         private void HandleActionInput(string button, Action action)
