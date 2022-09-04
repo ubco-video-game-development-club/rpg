@@ -19,6 +19,7 @@ namespace RPG
         private void OnPlayerCreated()
         {
             SetTarget(GameManager.Player.transform);
+            transform.position = LevelManager.DefaultSpawnPoint.position + Vector3.forward * transform.position.z;
         }
 
         private void FixedUpdate()

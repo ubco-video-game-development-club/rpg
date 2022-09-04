@@ -41,6 +41,7 @@ namespace RPG
         private Collider2D[] interactTargets = new Collider2D[MAX_INTERACT_TARGETS];
         private int numInteractTargets = 0;
         private Interactable targetInteractable;
+        private Transform activeSpawnPoint;
 
         private YieldInstruction animLockInstruction;
         private YieldInstruction globalCooldownInstruction;
@@ -48,6 +49,8 @@ namespace RPG
         protected override void Awake()
         {
             base.Awake();
+
+            DontDestroyOnLoad(gameObject);
 
             animLockInstruction = new WaitForSeconds(ANIM_LOCK_DURATION);
             globalCooldownInstruction = new WaitForSeconds(GLOBAL_COOLDOWN);
@@ -217,6 +220,11 @@ namespace RPG
                     Equip(ItemSlot.Offhand, defaultSecondaryWeapon);
                     break;
             }
+        }
+
+        public void SetSpawnPoint(Transform spawnPoint)
+        {
+            activeSpawnPoint = spawnPoint;
         }
 
         protected override void AnimateMove()

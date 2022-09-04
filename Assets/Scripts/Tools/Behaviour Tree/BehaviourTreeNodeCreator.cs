@@ -22,6 +22,7 @@ namespace Behaviours
         MoveToNode,
         MoveFollowNode,
         IdleNode,
+        DelayNode,
         SetActionTargetNode,
         InvokeActionNode,
         GetDialogueIndexNode,
@@ -45,8 +46,9 @@ namespace Behaviours
     {
         Basic,
         Logic,
-        Find,
         Property,
+        Find,
+        Timing,
         Movement,
         Combat,
         Dialogue,
@@ -95,6 +97,8 @@ namespace Behaviours
                     return new MoveFollowNode();
                 case BehaviourTreeNodeType.IdleNode:
                     return new IdleNode();
+                case BehaviourTreeNodeType.DelayNode:
+                    return new DelayNode();
                 case BehaviourTreeNodeType.SetActionTargetNode:
                     return new SetActionTargetNode();
                 case BehaviourTreeNodeType.InvokeActionNode:
@@ -161,12 +165,14 @@ namespace Behaviours
                 case BehaviourTreeNodeType.FindActorByTagNode:
                 case BehaviourTreeNodeType.FindObjectByIdNode:
                     return BehaviourTreeNodeCategory.Find;
+                case BehaviourTreeNodeType.IdleNode:
+                case BehaviourTreeNodeType.DelayNode:
+                    return BehaviourTreeNodeCategory.Timing;
                 case BehaviourTreeNodeType.GetActorPositionNode:
                 case BehaviourTreeNodeType.GetRandomPositionNode:
                 case BehaviourTreeNodeType.SimpleMoveNode:
                 case BehaviourTreeNodeType.MoveToNode:
                 case BehaviourTreeNodeType.MoveFollowNode:
-                case BehaviourTreeNodeType.IdleNode:
                 case BehaviourTreeNodeType.GetMoveDirectionNode:
                 case BehaviourTreeNodeType.GetVectorAxisNode:
                     return BehaviourTreeNodeCategory.Movement;
