@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70a43995d22fea24785b15ce77c68343, type: 3}
-  m_Name: PlayerHurt
+  m_Name: Empty
   m_EditorClassIdentifier: 
   frameRate: 1
   lockFrames: 0
   frames:
-  - {fileID: -5115618752126089108, guid: e5ab400291c1dca48bcc2463b413654f, type: 3}
+  - {fileID: 21300000, guid: 7426c369f06a341409d9ef26bf6ababb, type: 3}

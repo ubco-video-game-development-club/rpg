@@ -1647,7 +1647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoneTrack: {fileID: 8300000, guid: f5f4c8d41481fe741b226fe0ab5443cb, type: 3}
-  playMusic: 1
+  playMusic: 0
 --- !u!82 &705846472
 AudioSource:
   m_ObjectHideFlags: 0

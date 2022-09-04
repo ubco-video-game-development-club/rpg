@@ -154,7 +154,7 @@ MonoBehaviour:
   moveAnimation: {fileID: 11400000, guid: a086eee0ba62df54a8c04efd52fcf4e1, type: 2}
   hurtAnimation: {fileID: 11400000, guid: ff34b98254386804faa61e1af97963e4, type: 2}
   moveSpeed: 1.5
-  weaponAnimator2D: {fileID: 3675457435987046871}
+  weaponAnimator2D: {fileID: 8115540658968699123}
   defaultPrimaryWeapon: {fileID: 11400000, guid: e93cb9a67234a314d82e25e67a31ee2b,
     type: 2}
   defaultSecondaryWeapon: {fileID: 11400000, guid: 3405a42b8f465c6419e86f2ffb0e89f4,
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4177530521651630193}
   - component: {fileID: 7515553109378174695}
-  - component: {fileID: 3675457435987046871}
+  - component: {fileID: 8115540658968699123}
   m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
@@ -247,7 +247,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3675457435987046871
+--- !u!114 &8115540658968699123
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -256,6 +256,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6460137424957026631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3841cfd75fe64b8498769758ea31c7be, type: 3}
+  m_Script: {fileID: 11500000, guid: 3749d913d08e6db4ca8bc584b56e8e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animation2D: {fileID: 11400000, guid: c9147e5f0f918c545a0797a9bb2bc3b7, type: 2}

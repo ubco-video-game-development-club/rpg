@@ -72,7 +72,7 @@ public class Animator2D : MonoBehaviour
     {
         isLocked = true;
         yield return new WaitForSeconds(animation.Duration);
-        if (reset) PlayFrames(prev, true);
+        if (reset && prev != null) PlayFrames(prev, true);
         isLocked = false;
     }
 }
