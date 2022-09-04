@@ -10,9 +10,10 @@ namespace RPG
         [SerializeField] private RectTransform fillBar;
         [SerializeField] private TextMeshProUGUI textbox;
 
-        private void Start()
+        private void Awake()
         {
-            GameManager.AddPlayerCreatedListener(OnPlayerCreated);
+            if (GameManager.IsPlayerCreated) OnPlayerCreated();
+            else GameManager.AddPlayerCreatedListener(OnPlayerCreated);
         }
 
         private void OnPlayerCreated()

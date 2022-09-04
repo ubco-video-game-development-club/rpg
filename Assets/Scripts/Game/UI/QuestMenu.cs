@@ -15,11 +15,9 @@ namespace RPG
         private void Awake()
         {
             rectTransform = GetComponent<RectTransform>();
-        }
 
-        private void Start()
-        {
-            GameManager.AddPlayerCreatedListener(OnPlayerCreated);
+            if (GameManager.IsPlayerCreated) OnPlayerCreated();
+            else GameManager.AddPlayerCreatedListener(OnPlayerCreated);
         }
 
         private void OnPlayerCreated()
