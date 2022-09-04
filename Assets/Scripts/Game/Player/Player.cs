@@ -69,6 +69,8 @@ namespace RPG
             Equip(ItemSlot.Mainhand, defaultPrimaryWeapon);
             Equip(ItemSlot.Offhand, defaultSecondaryWeapon);
             actionData = new ActionData(LayerMask.GetMask("Enemy"));
+
+            SetSpawnPoint(LevelManager.DefaultSpawnPoint);
         }
 
         void OnGUI()

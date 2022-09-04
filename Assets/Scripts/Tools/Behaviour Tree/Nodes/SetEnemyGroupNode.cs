@@ -21,8 +21,7 @@ namespace Behaviours
             Behaviour behaviour = self.Element;
 
             // Get NPC group
-            string groupTagProp = behaviour.GetProperty(instance, PROP_GROUP_TAG).GetString();
-            string groupTag = obj.GetProperty(groupTagProp) as string;
+            string groupTag = behaviour.GetProperty(instance, PROP_GROUP_TAG).GetString();
             bool isEnemy = behaviour.GetProperty(instance, PROP_IS_ENEMY).GetBoolean();
 
             foreach (GameObject npcObj in GameObject.FindGameObjectsWithTag(groupTag))
