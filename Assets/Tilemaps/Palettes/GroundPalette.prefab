@@ -226,8 +226,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6394287598234621980}
   - component: {fileID: 1460435674864097940}
-  m_Layer: 31
-  m_Name: Ground_isometric_depth
+  m_Layer: 0
+  m_Name: GroundPalette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
