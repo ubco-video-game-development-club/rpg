@@ -29,8 +29,6 @@ namespace Behaviours
             bool isEnemy = behaviour.GetProperty(instance, PROP_IS_ENEMY).GetBoolean();
             npc.GetComponent<NPC>().SetEnemy(isEnemy);
 
-            Debug.Log("Enemy Set");
-
             return NodeStatus.Success;
         }
     }

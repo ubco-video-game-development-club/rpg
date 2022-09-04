@@ -20,12 +20,6 @@ namespace Behaviours
             Behaviour behaviour = self.Element;
             string npcSrc = behaviour.GetProperty(instance, PROP_NPC_INPUT).GetString();
             GameObject npc = obj.GetProperty(npcSrc) as GameObject;
-
-            if (npc.GetComponent<NPC>().IsEnemy())
-            {
-                Debug.Log("IsEnemy True");
-            }
-
             return npc.GetComponent<NPC>().IsEnemy() ? NodeStatus.Success : NodeStatus.Failure;
         }
     }
