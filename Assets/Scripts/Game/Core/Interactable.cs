@@ -11,7 +11,7 @@ namespace RPG
 
         private Tooltip tooltip;
 
-        void Start()
+        protected virtual void Start()
         {
             tooltip = Instantiate(tooltipPrefab, transform.position, Quaternion.identity, HUD.TooltipParent);
             tooltip.SetTarget(transform);
@@ -19,7 +19,7 @@ namespace RPG
             tooltip.SetActive(false);
         }
 
-        void OnDestroy()
+        protected virtual void OnDestroy()
         {
             if (tooltip != null)
             {

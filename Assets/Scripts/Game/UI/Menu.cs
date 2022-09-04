@@ -18,18 +18,22 @@ public class Menu : MonoBehaviour
 
     public void SetVisible(bool visible)
     {
+        SetVisible(visible, visible ? showTime : hideTime);
+    }
+
+    public void SetVisible(bool visible, float fadeTime)
+    {
         canvasGroup.blocksRaycasts = visible;
         canvasGroup.interactable = visible;
 
         if (transitionFade != null) StopCoroutine(transitionFade);
-        transitionFade = StartCoroutine(TransitionFade(visible));
+        transitionFade = StartCoroutine(TransitionFade(visible, fadeTime));
     }
 
-    private IEnumerator TransitionFade(bool visible)
+    private IEnumerator TransitionFade(bool visible, float fadeTime)
     {
         float fadeTarget = visible ? 1f : 0f;
         float fadeTimer = 0f;
-        float fadeTime = visible ? showTime : hideTime;
 
         while (fadeTimer <= fadeTime)
         {
