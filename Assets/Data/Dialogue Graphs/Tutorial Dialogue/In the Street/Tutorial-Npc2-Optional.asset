@@ -14,10 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Talk to Griffin
-    body: 'My back is so sore from all this lifting. I used my back like they said
-      to. But, that did not pan out.
-
-'
+    displayName: 
+    body: 'Last year at the parade I got hit by a float. I''m fine now. But know
+      I''m scared of tinsel, balloons and floating. '
     position: {x: -13, y: -97}
     moralsMod: 0
     leaningsMod: 0
@@ -32,6 +31,7 @@ MonoBehaviour:
     to: -1
   exitNode:
     name: Exit
+    displayName: 
     body: 
     position: {x: 0, y: 0}
     moralsMod: 0
