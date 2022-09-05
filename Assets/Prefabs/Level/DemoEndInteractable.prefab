@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3711161629700167607}
   - component: {fileID: 3711161629700167611}
   - component: {fileID: 3711161629700167610}
-  - component: {fileID: 3711161629700167608}
+  - component: {fileID: 6272131040917550038}
   - component: {fileID: 3711161629700167609}
   - component: {fileID: 4318552955482541399}
   m_Layer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bb31e77c78eb636408083eb4a9c4d0dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f34572768b99914881376e8a62fc742, type: 3}
   m_Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -107,7 +107,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &3711161629700167608
+--- !u!60 &6272131040917550038
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,10 +132,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.30333334, y: 0.19916664}
-      - {x: -0.30333334, y: 0.09916665}
-      - {x: 0.32666668, y: -0.2041667}
-      - {x: 0.32666668, y: -0.097500026}
+    - - {x: 0.17333333, y: 0.12249998}
+      - {x: -0.33, y: -0.15750003}
+      - {x: -0.20333333, y: -0.15750003}
+      - {x: 0.31333333, y: 0.12249998}
 --- !u!114 &3711161629700167609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,12 +150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
-  usableLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  disabledLayer:
-    serializedVersion: 2
-    m_Bits: 1
+  usableLayer: 
+  disabledLayer: 
   interactHint: '[E] To the Parade'
 --- !u!114 &4318552955482541399
 MonoBehaviour:

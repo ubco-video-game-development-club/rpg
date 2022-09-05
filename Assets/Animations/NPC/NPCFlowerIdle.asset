@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a43995d22fea24785b15ce77c68343, type: 3}
+  m_Name: NPCFlowerIdle
+  m_EditorClassIdentifier: 
+  frameRate: 5
+  lockFrames: 0
+  frames:
+  - {fileID: -3892721734883345674, guid: 9886edb27e2089745b2bc6a5494ff54e, type: 3}
+  - {fileID: 215470304672508331, guid: 9886edb27e2089745b2bc6a5494ff54e, type: 3}
+  - {fileID: 9137926291616498160, guid: 9886edb27e2089745b2bc6a5494ff54e, type: 3}
+  - {fileID: 1776170175219327893, guid: 9886edb27e2089745b2bc6a5494ff54e, type: 3}
+  - {fileID: -8932251321822966134, guid: 9886edb27e2089745b2bc6a5494ff54e, type: 3}
