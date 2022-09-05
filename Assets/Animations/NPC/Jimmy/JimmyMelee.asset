@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a43995d22fea24785b15ce77c68343, type: 3}
   m_Name: JimmyMelee
   m_EditorClassIdentifier: 
-  frameRate: 1
+  frameRate: 16
   lockFrames: 0
   frames:
-  - {fileID: 5379264577244474164, guid: 93cb617996c05b6489970fc681f440ef, type: 3}
+  - {fileID: -2002278501321560339, guid: 2a236cc6f7c7f684c8d0e8777cd21287, type: 3}
+  - {fileID: 2040266614791378031, guid: 2a236cc6f7c7f684c8d0e8777cd21287, type: 3}
+  - {fileID: -7055573024890296574, guid: 2a236cc6f7c7f684c8d0e8777cd21287, type: 3}
+  - {fileID: 7878942433253110006, guid: 2a236cc6f7c7f684c8d0e8777cd21287, type: 3}
