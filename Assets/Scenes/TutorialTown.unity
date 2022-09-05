@@ -19405,32 +19405,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2120571431, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
-      propertyPath: m_fontSize
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 2120571431, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: d515fb3ded77c9a48a82096a4bbfd636,
-        type: 2}
-    - target: {fileID: 2120571431, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 2123936989, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
-      propertyPath: m_fontSize
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 2123936989, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: d515fb3ded77c9a48a82096a4bbfd636,
-        type: 2}
-    - target: {fileID: 2123936989, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 36
-      objectReference: {fileID: 0}
     - target: {fileID: 1594993686445272995, guid: d935c8bab1c94f34e87afb5182e447d3,
         type: 3}
       propertyPath: m_Name
@@ -19540,22 +19514,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1594993686462527039, guid: d935c8bab1c94f34e87afb5182e447d3,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1594993686462527039, guid: d935c8bab1c94f34e87afb5182e447d3,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: d515fb3ded77c9a48a82096a4bbfd636,
-        type: 2}
-    - target: {fileID: 1594993686462527039, guid: d935c8bab1c94f34e87afb5182e447d3,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1594993686958849015, guid: d935c8bab1c94f34e87afb5182e447d3,
         type: 3}
