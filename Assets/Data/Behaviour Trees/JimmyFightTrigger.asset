@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tree:
     serializedNodes:
-    - childCount: 2
+    - childCount: 4
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
@@ -77,3 +77,94 @@ MonoBehaviour:
             aType: 0
         nodeTypeName: Behaviours.SetEnemyNode
       nodeIndex: 3
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: Behaviours.SetPropertyNode+ValueType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            forceReserialization: 1
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 2
+            aType: 0
+        - name: target-property
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isJimmyActive
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: property-value
+          property:
+            propertyType: 0
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 1
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.SetPropertyNode
+      nodeIndex: 4
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: behaviour-property-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isJimmyActive
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: level-property-name
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isJimmyActive
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.SetLevelPropertyNode
+      nodeIndex: 5

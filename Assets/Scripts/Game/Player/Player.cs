@@ -273,7 +273,7 @@ namespace RPG
                 avatarAnim = weaponAnim.AvatarAnimation;
                 weaponAnimator2D.Play(weaponAnim.Animation, false, true);
             }
-            animator2D.Play(avatarAnim, false);
+            animator2D.Play(avatarAnim, false, true);
         }
 
         private void HandleActionInput(string button, Action action)
@@ -339,8 +339,11 @@ namespace RPG
             Interactable interactable;
             if (closestIdx >= 0 && interactTargets[closestIdx].TryGetComponent<Interactable>(out interactable))
             {
-                targetInteractable = interactable;
-                interactable.SetTooltipActive(true);
+                if (interactable.ShowTooltip())
+                {
+                    targetInteractable = interactable;
+                    interactable.SetTooltipActive(true);
+                }
             }
         }
 

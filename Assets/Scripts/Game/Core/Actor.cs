@@ -17,9 +17,11 @@ namespace RPG
 
         [SerializeField] private string displayName = "Actor";
         [SerializeField] private int initialMaxHealth;
+        [SerializeField] private bool facingRight = true;
         [SerializeField] private Animation2D idleAnimation;
         [SerializeField] private Animation2D moveAnimation;
-        [SerializeField] private Animation2D hurtAnimation;
+        [SerializeField] private Color flashColor = Color.red;
+        [SerializeField] private float flashDuration = 0.1f;
 
         public string DisplayName { get => displayName; }
 
@@ -53,6 +55,8 @@ namespace RPG
         protected SpriteRenderer spriteRenderer;
         private Vector3 prevFramePosition;
 
+        private Coroutine flashCoroutine;
+
         protected virtual void Awake()
         {
             // Initialize components
@@ -85,7 +89,7 @@ namespace RPG
             }
 
             // Update sprite flip direction
-            spriteRenderer.flipX = facingDirection.x < 0;
+            spriteRenderer.flipX = facingRight ? facingDirection.x < 0 : facingDirection.x >= 0;
 
             prevFramePosition = transform.position;
         }
@@ -119,13 +123,21 @@ namespace RPG
 
         protected virtual void AnimateHurt()
         {
-            animator2D.Play(hurtAnimation, false);
+            if (flashCoroutine != null) StopCoroutine(flashCoroutine);
+            flashCoroutine = StartCoroutine(FlashHurt());
+        }
+
+        private IEnumerator FlashHurt()
+        {
+            spriteRenderer.color = flashColor;
+            yield return new WaitForSeconds(flashDuration);
+            spriteRenderer.color = Color.white;
         }
 
         protected virtual void AnimateAction(Action action)
         {
             facingDirection = GetActionDirection();
-            animator2D.Play(action.Animation, false);
+            animator2D.Play(action.Animation, false, true);
         }
 
         protected Vector2Int GetMoveDirection()
@@ -138,12 +150,13 @@ namespace RPG
         protected Vector2Int GetActionDirection()
         {
             Vector2 mouseDiff = actionData.target - (Vector2)transform.position;
-            float angle = Vector2.SignedAngle(Vector2.right, mouseDiff) * Mathf.Deg2Rad;
-            float x = Mathf.Cos(angle);
-            float y = Mathf.Sin(angle);
-            int dirX = x > DIRECTION_LOOK_THRESHOLD ? 1 : x < -DIRECTION_LOOK_THRESHOLD ? -1 : 0;
-            int dirY = y > DIRECTION_LOOK_THRESHOLD ? 1 : y < -DIRECTION_LOOK_THRESHOLD ? -1 : 0;
-            return new Vector2Int(dirX, dirY);
+            return new Vector2Int(MathUtils.Sign(mouseDiff.x), MathUtils.Sign(mouseDiff.y));
+            // float angle = Vector2.SignedAngle(Vector2.right, mouseDiff) * Mathf.Deg2Rad;
+            // float x = Mathf.Cos(angle);
+            // float y = Mathf.Sin(angle);
+            // int dirX = x > DIRECTION_LOOK_THRESHOLD ? 1 : x < -DIRECTION_LOOK_THRESHOLD ? -1 : 0;
+            // int dirY = y > DIRECTION_LOOK_THRESHOLD ? 1 : y < -DIRECTION_LOOK_THRESHOLD ? -1 : 0;
+            // return new Vector2Int(dirX, dirY);
         }
     }
 }

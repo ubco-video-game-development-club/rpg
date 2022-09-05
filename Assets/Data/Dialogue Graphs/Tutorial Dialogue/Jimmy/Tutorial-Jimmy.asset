@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ac0479ced6a50409cc854a5b89a582, type: 3}
+  m_Name: Tutorial-Jimmy
+  m_EditorClassIdentifier: 
+  nodes:
+  - name: Speak to Lil Jimmy
+    displayName: Speak to Lil Jimmy
+    body: Hey there nerd! How's it going?
+    position: {x: -82, y: -171}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+    dialogueIndexOverrides:
+    - targetUniqueID: 
+      indexOverride: 1
+    customBehaviour: {fileID: 0}
+    behaviourProperties: []
+  - name: 
+    displayName: 
+    body: Check out this new shirt I got - pretty sweet huh?
+    position: {x: 207, y: -167}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
+    behaviourProperties: []
+  - name: ' ~Persuade~ Cool sweater, where''d ya get it? I''d like a new one if I
+      had the cash...'
+    displayName: ~Persuade~ Those are pretty nic...
+    body: "Oh. Well, you know what - here. You can have it. It\u2019s not really
+      my style anyway.\r"
+    position: {x: 17, y: -81}
+    moralsMod: -0.15
+    leaningsMod: -0.05
+    sexinessMod: 0
+    questNotes: []
+    dialogueIndexOverrides:
+    - targetUniqueID: 
+      indexOverride: 3
+    - targetUniqueID: Mum
+      indexOverride: 3
+    customBehaviour: {fileID: 0}
+    behaviourProperties: []
+  - name: ~Intimidate~ Cool sweater. Now hand it over before you get quacked, tapped
+      and/or flapped.
+    displayName: "~Intimidate~ I\u2019m pretty sure Id loo..."
+    body: "Sounds like you\u2019re looking for a fight. Let\u2019s do it then!"
+    position: {x: 250, y: -76}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+    dialogueIndexOverrides:
+    - targetUniqueID: 
+      indexOverride: 1
+    customBehaviour: {fileID: 11400000, guid: d69f03b258b57d142aedb2501fb2a531, type: 2}
+    behaviourProperties: []
+  transitions:
+  - name: Transition
+    from: 0
+    to: 1
+  - name: Transition
+    from: 2
+    to: -1
+  - name: Transition
+    from: 3
+    to: -1
+  - name: Transition
+    from: 1
+    to: 2
+  - name: Transition
+    from: 1
+    to: 3
+  exitNode:
+    name: Exit
+    displayName: Exit
+    body: 
+    position: {x: 108, y: 5}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
+    behaviourProperties: []

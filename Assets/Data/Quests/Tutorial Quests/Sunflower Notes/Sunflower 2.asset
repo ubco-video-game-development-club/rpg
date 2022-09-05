@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Sunflower 2
   m_EditorClassIdentifier: 
   quest: {fileID: 11400000, guid: 2594ff2fe8acedd4c9ff437143ccc457, type: 2}
-  desc: Quest Complete
-  completed: 1
+  desc: Confront the queen about the sunflower.
+  completed: 0

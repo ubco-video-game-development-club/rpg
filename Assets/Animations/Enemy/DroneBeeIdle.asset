@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a43995d22fea24785b15ce77c68343, type: 3}
+  m_Name: DroneBeeIdle
+  m_EditorClassIdentifier: 
+  frameRate: 5
+  lockFrames: 0
+  frames:
+  - {fileID: 4952209501499356957, guid: dd3fcb300c29dc64aa49826012305a0a, type: 3}
+  - {fileID: -3798800692486928825, guid: dd3fcb300c29dc64aa49826012305a0a, type: 3}
+  - {fileID: 4871483777866573085, guid: dd3fcb300c29dc64aa49826012305a0a, type: 3}
+  - {fileID: 6367367465558572761, guid: dd3fcb300c29dc64aa49826012305a0a, type: 3}
+  - {fileID: 5686909312603174733, guid: dd3fcb300c29dc64aa49826012305a0a, type: 3}

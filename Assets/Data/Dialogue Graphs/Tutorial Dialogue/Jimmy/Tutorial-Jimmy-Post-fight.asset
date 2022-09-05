@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ac0479ced6a50409cc854a5b89a582, type: 3}
+  m_Name: Tutorial-Jimmy-Post-fight
+  m_EditorClassIdentifier: 
+  nodes:
+  - name: Speak to Lil Jimmy
+    displayName: Speak to Lil Jimmy
+    body: "Here - you take it then if you want it so bad. I\u2019m out of here."
+    position: {x: -76, y: -172}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+    dialogueIndexOverrides:
+    - targetUniqueID: 
+      indexOverride: 2
+    - targetUniqueID: Mum
+      indexOverride: 3
+    customBehaviour: {fileID: 0}
+    behaviourProperties: []
+  transitions:
+  - name: Transition
+    from: 0
+    to: -1
+  exitNode:
+    name: Exit
+    displayName: Exit
+    body: 
+    position: {x: -65, y: -15}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
+    behaviourProperties: []

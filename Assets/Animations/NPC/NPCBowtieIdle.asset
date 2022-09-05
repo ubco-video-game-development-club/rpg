@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a43995d22fea24785b15ce77c68343, type: 3}
+  m_Name: NPCBowtieIdle
+  m_EditorClassIdentifier: 
+  frameRate: 5
+  lockFrames: 0
+  frames:
+  - {fileID: 2972360583355417754, guid: aa1bcdd941dc9f54984897ffb3da5932, type: 3}
+  - {fileID: -8830830703556242349, guid: aa1bcdd941dc9f54984897ffb3da5932, type: 3}
+  - {fileID: 2511468980715685603, guid: aa1bcdd941dc9f54984897ffb3da5932, type: 3}
+  - {fileID: 4384568941948312054, guid: aa1bcdd941dc9f54984897ffb3da5932, type: 3}
+  - {fileID: -6152432291813921013, guid: aa1bcdd941dc9f54984897ffb3da5932, type: 3}

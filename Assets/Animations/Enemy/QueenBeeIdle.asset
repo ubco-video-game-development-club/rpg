@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a43995d22fea24785b15ce77c68343, type: 3}
+  m_Name: QueenBeeIdle
+  m_EditorClassIdentifier: 
+  frameRate: 5
+  lockFrames: 0
+  frames:
+  - {fileID: -5937782615527341821, guid: fd7dd4cccbe6bfc4fb8def1cf5fd1240, type: 3}
+  - {fileID: -8055502814490709662, guid: fd7dd4cccbe6bfc4fb8def1cf5fd1240, type: 3}
+  - {fileID: 4689578430342291471, guid: fd7dd4cccbe6bfc4fb8def1cf5fd1240, type: 3}
+  - {fileID: 918492431127325898, guid: fd7dd4cccbe6bfc4fb8def1cf5fd1240, type: 3}
+  - {fileID: 1422544083367197249, guid: fd7dd4cccbe6bfc4fb8def1cf5fd1240, type: 3}

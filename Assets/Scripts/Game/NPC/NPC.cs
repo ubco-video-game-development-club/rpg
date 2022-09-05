@@ -23,6 +23,14 @@ namespace RPG
             GameManager.DialogueSystem.BeginDialogue(this, graph);
         }
 
+        public override bool ShowTooltip()
+        {
+            // TODO: fix this hack lol
+            bool isBeeFighting = LevelManager.HasLevelProperty("isFighting") && (bool)LevelManager.GetLevelProperty("isFighting");
+            bool isJimmyActive = LevelManager.HasLevelProperty("isJimmyActive") && (bool)LevelManager.GetLevelProperty("isJimmyActive");
+            return LayerMask.LayerToName(gameObject.layer) == "Interactable" ||  (!isBeeFighting && !isJimmyActive);
+        }
+
         // TODO: make enemy stuff based on factions!
 
         public void SetEnemy(bool isEnemy)

@@ -10,15 +10,15 @@ GameObject:
   m_Component:
   - component: {fileID: 926485368220857767}
   - component: {fileID: 926485368220857764}
-  - component: {fileID: 926485368220857765}
+  - component: {fileID: 8976547656104992151}
   - component: {fileID: 926485368220857762}
-  - component: {fileID: 926485368220857763}
   - component: {fileID: 926485368220857760}
   - component: {fileID: 926485368220857761}
   - component: {fileID: 926485368220857790}
+  - component: {fileID: -4610765983455814905}
   m_Layer: 7
   m_Name: QueenBee
-  m_TagString: Enemy
+  m_TagString: BEES
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,9 +30,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 926485368220857791}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.51, y: -5.22, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -77,7 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6623e952de9f54641a46a2cb947c0898, type: 3}
+  m_Sprite: {fileID: -5937782615527341821, guid: fd7dd4cccbe6bfc4fb8def1cf5fd1240,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,9 +88,9 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!58 &926485368220857765
-CircleCollider2D:
+  m_SpriteSortPoint: 1
+--- !u!61 &8976547656104992151
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,8 +103,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Size: {x: 0.5, y: 0.2}
+  m_EdgeRadius: 0
 --- !u!50 &926485368220857762
 Rigidbody2D:
   serializedVersion: 4
@@ -112,7 +123,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 926485368220857791}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -125,25 +136,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!95 &926485368220857763
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926485368220857791}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d3af1bb34e9ffb044886be104dc98f2f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &926485368220857760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3841cfd75fe64b8498769758ea31c7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultAnimation: {fileID: 7400000, guid: 511c335ee19612a4e8474882b1c5b7b7, type: 2}
 --- !u!114 &926485368220857761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,10 +160,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7157c15a42769b0458c85c94a11a8d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialMaxHealth: 12
-  idleAnimations: {fileID: 11400000, guid: fb206d7e94c25e94b899ed54a07145c6, type: 2}
-  moveAnimations: {fileID: 11400000, guid: e22d4c8424148f645ae60e803585d737, type: 2}
-  hurtAnimations: {fileID: 11400000, guid: 1fce7b2292cd9e545984412811fa1820, type: 2}
+  displayName: Queen Bee
+  initialMaxHealth: 24
+  facingRight: 0
+  idleAnimation: {fileID: 11400000, guid: 03e075162a4a5cc47999a82b7c4db98d, type: 2}
+  moveAnimation: {fileID: 11400000, guid: 03e075162a4a5cc47999a82b7c4db98d, type: 2}
+  flashColor: {r: 0.8207547, g: 0.25938943, b: 0.25938943, a: 1}
+  flashDuration: 0.1
   actions:
   - {fileID: 11400000, guid: 840c6f333cca3f84e99806f9e04085a6, type: 2}
   - {fileID: 11400000, guid: 00098a76f2f18594894c5615188b6b6a, type: 2}
@@ -193,3 +187,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourTree: {fileID: 11400000, guid: bd3e48cf399b9434faf455f3a30d9805, type: 2}
+  instanceProperties: []
+--- !u!114 &-4610765983455814905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926485368220857791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d10099f0b38ec40b917b3fa80f253e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
+    type: 3}
+  usableLayer: Interactable
+  disabledLayer: Default
+  interactHint: Talk
+  characterName: Queen Bee
+  portrait: {fileID: 21300000, guid: 6af31bb05dd706f4dbf36a77ae1e8c5c, type: 3}
+  dialogueGraphs:
+  - {fileID: 11400000, guid: b841a9376d1e11440948e5662caa909b, type: 2}
+  - {fileID: 11400000, guid: 0f47a4bdeaa57fb4cbb71798ddb17b3c, type: 2}

@@ -16,11 +16,11 @@ MonoBehaviour:
   onKillEffects: []
   useWeaponAnimation: 0
   animationType: 0
-  animation: {fileID: 11400000, guid: 1fce7b2292cd9e545984412811fa1820, type: 2}
-  cooldown: 1.5
+  animation: {fileID: 11400000, guid: 5046e10b6a30aac41a7071b5aa251195, type: 2}
+  cooldown: 3
   projectilePrefab: {fileID: -4505297569411084305, guid: 6458f06f36ca54f468822dcaaf7a1c83,
     type: 3}
   speed: 6
   range: 7
-  damage: 1
+  damage: 3
   passThroughTargets: 1

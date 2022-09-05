@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a43995d22fea24785b15ce77c68343, type: 3}
   m_Name: PlayerMelee
   m_EditorClassIdentifier: 
-  frameRate: 1
+  frameRate: 12
   lockFrames: 0
   frames:
-  - {fileID: -5115618752126089108, guid: e5ab400291c1dca48bcc2463b413654f, type: 3}
+  - {fileID: -7130716664430935104, guid: a9eb85f4bf6e96c4dbf9c546e1636de2, type: 3}
+  - {fileID: -566880098534189092, guid: a9eb85f4bf6e96c4dbf9c546e1636de2, type: 3}
+  - {fileID: -6044360688570106063, guid: a9eb85f4bf6e96c4dbf9c546e1636de2, type: 3}

@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ac0479ced6a50409cc854a5b89a582, type: 3}
+  m_Name: Messenger-Drone
+  m_EditorClassIdentifier: 
+  nodes:
+  - name: ffr
+    displayName: 'f
+
+'
+    body: Hey! What are you doing back here?
+    position: {x: -146.29999, y: -132.5}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
+    behaviourProperties: []
+  - name: 
+    displayName: 
+    body: You are ok to stick around back here. But just know - if you mess with
+      the hive, you get the knive...s (i.e stingers).
+    position: {x: -131.29999, y: -24.899994}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes:
+    - {fileID: 11400000, guid: ee19be0e7f0320049b57c374a5e9a3ff, type: 2}
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
+    behaviourProperties: []
+  transitions:
+  - name: Transition
+    from: 0
+    to: 1
+  - name: Transition
+    from: 1
+    to: -1
+  exitNode:
+    name: Exit
+    displayName: Exit
+    body: 
+    position: {x: 200, y: 0}
+    moralsMod: 0
+    leaningsMod: 0
+    sexinessMod: 0
+    questNotes: []
+    dialogueIndexOverrides: []
+    customBehaviour: {fileID: 0}
+    behaviourProperties: []
