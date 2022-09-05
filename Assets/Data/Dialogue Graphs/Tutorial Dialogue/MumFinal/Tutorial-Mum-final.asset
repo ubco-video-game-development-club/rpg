@@ -52,13 +52,13 @@ MonoBehaviour:
   - name: 
     displayName: 
     body: Birds sure do love seeds.
-    position: {x: -72, y: 58}
+    position: {x: -83, y: 49}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
     dialogueIndexOverrides:
-    - targetUniqueID: 
+    - targetUniqueID: Mum
       indexOverride: 7
     customBehaviour: {fileID: 11400000, guid: 5a82b48cf5999994d9763433e55af33e, type: 2}
     behaviourProperties: []

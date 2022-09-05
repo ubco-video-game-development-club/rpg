@@ -24,7 +24,9 @@ MonoBehaviour:
     sexinessMod: 0
     questNotes:
     - {fileID: 11400000, guid: 0d86e9bd8681b494b9963f17ed362c17, type: 2}
-    dialogueIndexOverrides: []
+    dialogueIndexOverrides:
+    - targetUniqueID: Mum
+      indexOverride: 6
     customBehaviour: {fileID: 0}
     behaviourProperties: []
   transitions:
