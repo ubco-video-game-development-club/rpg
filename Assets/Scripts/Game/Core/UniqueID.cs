@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace RPG
 {
-    [RequireComponent(typeof(Entity))]
     public class UniqueID : MonoBehaviour
     {
         [SerializeField] private string uniqueID;

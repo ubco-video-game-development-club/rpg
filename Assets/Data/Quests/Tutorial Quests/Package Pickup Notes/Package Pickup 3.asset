@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Package Pickup 3
   m_EditorClassIdentifier: 
   quest: {fileID: 11400000, guid: d133bb733daf51a458ae5b0377f8d25f, type: 2}
-  desc: Quest Complete
+  desc: Quest Complete.
+  completed: 1

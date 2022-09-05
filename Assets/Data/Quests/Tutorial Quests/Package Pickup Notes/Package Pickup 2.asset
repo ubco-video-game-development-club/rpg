@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Package Pickup 2
   m_EditorClassIdentifier: 
   quest: {fileID: 11400000, guid: d133bb733daf51a458ae5b0377f8d25f, type: 2}
-  desc: Whether you go and talk to Lil Jimmy or not. let your Mum know about what
-    happened at Mr.Waddlesworth's shop.
+  desc: Tell your Mum what happened at the shop.
+  completed: 0

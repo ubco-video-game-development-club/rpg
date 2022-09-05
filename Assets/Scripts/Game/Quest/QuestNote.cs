@@ -10,7 +10,10 @@ namespace RPG
         [SerializeField] private Quest quest;
         public Quest Quest { get => quest; }
 
-        [SerializeField] [TextArea] private string desc;
+        [SerializeField][TextArea] private string desc;
         public string Desc { get => desc; }
+
+        [SerializeField] private bool completed;
+        public bool Completed { get => completed; }
     }
 }

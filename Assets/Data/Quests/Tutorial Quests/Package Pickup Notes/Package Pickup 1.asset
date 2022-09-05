@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Package Pickup 1
   m_EditorClassIdentifier: 
   quest: {fileID: 11400000, guid: d133bb733daf51a458ae5b0377f8d25f, type: 2}
-  desc: Head outside and across the street. There you should find Mr.Waddlesworth's
-    shop. Go inside, then ask him about the package.
+  desc: Find Mr.Waddlesworth's shop and ask about the package.
+  completed: 0
