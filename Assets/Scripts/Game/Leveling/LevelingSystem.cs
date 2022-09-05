@@ -162,7 +162,7 @@ namespace RPG
 
         public int GetRequiredXP()
         {
-            return ToXP(Level + 1);
+            return ToXP(GetPotentialLevel() + 1);
         }
 
         private void ApplyLevelUp(EntityProperty[] selectedLevelUpBonuses)
@@ -212,7 +212,7 @@ namespace RPG
         }
 
         ///<summary>Convert a total XP amount to the level it represents.</summary>
-        private int ToLevel(int xp)
+        public int ToLevel(int xp)
         {
             int a = xpPerLevelBase;
             int b = xpPerLevelGrowth;
@@ -220,7 +220,7 @@ namespace RPG
         }
 
         ///<summary>Convert a level to the amount of total XP it represents.</summary>
-        private int ToXP(int level)
+        public int ToXP(int level)
         {
             int a = xpPerLevelBase;
             int b = xpPerLevelGrowth;
