@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -4610765983455814905}
   m_Layer: 7
   m_Name: QueenBee
-  m_TagString: Enemy
+  m_TagString: BEES
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!61 &8976547656104992151
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -162,10 +162,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Queen Bee
   initialMaxHealth: 24
-  facingRight: 1
+  facingRight: 0
   idleAnimation: {fileID: 11400000, guid: 03e075162a4a5cc47999a82b7c4db98d, type: 2}
   moveAnimation: {fileID: 11400000, guid: 03e075162a4a5cc47999a82b7c4db98d, type: 2}
-  hurtAnimation: {fileID: 11400000, guid: 03e075162a4a5cc47999a82b7c4db98d, type: 2}
+  flashColor: {r: 0.8207547, g: 0.25938943, b: 0.25938943, a: 1}
+  flashDuration: 0.1
   actions:
   - {fileID: 11400000, guid: 840c6f333cca3f84e99806f9e04085a6, type: 2}
   - {fileID: 11400000, guid: 00098a76f2f18594894c5615188b6b6a, type: 2}
@@ -205,8 +206,7 @@ MonoBehaviour:
   disabledLayer: Default
   interactHint: Talk
   characterName: Queen Bee
-  portrait: {fileID: -4222616733112427840, guid: 825e1302870b84344a98c55e2dd3f256,
-    type: 3}
+  portrait: {fileID: 21300000, guid: 6af31bb05dd706f4dbf36a77ae1e8c5c, type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: b841a9376d1e11440948e5662caa909b, type: 2}
   - {fileID: 11400000, guid: 0f47a4bdeaa57fb4cbb71798ddb17b3c, type: 2}

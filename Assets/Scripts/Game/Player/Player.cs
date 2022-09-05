@@ -273,7 +273,7 @@ namespace RPG
                 avatarAnim = weaponAnim.AvatarAnimation;
                 weaponAnimator2D.Play(weaponAnim.Animation, false, true);
             }
-            animator2D.Play(avatarAnim, false);
+            animator2D.Play(avatarAnim, false, true);
         }
 
         private void HandleActionInput(string button, Action action)

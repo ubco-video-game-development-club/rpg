@@ -61,7 +61,7 @@ MonoBehaviour:
         propertyInfo: []
         nodeTypeName: Behaviours.SelectorNode
       nodeIndex: 3
-    - childCount: 8
+    - childCount: 9
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
@@ -378,6 +378,43 @@ MonoBehaviour:
     - childCount: 0
       element:
         propertyInfo:
+        - name: group-tag
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: BEES
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: is-enemy
+          property:
+            propertyType: 0
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.SetEnemyGroupNode
+      nodeIndex: 11
+    - childCount: 0
+      element:
+        propertyInfo:
         - name: npc-input
           property:
             propertyType: 2
@@ -411,22 +448,22 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SetDialogueIndexNode
-      nodeIndex: 11
+      nodeIndex: 12
     - childCount: 0
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.ForceDialogueNode
-      nodeIndex: 12
+      nodeIndex: 13
     - childCount: 5
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 13
+      nodeIndex: 14
     - childCount: 1
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.NotNode
-      nodeIndex: 14
+      nodeIndex: 15
     - childCount: 0
       element:
         propertyInfo:
@@ -447,7 +484,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.HasPropertyNode
-      nodeIndex: 15
+      nodeIndex: 16
     - childCount: 0
       element:
         propertyInfo:
@@ -502,7 +539,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.GetEntityPropertyNode
-      nodeIndex: 16
+      nodeIndex: 17
     - childCount: 0
       element:
         propertyInfo:
@@ -573,7 +610,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.CompareNode
-      nodeIndex: 17
+      nodeIndex: 18
     - childCount: 0
       element:
         propertyInfo:
@@ -627,7 +664,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SetPropertyNode
-      nodeIndex: 18
+      nodeIndex: 19
     - childCount: 0
       element:
         propertyInfo:
@@ -664,12 +701,12 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SetLevelPropertyNode
-      nodeIndex: 19
+      nodeIndex: 20
     - childCount: 5
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 20
+      nodeIndex: 21
     - childCount: 0
       element:
         propertyInfo:
@@ -690,7 +727,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.HasPropertyNode
-      nodeIndex: 21
+      nodeIndex: 22
     - childCount: 0
       element:
         propertyInfo:
@@ -761,7 +798,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.CompareNode
-      nodeIndex: 22
+      nodeIndex: 23
     - childCount: 0
       element:
         propertyInfo:
@@ -816,7 +853,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.GetEntityPropertyNode
-      nodeIndex: 23
+      nodeIndex: 24
     - childCount: 0
       element:
         propertyInfo:
@@ -887,12 +924,12 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.CompareNode
-      nodeIndex: 24
+      nodeIndex: 25
     - childCount: 4
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 25
+      nodeIndex: 26
     - childCount: 0
       element:
         propertyInfo:
@@ -929,7 +966,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.FindActorByTagNode
-      nodeIndex: 26
+      nodeIndex: 27
     - childCount: 0
       element:
         propertyInfo:
@@ -966,7 +1003,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.GetActorPositionNode
-      nodeIndex: 27
+      nodeIndex: 28
     - childCount: 0
       element:
         propertyInfo:
@@ -1003,58 +1040,37 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.RangeCheckNode
-      nodeIndex: 28
-    - childCount: 4
-      element:
-        propertyInfo: []
-        nodeTypeName: Behaviours.SelectorNode
       nodeIndex: 29
     - childCount: 3
       element:
         propertyInfo: []
-        nodeTypeName: Behaviours.SequenceNode
+        nodeTypeName: Behaviours.SelectorNode
       nodeIndex: 30
-    - childCount: 0
+    - childCount: 3
       element:
-        propertyInfo:
-        - name: range
-          property:
-            propertyType: 1
-            objectType: 
-            forceReserialization: 0
-            displayType: 0
-            instanced: 0
-            value:
-              b: 0
-              n: 8
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        - name: position-input
-          property:
-            propertyType: 2
-            objectType: 
-            forceReserialization: 0
-            displayType: 1
-            instanced: 0
-            value:
-              b: 0
-              n: 0
-              s: player-pos
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: Behaviours.RangeCheckNode
+        propertyInfo: []
+        nodeTypeName: Behaviours.SequenceNode
       nodeIndex: 31
     - childCount: 0
       element:
         propertyInfo:
-        - name: target-input
+        - name: range
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 1.5
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-input
           property:
             propertyType: 2
             objectType: 
@@ -1070,74 +1086,11 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        nodeTypeName: Behaviours.SetActionTargetNode
+        nodeTypeName: Behaviours.RangeCheckNode
       nodeIndex: 32
     - childCount: 0
       element:
         propertyInfo:
-        - name: action-index
-          property:
-            propertyType: 1
-            objectType: 
-            forceReserialization: 0
-            displayType: 0
-            instanced: 0
-            value:
-              b: 0
-              n: 2
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: Behaviours.InvokeActionNode
-      nodeIndex: 33
-    - childCount: 3
-      element:
-        propertyInfo: []
-        nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 34
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: range
-          property:
-            propertyType: 1
-            objectType: 
-            forceReserialization: 0
-            displayType: 0
-            instanced: 0
-            value:
-              b: 0
-              n: 2
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        - name: position-input
-          property:
-            propertyType: 2
-            objectType: 
-            forceReserialization: 0
-            displayType: 1
-            instanced: 0
-            value:
-              b: 0
-              n: 0
-              s: player-pos
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: Behaviours.RangeCheckNode
-      nodeIndex: 35
-    - childCount: 0
-      element:
-        propertyInfo:
         - name: target-input
           property:
             propertyType: 2
@@ -1155,7 +1108,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SetActionTargetNode
-      nodeIndex: 36
+      nodeIndex: 33
     - childCount: 0
       element:
         propertyInfo:
@@ -1176,17 +1129,17 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.InvokeActionNode
-      nodeIndex: 37
+      nodeIndex: 34
     - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 38
+      nodeIndex: 35
     - childCount: 1
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.NotNode
-      nodeIndex: 39
+      nodeIndex: 36
     - childCount: 0
       element:
         propertyInfo:
@@ -1199,7 +1152,7 @@ MonoBehaviour:
             instanced: 0
             value:
               b: 0
-              n: 2
+              n: 1.5
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
@@ -1223,7 +1176,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.RangeCheckNode
-      nodeIndex: 40
+      nodeIndex: 37
     - childCount: 0
       element:
         propertyInfo:
@@ -1244,7 +1197,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SetActionTargetNode
-      nodeIndex: 41
+      nodeIndex: 38
     - childCount: 0
       element:
         propertyInfo:
@@ -1265,17 +1218,17 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.InvokeActionNode
-      nodeIndex: 42
+      nodeIndex: 39
     - childCount: 0
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SuccessNode
-      nodeIndex: 43
+      nodeIndex: 40
     - childCount: 6
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 44
+      nodeIndex: 41
     - childCount: 0
       element:
         propertyInfo:
@@ -1296,7 +1249,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.HasPropertyNode
-      nodeIndex: 45
+      nodeIndex: 42
     - childCount: 0
       element:
         propertyInfo:
@@ -1367,7 +1320,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.CompareNode
-      nodeIndex: 46
+      nodeIndex: 43
     - childCount: 0
       element:
         propertyInfo:
@@ -1404,7 +1357,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.FindActorByTagNode
-      nodeIndex: 47
+      nodeIndex: 44
     - childCount: 0
       element:
         propertyInfo:
@@ -1441,7 +1394,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.GetActorPositionNode
-      nodeIndex: 48
+      nodeIndex: 45
     - childCount: 0
       element:
         propertyInfo:
@@ -1478,17 +1431,17 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.RangeCheckNode
-      nodeIndex: 49
-    - childCount: 3
+      nodeIndex: 46
+    - childCount: 2
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SelectorNode
-      nodeIndex: 50
-    - childCount: 5
+      nodeIndex: 47
+    - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 51
+      nodeIndex: 48
     - childCount: 0
       element:
         propertyInfo:
@@ -1501,7 +1454,7 @@ MonoBehaviour:
             instanced: 0
             value:
               b: 0
-              n: 6
+              n: 1.5
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
@@ -1525,32 +1478,11 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.RangeCheckNode
-      nodeIndex: 52
+      nodeIndex: 49
     - childCount: 0
       element:
         propertyInfo:
-        - name: object-output
-          property:
-            propertyType: 2
-            objectType: 
-            forceReserialization: 0
-            displayType: 2
-            instanced: 0
-            value:
-              b: 0
-              n: 0
-              s: self
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: Behaviours.GetSelfNode
-      nodeIndex: 53
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: actor-input
+        - name: target-input
           property:
             propertyType: 2
             objectType: 
@@ -1560,29 +1492,81 @@ MonoBehaviour:
             value:
               b: 0
               n: 0
-              s: self
+              s: player-pos
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
               e: 0
             aType: 0
-        - name: position-output
+        nodeTypeName: Behaviours.SetActionTargetNode
+      nodeIndex: 50
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: action-index
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 3
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.InvokeActionNode
+      nodeIndex: 51
+    - childCount: 3
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SequenceNode
+      nodeIndex: 52
+    - childCount: 1
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.NotNode
+      nodeIndex: 53
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: range
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 1.5
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-input
           property:
             propertyType: 2
             objectType: 
             forceReserialization: 0
-            displayType: 2
+            displayType: 1
             instanced: 0
             value:
               b: 0
               n: 0
-              s: self-pos
+              s: player-pos
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
               e: 0
             aType: 0
-        nodeTypeName: Behaviours.GetActorPositionNode
+        nodeTypeName: Behaviours.RangeCheckNode
       nodeIndex: 54
     - childCount: 0
       element:
@@ -1597,7 +1581,7 @@ MonoBehaviour:
             value:
               b: 0
               n: 0
-              s: self-pos
+              s: player-pos
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
@@ -1605,179 +1589,6 @@ MonoBehaviour:
             aType: 0
         nodeTypeName: Behaviours.SetActionTargetNode
       nodeIndex: 55
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: action-index
-          property:
-            propertyType: 1
-            objectType: 
-            forceReserialization: 0
-            displayType: 0
-            instanced: 0
-            value:
-              b: 0
-              n: 5
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: Behaviours.InvokeActionNode
-      nodeIndex: 56
-    - childCount: 3
-      element:
-        propertyInfo: []
-        nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 57
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: range
-          property:
-            propertyType: 1
-            objectType: 
-            forceReserialization: 0
-            displayType: 0
-            instanced: 0
-            value:
-              b: 0
-              n: 3
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        - name: position-input
-          property:
-            propertyType: 2
-            objectType: 
-            forceReserialization: 0
-            displayType: 1
-            instanced: 0
-            value:
-              b: 0
-              n: 0
-              s: player-pos
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: Behaviours.RangeCheckNode
-      nodeIndex: 58
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: target-input
-          property:
-            propertyType: 2
-            objectType: 
-            forceReserialization: 0
-            displayType: 1
-            instanced: 0
-            value:
-              b: 0
-              n: 0
-              s: player-pos
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: Behaviours.SetActionTargetNode
-      nodeIndex: 59
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: action-index
-          property:
-            propertyType: 1
-            objectType: 
-            forceReserialization: 0
-            displayType: 0
-            instanced: 0
-            value:
-              b: 0
-              n: 3
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: Behaviours.InvokeActionNode
-      nodeIndex: 60
-    - childCount: 3
-      element:
-        propertyInfo: []
-        nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 61
-    - childCount: 1
-      element:
-        propertyInfo: []
-        nodeTypeName: Behaviours.NotNode
-      nodeIndex: 62
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: range
-          property:
-            propertyType: 1
-            objectType: 
-            forceReserialization: 0
-            displayType: 0
-            instanced: 0
-            value:
-              b: 0
-              n: 3
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        - name: position-input
-          property:
-            propertyType: 2
-            objectType: 
-            forceReserialization: 0
-            displayType: 1
-            instanced: 0
-            value:
-              b: 0
-              n: 0
-              s: player-pos
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: Behaviours.RangeCheckNode
-      nodeIndex: 63
-    - childCount: 0
-      element:
-        propertyInfo:
-        - name: target-input
-          property:
-            propertyType: 2
-            objectType: 
-            forceReserialization: 0
-            displayType: 1
-            instanced: 0
-            value:
-              b: 0
-              n: 0
-              s: player-pos
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: Behaviours.SetActionTargetNode
-      nodeIndex: 64
     - childCount: 0
       element:
         propertyInfo:
@@ -1798,4 +1609,4 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.InvokeActionNode
-      nodeIndex: 65
+      nodeIndex: 56

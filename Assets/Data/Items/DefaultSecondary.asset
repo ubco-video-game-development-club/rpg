@@ -15,7 +15,7 @@ MonoBehaviour:
   stats: []
   pickupPrefab: {fileID: 0}
   defaultSlot: 1
-  attack: {fileID: 11400000, guid: 7e64fbbdb1b264e4891830e666029fd6, type: 2}
+  attack: {fileID: 11400000, guid: 24db499799073424787b2ddf8e1cfa89, type: 2}
   animations:
   - type: 0
     avatarAnimation: {fileID: 11400000, guid: d6c6c34abd45a7f43859757929f23b28, type: 2}

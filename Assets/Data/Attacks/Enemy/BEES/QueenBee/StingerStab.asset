@@ -17,7 +17,7 @@ MonoBehaviour:
   useWeaponAnimation: 0
   animationType: 0
   animation: {fileID: 11400000, guid: 5046e10b6a30aac41a7071b5aa251195, type: 2}
-  cooldown: 2.5
-  damage: 5
-  reach: 2.5
+  cooldown: 2
+  damage: 3
+  reach: 2
   arcAngle: 90

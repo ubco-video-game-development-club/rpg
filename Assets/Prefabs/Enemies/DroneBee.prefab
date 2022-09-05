@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Roaming Drone Bee
-  initialMaxHealth: 3
+  initialMaxHealth: 5
   facingRight: 0
   idleAnimation: {fileID: 11400000, guid: cc1984940d7a7f04d8e0dc2371d1e60f, type: 2}
   moveAnimation: {fileID: 11400000, guid: cc1984940d7a7f04d8e0dc2371d1e60f, type: 2}
@@ -201,7 +201,6 @@ MonoBehaviour:
   disabledLayer: Default
   interactHint: Talk
   characterName: Roaming Drone Bee
-  portrait: {fileID: 4952209501499356957, guid: dd3fcb300c29dc64aa49826012305a0a,
-    type: 3}
+  portrait: {fileID: 21300000, guid: 0308cdd0a8735144b8242fdf52679322, type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: 089ad1bdb36c0ab458775984538210b8, type: 2}

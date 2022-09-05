@@ -205,15 +205,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1273025319}
     m_Modifications:
-    - target: {fileID: -3453501519746320427, guid: 19a6839c81a1c1c4296433882c3b26ea,
+    - target: {fileID: 320136540237851048, guid: 19a6839c81a1c1c4296433882c3b26ea,
         type: 3}
-      propertyPath: usableLayer
-      value: Interactable
+      propertyPath: flashColor.a
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -3453501519746320427, guid: 19a6839c81a1c1c4296433882c3b26ea,
+    - target: {fileID: 320136540237851048, guid: 19a6839c81a1c1c4296433882c3b26ea,
         type: 3}
-      propertyPath: disabledLayer
-      value: Default
+      propertyPath: flashColor.b
+      value: 0.25938943
+      objectReference: {fileID: 0}
+    - target: {fileID: 320136540237851048, guid: 19a6839c81a1c1c4296433882c3b26ea,
+        type: 3}
+      propertyPath: flashColor.g
+      value: 0.25938943
+      objectReference: {fileID: 0}
+    - target: {fileID: 320136540237851048, guid: 19a6839c81a1c1c4296433882c3b26ea,
+        type: 3}
+      propertyPath: flashColor.r
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 320136540237851048, guid: 19a6839c81a1c1c4296433882c3b26ea,
+        type: 3}
+      propertyPath: flashDuration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 320136540237851050, guid: 19a6839c81a1c1c4296433882c3b26ea,
         type: 3}
@@ -5787,15 +5802,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1273025319}
     m_Modifications:
-    - target: {fileID: 2439482629022856405, guid: ae50027939d5053478c796cb9e831013,
+    - target: {fileID: 8482846902287919784, guid: ae50027939d5053478c796cb9e831013,
         type: 3}
-      propertyPath: usableLayer
-      value: Interactable
+      propertyPath: flashColor.a
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2439482629022856405, guid: ae50027939d5053478c796cb9e831013,
+    - target: {fileID: 8482846902287919784, guid: ae50027939d5053478c796cb9e831013,
         type: 3}
-      propertyPath: disabledLayer
-      value: Default
+      propertyPath: flashColor.b
+      value: 0.25938943
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482846902287919784, guid: ae50027939d5053478c796cb9e831013,
+        type: 3}
+      propertyPath: flashColor.g
+      value: 0.25938943
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482846902287919784, guid: ae50027939d5053478c796cb9e831013,
+        type: 3}
+      propertyPath: flashColor.r
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482846902287919784, guid: ae50027939d5053478c796cb9e831013,
+        type: 3}
+      propertyPath: flashDuration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8482846902287919786, guid: ae50027939d5053478c796cb9e831013,
         type: 3}
@@ -6056,8 +6086,7 @@ MonoBehaviour:
   disabledLayer: Default
   interactHint: Talk
   characterName: Mum
-  portrait: {fileID: 8835284309397123848, guid: 568b897490088f8439d263b261216ec0,
-    type: 3}
+  portrait: {fileID: 21300000, guid: 98639e2647a74f240951db008655433e, type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: 36bc0c21d35b53f4fa3de317361e9a85, type: 2}
   - {fileID: 11400000, guid: 3683391ddc8ff1141a5488ab59cf1199, type: 2}
@@ -6934,8 +6963,7 @@ MonoBehaviour:
   disabledLayer: Default
   interactHint: Talk
   characterName: Waddlesworth
-  portrait: {fileID: -3713467532807335336, guid: 0bbfe1fef35fa2243a811a7b497fb9e2,
-    type: 3}
+  portrait: {fileID: 21300000, guid: ad16b78666d9c3b48a0a0de781743181, type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: e2d41534d805e214b87b7147251687f5, type: 2}
   - {fileID: 11400000, guid: 48f86ea51390adb459028fd4ce49c74d, type: 2}
@@ -15505,8 +15533,7 @@ MonoBehaviour:
   disabledLayer: Default
   interactHint: Talk
   characterName: Jimmy
-  portrait: {fileID: -4993850302976658462, guid: bc9d08c9bcca2654e927f360b4e27dfb,
-    type: 3}
+  portrait: {fileID: 21300000, guid: 92826ad09e418844cab8334d7681091a, type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: 5b4e3c749eebe4248b38084f7c56a999, type: 2}
   - {fileID: 11400000, guid: ae69f4ad827a0414a91c5ae9bf3b5f7f, type: 2}
@@ -15623,7 +15650,8 @@ MonoBehaviour:
   facingRight: 1
   idleAnimation: {fileID: 11400000, guid: 9ced90e1cc0e50a49b51cb4d3bca539c, type: 2}
   moveAnimation: {fileID: 11400000, guid: 9c05b01ab7081cc409357c0d7f2f2652, type: 2}
-  hurtAnimation: {fileID: 11400000, guid: 9ced90e1cc0e50a49b51cb4d3bca539c, type: 2}
+  flashColor: {r: 0.81960785, g: 0.25882354, b: 0.25882354, a: 1}
+  flashDuration: 0.1
   actions:
   - {fileID: 11400000, guid: cd54c1a41bfdb6745b6a33c7b765967e, type: 2}
 --- !u!50 &996557719
@@ -25345,66 +25373,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1273025319}
     m_Modifications:
-    - target: {fileID: -7208299424170625684, guid: e15788a2f48554048a903c75b506dd26,
-        type: 3}
-      propertyPath: usableLayer
-      value: Interactable
-      objectReference: {fileID: 0}
-    - target: {fileID: -7208299424170625684, guid: e15788a2f48554048a903c75b506dd26,
-        type: 3}
-      propertyPath: disabledLayer
-      value: Default
-      objectReference: {fileID: 0}
     - target: {fileID: 2096590143981113986, guid: e15788a2f48554048a903c75b506dd26,
         type: 3}
       propertyPath: m_Name
       value: DroneBee
-      objectReference: {fileID: 0}
-    - target: {fileID: 2096590143981113988, guid: e15788a2f48554048a903c75b506dd26,
-        type: 3}
-      propertyPath: instanceProperties.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2096590143981113988, guid: e15788a2f48554048a903c75b506dd26,
-        type: 3}
-      propertyPath: instanceProperties.Array.data[0].name
-      value: property-type
-      objectReference: {fileID: 0}
-    - target: {fileID: 2096590143981113988, guid: e15788a2f48554048a903c75b506dd26,
-        type: 3}
-      propertyPath: instanceProperties.Array.data[0].index
-      value: 31
-      objectReference: {fileID: 0}
-    - target: {fileID: 2096590143981113988, guid: e15788a2f48554048a903c75b506dd26,
-        type: 3}
-      propertyPath: instanceProperties.Array.data[0].nodeName
-      value: ArrayIteratorNode
-      objectReference: {fileID: 0}
-    - target: {fileID: 2096590143981113988, guid: e15788a2f48554048a903c75b506dd26,
-        type: 3}
-      propertyPath: instanceProperties.Array.data[0].value.value.e
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2096590143981113988, guid: e15788a2f48554048a903c75b506dd26,
-        type: 3}
-      propertyPath: instanceProperties.Array.data[0].value.instanced
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2096590143981113988, guid: e15788a2f48554048a903c75b506dd26,
-        type: 3}
-      propertyPath: instanceProperties.Array.data[0].value.objectType
-      value: Behaviours.ArrayIteratorNode+ValueType, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 2096590143981113988, guid: e15788a2f48554048a903c75b506dd26,
-        type: 3}
-      propertyPath: instanceProperties.Array.data[0].value.propertyType
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2096590143981113988, guid: e15788a2f48554048a903c75b506dd26,
-        type: 3}
-      propertyPath: instanceProperties.Array.data[0].value.forceReserialization
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2096590143981113989, guid: e15788a2f48554048a903c75b506dd26,
         type: 3}
@@ -25460,6 +25432,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2096590143981113991, guid: e15788a2f48554048a903c75b506dd26,
+        type: 3}
+      propertyPath: flashColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2096590143981113991, guid: e15788a2f48554048a903c75b506dd26,
+        type: 3}
+      propertyPath: flashColor.b
+      value: 0.25938943
+      objectReference: {fileID: 0}
+    - target: {fileID: 2096590143981113991, guid: e15788a2f48554048a903c75b506dd26,
+        type: 3}
+      propertyPath: flashColor.g
+      value: 0.25938943
+      objectReference: {fileID: 0}
+    - target: {fileID: 2096590143981113991, guid: e15788a2f48554048a903c75b506dd26,
+        type: 3}
+      propertyPath: flashColor.r
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 2096590143981113991, guid: e15788a2f48554048a903c75b506dd26,
+        type: 3}
+      propertyPath: flashDuration
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e15788a2f48554048a903c75b506dd26, type: 3}
@@ -26743,6 +26740,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 79974794}
+    - target: {fileID: 1594993687788556693, guid: d935c8bab1c94f34e87afb5182e447d3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
 --- !u!1001 &1428909746
@@ -27770,20 +27772,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1149653217251767731, guid: 3381277b950affe4188aaf23a58cb02a,
+        type: 3}
+      propertyPath: flashColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149653217251767731, guid: 3381277b950affe4188aaf23a58cb02a,
+        type: 3}
+      propertyPath: flashColor.b
+      value: 0.25938943
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149653217251767731, guid: 3381277b950affe4188aaf23a58cb02a,
+        type: 3}
+      propertyPath: flashColor.g
+      value: 0.25938943
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149653217251767731, guid: 3381277b950affe4188aaf23a58cb02a,
+        type: 3}
+      propertyPath: flashColor.r
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149653217251767731, guid: 3381277b950affe4188aaf23a58cb02a,
+        type: 3}
+      propertyPath: flashDuration
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1149653217251767734, guid: 3381277b950affe4188aaf23a58cb02a,
         type: 3}
       propertyPath: m_Name
       value: MessengerBee
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363735414541851416, guid: 3381277b950affe4188aaf23a58cb02a,
-        type: 3}
-      propertyPath: usableLayer
-      value: Interactable
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363735414541851416, guid: 3381277b950affe4188aaf23a58cb02a,
-        type: 3}
-      propertyPath: disabledLayer
-      value: Default
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3381277b950affe4188aaf23a58cb02a, type: 3}

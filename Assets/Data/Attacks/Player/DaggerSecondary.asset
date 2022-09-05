@@ -9,18 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7d777fadc3374498ff011888098cbd, type: 3}
-  m_Name: WingGust
+  m_Script: {fileID: 11500000, guid: 65fe40d9c1506a14b9dbc1fb3d47d7ee, type: 3}
+  m_Name: DaggerSecondary
   m_EditorClassIdentifier: 
   onHitEffects: []
   onKillEffects: []
   useWeaponAnimation: 0
   animationType: 0
-  animation: {fileID: 11400000, guid: 5046e10b6a30aac41a7071b5aa251195, type: 2}
-  cooldown: 3
-  projectilePrefab: {fileID: -4505297569411084305, guid: 6458f06f36ca54f468822dcaaf7a1c83,
-    type: 3}
-  speed: 6
-  range: 7
+  animation: {fileID: 11400000, guid: d6c6c34abd45a7f43859757929f23b28, type: 2}
+  cooldown: 4
   damage: 3
-  passThroughTargets: 1
+  reach: 1.5
+  arcAngle: 180

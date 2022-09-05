@@ -154,7 +154,8 @@ MonoBehaviour:
   facingRight: 1
   idleAnimation: {fileID: 11400000, guid: fa2c9c38a76583a4a8ad09c6753eb25d, type: 2}
   moveAnimation: {fileID: 11400000, guid: a086eee0ba62df54a8c04efd52fcf4e1, type: 2}
-  hurtAnimation: {fileID: 11400000, guid: ff34b98254386804faa61e1af97963e4, type: 2}
+  flashColor: {r: 0.81960785, g: 0.25882354, b: 0.25882354, a: 1}
+  flashDuration: 0.1
   moveSpeed: 1.5
   weaponAnimator2D: {fileID: 8115540658968699123}
   defaultPrimaryWeapon: {fileID: 11400000, guid: e93cb9a67234a314d82e25e67a31ee2b,
