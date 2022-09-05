@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7157c15a42769b0458c85c94a11a8d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayName: Actor
+  displayName: Pollen Collector
   initialMaxHealth: 5
   facingRight: 0
   idleAnimation: {fileID: 11400000, guid: 1e54901da57964f4ead135b1a019cc78, type: 2}

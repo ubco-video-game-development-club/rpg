@@ -16,7 +16,7 @@ MonoBehaviour:
   onKillEffects: []
   useWeaponAnimation: 0
   animationType: 0
-  animation: {fileID: 11400000, guid: 8d7b684a9fd03bc4da6914d11ad2b193, type: 2}
+  animation: {fileID: 11400000, guid: 7199009b4ebcb63468922008f0ae72fa, type: 2}
   cooldown: 7
   projectilePrefab: {fileID: 1105119591906182691, guid: 4ee4722c07c5af344a5ec7c2d8496f85,
     type: 3}

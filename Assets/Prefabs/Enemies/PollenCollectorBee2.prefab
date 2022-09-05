@@ -9,10 +9,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3453501519746320427, guid: 19a6839c81a1c1c4296433882c3b26ea,
         type: 3}
+      propertyPath: characterName
+      value: Pollen Collector
+      objectReference: {fileID: 0}
+    - target: {fileID: -3453501519746320427, guid: 19a6839c81a1c1c4296433882c3b26ea,
+        type: 3}
       propertyPath: dialogueGraphs.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 35e5e19016723ee4ca6eed18708d12e6,
         type: 2}
+    - target: {fileID: 320136540237851048, guid: 19a6839c81a1c1c4296433882c3b26ea,
+        type: 3}
+      propertyPath: displayName
+      value: Pollen Collector
+      objectReference: {fileID: 0}
     - target: {fileID: 320136540237851050, guid: 19a6839c81a1c1c4296433882c3b26ea,
         type: 3}
       propertyPath: m_RootOrder

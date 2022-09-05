@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7157c15a42769b0458c85c94a11a8d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayName: Actor
+  displayName: Roaming Drone Bee
   initialMaxHealth: 3
   facingRight: 0
   idleAnimation: {fileID: 11400000, guid: cc1984940d7a7f04d8e0dc2371d1e60f, type: 2}
@@ -204,7 +204,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   interactHint: Talk
-  characterName: Roaming Drone
+  characterName: Roaming Drone Bee
   portrait: {fileID: 4952209501499356957, guid: dd3fcb300c29dc64aa49826012305a0a,
     type: 3}
   dialogueGraphs:

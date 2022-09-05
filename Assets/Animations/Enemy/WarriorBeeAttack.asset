@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a43995d22fea24785b15ce77c68343, type: 3}
+  m_Name: WarriorBeeAttack
+  m_EditorClassIdentifier: 
+  frameRate: 20
+  lockFrames: 0
+  frames:
+  - {fileID: 3947037816623251067, guid: 6a52d4dd7307a6042bad5c2149447133, type: 3}
+  - {fileID: -786889731254482977, guid: 6a52d4dd7307a6042bad5c2149447133, type: 3}
+  - {fileID: -7720115439372420762, guid: 6a52d4dd7307a6042bad5c2149447133, type: 3}
+  - {fileID: -4083048368839731649, guid: 6a52d4dd7307a6042bad5c2149447133, type: 3}
+  - {fileID: -818324623484168855, guid: 6a52d4dd7307a6042bad5c2149447133, type: 3}
