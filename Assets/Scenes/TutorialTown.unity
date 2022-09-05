@@ -16426,7 +16426,7 @@ MonoBehaviour:
   interactHint: To Backyard
   spawnPoint: {fileID: 705329807}
   fadeOutTime: 0.2
-  teleportTime: 0.2
+  teleportTime: 0.6
   fadeInTime: 0.2
 --- !u!1001 &1259448395
 PrefabInstance:

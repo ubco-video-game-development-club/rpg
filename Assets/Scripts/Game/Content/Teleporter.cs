@@ -27,7 +27,7 @@ namespace RPG
 
         private IEnumerator Teleport(Player player)
         {
-            player.enabled = false;
+            player.SetInputEnabled(false);
             HUD.BlackScreen.SetVisible(true, fadeOutTime);
 
             yield return fadeOutWait;
@@ -37,7 +37,7 @@ namespace RPG
             yield return teleportWait;
 
             HUD.BlackScreen.SetVisible(false, fadeInTime);
-            player.enabled = true;
+            player.SetInputEnabled(true);
         }
     }
 }

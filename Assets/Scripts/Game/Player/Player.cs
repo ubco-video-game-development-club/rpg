@@ -38,6 +38,7 @@ namespace RPG
 
         private bool isGCDActive;
         private bool isAnimLocked;
+        private bool inputEnabled;
         private Collider2D[] interactTargets = new Collider2D[MAX_INTERACT_TARGETS];
         private int numInteractTargets = 0;
         private Interactable targetInteractable;
@@ -69,6 +70,8 @@ namespace RPG
             Equip(ItemSlot.Mainhand, defaultPrimaryWeapon);
             Equip(ItemSlot.Offhand, defaultSecondaryWeapon);
             actionData = new ActionData(LayerMask.GetMask("Enemy"));
+
+            SetInputEnabled(true);
         }
 
         void OnGUI()
@@ -135,6 +138,12 @@ namespace RPG
 
         protected override void Update()
         {
+            // Run base Actor update
+            base.Update();
+
+            // Input disabling: Anything after this point will not run while input is disabled
+            if (!inputEnabled) return;
+
             // Handle movement inputs
             float inputH = Input.GetAxisRaw("Horizontal");
             float inputV = Input.GetAxisRaw("Vertical");
@@ -142,9 +151,6 @@ namespace RPG
 
             // Update position
             rigidbody2D.velocity = inputDir * moveSpeed;
-
-            // Run base Actor update
-            base.Update();
 
             // Update interaction
             UpdateInteractions();
@@ -183,6 +189,11 @@ namespace RPG
         public void AddAbility(Action ability)
         {
             availableAbilities.Add(ability.GetInstance());
+        }
+
+        public void SetInputEnabled(bool enabled)
+        {
+            inputEnabled = enabled;
         }
 
         public void Equip(ItemSlot slot, Item item)

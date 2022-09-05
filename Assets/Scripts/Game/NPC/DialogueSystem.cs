@@ -21,7 +21,7 @@ namespace Dialogue
             // Disable actions of interacting entities
             if (GameManager.IsPlayerCreated)
             {
-                GameManager.Player.enabled = false;
+                GameManager.Player.SetInputEnabled(false);
             }
 
             if (target.TryGetComponent(out BehaviourObject obj))
@@ -119,7 +119,7 @@ namespace Dialogue
 
                 if (GameManager.IsPlayerCreated)
                 {
-                    GameManager.Player.enabled = true;
+                    GameManager.Player.SetInputEnabled(true);
                 }
 
                 if (currentTarget.TryGetComponent(out BehaviourObject obj))
