@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a43995d22fea24785b15ce77c68343, type: 3}
   m_Name: PlayerMove
   m_EditorClassIdentifier: 
-  frameRate: 6
+  frameRate: 4
   lockFrames: 0
   frames:
   - {fileID: -7024411642000387434, guid: e8d923bb65d022f4da5eed7565f60c0f, type: 3}
