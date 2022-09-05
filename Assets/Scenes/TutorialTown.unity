@@ -1398,6 +1398,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
+  usableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  disabledLayer:
+    serializedVersion: 2
+    m_Bits: 0
   interactHint: Talk
   characterName: Mum
   portrait: {fileID: 8835284309397123848, guid: 568b897490088f8439d263b261216ec0,
@@ -2047,6 +2053,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
+  usableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  disabledLayer:
+    serializedVersion: 2
+    m_Bits: 0
   interactHint: Talk
   characterName: Waddlesworth
   portrait: {fileID: -3713467532807335336, guid: 0bbfe1fef35fa2243a811a7b497fb9e2,
@@ -8805,6 +8817,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
+  usableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  disabledLayer:
+    serializedVersion: 2
+    m_Bits: 0
   interactHint: Talk
   characterName: Jimmy
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
@@ -18951,6 +18969,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
+  usableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  disabledLayer:
+    serializedVersion: 2
+    m_Bits: 0
   interactHint: To Frontyard
   spawnPoint: {fileID: 131727749}
   fadeOutTime: 0.2
@@ -19177,6 +19201,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
+  usableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  disabledLayer:
+    serializedVersion: 2
+    m_Bits: 0
   interactHint: To Backyard
   spawnPoint: {fileID: 705329807}
   fadeOutTime: 0.2
@@ -19375,6 +19405,32 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2120571431, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120571431, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d515fb3ded77c9a48a82096a4bbfd636,
+        type: 2}
+    - target: {fileID: 2120571431, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 2123936989, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 2123936989, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d515fb3ded77c9a48a82096a4bbfd636,
+        type: 2}
+    - target: {fileID: 2123936989, guid: d935c8bab1c94f34e87afb5182e447d3, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 36
+      objectReference: {fileID: 0}
     - target: {fileID: 1594993686445272995, guid: d935c8bab1c94f34e87afb5182e447d3,
         type: 3}
       propertyPath: m_Name
@@ -19484,6 +19540,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594993686462527039, guid: d935c8bab1c94f34e87afb5182e447d3,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594993686462527039, guid: d935c8bab1c94f34e87afb5182e447d3,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d515fb3ded77c9a48a82096a4bbfd636,
+        type: 2}
+    - target: {fileID: 1594993686462527039, guid: d935c8bab1c94f34e87afb5182e447d3,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 1594993686958849015, guid: d935c8bab1c94f34e87afb5182e447d3,
         type: 3}
