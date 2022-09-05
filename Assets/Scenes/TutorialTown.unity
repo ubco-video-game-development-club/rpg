@@ -27498,7 +27498,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1001 &1245606300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27709,7 +27709,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &1246801578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29763,14 +29763,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3711161629700167611, guid: e8c8ea3c95248c945ac8eaa2cfd0ac58,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 2f34572768b99914881376e8a62fc742,
-        type: 3}
-    m_RemovedComponents:
-    - {fileID: 3711161629700167608, guid: e8c8ea3c95248c945ac8eaa2cfd0ac58, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8c8ea3c95248c945ac8eaa2cfd0ac58, type: 3}
 --- !u!4 &1706312447 stripped
 Transform:
