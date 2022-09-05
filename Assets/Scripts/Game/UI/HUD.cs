@@ -17,6 +17,9 @@ namespace RPG
         [SerializeField] private Menu blackScreen;
         public static Menu BlackScreen { get => instance.blackScreen; }
 
+        [SerializeField] private DeathMenu deathScreen;
+        public static DeathMenu DeathScreen { get => instance.deathScreen; }
+
         [SerializeField] private Menu hudMenu;
         public static Menu HudMenu { get => instance.hudMenu; }
 
@@ -34,6 +37,8 @@ namespace RPG
 
             if (GameManager.IsPlayerCreated) OnPlayerCreated();
             else GameManager.AddPlayerCreatedListener(OnPlayerCreated);
+
+            DeathScreen.enabled = false;
         }
 
         private void OnPlayerCreated()

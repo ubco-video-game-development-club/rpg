@@ -27,6 +27,12 @@ namespace RPG
             OnDeath.AddListener(() => GameManager.LevelingSystem.AddXP(100));
         }
 
+        protected override void Die(Actor source)
+        {
+            base.Die(source);
+            Destroy(gameObject);
+        }
+
         public void SetActionTarget(Vector2 target)
         {
             actionData.target = target;
@@ -40,6 +46,7 @@ namespace RPG
             {
                 StartCoroutine(ActionCooldown(action));
                 actionData.origin = transform.position;
+                actionData.source = this;
                 action.Invoke(actionData);
                 AnimateAction(action);
             }

@@ -180,6 +180,20 @@ namespace RPG
             ClearInteractions();
         }
 
+        protected override void Die(Actor source)
+        {
+            base.Die(source);
+            SetInputEnabled(false);
+            HUD.DeathScreen.SetDeathInfo(source);
+            HUD.DeathScreen.SetVisible(true);
+        }
+
+        public void Respawn()
+        {
+            transform.position = LevelManager.DefaultSpawnPoint.position;
+            SetInputEnabled(true);
+        }
+
         public void ApplyClassBaseStats(ClassBaseStats classBaseStats)
         {
             ClassBaseStats = classBaseStats;
@@ -271,6 +285,7 @@ namespace RPG
                 // Invoke action
                 actionData.target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 actionData.origin = transform.position;
+                actionData.source = this;
                 action.Invoke(actionData);
 
                 // Run animations (requires action data to be set!)

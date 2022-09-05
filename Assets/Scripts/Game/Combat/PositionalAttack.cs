@@ -19,7 +19,7 @@ namespace RPG
             {
                 if (hit.TryGetComponent<Actor>(out Actor target))
                 {
-                    target.TakeDamage(damage);
+                    target.TakeDamage(damage, data.source);
                 }
             }
         }

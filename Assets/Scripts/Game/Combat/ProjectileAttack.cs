@@ -27,6 +27,7 @@ namespace RPG
             pData.range = range;
             pData.damage = damage;
             pData.dieOnCollide = !passThroughTargets;
+            pData.source = data.source;
             proj.Fire(pData);
         }
     }

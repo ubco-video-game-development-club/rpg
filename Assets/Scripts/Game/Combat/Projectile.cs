@@ -20,7 +20,7 @@ namespace RPG
         {
             if (MathUtils.IsLayerInMask(data.hitMask, col.gameObject.layer) && col.TryGetComponent<Actor>(out Actor target))
             {
-                target.TakeDamage(data.damage);
+                target.TakeDamage(data.damage, data.source);
                 Instantiate(hitEffect, transform.position, Quaternion.identity);
                 if (data.dieOnCollide)
                 {

@@ -12,5 +12,6 @@ namespace RPG
         public float range;
         public int damage;
         public bool dieOnCollide;
+        public Actor source;
     }
 }

@@ -15,10 +15,13 @@ namespace RPG
         ///</summary>
         private const float DIRECTION_LOOK_THRESHOLD = 0.45f;
 
+        [SerializeField] private string displayName = "Actor";
         [SerializeField] private int initialMaxHealth;
         [SerializeField] private Animation2D idleAnimation;
         [SerializeField] private Animation2D moveAnimation;
         [SerializeField] private Animation2D hurtAnimation;
+
+        public string DisplayName { get => displayName; }
 
         public int MaxHealth
         {
@@ -84,18 +87,17 @@ namespace RPG
             prevFramePosition = transform.position;
         }
 
-        public virtual void TakeDamage(int damage)
+        public virtual void TakeDamage(int damage, Actor source)
         {
             Health = Mathf.Max(0, Health - damage);
             onDamageTaken.Invoke(damage);
-            if (Health <= 0) Die();
+            if (Health <= 0) Die(source);
             else AnimateHurt();
         }
 
-        protected virtual void Die()
+        protected virtual void Die(Actor source)
         {
             onDeath.Invoke();
-            Destroy(gameObject);
         }
 
         protected virtual void AnimateIdle()
