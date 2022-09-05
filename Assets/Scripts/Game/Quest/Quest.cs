@@ -17,6 +17,18 @@ namespace RPG
             Notes = new HashSet<QuestNote>();
         }
 
+        public bool IsCompleted()
+        {
+            foreach (QuestNote note in Notes)
+            {
+                if (note.Completed)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void AddNote(QuestNote note)
         {
             if (!Notes.Contains(note))

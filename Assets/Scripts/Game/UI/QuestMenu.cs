@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RPG
 {
-    public class QuestMenu : MonoBehaviour
+    public class QuestMenu : Menu
     {
         [SerializeField] private QuestDisplay questPrefab;
 
@@ -12,8 +12,10 @@ namespace RPG
 
         private RectTransform rectTransform;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+
             rectTransform = GetComponent<RectTransform>();
 
             if (GameManager.IsPlayerCreated) OnPlayerCreated();
@@ -39,6 +41,8 @@ namespace RPG
 
             foreach (Quest quest in GameManager.QuestSystem.Journal)
             {
+                if (quest.IsCompleted()) continue;
+
                 QuestDisplay questDisplay = Instantiate(questPrefab, transform);
                 questDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -yOffset);
                 questDisplay.SetQuest(quest);
@@ -47,6 +51,7 @@ namespace RPG
                 yOffset += questDisplay.GetHeight() + 10f;
             }
 
+            SetVisible(yOffset > 0);
             rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, yOffset);
         }
     }

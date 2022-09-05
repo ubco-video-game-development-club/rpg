@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: 'Speak to Mum '
+    displayName: 'Speak to Mum '
     body: "Come on hun! We need that sunflower head. You don\u2019t want to miss
       any festivities now do you?"
     position: {x: -75, y: -169}
@@ -30,6 +31,7 @@ MonoBehaviour:
     to: -1
   exitNode:
     name: Exit
+    displayName: Exit
     body: 
     position: {x: -71, y: -51}
     moralsMod: 0

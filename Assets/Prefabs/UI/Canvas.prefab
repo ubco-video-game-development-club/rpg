@@ -1664,6 +1664,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634e75a6a0507934aac8d26c6873d04a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showTime: 0.8
+  hideTime: 0.8
   questPrefab: {fileID: 7519910983570135159, guid: 017fe2e82e6cf6d4d96d7f2df994ac9d,
     type: 3}
 --- !u!1 &1957131590
