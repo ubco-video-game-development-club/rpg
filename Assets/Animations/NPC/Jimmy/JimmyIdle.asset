@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a43995d22fea24785b15ce77c68343, type: 3}
   m_Name: JimmyIdle
   m_EditorClassIdentifier: 
-  frameRate: 1
+  frameRate: 6
   lockFrames: 0
   frames:
-  - {fileID: 5379264577244474164, guid: 93cb617996c05b6489970fc681f440ef, type: 3}
+  - {fileID: -4993850302976658462, guid: bc9d08c9bcca2654e927f360b4e27dfb, type: 3}
+  - {fileID: -2580905169794686914, guid: bc9d08c9bcca2654e927f360b4e27dfb, type: 3}
+  - {fileID: 7976436446038887204, guid: bc9d08c9bcca2654e927f360b4e27dfb, type: 3}
+  - {fileID: -6106924775252591703, guid: bc9d08c9bcca2654e927f360b4e27dfb, type: 3}
+  - {fileID: -3050126180341474325, guid: bc9d08c9bcca2654e927f360b4e27dfb, type: 3}
+  - {fileID: 7922513210393077146, guid: bc9d08c9bcca2654e927f360b4e27dfb, type: 3}

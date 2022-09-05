@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a43995d22fea24785b15ce77c68343, type: 3}
   m_Name: JimmyMove
   m_EditorClassIdentifier: 
-  frameRate: 1
+  frameRate: 4
   lockFrames: 0
   frames:
-  - {fileID: 5379264577244474164, guid: 93cb617996c05b6489970fc681f440ef, type: 3}
+  - {fileID: 8270384926295241176, guid: 562db81880d48f742af42b2f97e6a169, type: 3}
+  - {fileID: -5232887728409719317, guid: 562db81880d48f742af42b2f97e6a169, type: 3}
