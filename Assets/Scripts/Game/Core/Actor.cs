@@ -26,14 +26,16 @@ namespace RPG
         public int MaxHealth
         {
             get => GetProperty<int>(PropertyName.MaxHealth);
-            private set => SetProperty<int>(PropertyName.MaxHealth, value);
+            protected set => SetProperty<int>(PropertyName.MaxHealth, value);
         }
 
         public int Health
         {
             get => GetProperty<int>(PropertyName.Health);
-            private set => SetProperty<int>(PropertyName.Health, value);
+            protected set => SetProperty<int>(PropertyName.Health, value);
         }
+
+        public bool IsAlive { get; protected set; }
 
         private UnityEvent<int> onDamageTaken = new UnityEvent<int>();
         public UnityEvent<int> OnDamageTaken { get => onDamageTaken; }
@@ -64,6 +66,7 @@ namespace RPG
             // Initialize properties
             MaxHealth = initialMaxHealth;
             facingDirection = Vector2Int.right;
+            IsAlive = true;
         }
 
         protected virtual void Update()
@@ -89,6 +92,8 @@ namespace RPG
 
         public virtual void TakeDamage(int damage, Actor source)
         {
+            if (!IsAlive) return;
+
             Health = Mathf.Max(0, Health - damage);
             onDamageTaken.Invoke(damage);
             if (Health <= 0) Die(source);
@@ -98,6 +103,7 @@ namespace RPG
         protected virtual void Die(Actor source)
         {
             onDeath.Invoke();
+            IsAlive = false;
         }
 
         protected virtual void AnimateIdle()

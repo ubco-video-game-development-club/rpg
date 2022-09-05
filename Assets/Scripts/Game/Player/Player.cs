@@ -190,8 +190,10 @@ namespace RPG
 
         public void Respawn()
         {
+            Health = MaxHealth;
             transform.position = LevelManager.DefaultSpawnPoint.position;
             SetInputEnabled(true);
+            IsAlive = true;
         }
 
         public void ApplyClassBaseStats(ClassBaseStats classBaseStats)
