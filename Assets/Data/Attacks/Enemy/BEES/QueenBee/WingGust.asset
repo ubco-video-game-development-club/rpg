@@ -20,7 +20,7 @@ MonoBehaviour:
   cooldown: 3
   projectilePrefab: {fileID: -4505297569411084305, guid: 6458f06f36ca54f468822dcaaf7a1c83,
     type: 3}
-  speed: 6
+  speed: 7
   range: 7
   damage: 3
   passThroughTargets: 1
