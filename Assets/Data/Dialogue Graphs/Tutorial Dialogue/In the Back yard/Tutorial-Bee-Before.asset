@@ -31,7 +31,7 @@ MonoBehaviour:
     displayName: 
     body: "If you even think of touching that sunflower you got another thing coming
       pal. We found it and we\u2019re taking it!"
-    position: {x: -72, y: -100}
+    position: {x: -72, y: -101}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Speak to Lil Jimmy
-    body: If I'm being honest. I think you might pull that sweater off better than
+    displayName: Speak to Lil Jimmy
+    body: If I'm being honest, I think you might pull that sweater off better than
       I did.
     position: {x: -200, y: 0}
     moralsMod: 0
@@ -30,6 +31,7 @@ MonoBehaviour:
     to: -1
   exitNode:
     name: Exit
+    displayName: Exit
     body: 
     position: {x: 200, y: 0}
     moralsMod: 0

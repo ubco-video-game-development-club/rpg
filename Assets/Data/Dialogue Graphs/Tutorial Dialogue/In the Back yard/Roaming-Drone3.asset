@@ -15,7 +15,7 @@ MonoBehaviour:
   nodes:
   - name: Entry
     displayName: Entry
-    body: Y'know sometimes I think the pollen we collect isn't even used. I think
+    body: Y'know, sometimes I think the pollen we collect isn't even used. I think
       the Queen gets us to harvest it just to keep us compliant.
     position: {x: -200, y: 0}
     moralsMod: 0

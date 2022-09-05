@@ -15,9 +15,9 @@ MonoBehaviour:
   nodes:
   - name: Speak to Queen Bee
     displayName: Speak to Queen Bee
-    body: "I may have underestimated you duck. But, don\u2019t worry. I\u2019ve
-      got a good few hundred kids back home at the hive and they\u2019ll be back
-      to get you. Just you wait\u2026\r\n"
+    body: "I may have underestimated you, duck. But don\u2019t worry. I\u2019ve got
+      a good few hundred kids back home at the hive and they\u2019ll be back to get
+      you. Just you wait...\r\n"
     position: {x: -75, y: -169}
     moralsMod: 0
     leaningsMod: 0

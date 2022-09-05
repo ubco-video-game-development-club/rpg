@@ -38,9 +38,9 @@ MonoBehaviour:
     behaviourProperties: []
   - name: 
     displayName: 
-    body: "You need to get to Mr.Waddleswoth\u2019s shop before it closes up. So
+    body: "You need to get to Mr.Waddlesworth\u2019s shop before it closes up. So
       you better get there soon!"
-    position: {x: -25, y: 97}
+    position: {x: -27, y: 98}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0

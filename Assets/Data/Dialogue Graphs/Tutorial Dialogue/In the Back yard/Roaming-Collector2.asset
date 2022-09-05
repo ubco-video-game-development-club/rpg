@@ -15,7 +15,7 @@ MonoBehaviour:
   nodes:
   - name: Entry
     displayName: Entry
-    body: Collecting honey. Its not much, but its honest work
+    body: Collecting honey. Its not much, but its honest work.
     position: {x: -200, y: 0}
     moralsMod: 0
     leaningsMod: 0

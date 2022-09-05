@@ -15,7 +15,7 @@ MonoBehaviour:
   nodes:
   - name: Entry
     displayName: Entry
-    body: To distinguish myself from all my siblings. My stripes are yellow and black,
+    body: To distinguish myself from all my siblings, my stripes are yellow and black,
       instead of black and yellow.
     position: {x: -200, y: 0}
     moralsMod: 0

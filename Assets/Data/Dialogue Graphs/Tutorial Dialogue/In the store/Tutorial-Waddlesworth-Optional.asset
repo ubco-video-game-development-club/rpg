@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Speak to Mr.Waddlesworth
-    body: "I\u2019m not saying you should fight Jimmy. But, if you do, I hope I don\u2019t
+    displayName: Speak to Mr.Waddlesworth
+    body: "I\u2019m not saying you should fight Jimmy. But if you do, I hope I don\u2019t
       miss it."
     position: {x: -13, y: -97}
     moralsMod: 0
@@ -30,6 +31,7 @@ MonoBehaviour:
     to: -1
   exitNode:
     name: Exit
+    displayName: Exit
     body: 
     position: {x: 0, y: 0}
     moralsMod: 0

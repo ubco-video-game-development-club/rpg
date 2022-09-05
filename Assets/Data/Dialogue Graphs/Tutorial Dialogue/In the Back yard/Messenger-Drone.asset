@@ -17,7 +17,7 @@ MonoBehaviour:
     displayName: 'f
 
 '
-    body: Hey what are you doing back here?
+    body: Hey! What are you doing back here?
     position: {x: -146.29999, y: -132.5}
     moralsMod: 0
     leaningsMod: 0
@@ -26,11 +26,11 @@ MonoBehaviour:
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
     behaviourProperties: []
-  - name: ->
-    displayName: ->
-    body: You are ok to stick around back here. But just know. If you mess with the
-      hive you get the knive...s (i.e Stingers)
-    position: {x: -131.29999, y: -24.899994}
+  - name: 
+    displayName: 
+    body: You are ok to stick around back here. But just know - if you mess with
+      the hive, you get the knive...s (i.e stingers).
+    position: {x: -130.29999, y: -25.899994}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0

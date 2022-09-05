@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Speak to Lil Jimmy
-    body: Leave me alone, please.  You made Recipe Day bad enough as is.
+    displayName: Speak to Lil Jimmy
+    body: Leave me alone, please. You made Recipe Day bad enough as is.
     position: {x: -200, y: 0}
     moralsMod: 0
     leaningsMod: 0
@@ -29,6 +30,7 @@ MonoBehaviour:
     to: -1
   exitNode:
     name: Exit
+    displayName: Exit
     body: 
     position: {x: 200, y: 0}
     moralsMod: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   nodes:
   - name: Speak to Lil Jimmy
     displayName: Speak to Lil Jimmy
-    body: Hey there *Protagonist* How's it going?
+    body: Hey there nerd! How's it going?
     position: {x: -82, y: -171}
     moralsMod: 0
     leaningsMod: 0
@@ -26,9 +26,9 @@ MonoBehaviour:
       indexOverride: 1
     customBehaviour: {fileID: 0}
     behaviourProperties: []
-  - name:
-    displayName:
-    body: Check out this new shirt I got pretty sweet huh?
+  - name: 
+    displayName: 
+    body: Check out this new shirt I got - pretty sweet huh?
     position: {x: 207, y: -167}
     moralsMod: 0
     leaningsMod: 0
@@ -41,8 +41,8 @@ MonoBehaviour:
       a new shirt like that. But, I\u2019m afraid I don't have enough allowance for
       one.\r"
     displayName: ~Persuade~ Those are pretty nic...
-    body: "Oh well you know what that, here. You can have it actually. It\u2019s
-      not really my style anyway.\r"
+    body: "Oh. Well, you know what - here. You can have it. It\u2019s not really
+      my style anyway.\r"
     position: {x: 17, y: -81}
     moralsMod: -0.15
     leaningsMod: -0.05
@@ -58,7 +58,7 @@ MonoBehaviour:
   - name: "~Intimidate~ I\u2019m pretty sure Id look better in those than you. Hand
       them over before you feel the wrath of my quackers, tappers and also flappers."
     displayName: "~Intimidate~ I\u2019m pretty sure Id loo..."
-    body: "Sounds like you\u2019re looking for a fight. Let\u2019s do it then."
+    body: "Sounds like you\u2019re looking for a fight. Let\u2019s do it then!"
     position: {x: 250, y: -75}
     moralsMod: 0
     leaningsMod: 0

@@ -17,7 +17,7 @@ MonoBehaviour:
     displayName: 
     body: Oh you got the shirt on already, silly me! I was hoping it would be packaged
       so I could watch you open it. But this will do!
-    position: {x: -75, y: -169}
+    position: {x: -74, y: -169}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
@@ -30,9 +30,9 @@ MonoBehaviour:
     behaviourProperties: []
   - name: 
     displayName: 
-    body: I wanted to get you a Recipe Day surprise. And, I know some of your old
+    body: I wanted to get you a Recipe Day surprise. And I know some of your old
       clothes were wearing out. I hope you like it.
-    position: {x: 200, y: -162}
+    position: {x: 200, y: -163}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
   - name: Speak to Mum about your sweater
     displayName: Speak to Mum about your sweater
     body: Hey Hun, did you get the package for me?
-    position: {x: -314, y: -151.1}
+    position: {x: -315, y: -151.1}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
@@ -89,8 +89,8 @@ MonoBehaviour:
     behaviourProperties: []
   - name: 
     displayName: 
-    body: "I left the gate on the side of the house open so you shouldn\u2019t need
-      a key I\u2019ll be waiting for you in the front yard\r."
+    body: "I left the gate on the side of the house open, so you shouldn\u2019t need
+      a key. I\u2019ll be waiting for you in the front yard\r."
     position: {x: 180, y: 152.9}
     moralsMod: 0
     leaningsMod: 0

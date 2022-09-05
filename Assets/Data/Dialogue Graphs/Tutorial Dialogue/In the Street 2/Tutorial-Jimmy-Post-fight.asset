@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Speak to Lil Jimmy
-    body: "Here you take it then if you want it so bad. I\u2019m out of here."
+    displayName: Speak to Lil Jimmy
+    body: "Here - you take it then if you want it so bad. I\u2019m out of here."
     position: {x: -76, y: -172}
     moralsMod: 0
     leaningsMod: 0
@@ -33,6 +34,7 @@ MonoBehaviour:
     to: -1
   exitNode:
     name: Exit
+    displayName: Exit
     body: 
     position: {x: -65, y: -15}
     moralsMod: 0
