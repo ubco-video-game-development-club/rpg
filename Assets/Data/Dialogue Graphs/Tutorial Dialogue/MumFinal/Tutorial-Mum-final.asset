@@ -44,7 +44,8 @@ MonoBehaviour:
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0
-    questNotes: []
+    questNotes:
+    - {fileID: 11400000, guid: f75845412cdeb5c4e9292822343e924d, type: 2}
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
     behaviourProperties: []
@@ -56,8 +57,10 @@ MonoBehaviour:
     leaningsMod: 0
     sexinessMod: 0
     questNotes: []
-    dialogueIndexOverrides: []
-    customBehaviour: {fileID: 0}
+    dialogueIndexOverrides:
+    - targetUniqueID: 
+      indexOverride: 7
+    customBehaviour: {fileID: 11400000, guid: 5a82b48cf5999994d9763433e55af33e, type: 2}
     behaviourProperties: []
   transitions:
   - name: Transition

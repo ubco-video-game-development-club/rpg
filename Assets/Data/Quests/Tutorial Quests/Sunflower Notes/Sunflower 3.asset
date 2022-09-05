@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59bd2353cfacf6e4cae9de3a7061715a, type: 3}
-  m_Name: Sunflower
+  m_Script: {fileID: 11500000, guid: 8075094e46989044f920eb0dfe88fc8b, type: 3}
+  m_Name: Sunflower 3
   m_EditorClassIdentifier: 
-  title: Sunflower
+  quest: {fileID: 11400000, guid: 2594ff2fe8acedd4c9ff437143ccc457, type: 2}
+  desc: That was messy. Time to report back to Mum.
+  completed: 0
