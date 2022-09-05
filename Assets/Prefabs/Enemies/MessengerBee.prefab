@@ -197,12 +197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
-  usableLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  disabledLayer:
-    serializedVersion: 2
-    m_Bits: 1
+  usableLayer: Interactable
+  disabledLayer: Default
   interactHint: Talk
   characterName: Messenger Bee
   portrait: {fileID: 4952209501499356957, guid: dd3fcb300c29dc64aa49826012305a0a,

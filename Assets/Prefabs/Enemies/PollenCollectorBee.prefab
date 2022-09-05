@@ -198,12 +198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
-  usableLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  disabledLayer:
-    serializedVersion: 2
-    m_Bits: 1
+  usableLayer: Interactable
+  disabledLayer: Default
   interactHint: Talk
   characterName: Pollen Collector
   portrait: {fileID: -4222616733112427840, guid: 825e1302870b84344a98c55e2dd3f256,

@@ -14,21 +14,743 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tree:
     serializedNodes:
-    - childCount: 1
+    - childCount: 2
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
       nodeIndex: 1
-    - childCount: 2
+    - childCount: 0
       element:
-        propertyInfo: []
-        nodeTypeName: Behaviours.SelectorNode
+        propertyInfo:
+        - name: level-property-name
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isFighting
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: behaviour-property-output
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 2
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isFighting
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.GetLevelPropertyNode
       nodeIndex: 2
     - childCount: 4
       element:
         propertyInfo: []
-        nodeTypeName: Behaviours.SequenceNode
+        nodeTypeName: Behaviours.SelectorNode
       nodeIndex: 3
+    - childCount: 7
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SequenceNode
+      nodeIndex: 4
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-name
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isFighting
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.HasPropertyNode
+      nodeIndex: 5
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-name
+          property:
+            propertyType: 6
+            objectType: RPG.PropertyName, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+              PublicKeyToken=null
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 1
+            aType: 0
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: RPG.PropertyType, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+              PublicKeyToken=null
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: property-output
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 2
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: health
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.GetEntityPropertyNode
+      nodeIndex: 6
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: health
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: Behaviours.CompareNode+CompareType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            forceReserialization: 1
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: operator
+          property:
+            propertyType: 6
+            objectType: Behaviours.CompareNode+OperatorType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 1
+            aType: 0
+        - name: comparator
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 5
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.CompareNode
+      nodeIndex: 7
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: Behaviours.SetPropertyNode+ValueType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            forceReserialization: 1
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 2
+            aType: 0
+        - name: target-property
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isFighting
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: property-value
+          property:
+            propertyType: 0
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.SetPropertyNode
+      nodeIndex: 8
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: behaviour-property-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isFighting
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: level-property-name
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isFighting
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.SetLevelPropertyNode
+      nodeIndex: 9
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: npc-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: dialogue-index
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 1
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.SetDialogueIndexNode
+      nodeIndex: 10
+    - childCount: 0
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.ForceDialogueNode
+      nodeIndex: 11
+    - childCount: 5
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SequenceNode
+      nodeIndex: 12
+    - childCount: 1
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.NotNode
+      nodeIndex: 13
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-name
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isFighting
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.HasPropertyNode
+      nodeIndex: 14
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-name
+          property:
+            propertyType: 6
+            objectType: RPG.PropertyName, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+              PublicKeyToken=null
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 1
+            aType: 0
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: RPG.PropertyType, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+              PublicKeyToken=null
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: property-output
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 2
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: health
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.GetEntityPropertyNode
+      nodeIndex: 15
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: health
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: Behaviours.CompareNode+CompareType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            forceReserialization: 1
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: operator
+          property:
+            propertyType: 6
+            objectType: Behaviours.CompareNode+OperatorType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 1
+            aType: 0
+        - name: comparator
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 24
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.CompareNode
+      nodeIndex: 16
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: Behaviours.SetPropertyNode+ValueType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            forceReserialization: 1
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 2
+            aType: 0
+        - name: target-property
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isFighting
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: property-value
+          property:
+            propertyType: 0
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 1
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.SetPropertyNode
+      nodeIndex: 17
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: behaviour-property-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isFighting
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: level-property-name
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isFighting
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.SetLevelPropertyNode
+      nodeIndex: 18
+    - childCount: 4
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SequenceNode
+      nodeIndex: 19
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-name
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isFighting
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.HasPropertyNode
+      nodeIndex: 20
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-name
+          property:
+            propertyType: 6
+            objectType: RPG.PropertyName, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+              PublicKeyToken=null
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 1
+            aType: 0
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: RPG.PropertyType, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+              PublicKeyToken=null
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: property-output
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 2
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: health
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.GetEntityPropertyNode
+      nodeIndex: 21
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: property-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: health
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: property-type
+          property:
+            propertyType: 6
+            objectType: Behaviours.CompareNode+CompareType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            forceReserialization: 1
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: operator
+          property:
+            propertyType: 6
+            objectType: Behaviours.CompareNode+OperatorType, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 2
+            aType: 0
+        - name: comparator
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 12
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.CompareNode
+      nodeIndex: 22
+    - childCount: 4
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SequenceNode
+      nodeIndex: 23
     - childCount: 0
       element:
         propertyInfo:
@@ -65,7 +787,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.FindActorByTagNode
-      nodeIndex: 4
+      nodeIndex: 24
     - childCount: 0
       element:
         propertyInfo:
@@ -102,7 +824,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.GetActorPositionNode
-      nodeIndex: 5
+      nodeIndex: 25
     - childCount: 0
       element:
         propertyInfo:
@@ -115,7 +837,7 @@ MonoBehaviour:
             instanced: 0
             value:
               b: 0
-              n: 5
+              n: 10
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
@@ -139,17 +861,17 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.RangeCheckNode
-      nodeIndex: 6
-    - childCount: 3
+      nodeIndex: 26
+    - childCount: 4
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SelectorNode
-      nodeIndex: 7
+      nodeIndex: 27
     - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 8
+      nodeIndex: 28
     - childCount: 0
       element:
         propertyInfo:
@@ -162,7 +884,7 @@ MonoBehaviour:
             instanced: 0
             value:
               b: 0
-              n: 1.5
+              n: 8
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
@@ -186,7 +908,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.RangeCheckNode
-      nodeIndex: 9
+      nodeIndex: 29
     - childCount: 0
       element:
         propertyInfo:
@@ -207,7 +929,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SetActionTargetNode
-      nodeIndex: 10
+      nodeIndex: 30
     - childCount: 0
       element:
         propertyInfo:
@@ -220,7 +942,7 @@ MonoBehaviour:
             instanced: 0
             value:
               b: 0
-              n: 0
+              n: 2
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
@@ -228,17 +950,12 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.InvokeActionNode
-      nodeIndex: 11
-    - childCount: 4
+      nodeIndex: 31
+    - childCount: 3
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 12
-    - childCount: 1
-      element:
-        propertyInfo: []
-        nodeTypeName: Behaviours.NotNode
-      nodeIndex: 13
+      nodeIndex: 32
     - childCount: 0
       element:
         propertyInfo:
@@ -275,7 +992,59 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.RangeCheckNode
-      nodeIndex: 14
+      nodeIndex: 33
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: target-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: player-pos
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.SetActionTargetNode
+      nodeIndex: 34
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: action-index
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.InvokeActionNode
+      nodeIndex: 35
+    - childCount: 3
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SequenceNode
+      nodeIndex: 36
+    - childCount: 1
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.NotNode
+      nodeIndex: 37
     - childCount: 0
       element:
         propertyInfo:
@@ -288,7 +1057,7 @@ MonoBehaviour:
             instanced: 0
             value:
               b: 0
-              n: 4
+              n: 2
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
@@ -312,7 +1081,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.RangeCheckNode
-      nodeIndex: 15
+      nodeIndex: 38
     - childCount: 0
       element:
         propertyInfo:
@@ -333,7 +1102,7 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.SetActionTargetNode
-      nodeIndex: 16
+      nodeIndex: 39
     - childCount: 0
       element:
         propertyInfo:
@@ -354,10 +1123,131 @@ MonoBehaviour:
               e: 0
             aType: 0
         nodeTypeName: Behaviours.InvokeActionNode
-      nodeIndex: 17
+      nodeIndex: 40
+    - childCount: 0
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SuccessNode
+      nodeIndex: 41
+    - childCount: 5
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SequenceNode
+      nodeIndex: 42
     - childCount: 0
       element:
         propertyInfo:
+        - name: property-name
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: isFighting
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.HasPropertyNode
+      nodeIndex: 43
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: tag-name
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: Player
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: actor-output
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 2
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: player
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.FindActorByTagNode
+      nodeIndex: 44
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: actor-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: player
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-output
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 2
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: player-pos
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.GetActorPositionNode
+      nodeIndex: 45
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: range
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 10
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
         - name: position-input
           property:
             propertyType: 2
@@ -374,49 +1264,22 @@ MonoBehaviour:
               a: []
               e: 0
             aType: 0
-        - name: stop-distance
-          property:
-            propertyType: 1
-            objectType: 
-            forceReserialization: 0
-            displayType: 0
-            instanced: 0
-            value:
-              b: 0
-              n: 1
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        - name: move-speed
-          property:
-            propertyType: 1
-            objectType: 
-            forceReserialization: 0
-            displayType: 0
-            instanced: 0
-            value:
-              b: 0
-              n: 1.5
-              s: 
-              o: {fileID: 0}
-              v: {x: 0, y: 0}
-              a: []
-              e: 0
-            aType: 0
-        nodeTypeName: Behaviours.SimpleMoveNode
-      nodeIndex: 18
-    - childCount: 1
+        nodeTypeName: Behaviours.RangeCheckNode
+      nodeIndex: 46
+    - childCount: 3
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SelectorNode
+      nodeIndex: 47
+    - childCount: 5
       element:
         propertyInfo: []
         nodeTypeName: Behaviours.SequenceNode
-      nodeIndex: 19
+      nodeIndex: 48
     - childCount: 0
       element:
         propertyInfo:
-        - name: idle-duration
+        - name: range
           property:
             propertyType: 1
             objectType: 
@@ -425,12 +1288,301 @@ MonoBehaviour:
             instanced: 0
             value:
               b: 0
-              n: 1
+              n: 6
               s: 
               o: {fileID: 0}
               v: {x: 0, y: 0}
               a: []
               e: 0
             aType: 0
-        nodeTypeName: Behaviours.IdleNode
-      nodeIndex: 20
+        - name: position-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: player-pos
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.RangeCheckNode
+      nodeIndex: 49
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: object-output
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 2
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: self
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.GetSelfNode
+      nodeIndex: 50
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: actor-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: self
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-output
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 2
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: self-pos
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.GetActorPositionNode
+      nodeIndex: 51
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: target-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: self-pos
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.SetActionTargetNode
+      nodeIndex: 52
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: action-index
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 5
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.InvokeActionNode
+      nodeIndex: 53
+    - childCount: 3
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SequenceNode
+      nodeIndex: 54
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: range
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 3
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: player-pos
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.RangeCheckNode
+      nodeIndex: 55
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: target-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: player-pos
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.SetActionTargetNode
+      nodeIndex: 56
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: action-index
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 3
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.InvokeActionNode
+      nodeIndex: 57
+    - childCount: 3
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.SequenceNode
+      nodeIndex: 58
+    - childCount: 1
+      element:
+        propertyInfo: []
+        nodeTypeName: Behaviours.NotNode
+      nodeIndex: 59
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: range
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 3
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        - name: position-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: player-pos
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.RangeCheckNode
+      nodeIndex: 60
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: target-input
+          property:
+            propertyType: 2
+            objectType: 
+            forceReserialization: 0
+            displayType: 1
+            instanced: 0
+            value:
+              b: 0
+              n: 0
+              s: player-pos
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.SetActionTargetNode
+      nodeIndex: 61
+    - childCount: 0
+      element:
+        propertyInfo:
+        - name: action-index
+          property:
+            propertyType: 1
+            objectType: 
+            forceReserialization: 0
+            displayType: 0
+            instanced: 0
+            value:
+              b: 0
+              n: 4
+              s: 
+              o: {fileID: 0}
+              v: {x: 0, y: 0}
+              a: []
+              e: 0
+            aType: 0
+        nodeTypeName: Behaviours.InvokeActionNode
+      nodeIndex: 62
