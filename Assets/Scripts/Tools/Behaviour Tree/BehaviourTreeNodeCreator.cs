@@ -40,6 +40,7 @@ namespace Behaviours
         SpawnPlayerNode,
         GetLevelPropertyNode,
         SetLevelPropertyNode,
+        SetInteractableUsableNode,
     }
 
     public enum BehaviourTreeNodeCategory
@@ -52,6 +53,7 @@ namespace Behaviours
         Movement,
         Combat,
         Dialogue,
+        Level,
         Player
     }
 
@@ -133,6 +135,8 @@ namespace Behaviours
                     return new GetLevelPropertyNode();
                 case BehaviourTreeNodeType.SetLevelPropertyNode:
                     return new SetLevelPropertyNode();
+                case BehaviourTreeNodeType.SetInteractableUsableNode:
+                    return new SetInteractableUsableNode();
                 default:
                     Debug.LogError($"Unimplemented node type: {type}");
                     return null;
@@ -186,6 +190,8 @@ namespace Behaviours
                 case BehaviourTreeNodeType.SetDialogueIndexNode:
                 case BehaviourTreeNodeType.ForceDialogueNode:
                     return BehaviourTreeNodeCategory.Dialogue;
+                case BehaviourTreeNodeType.SetInteractableUsableNode:
+                    return BehaviourTreeNodeCategory.Level;
                 case BehaviourTreeNodeType.SpawnPlayerNode:
                     return BehaviourTreeNodeCategory.Player;
                 default:

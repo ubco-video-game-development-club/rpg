@@ -7,7 +7,9 @@ namespace RPG
     public abstract class Interactable : MonoBehaviour
     {
         [SerializeField] private Tooltip tooltipPrefab;
-        [SerializeField] [TextArea] private string interactHint;
+        [SerializeField] private LayerMask usableLayer;
+        [SerializeField] private LayerMask disabledLayer;
+        [SerializeField][TextArea] private string interactHint;
 
         private Tooltip tooltip;
 
@@ -25,6 +27,11 @@ namespace RPG
             {
                 Destroy(tooltip.gameObject);
             }
+        }
+
+        public void SetUsable(bool usable)
+        {
+            gameObject.layer = usable ? usableLayer : disabledLayer;
         }
 
         public void SetTooltipActive(bool active)
