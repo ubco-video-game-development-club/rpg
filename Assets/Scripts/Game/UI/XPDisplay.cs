@@ -28,7 +28,8 @@ namespace RPG
             int xp = GameManager.LevelingSystem.XP;
             int xpToLevel = GameManager.LevelingSystem.GetRequiredXP();
             int potentialLevel = GameManager.LevelingSystem.GetPotentialLevel();
-            fillBar.anchorMax = new Vector2((float)xp / xpToLevel, 1f);
+            int potentialLevelXP = GameManager.LevelingSystem.ToXP(potentialLevel);
+            fillBar.anchorMax = new Vector2((float)(xp - potentialLevelXP) / (xpToLevel - potentialLevelXP), 1f);
             textbox.text = xp + " / " + xpToLevel + " XP to Level " + potentialLevel;
         }
     }
