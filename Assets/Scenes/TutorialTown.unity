@@ -205,6 +205,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1273025319}
     m_Modifications:
+    - target: {fileID: -3453501519746320427, guid: 19a6839c81a1c1c4296433882c3b26ea,
+        type: 3}
+      propertyPath: usableLayer
+      value: Interactable
+      objectReference: {fileID: 0}
+    - target: {fileID: -3453501519746320427, guid: 19a6839c81a1c1c4296433882c3b26ea,
+        type: 3}
+      propertyPath: disabledLayer
+      value: Default
+      objectReference: {fileID: 0}
     - target: {fileID: 320136540237851050, guid: 19a6839c81a1c1c4296433882c3b26ea,
         type: 3}
       propertyPath: m_RootOrder
@@ -5777,6 +5787,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1273025319}
     m_Modifications:
+    - target: {fileID: 2439482629022856405, guid: ae50027939d5053478c796cb9e831013,
+        type: 3}
+      propertyPath: usableLayer
+      value: Interactable
+      objectReference: {fileID: 0}
+    - target: {fileID: 2439482629022856405, guid: ae50027939d5053478c796cb9e831013,
+        type: 3}
+      propertyPath: disabledLayer
+      value: Default
+      objectReference: {fileID: 0}
     - target: {fileID: 8482846902287919786, guid: ae50027939d5053478c796cb9e831013,
         type: 3}
       propertyPath: m_RootOrder
@@ -6032,12 +6052,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
-  usableLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  disabledLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  usableLayer: Interactable
+  disabledLayer: Default
   interactHint: Talk
   characterName: Mum
   portrait: {fileID: 8835284309397123848, guid: 568b897490088f8439d263b261216ec0,
@@ -6912,12 +6928,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
-  usableLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  disabledLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  usableLayer: Interactable
+  disabledLayer: Default
   interactHint: Talk
   characterName: Waddlesworth
   portrait: {fileID: -3713467532807335336, guid: 0bbfe1fef35fa2243a811a7b497fb9e2,
@@ -15412,15 +15424,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
-  usableLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  disabledLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  usableLayer: Interactable
+  disabledLayer: Default
   interactHint: Talk
   characterName: Jimmy
-  portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
+  portrait: {fileID: -4993850302976658462, guid: bc9d08c9bcca2654e927f360b4e27dfb,
+    type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: 5b4e3c749eebe4248b38084f7c56a999, type: 2}
   - {fileID: 11400000, guid: ae69f4ad827a0414a91c5ae9bf3b5f7f, type: 2}
@@ -15482,7 +15491,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5379264577244474164, guid: 93cb617996c05b6489970fc681f440ef,
+  m_Sprite: {fileID: -4993850302976658462, guid: bc9d08c9bcca2654e927f360b4e27dfb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -15502,7 +15511,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996557711}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.976, y: -0.939, z: 0}
+  m_LocalPosition: {x: -7.91, y: 4.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -15532,7 +15541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7157c15a42769b0458c85c94a11a8d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayName: Actor
+  displayName: Jimmy
   initialMaxHealth: 8
   facingRight: 1
   idleAnimation: {fileID: 11400000, guid: 9ced90e1cc0e50a49b51cb4d3bca539c, type: 2}
@@ -25259,6 +25268,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1273025319}
     m_Modifications:
+    - target: {fileID: -7208299424170625684, guid: e15788a2f48554048a903c75b506dd26,
+        type: 3}
+      propertyPath: usableLayer
+      value: Interactable
+      objectReference: {fileID: 0}
+    - target: {fileID: -7208299424170625684, guid: e15788a2f48554048a903c75b506dd26,
+        type: 3}
+      propertyPath: disabledLayer
+      value: Default
+      objectReference: {fileID: 0}
     - target: {fileID: 2096590143981113986, guid: e15788a2f48554048a903c75b506dd26,
         type: 3}
       propertyPath: m_Name
@@ -25784,12 +25803,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
-  usableLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  disabledLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  usableLayer: Interactable
+  disabledLayer: Default
   interactHint: To Frontyard
   spawnPoint: {fileID: 131727749}
   fadeOutTime: 0.2
@@ -25952,10 +25967,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1246801574}
   - component: {fileID: 1246801577}
+  - component: {fileID: 1246801576}
   - component: {fileID: 1246801575}
   - component: {fileID: 1246801578}
-  - component: {fileID: 1246801576}
-  m_Layer: 8
+  - component: {fileID: 1246801579}
+  m_Layer: 0
   m_Name: Teleporter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26091,17 +26107,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
-  usableLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  disabledLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  usableLayer: Interactable
+  disabledLayer: Default
   interactHint: To Backyard
   spawnPoint: {fileID: 705329807}
   fadeOutTime: 0.2
   teleportTime: 0.6
   fadeInTime: 0.2
+--- !u!114 &1246801579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246801573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc071df6b26c2c4682605f65e5c191c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: backyard
 --- !u!1001 &1259448395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27671,6 +27696,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MessengerBee
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363735414541851416, guid: 3381277b950affe4188aaf23a58cb02a,
+        type: 3}
+      propertyPath: usableLayer
+      value: Interactable
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363735414541851416, guid: 3381277b950affe4188aaf23a58cb02a,
+        type: 3}
+      propertyPath: disabledLayer
+      value: Default
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3381277b950affe4188aaf23a58cb02a, type: 3}

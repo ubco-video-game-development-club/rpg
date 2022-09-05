@@ -751,14 +751,14 @@ MonoBehaviour:
                   n: 0
                   s: 
                   o: {fileID: 0}
-                  v: {x: -8, y: -0.3}
+                  v: {x: -8, y: 5}
               - propertyType: 4
                 value:
                   b: 0
                   n: 0
                   s: 
                   o: {fileID: 0}
-                  v: {x: -3, y: -0.3}
+                  v: {x: -4.5, y: 5}
               e: 0
             aType: 4
         - name: index-input

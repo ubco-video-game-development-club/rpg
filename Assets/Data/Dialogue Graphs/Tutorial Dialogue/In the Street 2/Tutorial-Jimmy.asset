@@ -37,9 +37,8 @@ MonoBehaviour:
     dialogueIndexOverrides: []
     customBehaviour: {fileID: 0}
     behaviourProperties: []
-  - name: " ~Persuade~ Those are pretty nice. Where did you get them? I would love
-      a new shirt like that. But, I\u2019m afraid I don't have enough allowance for
-      one.\r"
+  - name: ' ~Persuade~ Cool sweater, where''d ya get it? I''d like a new one if I
+      had the cash...'
     displayName: ~Persuade~ Those are pretty nic...
     body: "Oh. Well, you know what - here. You can have it. It\u2019s not really
       my style anyway.\r"
@@ -55,11 +54,11 @@ MonoBehaviour:
       indexOverride: 3
     customBehaviour: {fileID: 0}
     behaviourProperties: []
-  - name: "~Intimidate~ I\u2019m pretty sure Id look better in those than you. Hand
-      them over before you feel the wrath of my quackers, tappers and also flappers."
+  - name: ~Intimidate~ Cool sweater. Now hand it over before you get quacked, tapped
+      and/or flapped.
     displayName: "~Intimidate~ I\u2019m pretty sure Id loo..."
     body: "Sounds like you\u2019re looking for a fight. Let\u2019s do it then!"
-    position: {x: 250, y: -75}
+    position: {x: 250, y: -76}
     moralsMod: 0
     leaningsMod: 0
     sexinessMod: 0

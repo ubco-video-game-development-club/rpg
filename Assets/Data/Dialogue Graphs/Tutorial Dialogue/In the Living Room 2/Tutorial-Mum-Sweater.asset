@@ -98,7 +98,7 @@ MonoBehaviour:
     questNotes:
     - {fileID: 11400000, guid: d6151f1813da3f6438bacc14c784be95, type: 2}
     dialogueIndexOverrides: []
-    customBehaviour: {fileID: 0}
+    customBehaviour: {fileID: 11400000, guid: a23c3a9e9ea290149af0b72d4b8a1b64, type: 2}
     behaviourProperties: []
   transitions:
   - name: Transition

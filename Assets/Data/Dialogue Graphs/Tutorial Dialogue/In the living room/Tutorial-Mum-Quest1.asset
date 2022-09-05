@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - name: Speak to Mum
-    body: "Here before you head out. Let me write down Mr.Waddlesworth\u2019s address
+    displayName: Speak to Mum
+    body: "Here - before you head out, let me write down Mr.Waddlesworth\u2019s address
       for you. I know you are prone to wandering."
     position: {x: -13, y: -97}
     moralsMod: 0
@@ -33,6 +34,7 @@ MonoBehaviour:
     to: -1
   exitNode:
     name: Exit
+    displayName: Exit
     body: 
     position: {x: 0, y: 0}
     moralsMod: 0
