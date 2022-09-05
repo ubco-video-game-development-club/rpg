@@ -149,7 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c468a67ddf1c947ba69dbf238f4734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayName: Actor
   initialMaxHealth: 20
+  facingRight: 1
   idleAnimation: {fileID: 11400000, guid: fa2c9c38a76583a4a8ad09c6753eb25d, type: 2}
   moveAnimation: {fileID: 11400000, guid: a086eee0ba62df54a8c04efd52fcf4e1, type: 2}
   hurtAnimation: {fileID: 11400000, guid: ff34b98254386804faa61e1af97963e4, type: 2}
@@ -162,7 +164,7 @@ MonoBehaviour:
   interactRadius: 1
   interactLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 384
   showDebugUI: 0
 --- !u!1 &6460137424957026631
 GameObject:

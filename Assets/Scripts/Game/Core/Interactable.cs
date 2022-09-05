@@ -29,6 +29,11 @@ namespace RPG
             }
         }
 
+        public virtual bool ShowTooltip()
+        {
+            return true;
+        }
+
         public void SetUsable(bool usable)
         {
             gameObject.layer = LayerMask.NameToLayer(usable ? usableLayer : disabledLayer);

@@ -27,6 +27,11 @@ namespace RPG
             instance = this;
         }
 
+        public static bool HasLevelProperty(string name)
+        {
+            return instance.HasProperty(name);
+        }
+
         public static object GetLevelProperty(string name)
         {
             return instance.GetProperty(name);

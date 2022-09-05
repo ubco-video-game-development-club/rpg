@@ -339,8 +339,11 @@ namespace RPG
             Interactable interactable;
             if (closestIdx >= 0 && interactTargets[closestIdx].TryGetComponent<Interactable>(out interactable))
             {
-                targetInteractable = interactable;
-                interactable.SetTooltipActive(true);
+                if (interactable.ShowTooltip())
+                {
+                    targetInteractable = interactable;
+                    interactable.SetTooltipActive(true);
+                }
             }
         }
 
