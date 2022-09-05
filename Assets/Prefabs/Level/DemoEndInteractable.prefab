@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3711161629700167610}
   - component: {fileID: 3711161629700167608}
   - component: {fileID: 3711161629700167609}
+  - component: {fileID: 4318552955482541399}
   m_Layer: 0
   m_Name: DemoEndInteractable
   m_TagString: Untagged
@@ -156,3 +157,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   interactHint: '[E] To the Parade'
+--- !u!114 &4318552955482541399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3711161629700167606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc071df6b26c2c4682605f65e5c191c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: demo-end
