@@ -928,7 +928,7 @@ MonoBehaviour:
                   n: 0
                   s: 
                   o: {fileID: 0}
-                  v: {x: -17, y: 22}
+                  v: {x: -17, y: 21}
               e: 0
             aType: 4
         - name: value-output

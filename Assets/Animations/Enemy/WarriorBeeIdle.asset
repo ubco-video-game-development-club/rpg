@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a43995d22fea24785b15ce77c68343, type: 3}
+  m_Name: WarriorBeeIdle
+  m_EditorClassIdentifier: 
+  frameRate: 5
+  lockFrames: 0
+  frames:
+  - {fileID: -9060002084287677420, guid: 6302efeac2a498447bc4cd7fdf66186d, type: 3}
+  - {fileID: -144844915676439144, guid: 6302efeac2a498447bc4cd7fdf66186d, type: 3}
+  - {fileID: -2993598136582286369, guid: 6302efeac2a498447bc4cd7fdf66186d, type: 3}
+  - {fileID: -5280430987047634207, guid: 6302efeac2a498447bc4cd7fdf66186d, type: 3}
+  - {fileID: 6917828691001760613, guid: 6302efeac2a498447bc4cd7fdf66186d, type: 3}

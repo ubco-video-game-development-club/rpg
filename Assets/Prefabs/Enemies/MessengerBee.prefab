@@ -10,16 +10,15 @@ GameObject:
   m_Component:
   - component: {fileID: 1149653217251767729}
   - component: {fileID: 1149653217251767742}
+  - component: {fileID: 1363735414541851413}
   - component: {fileID: 1149653217251767740}
-  - component: {fileID: 1149653217251767741}
   - component: {fileID: 1149653217251767730}
   - component: {fileID: 1149653217251767731}
   - component: {fileID: 1149653217251767728}
-  - component: {fileID: 1363735414541851413}
   - component: {fileID: 1363735414541851416}
   m_Layer: 8
-  m_Name: Messenger DoneBee
-  m_TagString: Untagged
+  m_Name: MessengerBee
+  m_TagString: BEES
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149653217251767734}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.03, y: -1.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -78,9 +77,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f,
+  m_Sprite: {fileID: 4952209501499356957, guid: dd3fcb300c29dc64aa49826012305a0a,
     type: 3}
-  m_Color: {r: 1, g: 0.81809366, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -89,7 +88,33 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
+--- !u!61 &1363735414541851413
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149653217251767734}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.2}
+  m_EdgeRadius: 0
 --- !u!50 &1149653217251767740
 Rigidbody2D:
   serializedVersion: 4
@@ -111,25 +136,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!95 &1149653217251767741
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1149653217251767734}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1149653217251767730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,9 +162,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Actor
   initialMaxHealth: 3
-  idleAnimation: {fileID: 0}
-  moveAnimation: {fileID: 0}
-  hurtAnimation: {fileID: 0}
+  facingRight: 0
+  idleAnimation: {fileID: 11400000, guid: cc1984940d7a7f04d8e0dc2371d1e60f, type: 2}
+  moveAnimation: {fileID: 11400000, guid: cc1984940d7a7f04d8e0dc2371d1e60f, type: 2}
+  hurtAnimation: {fileID: 11400000, guid: cc1984940d7a7f04d8e0dc2371d1e60f, type: 2}
   actions:
   - {fileID: 11400000, guid: 1314d535da2b1154184c0bbd8edf2575, type: 2}
   - {fileID: 11400000, guid: 2dfe2925c87d6df42bb63fa5c57bfe26, type: 2}
@@ -176,32 +183,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviourTree: {fileID: 11400000, guid: 200993b352eb44346b49effc006b896c, type: 2}
   instanceProperties: []
---- !u!61 &1363735414541851413
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1149653217251767734}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.35}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.6}
-  m_EdgeRadius: 0
 --- !u!114 &1363735414541851416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,8 +197,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
+  usableLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  disabledLayer:
+    serializedVersion: 2
+    m_Bits: 1
   interactHint: Talk
   characterName: Messenger
-  portrait: {fileID: 0}
+  portrait: {fileID: 4952209501499356957, guid: dd3fcb300c29dc64aa49826012305a0a,
+    type: 3}
   dialogueGraphs:
   - {fileID: 11400000, guid: eb0b5d73cfb54a041b297520599df4ab, type: 2}

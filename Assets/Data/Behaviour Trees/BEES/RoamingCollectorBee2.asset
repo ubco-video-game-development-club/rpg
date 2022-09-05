@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54fb5e73c80040247a00b01917c6e426, type: 3}
-  m_Name: RoamingCollectorBee 2
+  m_Name: RoamingCollectorBee2
   m_EditorClassIdentifier: 
   tree:
     serializedNodes:
@@ -921,14 +921,14 @@ MonoBehaviour:
                   n: 0
                   s: 
                   o: {fileID: 0}
-                  v: {x: -15, y: 25}
+                  v: {x: -17.5, y: 23.5}
               - propertyType: 4
                 value:
                   b: 0
                   n: 0
                   s: 
                   o: {fileID: 0}
-                  v: {x: -13, y: 23}
+                  v: {x: -16, y: 24.5}
               e: 0
             aType: 4
         - name: value-output

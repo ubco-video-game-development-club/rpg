@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a43995d22fea24785b15ce77c68343, type: 3}
+  m_Name: PollenCollectorBeeIdle
+  m_EditorClassIdentifier: 
+  frameRate: 5
+  lockFrames: 0
+  frames:
+  - {fileID: -4222616733112427840, guid: 825e1302870b84344a98c55e2dd3f256, type: 3}
+  - {fileID: 415464722416964777, guid: 825e1302870b84344a98c55e2dd3f256, type: 3}
+  - {fileID: -3870213255959037077, guid: 825e1302870b84344a98c55e2dd3f256, type: 3}
+  - {fileID: 1754161954714418469, guid: 825e1302870b84344a98c55e2dd3f256, type: 3}
+  - {fileID: -5176109956761614106, guid: 825e1302870b84344a98c55e2dd3f256, type: 3}

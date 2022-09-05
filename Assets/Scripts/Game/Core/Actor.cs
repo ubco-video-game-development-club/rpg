@@ -17,6 +17,7 @@ namespace RPG
 
         [SerializeField] private string displayName = "Actor";
         [SerializeField] private int initialMaxHealth;
+        [SerializeField] private bool facingRight = true;
         [SerializeField] private Animation2D idleAnimation;
         [SerializeField] private Animation2D moveAnimation;
         [SerializeField] private Animation2D hurtAnimation;
@@ -85,7 +86,7 @@ namespace RPG
             }
 
             // Update sprite flip direction
-            spriteRenderer.flipX = facingDirection.x < 0;
+            spriteRenderer.flipX = facingRight ? facingDirection.x < 0 : facingDirection.x >= 0;
 
             prevFramePosition = transform.position;
         }
