@@ -133,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 7046729664415017729, guid: 2c18a4c8785f707498fe8b11a45a7549,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7046729664415017729, guid: 2c18a4c8785f707498fe8b11a45a7549,
         type: 3}
@@ -1279,7 +1279,7 @@ PrefabInstance:
     - target: {fileID: 1580661913667073170, guid: d76b3a9b1bd63d0498e8cc2683d7ba6b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1580661913667073170, guid: d76b3a9b1bd63d0498e8cc2683d7ba6b,
         type: 3}
@@ -1450,12 +1450,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
-  usableLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  disabledLayer:
-    serializedVersion: 2
-    m_Bits: 0
   interactHint: Talk
   characterName: Mum
   portrait: {fileID: 8835284309397123848, guid: 568b897490088f8439d263b261216ec0,
@@ -1789,7 +1783,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &639277226
 GameObject:
@@ -1959,7 +1953,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &705846471
 MonoBehaviour:
@@ -2105,12 +2099,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
-  usableLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  disabledLayer:
-    serializedVersion: 2
-    m_Bits: 0
   interactHint: Talk
   characterName: Waddlesworth
   portrait: {fileID: -3713467532807335336, guid: 0bbfe1fef35fa2243a811a7b497fb9e2,
@@ -8863,12 +8851,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
-  usableLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  disabledLayer:
-    serializedVersion: 2
-    m_Bits: 0
   interactHint: Talk
   characterName: Jimmy
   portrait: {fileID: 21300000, guid: d58d73c2ff94bc84e88ee2cf8e12bc09, type: 3}
@@ -18998,12 +18980,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
-  usableLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  disabledLayer:
-    serializedVersion: 2
-    m_Bits: 0
   interactHint: To Frontyard
   spawnPoint: {fileID: 131727749}
   fadeOutTime: 0.2
@@ -19230,12 +19206,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPrefab: {fileID: 7921253115471860706, guid: 1ff60417f84c75a4b929b73aa77269b9,
     type: 3}
-  usableLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  disabledLayer:
-    serializedVersion: 2
-    m_Bits: 0
   interactHint: To Backyard
   spawnPoint: {fileID: 705329807}
   fadeOutTime: 0.2
@@ -19857,7 +19827,7 @@ PrefabInstance:
     - target: {fileID: 3399411770004483274, guid: 6f318edc40c9a784e9cd6c55abe114cc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3399411770004483274, guid: 6f318edc40c9a784e9cd6c55abe114cc,
         type: 3}
@@ -49853,7 +49823,7 @@ PrefabInstance:
     - target: {fileID: 5085999453264206636, guid: fa207757954622d4288dc5d7c058861c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5085999453264206636, guid: fa207757954622d4288dc5d7c058861c,
         type: 3}
