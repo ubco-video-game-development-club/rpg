@@ -1,5 +1,8 @@
-# RPG
-Explore a divided world and develop your hidden powers as you hunt for the ultimate reward in this beautiful RPG traumedy. 
+# The Duck RPG
+Explore a divided world and develop your hidden powers as you hunt for the ultimate reward in this beautiful RPG traumedy.
+
+## Play the Demo!
+Click [here](https://github.com/ubco-video-game-development-club/rpg/releases/tag/v1.0-demo) to play the demo of The Duck RPG! Available to play on PC.
 
 ## How to Contribute
 ### Setting up your development environment
