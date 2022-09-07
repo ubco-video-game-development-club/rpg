@@ -30,6 +30,7 @@ namespace ClassEditor
             }
         }
 
+#if UNITY_EDITOR
         public void AddNode()
         {
             nodes.Add(new ClassNode(level, tierType));
@@ -92,5 +93,6 @@ namespace ClassEditor
         }
 
         public bool Contains(Vector2 position) => displayRect.Contains(position);
+#endif
     }
 }

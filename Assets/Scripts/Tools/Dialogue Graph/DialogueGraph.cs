@@ -20,6 +20,7 @@ namespace Dialogue
         public DialogueGraphNode exitNode = new DialogueGraphNode("Exit", new Vector2(200, 0));
         [System.NonSerialized] public int selectedNode;
 
+#if UNITY_EDITOR
         public void Draw(Vector2 offset)
         {
             DrawTransitions(offset);
@@ -133,5 +134,6 @@ namespace Dialogue
                 Handles.DrawBezier(from, to, from, to, lineColour, null, LINE_WIDTH);
             }
         }
+#endif
     }
 }

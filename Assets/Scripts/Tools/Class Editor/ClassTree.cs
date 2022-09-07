@@ -59,15 +59,57 @@ namespace ClassEditor
         private ClassNode pathStartNode = null;
         private Vector2 scrollPosition;
 
+        public bool ContainsTier(int level)
+        {
+            return layers.ContainsKey(level);
+        }
+
+        public ClassTierType GetTierType(int level)
+        {
+            return layers[level].tierType;
+        }
+
+        public LevelUpOption[] GetSkillOptions(int level)
+        {
+            return layers[level].nodes[0].levelUpOptions;
+        }
+
+        public ClassBaseStats GetClassBaseStats()
+        {
+            return layers[1].nodes[0].classBaseStats;
+        }
+
+        public List<ClassNode> GetChildren(ClassNode parent)
+        {
+            List<ClassNode> children = new List<ClassNode>();
+            int childTierIdx = IndexOfLevel(parent.level) + 1;
+            if (layers.Count > childTierIdx)
+            {
+                int childLevel = layers.Values[childTierIdx].level;
+                List<ClassNode> childNodes = layers[childLevel].nodes;
+                foreach (int childIdx in parent.childIndices)
+                {
+                    children.Add(childNodes[childIdx]);
+                }
+            }
+            return children;
+        }
+
+        public int IndexOfLevel(int level)
+        {
+            return layers.IndexOfKey(level);
+        }
+
+        public int IndexOfNode(ClassNode node)
+        {
+            return layers[node.level].nodes.IndexOf(node);
+        }
+
+#if UNITY_EDITOR
         public void Initialize()
         {
             ClearSelection();
             pathStartNode = null;
-        }
-
-        public bool ContainsTier(int level)
-        {
-            return layers.ContainsKey(level);
         }
 
         public void AddTier(int level, ClassTierType type)
@@ -116,37 +158,6 @@ namespace ClassEditor
             RemoveTier(oldLevel);
             AddTier(newLevel, tier);
             EditorUtility.SetDirty(this);
-        }
-
-        public ClassTierType GetTierType(int level)
-        {
-            return layers[level].tierType;
-        }
-
-        public LevelUpOption[] GetSkillOptions(int level)
-        {
-            return layers[level].nodes[0].levelUpOptions;
-        }
-
-        public ClassBaseStats GetClassBaseStats()
-        {
-            return layers[1].nodes[0].classBaseStats;
-        }
-
-        public List<ClassNode> GetChildren(ClassNode parent)
-        {
-            List<ClassNode> children = new List<ClassNode>();
-            int childTierIdx = IndexOfLevel(parent.level) + 1;
-            if (layers.Count > childTierIdx)
-            {
-                int childLevel = layers.Values[childTierIdx].level;
-                List<ClassNode> childNodes = layers[childLevel].nodes;
-                foreach (int childIdx in parent.childIndices)
-                {
-                    children.Add(childNodes[childIdx]);
-                }
-            }
-            return children;
         }
 
         public void AddNode(int level)
@@ -248,16 +259,6 @@ namespace ClassEditor
             return null;
         }
 
-        public int IndexOfLevel(int level)
-        {
-            return layers.IndexOfKey(level);
-        }
-
-        public int IndexOfNode(ClassNode node)
-        {
-            return layers[node.level].nodes.IndexOf(node);
-        }
-
         public void StartPathEdit(ClassNode startNode)
         {
             pathStartNode = startNode;
@@ -329,5 +330,6 @@ namespace ClassEditor
             selectedTier = null;
             selectedLevel = -1;
         }
+#endif
     }
 }

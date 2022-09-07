@@ -35,6 +35,7 @@ namespace ClassEditor
             childIndices = new List<int>();
         }
 
+#if UNITY_EDITOR
         public void AddChild(int childIndex)
         {
             if (!childIndices.Contains(childIndex))
@@ -94,5 +95,6 @@ namespace ClassEditor
         }
 
         public bool Contains(Vector2 position) => displayRect.Contains(position);
+#endif
     }
 }
