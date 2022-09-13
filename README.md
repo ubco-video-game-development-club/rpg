@@ -4,6 +4,8 @@ Explore a divided world and develop your hidden powers as you hunt for the ultim
 ## Play the Demo!
 Click [here](https://github.com/ubco-video-game-development-club/rpg/releases/tag/v1.0-demo) to play the demo of The Duck RPG! Available to play on PC.
 
+Watch the full playthrough on YouTube here: https://youtu.be/nX5GG3Qi7W0
+
 ## How to Contribute
 ### Setting up your development environment
 To set up the required programs to contribute code to the game, follow these instructions:
